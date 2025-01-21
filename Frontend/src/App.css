@@ -1,0 +1,11 @@
+.animate-name {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.2s ease, transform 0.5s ease;
+  }
+  
+  .animate-name.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  

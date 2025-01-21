@@ -1,0 +1,42 @@
+/* src/index.css or src/App.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components {
+  .all-\[unset\] {
+    all: unset;
+  }
+} 
+
+@keyframes animateName {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-name {
+  animation: animateName 0.8s ease-out forwards;
+}
+
+
+
+.animated-background {
+  opacity: 0.9;
+  animation: fadeInOut 18s forwards; /* Adjust duration as needed */
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 2;
+  }
+}
