@@ -6,22 +6,22 @@ const AboutSection4 = () => {
       <div className="relative w-[1258px] h-[361px] rounded-[22px] p-8"> 
         <div className="absolute w-[1258px] h-[307px] top-[54px] left-0 bg-[#f0eaff] rounded-[22px]">
           <img
-            src="/VECTOR2.png"
+            src="/about/abs2/vectorabs2.png"
             alt="Vector"
-            className="absolute w-[1258px] h-[307px] top-0 left-0"
+            className="absolute w-[458px] h-[307px] top-0 left-[800px]"
           />
         </div>
 
         <img
-          src="/portraitBusinessmanSmiling1.png"
+          src="/about/abs3/businessman.png"
           alt="Portrait Businessman"
-          className="absolute right-0 top-0 w-[241px] h-[361px]"
+          className="absolute right-0 top-0 w-[541px] h-[361px]"
         />
 
-        <div className="absolute left-1/4 top-1/3">
+        <div className="absolute left-[20px] top-[100px]">
           <h3 className="text-[#353535] font-semibold text-xl mb-4">WHAT WE DO</h3>
-          <p className="text-black">
-            At <span className="text-[#684fa3]">Trimah Technologies</span>, we provide IT staffing and consulting services tailored to your industry’s unique needs.
+          <p className="text-black  font-extrabold text-3xl">
+            At <span className="text-[#684fa3] font-extrabold text-3xl">Trimah Technologies</span>, we provide IT staffing <br/> and consultingservices tailored to your industry’s <br/>unique needs.
           </p>
           {/* <Cta3 
             className="!absolute !left-[60px] !top-64" 
