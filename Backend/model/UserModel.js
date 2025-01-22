@@ -2,15 +2,9 @@ const mongoose = require('mongoose');
 
 // Define the UserSchema
 const UserSchema = new mongoose.Schema({
-    firstName: {
+    name: {
         type: String,
-    },
-    lastName: {
-        type: String,
-    },
-    username: {
-        type: String,
-        unique: true,
+        required: true,
     },
     email: {
         type: String,
@@ -24,28 +18,32 @@ const UserSchema = new mongoose.Schema({
     role: {
         type: String,
     },
+    otp: { type: String },
+
+    otpExpiresAt: { type: Date },
+
+    isVerified: { type: Boolean, default: false },
+
 }, { timestamps: true });
 
 // Middleware to generate a username
-UserSchema.pre('save', async function (next) {
-    if (this.isNew || this.isModified('firstName') || this.isModified('lastName')) {
-        // Generate a username
-        let username = (this.firstName && this.lastName)
-            ? `${this.firstName.toLowerCase()}.${this.lastName.toLowerCase()}`
-            : this.email.split('@')[0].toLowerCase();
+// UserSchema.pre('save', async function (next) {
+//     if (this.isNew || this.isModified('name')) {
+//         // Generate a username based on the 'name' field
+//         let username = this.name.toLowerCase().replace(/\s+/g, '.'); // Replace spaces with a dot
 
-        // Ensure the username is unique
-        let user = await mongoose.model('User').findOne({ username });
-        let counter = 1;
-        while (user) {
-            username = `${username}${counter}`;
-            user = await mongoose.model('User').findOne({ username });
-            counter++;
-        }
+//         // Ensure the username is unique by appending a random number if necessary
+//         let user = await mongoose.model('User').findOne({ username });
+//         let counter = 1;
+//         while (user) {
+//             username = `${username}${Math.floor(Math.random() * 1000)}`;
+//             user = await mongoose.model('User').findOne({ username });
+//             counter++;
+//         }
 
-        this.username = username;
-    }
-    next();
-});
+//         this.username = username;
+//     }
+//     next();
+// });
 
 module.exports = mongoose.model('User', UserSchema);

@@ -1,163 +1,145 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { motion } from 'framer-motion';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
-import AnimateName from '../context/animateName';
-import { API_BASE_URL } from '../constants/ApiConstants';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { API_BASE_URL } from '../constants/ApiConstants';
+import { AiOutlineLoading3Quarters } from 'react-icons/ai'; // Spinner icon
 
 function Register() {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
+  const [step, setStep] = useState(1); // Step 1: Registration, Step 2: OTP Verification
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [role, setRole] = useState('user');
+  const [role, setRole] = useState('admin');
+  const [otp, setOtp] = useState('');
   const [error, setError] = useState('');
-  const navigate= useNavigate()
+  const [loading, setLoading] = useState(false); // Loading state
+  const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
+    setLoading(true); // Start loading
     try {
-      const userData = { firstName, lastName, email, password, role };
-      const { data } = await axios.post(`${API_BASE_URL}auth/register`, userData);
-      console.log('Registered user:', data);
-      setEmail('');
-      setPassword('');
-      setFirstName('');
-      setLastName('');
-      setRole('user');
-
-      // Show success toast message
-      toast.success('Registration successful!');
-      navigate("/login")
-      
+      const userData = { name, email, password, role };
+      await axios.post(`${API_BASE_URL}auth/register`, userData);
+      toast.success('OTP sent to your email!');
+      setStep(2); // Move to OTP verification step
     } catch (error) {
       setError(error.response?.data?.msg || 'An error occurred');
-      console.log(error);
-
-      // Show error toast message
       toast.error(error.response?.data?.msg || 'An error occurred');
+    } finally {
+      setLoading(false); // Stop loading
+    }
+  };
+
+  const handleVerifyOtp = async (e) => {
+    e.preventDefault();
+    setLoading(true); // Start loading
+    try {
+      const otpData = { email, otp };
+      await axios.post(`${API_BASE_URL}auth/verify-otp`, otpData);
+      toast.success('Registration successful!');
+      navigate('/login');
+    } catch (error) {
+      setError(error.response?.data?.msg || 'Invalid OTP');
+      toast.error(error.response?.data?.msg || 'Invalid OTP');
+    } finally {
+      setLoading(false); // Stop loading
     }
   };
 
   return (
-    <div className="flex flex-col md:flex-row min-h-screen">
-      {/* Registration Form Section */}
+    <div className="flex min-h-screen items-center justify-center bg-gradient-to-l from-black to-gray-800 ">
       <motion.div
-        className="flex-1 flex items-center justify-center bg-gradient-to-l from-black to-gray-800 text-white p-4 md:p-8"
-        style={{ flexBasis: '40%' }}
-        initial={{ opacity: 0, x: -50 }}
-        animate={{ opacity: 1, x: 0 }}
+        className="w-full max-w-md bg-black bg-opacity-30 p-8 rounded-lg shadow-lg"
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <div className="w-full max-w-md bg-black  bg-opacity-30 p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl text-center text-white mb-6 font-poppins font-semibold">
-            REGISTER
-          </h1>
-          <p className='text-center p-4 mb-4'>Register with your valid Email.</p>
-          {error && <div className="text-red-500 text-center mb-4">{error}</div>}
-          <form onSubmit={handleSubmit}>
-            <div className="mb-6 flex space-x-4">
-              <input
-                className="w-full px-4 py-2 border border-gray-300 bg-slate-900 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                type="text"
-                value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}
-                placeholder="First Name"
-                required
-              />
-              <input
-                className="w-full px-4 py-2 border border-gray-300 bg-slate-900 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                type="text"
-                value={lastName}
-                onChange={(e) => setLastName(e.target.value)}
-                placeholder="Last Name"
-                required
-              />
-            </div>
-            <div className="mb-4">
-              <input
-                className="w-full px-4 py-2 border border-gray-300 bg-slate-900 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter email"
-                required
-              />
-            </div>
-            <div className="mb-6">
-              <input
-                className="w-full px-4 py-2 border border-gray-300 bg-slate-900 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="Enter password"
-                required
-              />
-            </div>
-
-            <div className="mb-4">
-              <select
-                className="w-full px-4 py-2 border border-gray-300 bg-slate-900 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                value={role}
-                onChange={(e) => setRole(e.target.value)}
-              >
-                <option value="user">User</option>
-                <option value="admin">Admin</option>
-              </select>
-            </div>
+        {step === 1 ? (
+          // Step 1: Registration Form
+          <form onSubmit={handleRegister}>
+            <h1 className="text-3xl text-center text-white mb-2 font-poppins font-bold">
+              REGISTER
+            </h1>
+            {error && <div className="text-red-500 text-center mb-4">{error}</div>}
+            <input
+              className="w-full px-4 py-2 mb-4 border border-gray-300 bg-slate-900 text-white rounded-lg"
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Enter Name"
+              required
+            />
+            <input
+              className="w-full px-4 py-2 mb-4 border border-gray-300 bg-slate-900 text-white rounded-lg"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter Email"
+              required
+            />
+            <input
+              className="w-full px-4 py-2 mb-4 border border-gray-300 bg-slate-900 text-white rounded-lg"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Enter Password"
+              required
+            />
             <button
               type="submit"
-              className="w-full bg-purple-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
+              disabled={loading}
+              className={`w-full flex items-center justify-center bg-purple-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg ${
+                loading ? 'opacity-50 cursor-not-allowed' : ''
+              }`}
             >
-              Register
+              {loading ? (
+                <AiOutlineLoading3Quarters className="animate-spin mr-2" />
+              ) : (
+                'Register'
+              )}
             </button>
           </form>
+        ) : (
+          // Step 2: OTP Verification
+          <form onSubmit={handleVerifyOtp}>
+            <h1 className="text-3xl text-center text-white mb-2 font-poppins font-bold">
+              VERIFY OTP
+            </h1>
+            {error && <div className="text-red-500 text-center mb-4">{error}</div>}
+            <input
+              className="w-full px-4 py-2 mb-4 border border-gray-300 bg-slate-900 text-white rounded-lg"
+              type="text"
+              value={otp}
+              onChange={(e) => setOtp(e.target.value)}
+              placeholder="Enter OTP"
+              required
+            />
+            <button
+              type="submit"
+              disabled={loading}
+              className={`w-full flex items-center justify-center bg-purple-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg ${
+                loading ? 'opacity-50 cursor-not-allowed' : ''
+              }`}
+            >
+              {loading ? (
+                <AiOutlineLoading3Quarters className="animate-spin mr-2" />
+              ) : (
+                'Verify OTP'
+              )}
+            </button>
+          </form>
+        )}
+        {step === 1 && (
           <div className="mt-4 text-center">
-            <span className="text-gray-600">Already have an Account? </span>
-            <Link to="/login" className="text-blue-500 hover:underline">
-             Login
+            <span className="text-gray-600 text-xs">Login with Existing adminID </span>
+            <Link to="/login" className="text-blue-500 hover:underline text-sm">
+              Login
             </Link>
           </div>
-        </div>
-      
-      </motion.div>
-
-      {/* Additional Content Section with Background Image */}
-      <motion.div
-        className="flex-1 flex items-center justify-center"
-        style={{
-          flexBasis: '60%',
-          backgroundImage: `url('https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=2240&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-      >
-<motion.div
-      className="w-full max-w-3xl p-8 bg-transparent-to-r from-gray-800 to-black rounded-lg text-center text-white mx-auto"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.8 }}
-    >
-      <AnimateName>
-      <h2 className="text-4xl md:text-5xl font-extrabold mb-6 leading-tight tracking-tight">
-        Welcome to Trimah Technologies
-      </h2>
-      </AnimateName>
-      
-      <p className="mb-4 text-lg md:text-xl leading-relaxed">
-        At Trimah Technologies, we deliver innovative tech solutions to empower businesses in the digital age. Our expert team crafts custom software, websites, and mobile applications tailored to your needs.
-      </p>
-      <p className="mb-4 text-lg md:text-xl leading-relaxed">
-        Join us in a company that values creativity, excellence, and collaboration. Whether you’re a tech enthusiast or a business owner, we support your journey every step of the way.
-      </p>
-      <p className="mb-4 text-lg md:text-xl leading-relaxed">
-        Explore our services, from web development to cloud solutions and AI integration. Let’s build the future together!
-      </p>
-    </motion.div>
+        )}
       </motion.div>
     </div>
   );

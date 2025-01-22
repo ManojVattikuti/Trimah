@@ -8,11 +8,13 @@ const authRoute = require("./routes/AuthRoute");
 const adminRoute = require("./routes/AdminRoute");
 const userRoute = require("./routes/UserRoute");
 const { errorHandler } = require("./middleware/errorhandlers");
+const compression = require("compression")
 
 dotenv.config()
 
 app.use(express.json());
 app.use(cors())
+app.use(compression());
 app.use(express.urlencoded({ extended: true }));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
