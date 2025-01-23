@@ -83,18 +83,21 @@ const Header = () => {
               ABOUT US
             </NavLink>
             <div className="relative group">
-      <NavLink
-        to="/business"
-        className={({ isActive }) =>
-          `text-white text-[15px] font-semibold ${
-            isActive ? "text-green-500 text-[#6fd1ab]" : "hover:text-green-300"
-          } font-openSans transition-colors duration-300`
-        }
-      >
-        BUSINESS
-      </NavLink>
-      <Dropdown />
-    </div>
+  <NavLink
+    to="/business"
+    className={({ isActive }) =>
+      `text-white text-[15px] font-semibold ${
+        isActive ? "text-green-500 text-[#6fd1ab]" : "hover:text-green-300"
+      } font-openSans transition-colors duration-300`
+    }
+  >
+    BUSINESS
+  </NavLink>
+  <div className="absolute top-full left-0 hidden group-hover:block">
+    <Dropdown />
+  </div>
+</div>
+
             <NavLink
               to="/career"
               className={({ isActive }) =>

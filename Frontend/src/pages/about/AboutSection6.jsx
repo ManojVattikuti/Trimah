@@ -5,7 +5,7 @@ const AboutSection6 = () => {
     return (
 
 
-<div className=" w-[1363px] h-[577px]  left-10">
+<div className=" w-[1080px] h-[577px]  ">
 <div className="absolute  left-[565px] [font-family:'Invisible-ExtraBold',Helvetica] font-extrabold text-[#071c39] text-3xl tracking-[0] leading-[39.6px] whitespace-nowrap">
   Why Choose Us?
 </div>
@@ -14,18 +14,58 @@ const AboutSection6 = () => {
   <div className="relative w-[1365px] h-[506px]">
     <div className="absolute w-[1192px] h-[506px]  left-[130px]">
       <img
-        className="absolute w-[863px] h-[432px] top-[74px] left-[120px]"
+        className="absolute w-[863px] h-[432px] top-[145px] left-[120px] z-0 "
         alt="Bg"
-        // src={BG2}
+        src="/about/abs6/Vector.png"
       />
       
 
       <img
-        className="absolute w-[293px] h-[506px]  left-[404px]"
+        className="absolute w-[293px] h-[506px]  left-[404px] top-[70px] z-20"
         alt="Men"
-        // src={MEN}
+        src="about/abs6/MEN.png"
       />
 
+  
+
+      <svg width="1000" height="800" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"
+        className="absolute top-[176px] left-[55px] z-10"    
+      >
+  <defs>
+    <linearGradient id="gradientArc" gradientTransform="rotate(90)">
+      <stop offset="0%" stop-color="#684fa3" />
+      <stop offset="30%" stop-color="#6fd1ab" />
+      <stop offset="70%" stop-color="#684fa3" />
+      <stop offset="100%" stop-color="#684fa3" />
+    </linearGradient>
+  </defs>
+  <path
+    d="M10,50 A40,40 0 1,1 90,50 A40,40 0 1,1 ,50 Z"
+    fill="none"
+    stroke="url(#gradientArc)"
+    stroke-width="20"
+  />
+</svg>
+<img
+        className="absolute w-[54px] h-[54px]  left-[830px] top-[450px] z-20"
+        alt="Men"
+        src="about/abs6/IC-1.png"
+      />
+      <img
+        className="absolute w-[50px] h-[54px]  left-[730px] top-[300px] z-20"
+        alt="Men"
+        src="about/abs6/IC-2.png"
+      />
+ <img
+        className="absolute w-[50px] h-[54px]  left-[320px] top-[300px] z-20"
+        alt="Men"
+        src="about/abs6/IC-3.png"
+      />
+       <img
+        className="absolute w-[50px] h-[54px]  left-[220px] top-[450px] z-20"
+        alt="Men"
+        src="about/abs6/IC-4.png"
+      />
       <div className="absolute w-[251px] h-[74px] top-[119px] left-0">
         <div className="absolute w-[239px]  left-2 [font-family:'Gilroy-SemiBold-☞',Helvetica] font-normal text-black text-xl text-right tracking-[0] leading-[26.4px]">
           Tailored Solutions

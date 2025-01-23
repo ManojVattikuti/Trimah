@@ -4,7 +4,17 @@ import { FiArrowRight } from "react-icons/fi";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#684fa3]  text-white py-8">
+    <footer className="bg-[#684fa3]  text-white py-8"
+    style={{
+      backgroundImage: 'url(./Framef.png)',
+      backgroundPosition: 'bottom right',  // Position the image to the top-right corner
+      backgroundSize: 'auto 80%',       // Adjust the height to fit nicely
+      backgroundRepeat: 'no-repeat',
+      
+    }}>
+     
+     
+  
       <div className="container mx-auto">
         {/* First Section - Heading and Description */}
         <div className="text-center flex flex-col items-center justify-center border-b border-white pb-6">
@@ -24,7 +34,7 @@ const Footer = () => {
                   <span className="relative z-10 group-hover:text-white transition-colors duration-300 ease-in-out">
                     Contact Us Now
                   </span>
-                  <FiArrowRight className="ml-2 relative z-10 group-hover:text-white transition-colors duration-300 ease-in-out" />
+                  <FiArrowRight className="ml-2 relative z-10  group-hover:text-white transition-colors duration-300 ease-in-out" />
                   <div className="absolute top-0 left-0 w-full h-full bg-[#684fa3] rounded-full transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-in-out"></div>
                 </button>
               </div>
