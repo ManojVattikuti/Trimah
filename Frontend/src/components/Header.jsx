@@ -167,6 +167,20 @@ const Header = () => {
     BUSINESS
   </NavLink>
   <NavLink
+    to="/staffing"
+    className="text-white text-[18px] font-semibold"
+    onClick={() => setMenuOpen(false)}
+  >
+    STAFFING
+  </NavLink>
+  <NavLink
+    to="/industries"
+    className="text-white text-[18px] font-semibold"
+    onClick={() => setMenuOpen(false)}
+  >
+    INDUSTRIES
+  </NavLink>
+  <NavLink
     to="/career"
     className="text-white text-[18px] font-semibold"
     onClick={() => setMenuOpen(false)}
