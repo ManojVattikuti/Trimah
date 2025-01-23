@@ -9,8 +9,8 @@ const ContactPage = () => {
   <>
   <ContactHero/>
   <Ct1/>
-  {/* <Ct2/> */}
-  {/* <Ct3/> */}
+  <Ct2/>
+  <Ct3/>
   </>
   );
 };
