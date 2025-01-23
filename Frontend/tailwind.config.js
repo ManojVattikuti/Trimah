@@ -20,7 +20,9 @@ module.exports = {
        " dancing-script": ['Dancing Script', 'cursive'],
        abel: ['Abel', 'sans-serif'],
        nosifer: ['Nosifer', 'cursive'],
-       openSans: ['Open Sans', 'sans-serif']
+       openSans: ['Open Sans', 'sans-serif'],
+       gilory:['Gilory','sans-serif'],
+       gilroyBold: ['GilroyBold', 'sans-serif'], 
       },
       // Add more theme customizations as needed
     },

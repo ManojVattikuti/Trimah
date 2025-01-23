@@ -1,0 +1,15 @@
+@font-face {
+    font-family: 'Gilroy';
+    src: url('../public/font/gilory/Gilroy-Regular.ttf') format('truetype');
+    font-weight: 400; /* Regular weight */
+    font-style: normal;
+    font-display: swap; /* Optional: Improves performance */
+  }
+  
+  @font-face {
+    font-family: 'GilroyBold';
+    src: url('/fonts/Gilroy-Bold.ttf') format('truetype');
+    font-weight: 400; /* Set the weight */
+    font-style: normal;
+    font-display: swap; /* Improves loading performance */
+  }
