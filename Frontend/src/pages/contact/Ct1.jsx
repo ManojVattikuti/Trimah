@@ -156,9 +156,9 @@ export const Ct1 = () => {
               {/* Image Column */}
               <div className="flex-1 flex justify-center items-center">
                 <img
-                  src="./contact/popup-image.png" // Replace with your actual image path
+                  src="./contact/form1.png" // Replace with your actual image path
                   alt="Popup"
-                  className="w-full h-auto max-w-[300px] object-cover rounded-md"
+                  className="w-full h-auto max-w-[400px] object-cover rounded-md"
                 />
               </div>
 
@@ -272,9 +272,9 @@ export const Ct1 = () => {
             <div className="flex flex-col md:flex-row gap-6">
               <div className="flex-1 flex justify-center items-center">
                 <img
-                  src="./contact/f1.png" // Replace with your actual image path
+                  src="./contact/form2.png" // Replace with your actual image path
                   alt="Career Seeker"
-                  className="w-full h-auto max-w-[300px] object-cover rounded-md"
+                  className="w-full h-auto max-w-[400px] object-cover rounded-md"
                 />
               </div>
 

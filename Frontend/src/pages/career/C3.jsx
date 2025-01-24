@@ -1,88 +1,155 @@
-export const C3 =()=>{
-    return(
-<div className="w-[1440px] h-[626px]">
-<div className="w-[1292px] h-[377px] left-[68px] top-[1796px] absolute">
-      <div className="w-[251px] left-[527px] top-0 absolute text-[#071c39] text-3xl font-normal font-['Gilroy-Bold'] capitalize leading-10">Current Openings</div>
-      <div className="w-[128.25px] h-[21px] left-[588px] top-[356px] absolute">
-        <div className="left-0 top-0 absolute text-[#684fa3] text-lg font-semibold font-['Maven Pro'] underline capitalize">See All Jobs</div>
+import React from "react";
+
+export const C3 = () => {
+  const jobData = [
+    {
+      title: "Software Developers",
+      description: "Exciting opportunity for software developers!",
+      color: "#24c79b",
+      buttonColor: "#50d2af",
+      buttonTextColor: "white",
+      applyLink: "#",
+      image: "https://via.placeholder.com/78", // Replace with actual image URLs
+    },
+    {
+      title: "DevOps Engineers",
+      description: "Join us as a DevOps engineer!",
+      color: "#24c79b",
+      buttonColor: "#50d2af",
+      buttonTextColor: "white",
+      applyLink: "#",
+      image: "https://via.placeholder.com/78",
+    },
+    {
+      title: "Cloud Security Experts",
+      description: "Looking for cloud security experts!",
+      color: "#24c79b",
+      buttonColor: "#50d2af",
+      buttonTextColor: "white",
+      applyLink: "#",
+      image: "https://via.placeholder.com/78",
+    },
+    {
+      title: "QAVE Professionals",
+      description: "Apply for the QAVE professionals role.",
+      color: "#24c79b",
+      buttonColor: "#50d2af",
+      buttonTextColor: "white",
+      applyLink: "#",
+      image: "https://via.placeholder.com/78",
+    },
+    {
+      title: "UI/UX Designers",
+      description: "Join our creative design team!",
+      color: "#24c79b",
+      buttonColor: "#50d2af",
+      buttonTextColor: "white",
+      applyLink: "#",
+      image: "https://via.placeholder.com/78",
+    },
+    {
+      title: "Backend Developers",
+      description: "Exciting opportunity for backend developers!",
+      color: "#24c79b",
+      buttonColor: "#50d2af",
+      buttonTextColor: "white",
+      applyLink: "#",
+      image: "https://via.placeholder.com/78",
+    },
+    {
+      title: "Frontend Developers",
+      description: "Looking for skilled frontend developers!",
+      color: "#24c79b",
+      buttonColor: "#50d2af",
+      buttonTextColor: "white",
+      applyLink: "#",
+      image: "https://via.placeholder.com/78",
+    },
+    {
+      title: "Data Scientists",
+      description: "Seeking data scientists with analytical skills.",
+      color: "#24c79b",
+      buttonColor: "#50d2af",
+      buttonTextColor: "white",
+      applyLink: "#",
+      image: "https://via.placeholder.com/78",
+    },
+    {
+      title: "Project Managers",
+      description: "Become a part of our management team.",
+      color: "#24c79b",
+      buttonColor: "#50d2af",
+      buttonTextColor: "white",
+      applyLink: "#",
+      image: "https://via.placeholder.com/78",
+    },
+    {
+      title: "Marketing Specialists",
+      description: "Join our marketing team to make an impact!",
+      color: "#24c79b",
+      buttonColor: "#50d2af",
+      buttonTextColor: "white",
+      applyLink: "#",
+      image: "https://via.placeholder.com/78",
+    },
+  ];
+
+  return (
+    <div className="w-full h-auto p-4 px-32">
+      <div className="text-[#071c39] text-3xl font-normal font-bold justify-center text-center capitalize leading-10 mb-6">
+        Current Openings
       </div>
-      <div className="w-[299px] h-[248px] left-0 top-[70px] absolute">
-        <div className="w-[299px] h-[248px] left-0 top-0 absolute bg-[#24c79b] rounded-[10px]" />
-        <div className="w-[299px] h-[248px] left-0 top-0 absolute">
-          <div className="w-[299px] h-[248px] left-0 top-0 absolute bg-[#24c79b] rounded-[10px]" />
-          <div className="w-[584.56px] h-[600.02px] left-[-86px] top-[373.02px] absolute">
-            <div className="mix-blend-screen w-[357.85px] h-[444.24px] left-[224.96px] top-[-57.26px] absolute">
+    
+
+      {/* Scrollable section */}
+      <div className="overflow-x-auto flex space-x-4">
+        {jobData.map((job, index) => (
+          <div
+            key={index}
+            className="w-[299px] h-[248px] flex-shrink-0 relative bg-white rounded-[15px] shadow-[0px_0px_25.299999237060547px_2px_rgba(0,0,0,0.10)]"
+          >
+            <div
+              className="w-[299px] h-[248px] absolute top-0 left-0 rounded-[10px]"
+              style={{ backgroundColor: job.color }}
+            />
+            <div className="absolute top-0 left-0 w-[78px] h-[78px] bg-[#684fa3] rounded-full flex items-center justify-center mt-[42px] mx-[111px]">
+              {/* Job Image */}
+              <img
+                src={job.image}
+                alt={job.title}
+                className="w-full h-full object-cover rounded-full"
+              />
             </div>
-          </div>
-        </div>
-        <div className="w-[78px] h-[78px] left-[111px] top-[42px] absolute">
-          <div className="w-[78px] h-[78px] left-0 top-0 absolute bg-[#684fa3] rounded-[86px]" />
-          <div className="w-[38px] h-[38px] left-[20px] top-[20px] absolute flex-col justify-start items-start inline-flex overflow-hidden" />
-        </div>
-        <div className="w-[174px] h-5 left-[63px] top-[142px] absolute text-white text-lg font-normal font-['Gilroy-SemiBold'] capitalize leading-[34.38px]">Software Developers</div>
-        <div className="w-[135px] h-[35px] left-[83px] top-[178px] absolute">
-          <div className="w-[135px] h-[35px] left-0 top-0 absolute bg-[#50d2af] rounded-[59px]" />
-          <div className="w-[94.75px] h-[18px] left-[20px] top-[8px] absolute">
-            <div className="left-0 top-0 absolute text-white text-[15px] font-semibold font-['Maven Pro'] underline capitalize">Apply Now</div>
-          </div>
-        </div>
-      </div>
-      <div className="w-[299px] h-[248px] left-[331px] top-[70px] absolute">
-        <div className="w-[299px] h-[248px] left-0 top-0 absolute bg-white rounded-[15px] shadow-[0px_0px_25.299999237060547px_2px_rgba(0,0,0,0.10)]" />
-        <div className="w-[78px] h-[78px] left-[111px] top-[42px] absolute">
-          <div className="w-[78px] h-[78px] left-0 top-0 absolute bg-[#684fa3] rounded-[86px]" />
-          <div className="w-[38px] h-[38px] left-[20px] top-[20px] absolute flex-col justify-start items-start inline-flex overflow-hidden">
-            <div className="w-[33.25px] h-[33.25px] relative">
+            <div className="w-full h-5 text-center text-[#2b2b2b] text-lg font-normal font-['Gilroy-SemiBold'] capitalize leading-[34.38px] mt-[100px]">
+              {job.title}
             </div>
-          </div>
-        </div>
-        <div className="w-[174px] h-5 left-[63px] top-[142px] absolute text-center text-[#2b2b2b] text-lg font-normal font-['Gilroy-SemiBold'] capitalize leading-[34.38px]">DevOps Engineers</div>
-        <div className="w-[135px] h-[35px] left-[83px] top-[178px] absolute">
-          <div className="w-[135px] h-[35px] left-0 top-0 absolute bg-[#24c79b]/20 rounded-[59px]" />
-          <div className="w-[94.75px] h-[18px] left-[20px] top-[8px] absolute">
-            <div className="left-0 top-0 absolute text-[#24c79b] text-[15px] font-semibold font-['Maven Pro'] underline capitalize">Apply Now</div>
-          </div>
-        </div>
-      </div>
-      <div className="w-[299px] h-[248px] left-[662px] top-[70px] absolute">
-        <div className="w-[299px] h-[248px] left-0 top-0 absolute bg-white rounded-[15px] shadow-[0px_0px_25.299999237060547px_2px_rgba(0,0,0,0.10)]" />
-        <div className="w-[78px] h-[78px] left-[111px] top-[42px] absolute">
-          <div className="w-[78px] h-[78px] left-0 top-0 absolute bg-[#684fa3] rounded-[86px]" />
-          <div className="w-[38px] h-[38px] left-[20px] top-[20px] absolute flex-col justify-start items-start inline-flex overflow-hidden">
-            <div className="w-[28.95px] h-[38px] relative">
-              <div className="w-[27.94px] h-[29.69px] left-[0.50px] top-0 absolute">
-                <div className="w-[27.94px] h-[10.76px] left-0 top-0 absolute">
-                </div>
+            <div className="w-[135px] h-[35px] absolute bottom-5 left-[83px]">
+              <div
+                className="w-[135px] h-[35px] rounded-[59px] flex items-center justify-center"
+                style={{ backgroundColor: job.buttonColor }}
+              >
+                <a
+                  href={job.applyLink}
+                  className="text-[15px] font-semibold underline capitalize"
+                  style={{ color: job.buttonTextColor }}
+                >
+                  Apply Now
+                </a>
               </div>
+              
             </div>
+            
           </div>
-        </div>
-        <div className="w-[191px] h-5 left-[63px] top-[142px] absolute text-center text-[#2b2b2b] text-lg font-normal font-['Gilroy-SemiBold'] capitalize leading-[34.38px]">Cloud Security Experts</div>
-        <div className="w-[135px] h-[35px] left-[83px] top-[178px] absolute">
-          <div className="w-[135px] h-[35px] left-0 top-0 absolute bg-[#24c79b]/20 rounded-[59px]" />
-          <div className="w-[94.75px] h-[18px] left-[20px] top-[8px] absolute">
-            <div className="left-0 top-0 absolute text-[#24c79b] text-[15px] font-semibold font-['Maven Pro'] underline capitalize">Apply Now</div>
-          </div>
-        </div>
+        ))}
       </div>
-      <div className="w-[299px] h-[248px] left-[993px] top-[70px] absolute">
-        <div className="w-[299px] h-[248px] left-0 top-0 absolute bg-white rounded-[15px] shadow-[0px_0px_25.299999237060547px_2px_rgba(0,0,0,0.10)]" />
-        <div className="w-[78px] h-[78px] left-[111px] top-[42px] absolute">
-          <div className="w-[78px] h-[78px] left-0 top-0 absolute bg-[#684fa3] rounded-[86px]" />
-          <div className="w-[34px] h-[34px] left-[22px] top-[22px] absolute flex-col justify-start items-start inline-flex overflow-hidden">
-            <div className="w-[29.15px] h-[34px] relative">
-            </div>
-          </div>
-        </div>
-        <div className="w-[174px] h-5 left-[63px] top-[142px] absolute text-center text-[#2b2b2b] text-lg font-normal font-['Gilroy-SemiBold'] capitalize leading-[34.38px]">QAVE Professionals</div>
-        <div className="w-[135px] h-[35px] left-[83px] top-[178px] absolute">
-          <div className="w-[135px] h-[35px] left-0 top-0 absolute bg-[#24c79b]/20 rounded-[59px]" />
-          <div className="w-[94.75px] h-[18px] left-[20px] top-[8px] absolute">
-            <div className="left-0 top-0 absolute text-[#24c79b] text-[15px] font-semibold font-['Maven Pro'] underline capitalize">Apply Now</div>
-          </div>
-        </div>
+      <div className="mb-2 text-center">
+        <a
+          href="#"
+          className="text-[#684fa3] text-lg font-semibold font-['Maven Pro'] underline capitalize"
+        >
+          See All Jobs
+        </a>
       </div>
     </div>
-</div>
-    )
-}
+  );
+};
