@@ -15,11 +15,11 @@ const BusinessPage = () => {
   <BusinessHero/>
   <BC1/>
   <BC2/>
-  <BC3/>
+  {/* <BC3/>
   <BC4/>
     <BC6/>
     <BC7/>
-    <BC8/>
+    <BC8/> */}
     </>
   );
 };

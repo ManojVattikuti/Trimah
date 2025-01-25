@@ -1,47 +1,88 @@
-export const C4 =()=>{
-    return(
-<div className="w-[1440px] h-[726px]">
-<div className="w-[1001px] h-[430px] left-[219px] top-[2231px] absolute">
-      <div className="w-[187px] left-[408px] top-0 absolute"><span class="text-[#071c39] text-3xl font-normal font-['Gilroy-Bold'] capitalize leading-10">How </span><span class="text-[#071c39] text-3xl font-normal font-['Gilroy-Bold'] lowercase leading-10">to</span><span class="text-[#071c39] text-3xl font-normal font-['Gilroy-Bold'] capitalize leading-10"> apply</span></div>
-      <div className="w-[744px] h-[50px] left-[130px] top-[70px] absolute">
-        <div className="w-[709px] h-[5px] left-[27px] top-[23px] absolute bg-[#ededed]" />
-        <div className="w-[133px] h-[5px] left-[27px] top-[23px] absolute bg-[#684fa3]" />
-        <div className="w-[50px] h-[50px] left-0 top-0 absolute">
-          <div className="w-[50px] h-[50px] left-0 top-0 absolute bg-[#684fa3] rounded-[86px]" />
-          <div className="w-5 h-5 left-[15px] top-[15px] absolute flex-col justify-start items-start inline-flex overflow-hidden" />
+import React, { useState } from "react";
+
+export const C4 = () => {
+  const [currentStep, setCurrentStep] = useState(2);
+
+  const handleProgressClick = (step) => {
+    setCurrentStep(step);
+  };
+
+  return (
+    <div className="w-full h-fit px-4 py-6  flex items-center justify-center">
+      <div className="w-full max-w-[1001px] h- mx-auto relative">
+        {/* Title */}
+        <div className="text-[#071c39] text-2xl md:text-3xl font-bold text-center mb-8 ">
+          <span>How</span> to <span>apply</span>
         </div>
-        <div className="w-[50px] h-[50px] left-[347px] top-0 absolute">
-          <div className="w-[50px] h-[50px] left-0 top-0 absolute bg-[#ededed] rounded-[86px]" />
-          <div className="w-[22px] left-[14px] top-[8px] absolute text-[#5e5e5e] text-lg font-normal font-['Gilroy-SemiBold'] capitalize leading-[34.38px]">02</div>
+
+        {/* Progress Bar */}
+        <div className="w-full h-[50px] mt-8 flex justify-between lg:left-[136px] items-center relative lg:block hidden">
+          {/* Progress bar line */}
+          <div
+            className={`absolute top-1/2 transform -translate-y-1/2 h-[5px] transition-all duration-300 bg-[#ededed]`}
+            style={{
+              left: "0%",
+              width: `${(currentStep - 1) * 33.33}%`,
+              backgroundColor: currentStep >= 1 ? "#684fa3" : "#ededed",
+            }}
+          ></div>
+
+          {/* Steps */}
+          {[1, 2, 3].map((step) => (
+            <div
+              key={step}
+              onClick={() => handleProgressClick(step)}
+              className={`w-[40px] h-[40px] md:w-[50px] md:h-[50px] flex justify-center items-center rounded-full absolute top-1/2 transform -translate-y-1/2 
+                ${step === 1 ? "left-[0%]" : step === 2 ? "left-[33.33%]" : "left-[66.66%]"}
+                ${currentStep >= step ? "bg-[#684fa3] text-white" : "bg-[#ededed] text-[#5e5e5e]"}
+                cursor-pointer transition-all duration-300`}
+            >
+              {step < 10 ? `0${step}` : step}
+            </div>
+          ))}
         </div>
-        <div className="w-[50px] h-[50px] left-[694px] top-0 absolute">
-          <div className="w-[50px] h-[50px] left-0 top-0 absolute bg-[#ededed] rounded-[86px]" />
-          <div className="w-[22px] left-[14px] top-[9px] absolute text-[#5e5e5e] text-lg font-normal font-['Gilroy-SemiBold'] capitalize leading-[34.38px]">03</div>
-        </div>
+
+        {/* Cards for Steps */}
+        <div className="w-full flex flex-col sm:flex-row justify-center items-center space-y-6 sm:space-y-0 sm:space-x-8 mt-12">
+  {[ 
+    {
+      title: "Submit Your Resume",
+      description: "Upload your CV through our easy application portal",
+    },
+    {
+      title: "Interview Process",
+      description: "Our team will review your application and invite you to an interview",
+    },
+    {
+      title: "Join Our Team",
+      description: "Once selected, you’ll receive an offer and onboarding information",
+    },
+  ].map((step, index) => (
+    <div
+      key={index}
+      className={`w-full xs:w-[180px] sm:w-[220px] md:w-[350px] lg:w-[400px] h-[200px] md:h-[280px] lg:h-[200px] rounded-[15px] bg-white shadow-lg border-2 border-[#684fa3] transform transition-all duration-300 
+        ${currentStep === index + 1 ? "scale-105 shadow-xl" : ""} relative`}
+    >
+      <div className="w-7 h-7 md:w-9 md:h-9 absolute top-4 left-1/2 transform -translate-x-1/2 rounded-full bg-[#684fa3] flex justify-center items-center text-white">
+        <span className="text-sm md:text-lg font-bold">{index + 1}</span>
       </div>
-      <div className="w-[307px] h-[286px] left-0 top-[144px] absolute">
-        <div className="w-[307px] h-[286px] left-0 top-0 absolute bg-white rounded-[15px] shadow-[0px_0px_25.299999237060547px_2px_rgba(0,0,0,0.10)]" />
-        <div className="w-[29.94px] h-11 left-[28px] top-[59px] absolute">
+      <div className="text-center mt-16 md:mt-20">
+        <div className="text-[#684fa3] text-xs md:text-sm font-semibold">STEP 0{index + 1}</div>
+        <div className="text-[#2b2b2b] text-sm md:text-base font-semibold mt-2">
+          {step.title}
         </div>
-        <div className="w-[159px] h-4 left-[28px] top-[123px] absolute text-[#684fa3] text-[15px] font-normal font-['Gilroy-SemiBold'] capitalize leading-7">STEP 01</div>
-        <div className="w-[171px] left-[28px] top-[143px] absolute text-[#2b2b2b] text-lg font-normal font-['Gilroy-SemiBold'] capitalize leading-[34.38px]">Submit Your Resume</div>
-        <div className="w-[245px] left-[28px] top-[177px] absolute text-[#6d6d6d] text-[17px] font-normal font-['Gilroy-Medium'] leading-[27.03px]">Upload your CV through our easy application portal</div>
-      </div>
-      <div className="w-[307px] h-[286px] left-[347px] top-[144px] absolute">
-        <div className="w-[307px] h-[286px] left-0 top-0 absolute bg-white rounded-[15px] shadow-[0px_0px_25.299999237060547px_2px_rgba(0,0,0,0.10)]" />
-        <div className="w-11 h-11 left-[28px] top-[59px] absolute flex-col justify-start items-start inline-flex overflow-hidden" />
-        <div className="w-[159px] h-4 left-[28px] top-[123px] absolute text-[#684fa3] text-[15px] font-normal font-['Gilroy-SemiBold'] capitalize leading-7">STEP 02</div>
-        <div className="w-[171px] left-[28px] top-[143px] absolute text-[#2b2b2b] text-lg font-normal font-['Gilroy-SemiBold'] capitalize leading-[34.38px]">Interview Process</div>
-        <div className="w-[245px] left-[28px] top-[177px] absolute text-[#6d6d6d] text-[17px] font-normal font-['Gilroy-Medium'] leading-[27.03px]">Our team will review your application and invite you to an interview</div>
-      </div>
-      <div className="w-[307px] h-[286px] left-[694px] top-[144px] absolute">
-        <div className="w-[307px] h-[286px] left-0 top-0 absolute bg-white rounded-[15px] shadow-[0px_0px_25.299999237060547px_2px_rgba(0,0,0,0.10)]" />
-        <div className="w-11 h-11 left-[28px] top-[60px] absolute flex-col justify-start items-start inline-flex overflow-hidden" />
-        <div className="w-[159px] h-4 left-[28px] top-[123px] absolute text-[#684fa3] text-[15px] font-normal font-['Gilroy-SemiBold'] capitalize leading-7">STEP 03</div>
-        <div className="w-[171px] left-[28px] top-[143px] absolute text-[#2b2b2b] text-lg font-normal font-['Gilroy-SemiBold'] capitalize leading-[34.38px]">Join Our Team</div>
-        <div className="w-[245px] left-[28px] top-[177px] absolute text-[#6d6d6d] text-[17px] font-normal font-['Gilroy-Medium'] leading-[27.03px]">Once selected, you’ll receive an offer and onboarding information</div>
+        <div className="text-[#6d6d6d] text-xs md:text-sm font-medium mt-2 px-4">
+          {step.description}
+        </div>
       </div>
     </div>
+  ))}
 </div>
-    )
-}
+
+
+
+
+      </div>
+    </div>
+  );
+};

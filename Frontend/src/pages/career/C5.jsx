@@ -1,46 +1,108 @@
-export const C5 =()=>{
-    return(
-<div className="w-[1440px] h-726px]">
-<div className="w-[1273px] h-[340px] left-[100px] top-[2727px] absolute">
-      <div className="w-[364px] left-0 top-[29px] absolute text-[#071c39] text-3xl font-normal font-['Gilroy-Bold'] capitalize leading-10">Employee Testimonials</div>
-      <div className="w-[575px] left-0 top-[73px] absolute text-[#5a5e6a] text-lg font-normal font-['Gilroy-Medium'] leading-[34.38px]">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</div>
-      <div className="w-[166px] h-14 left-0 top-[254px] absolute">
-        <div className="w-[166px] h-14 left-0 top-0 absolute bg-[#6fd1ab] rounded-[87px] shadow-[inset_0px_0px_4px_2px_rgba(0,0,0,0.25)]" />
-        <div className="w-[107.12px] h-[19px] left-[29px] top-[18px] absolute">
-          <div className="left-0 top-0 absolute text-[#1b1b1b] text-base font-semibold font-['Maven Pro'] capitalize">Apply Now</div>
+import { useState, useEffect } from "react";
+
+export const C5 = () => {
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+
+  const testimonials = [
+    {
+      id: 1,
+      text: "Working at Trimah has been an amazing experience. I love the opportunities for professional growth and being part of such a talented team.",
+      name: "Tim George",
+      role: "Software Developer",
+      img: "./career/image.png",
+      color: "#684fa3",
+    },
+    {
+      id: 2,
+      text: "The leadership team truly supports your career goals and provides resources to help you succeed.",
+      name: "Krishna Chaitanya",
+      role: "DevOps Engineer",
+      img: "./career/image1.png",
+      color: "#6fd1ab",
+    },
+  ];
+
+  // Auto-change testimonials every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [testimonials.length]);
+
+  return (
+    <div className="w-full min-h-fit py-16 flex justify-center items-center px-6 md:px-32">
+      <div className="w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        {/* Left Section */}
+        <div className="text-center md:text-left">
+          <h2 className="text-[#071c39] text-2xl md:text-3xl font-bold capitalize leading-10">
+            Employee Testimonials
+          </h2>
+          <p className="text-[#5a5e6a] text-sm md:text-lg mt-4 leading-relaxed">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen book. It has survived not only five centuries.
+          </p>
+          <div className="flex justify-center lg:justify-start mt-4">
+        <button className="relative overflow-hidden px-4 py-2 md:px-6 md:py-3 rounded-full bg-[#6fd1ab] text-black text-[15px] font-semibold font-['Maven Pro'] group">
+            <span className="relative z-10 group-hover:text-white transition-colors duration-300 ease-in-out">
+              Apply Now
+            </span>
+            <div className="absolute top-0 left-0 w-full h-full bg-[#684fa3]  rounded-full transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-in-out"></div>
+          </button>
         </div>
-      </div>
-      <div className="w-[629px] h-[159px] left-[610px] top-0 absolute">
-        <div className="w-[629px] h-[159px] left-0 top-0 absolute">
-          <div className="w-[629px] h-[159px] left-0 top-0 absolute bg-white shadow-[0px_0px_25.299999237060547px_2px_rgba(0,0,0,0.10)]" />
-          <div className="w-[22px] h-[22px] left-[575px] top-[48px] absolute flex-col justify-start items-start inline-flex overflow-hidden">
-            <div className="w-[20.62px] h-[14.55px] relative">
+        </div>
+
+        {/* Right Section */}
+        <div className="space-y-8 md:space-y-0">
+          {/* Carousel for Mobile */}
+          <div className="md:hidden">
+            <div
+              className="flex bg-white shadow-lg rounded-lg p-6 items-center transform transition duration-500 hover:scale-105 hover:-translate-y-2"
+              style={{ borderLeft: `4px solid ${testimonials[currentTestimonial].color}` }}
+            >
+              <img
+                className="w-[80px] h-[80px] rounded-full mx-4"
+                src={testimonials[currentTestimonial].img}
+                alt={testimonials[currentTestimonial].name}
+              />
+              <div>
+                <p className="text-[#2b2b2b] text-sm md:text-base font-semibold capitalize leading-relaxed">
+                  {testimonials[currentTestimonial].text}
+                </p>
+                <p className="text-[#684fa3] text-sm mt-2 italic">
+                  - {testimonials[currentTestimonial].name}, {testimonials[currentTestimonial].role}
+                </p>
+              </div>
             </div>
           </div>
-          <div className="w-2.5 h-[159px] left-0 top-0 absolute bg-[#684fa3] shadow-[0px_0px_25.299999237060547px_2px_rgba(0,0,0,0.10)]" />
-          <img className="w-[100px] h-[100px] left-[34px] top-[30px] absolute rounded-full" src="https://via.placeholder.com/100x100" />
-        </div>
-        <div className="w-[396px] h-[104px] left-[157px] top-[27px] absolute">
-          <div className="w-[396px] left-0 top-0 absolute"><span class="text-[#2b2b2b] text-base font-normal font-['Gilroy-SemiBold'] capitalize leading-[25.12px]">Working </span><span class="text-[#2b2b2b] text-base font-normal font-['Gilroy-SemiBold'] lowercase leading-[25.12px]">at</span><span class="text-[#2b2b2b] text-base font-normal font-['Gilroy-SemiBold'] capitalize leading-[25.12px]"> Trimah</span><span class="text-[#2b2b2b] text-base font-normal font-['Gilroy-SemiBold'] lowercase leading-[25.12px]"> has been an</span><span class="text-[#2b2b2b] text-base font-normal font-['Gilroy-SemiBold'] capitalize leading-[25.12px]"> amazing experience. I love </span><span class="text-[#2b2b2b] text-base font-normal font-['Gilroy-SemiBold'] lowercase leading-[25.12px]">the</span><span class="text-[#2b2b2b] text-base font-normal font-['Gilroy-SemiBold'] capitalize leading-[25.12px]"> opportunities </span><span class="text-[#2b2b2b] text-base font-normal font-['Gilroy-SemiBold'] lowercase leading-[25.12px]">for</span><span class="text-[#2b2b2b] text-base font-normal font-['Gilroy-SemiBold'] capitalize leading-[25.12px]"> professional growth </span><span class="text-[#2b2b2b] text-base font-normal font-['Gilroy-SemiBold'] lowercase leading-[25.12px]">and</span><span class="text-[#2b2b2b] text-base font-normal font-['Gilroy-SemiBold'] capitalize leading-[25.12px]"> being part </span><span class="text-[#2b2b2b] text-base font-normal font-['Gilroy-SemiBold'] lowercase leading-[25.12px]">of</span><span class="text-[#2b2b2b] text-base font-normal font-['Gilroy-SemiBold'] capitalize leading-[25.12px]"> such </span><span class="text-[#2b2b2b] text-base font-normal font-['Gilroy-SemiBold'] lowercase leading-[25.12px]">a</span><span class="text-[#2b2b2b] text-base font-normal font-['Gilroy-SemiBold'] capitalize leading-[25.12px]"> talented team.</span></div>
-          <div className="w-64 left-0 top-[79px] absolute text-[#684fa3] text-base font-normal font-['Gilroy-RegularItalic'] capitalize leading-[25.12px]">-Tim George., Software Developer</div>
-        </div>
-      </div>
-      <div className="w-[629px] h-[159px] left-[644px] top-[181px] absolute">
-        <div className="w-[629px] h-[159px] left-0 top-0 absolute">
-          <div className="w-[629px] h-[159px] left-0 top-0 absolute bg-white shadow-[0px_0px_25.299999237060547px_2px_rgba(0,0,0,0.10)]" />
-          <div className="w-[22px] h-[22px] left-[575px] top-[48px] absolute flex-col justify-start items-start inline-flex overflow-hidden">
-            <div className="w-[20.62px] h-[14.55px] relative">
-            </div>
+
+          {/* Grid for Desktop */}
+          <div className="hidden md:grid grid-cols-1 gap-8">
+            {testimonials.map((testimonial) => (
+              <div
+                key={testimonial.id}
+                className="flex bg-white shadow-lg rounded-lg p-6 items-center transform transition duration-500 hover:scale-105 hover:-translate-y-2"
+                style={{ borderLeft: `4px solid ${testimonial.color}` }}
+              >
+                <img
+                  className="w-[80px] h-[80px] rounded-full mx-4"
+                  src={testimonial.img}
+                  alt={testimonial.name}
+                />
+                <div>
+                  <p className="text-[#2b2b2b] text-sm md:text-base font-semibold capitalize leading-relaxed">
+                    {testimonial.text}
+                  </p>
+                  <p className="text-[#684fa3] text-sm mt-2 italic">
+                    - {testimonial.name}, {testimonial.role}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
-          <div className="w-2.5 h-[159px] left-0 top-0 absolute bg-[#cacaca] shadow-[0px_0px_25.299999237060547px_2px_rgba(0,0,0,0.10)]" />
-          <img className="w-[100px] h-[100px] left-[34px] top-[30px] absolute rounded-full" src="https://via.placeholder.com/100x100" />
-        </div>
-        <div className="w-[396px] h-[79px] left-[157px] top-[40px] absolute">
-          <div className="w-[396px] left-0 top-0 absolute text-[#2b2b2b] text-base font-normal font-['Gilroy-SemiBold'] capitalize leading-[25.12px]">The leadership team truly supports your career goals and provides resources to help you succeed.</div>
-          <div className="w-[282px] left-0 top-[54px] absolute text-[#684fa3] text-base font-normal font-['Gilroy-RegularItalic'] capitalize leading-[25.12px]">-Krishna Chaitanya., DevOps Engineer</div>
         </div>
       </div>
     </div>
-</div>
-    )
-}
+  );
+};

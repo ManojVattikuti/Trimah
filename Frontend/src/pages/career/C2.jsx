@@ -1,14 +1,14 @@
 export const C2 = () => {
   return (
-    <div className="w-full min-h-[626px] flex justify-center items-center ">
+    <div className="w-full min-h-[526px] flex justify-center  items-center ">
       <div className="flex flex-col md:flex-row w-full max-w-[1303px] items-center px-6 md:px-12 py-12 gap-8">
         {/* Card Section */}
         <div className="flex-1 flex justify-center items-center">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-[800px]">
             {/* Card 1 */}
-            <div className="h-[286px] bg-white rounded-[15px] shadow-md relative p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-[#00000033]">
+            <div className="h-[250px] md:h-[286px] bg-white rounded-[15px] shadow-md relative p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-[#00000033]">
   {/* SVG */}
-  <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56" fill="none">
+  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 56 56" fill="none">
     <g id="research-and-development 1">
       <g id="Group">
         <g id="Group_2">
@@ -31,19 +31,20 @@ export const C2 = () => {
   </svg>
 
   {/* Title */}
-  <h3 className="text-[#071c39] text-x2 font-bold mb-2">
+  <h3 className="text-[#071c39] text-xl md:text-2xl font-bold mb-2">
     Innovative Projects
   </h3>
 
   {/* Description */}
-  <p className="text-[#5a5e6a] text-lg">
+  <p className="text-[#5a5e6a] text-sm md:text-lg">
     Work on exciting and cutting-edge projects across industries
   </p>
 </div>
 
 
+
             {/* Card 2 */}
-            <div className="h-[286px] bg-white rounded-[15px] shadow-md relative p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-[#00000033]">
+            <div className="h-[286px] md:h-[286px] bg-white rounded-[15px] shadow-md relative p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-[#00000033]">
               {/* SVG */}
               <svg width="47" height="55" viewBox="0 0 47 55" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M45.454 38.8577C45.3811 38.3318 45.1799 37.832 44.8683 37.4023C44.5567 36.9725 44.1442 36.6259 43.6671 36.3931C43.1764 36.1472 42.6322 36.0275 42.0836 36.0446C41.535 36.0617 40.9993 36.2152 40.5249 36.4912L27.4363 44.6016C26.8673 44.9237 26.2246 45.0929 25.5708 45.0925H20.9264C20.7619 45.0938 20.5987 45.0625 20.4462 45.0004C20.2938 44.9384 20.1552 44.8467 20.0383 44.7308C19.9215 44.6149 19.8288 44.477 19.7655 44.3251C19.7022 44.1732 19.6696 44.0102 19.6696 43.8456C19.6696 43.681 19.7022 43.5181 19.7655 43.3661C19.8288 43.2142 19.9215 43.0763 20.0383 42.9604C20.1552 42.8445 20.2938 42.7529 20.4462 42.6908C20.5987 42.6287 20.7619 42.5974 20.9264 42.5987H24.3336C24.9142 42.5978 25.4711 42.3687 25.8844 41.9609C26.2977 41.5531 26.5341 40.9992 26.5428 40.4187V40.3794C26.5399 39.7953 26.3058 39.2362 25.8919 38.8241C25.4779 38.412 24.9177 38.1805 24.3336 38.1803H9.98166V53.0361C9.98364 53.1974 9.97049 53.3584 9.94238 53.5172H28.8798C30.593 53.5182 32.2452 52.8811 33.5143 51.7302L44.1676 42.0293C44.6341 41.6536 44.997 41.1652 45.2221 40.6103C45.4472 40.0553 45.527 39.4521 45.454 38.8577Z" fill="#684FA3" />
@@ -57,17 +58,17 @@ export const C2 = () => {
 
 
               {/* Title */}
-              <h3 className=" text-[#071c39] text-lg font-bold mb-2">
+              <h3 className=" text-[#071c39] text-xl md:text-2xl font-bold mb-2">
                Growth Opportunities
               </h3>
 
               {/* Description */}
-              <p className=" text-[#5a5e6a] text-lg ">
+              <p className=" text-[#5a5e6a] text-sm md:text-lg ">
               We foster an environment of continuous learning and career development.              </p>
             </div>
 
             {/* Card 3 */}
-            <div className="h-[286px] bg-white rounded-[15px] shadow-md relative p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-[#00000033]">
+            <div className="h-[286px] md:h-[286px] bg-white rounded-[15px] shadow-md relative p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-[#00000033]">
               {/* SVG */}
               <svg xmlns="http://www.w3.org/2000/svg" width="53" height="56" viewBox="0 0 53 56" fill="none">
                 <g id="Layer_1" clip-path="url(#clip0_446_13312)">
@@ -89,17 +90,17 @@ export const C2 = () => {
               </svg>
 
               {/* Title */}
-              <h3 className=" text-[#071c39] text-lg font-bold mb-2">
+              <h3 className=" text-[#071c39] text-xl md:text-2xl font-bold mb-2">
                Inclusive Culture
               </h3>
 
               {/* Description */}
-              <p className=" text-[#5a5e6a] text-lg">
+              <p className=" text-[#5a5e6a] text-sm md:text-lg">
               Join a diverse team where your voice matters              </p>
             </div>
 
             {/* Card 4 */}
-            <div className="h-[286px] bg-white rounded-[15px] shadow-md relative p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-[#00000033]">
+            <div className="h-[286px]  md:h-[286px] bg-white rounded-[15px] shadow-md relative p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-[#00000033]">
               <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60" fill="none">
                 <g id="balance 1">
                   <path id="Vector" d="M41.9693 51.5626H34.9278V38.8879C34.9436 36.2335 32.7298 33.9416 29.9959 33.9567C27.2768 33.9567 25.0641 36.1692 25.0641 38.8879V51.5626H18.0226C17.5069 51.5626 17.085 51.9845 17.085 52.5001C17.085 53.0157 17.5069 53.4375 18.0226 53.4375H41.9693C43.1948 53.4131 43.2068 51.5886 41.9693 51.5626Z" fill="#684FA3" />
@@ -111,12 +112,12 @@ export const C2 = () => {
               </svg>
 
               {/* Title */}
-              <h3 className=" text-[#071c39] text-lg font-bold mb-2">
+              <h3 className=" text-[#071c39] text-xl md:text-2xl font-bold mb-2">
               Work-Life Balance
               </h3>
 
               {/* Description */}
-              <p className=" text-[#5a5e6a] text-lg">
+              <p className=" text-[#5a5e6a] text-sm md:text-lg">
               Enjoy flexible working arrangements and a supportive work environment.              </p>
             </div>
           </div>

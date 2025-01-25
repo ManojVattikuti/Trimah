@@ -11,14 +11,25 @@ import { C5 } from "./C5";
 
 const CareerPage = () => {
   return (
-    <>
-    <CareerHero/>
-    <C1/>
-    <C2/>
-    <C3/>
-    {/* <C4/>
-    <C5/> */}
-    </>
+   <>
+  <CareerHero />
+  <div className="mt-12 md:mt-20">
+    <C1 />
+  </div>
+  <div className="mt-12 md:mt-20">
+    <C2 />
+  </div>
+  <div className="mt-12 md:mt-20">
+    <C3 />
+  </div>
+  <div className="mt-12 md:mt-20">
+    <C4 />
+  </div>
+  <div className="mt-12 md:mt-20 mb-12 md:mb-24">
+    <C5 />
+  </div>
+</>
+
   );
 };
 

@@ -3,7 +3,7 @@ import React from 'react';
 const AboutSection2 = () => {
   return (
     <section className="container mx-auto  py-16">
-      <div className="relative w-full h-[651px] rounded-[22px] bg-[#eee8ff] flex items-center justify-center">
+      <div className="relative w-full h-[501px] rounded-[22px] bg-[#eee8ff] flex items-center justify-center">
         
         {/* Content Section */}
         <div className="absolute top-[50px] left-[30px] pl-8 pr-4">
@@ -23,26 +23,7 @@ const AboutSection2 = () => {
             </span> and addressing <span className="font-bold text-[#333333]">QAVE and compliance challenges in life sciences.</span>
           </p>
 
-          <div className="flex mt-8">
-            <div className="w-1/3">
-              <div className="text-[#684fa3] font-bold text-xl sm:text-2xl md:text-3xl">123A</div>
-              <p className="text-black text-xs sm:text-sm md:text-base mt-2">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              </p>
-            </div>
-            <div className="w-1/3">
-              <div className="text-[#684fa3] font-bold text-xl sm:text-2xl md:text-3xl">123A</div>
-              <p className="text-black text-xs sm:text-sm md:text-base mt-2">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              </p>
-            </div>
-            <div className="w-1/3">
-              <div className="text-[#684fa3] font-bold text-xl sm:text-2xl md:text-3xl">123A</div>
-              <p className="text-black text-xs sm:text-sm md:text-base mt-2">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              </p>
-            </div>
-          </div>
+        
         </div>
 
         {/* Top Left Image (Hidden on smaller screens) */}
@@ -55,7 +36,7 @@ const AboutSection2 = () => {
         </div>
 
         {/* Bottom Left Image (Hidden on smaller screens) */}
-        <div className="absolute bottom-0 left-[900px] w-[392px] h-[330px] hidden sm:block">
+        <div className="absolute bottom-0 left-[900px] w-[292px] h-[330px] hidden sm:block">
           <img 
             src="/about/abs2/vectorabs2.png" 
             alt="Bottom Left Image" 

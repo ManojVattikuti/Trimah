@@ -1,155 +1,119 @@
 import React from "react";
+import { FaBriefcase, FaCloud, FaCogs } from "react-icons/fa";
 
 export const C3 = () => {
   const jobData = [
     {
       title: "Software Developers",
       description: "Exciting opportunity for software developers!",
-      color: "#24c79b",
       buttonColor: "#50d2af",
       buttonTextColor: "white",
       applyLink: "#",
-      image: "https://via.placeholder.com/78", // Replace with actual image URLs
+      icon: <FaCogs className="text-3xl text-white" />,
     },
     {
       title: "DevOps Engineers",
       description: "Join us as a DevOps engineer!",
-      color: "#24c79b",
-      buttonColor: "#50d2af",
+      buttonColor: "#4fa3d2",
       buttonTextColor: "white",
       applyLink: "#",
-      image: "https://via.placeholder.com/78",
+      icon: <FaCloud className="text-3xl text-white" />,
     },
     {
       title: "Cloud Security Experts",
       description: "Looking for cloud security experts!",
-      color: "#24c79b",
-      buttonColor: "#50d2af",
+      buttonColor: "#d250af",
       buttonTextColor: "white",
       applyLink: "#",
-      image: "https://via.placeholder.com/78",
-    },
-    {
-      title: "QAVE Professionals",
-      description: "Apply for the QAVE professionals role.",
-      color: "#24c79b",
-      buttonColor: "#50d2af",
-      buttonTextColor: "white",
-      applyLink: "#",
-      image: "https://via.placeholder.com/78",
-    },
-    {
-      title: "UI/UX Designers",
-      description: "Join our creative design team!",
-      color: "#24c79b",
-      buttonColor: "#50d2af",
-      buttonTextColor: "white",
-      applyLink: "#",
-      image: "https://via.placeholder.com/78",
-    },
-    {
-      title: "Backend Developers",
-      description: "Exciting opportunity for backend developers!",
-      color: "#24c79b",
-      buttonColor: "#50d2af",
-      buttonTextColor: "white",
-      applyLink: "#",
-      image: "https://via.placeholder.com/78",
-    },
-    {
-      title: "Frontend Developers",
-      description: "Looking for skilled frontend developers!",
-      color: "#24c79b",
-      buttonColor: "#50d2af",
-      buttonTextColor: "white",
-      applyLink: "#",
-      image: "https://via.placeholder.com/78",
-    },
-    {
-      title: "Data Scientists",
-      description: "Seeking data scientists with analytical skills.",
-      color: "#24c79b",
-      buttonColor: "#50d2af",
-      buttonTextColor: "white",
-      applyLink: "#",
-      image: "https://via.placeholder.com/78",
-    },
-    {
-      title: "Project Managers",
-      description: "Become a part of our management team.",
-      color: "#24c79b",
-      buttonColor: "#50d2af",
-      buttonTextColor: "white",
-      applyLink: "#",
-      image: "https://via.placeholder.com/78",
-    },
-    {
-      title: "Marketing Specialists",
-      description: "Join our marketing team to make an impact!",
-      color: "#24c79b",
-      buttonColor: "#50d2af",
-      buttonTextColor: "white",
-      applyLink: "#",
-      image: "https://via.placeholder.com/78",
+      icon: <FaBriefcase className="text-3xl text-white" />,
     },
   ];
 
+  const infiniteJobData = [...jobData, ...jobData]; // Duplicate for seamless scroll
+
   return (
-    <div className="w-full h-auto p-4 px-32">
-      <div className="text-[#071c39] text-3xl font-normal font-bold justify-center text-center capitalize leading-10 mb-6">
+    <div className="w-full h-auto p-4 lg:px-32 ">
+      <div className="text-[#071c39] text-3xl font-bold text-center capitalize leading-10 mb-6">
         Current Openings
       </div>
-    
 
-      {/* Scrollable section */}
-      <div className="overflow-x-auto flex space-x-4">
-        {jobData.map((job, index) => (
-          <div
-            key={index}
-            className="w-[299px] h-[248px] flex-shrink-0 relative bg-white rounded-[15px] shadow-[0px_0px_25.299999237060547px_2px_rgba(0,0,0,0.10)]"
-          >
+      {/* Slider container */}
+      <div className="relative overflow-hidden group  p-4">
+        {/* Fading Effect (Left and Right) */}
+        <div className="absolute top-0 left-0 w-1/5 h-full bg-gradient-to-r from-white to-transparent"></div>
+        <div className="absolute top-0 right-0 w-1/5 h-full bg-gradient-to-l from-white to-transparent"></div>
+
+        <div
+          className="flex space-x-6 animate-infinite-scroll group-hover:animate-none"
+          style={{
+            width: `${infiniteJobData.length * 299}px`,
+          }}
+        >
+          {infiniteJobData.map((job, index) => (
             <div
-              className="w-[299px] h-[248px] absolute top-0 left-0 rounded-[10px]"
-              style={{ backgroundColor: job.color }}
-            />
-            <div className="absolute top-0 left-0 w-[78px] h-[78px] bg-[#684fa3] rounded-full flex items-center justify-center mt-[42px] mx-[111px]">
-              {/* Job Image */}
-              <img
-                src={job.image}
-                alt={job.title}
-                className="w-full h-full object-cover rounded-full"
-              />
-            </div>
-            <div className="w-full h-5 text-center text-[#2b2b2b] text-lg font-normal font-['Gilroy-SemiBold'] capitalize leading-[34.38px] mt-[100px]">
-              {job.title}
-            </div>
-            <div className="w-[135px] h-[35px] absolute bottom-5 left-[83px]">
+              key={index}
+              className="w-[299px] h-[300px] flex-shrink-0 relative rounded-[15px] bg-white shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl"
+            >
+              {/* Icon Background */}
               <div
-                className="w-[135px] h-[35px] rounded-[59px] flex items-center justify-center"
+                className="absolute top-[20px] left-1/2 transform -translate-x-1/2 w-[78px] h-[78px] rounded-full flex items-center justify-center"
                 style={{ backgroundColor: job.buttonColor }}
               >
-                <a
-                  href={job.applyLink}
-                  className="text-[15px] font-semibold underline capitalize"
-                  style={{ color: job.buttonTextColor }}
+                {job.icon}
+              </div>
+
+              {/* Job Title */}
+              <div className="absolute top-[120px] left-1/2 transform -translate-x-1/2 w-full text-center text-[#2b2b2b] text-lg font-semibold capitalize">
+                {job.title}
+              </div>
+
+              {/* Job Description */}
+              <div className="absolute top-[160px] left-1/2 transform -translate-x-1/2 w-5/6 text-center text-sm text-gray-600">
+                {job.description}
+              </div>
+
+              {/* Apply Button */}
+              <div className="absolute bottom-5 left-1/2 transform -translate-x-1/2">
+                <button
+                  className="px-6 py-2 rounded-full text-[15px] font-semibold transition-all duration-300 hover:bg-white hover:text-gray-700"
+                  style={{
+                    backgroundColor: job.buttonColor,
+                    color: job.buttonTextColor,
+                    boxShadow: "0 4px 15px rgba(0, 0, 0, 0.2)",
+                  }}
                 >
                   Apply Now
-                </a>
+                </button>
               </div>
-              
             </div>
-            
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-      <div className="mb-2 text-center">
+
+      {/* See All Jobs */}
+      <div className="mt-6 text-center">
         <a
           href="#"
-          className="text-[#684fa3] text-lg font-semibold font-['Maven Pro'] underline capitalize"
+          className="text-[#684fa3] text-lg font-semibold underline capitalize hover:text-blue-600 transition duration-300"
         >
           See All Jobs
         </a>
       </div>
+
+      {/* CSS for infinite scroll */}
+      <style jsx>{`
+        @keyframes infiniteScroll {
+          from {
+            transform: translateX(0);
+          }
+          to {
+            transform: translateX(-50%);
+          }
+        }
+        .animate-infinite-scroll {
+          animation: infiniteScroll 20s linear infinite;
+        }
+      `}</style>
     </div>
   );
 };
