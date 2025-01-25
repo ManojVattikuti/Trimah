@@ -16,7 +16,9 @@ const BusinessPage = () => {
   <BC1/>
   <BC2/>
   <BC3/>
+  <div className="hidden sm:block">
   <BC4/>
+  </div>
     <BC6/>
     <BC7/>
     <BC8/>

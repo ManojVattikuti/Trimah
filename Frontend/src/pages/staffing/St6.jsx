@@ -1,40 +1,69 @@
-export const St6 = ()=>{
-    return(
-        <div className="w-[1440px] h-[726px]">
-        <div className="w-[1283px] left-[96px] top-[4386px] absolute">
-        <div className="w-[504px] h-[424px] left-0 top-[80px] absolute">
-          <div className="w-[364px] left-0 top-0 absolute text-[#071c39] text-3xl font-normal font-['Gilroy-Bold'] capitalize leading-10">What Sets Us Apart</div>
-          <div className="w-[438px] h-[106px] left-0 top-[66px] absolute">
-            <div className="left-[29px] top-0 absolute text-[#2b2b2b] text-[22px] font-normal font-['Gilroy-SemiBold'] capitalize leading-[29.04px]">Core Values</div>
-            <div className="w-[438px] left-0 top-[34px] absolute"><span class="text-[#5a5e6a] text-xl font-normal font-['Gilroy-Medium'] leading-9">Trust, </span><span class="text-[#5a5e6a] text-xl font-normal font-['Gilroy-Medium'] capitalize leading-9">excellence </span><span class="text-[#5a5e6a] text-xl font-normal font-['Gilroy-Medium'] leading-9">and </span><span class="text-[#5a5e6a] text-xl font-normal font-['Gilroy-Medium'] capitalize leading-9">partnership</span><span class="text-[#5a5e6a] text-xl font-normal font-['Gilroy-Medium'] leading-9"> </span><span class="text-[#5a5e6a] text-xl font-normal font-['Gilroy-Medium'] capitalize leading-9">define</span><span class="text-[#5a5e6a] text-xl font-normal font-['Gilroy-Medium'] leading-9"> our </span><span class="text-[#5a5e6a] text-xl font-normal font-['Gilroy-Medium'] capitalize leading-9">staffing approach</span></div>
-            <div className="w-5 h-5 left-0 top-[5px] absolute flex-col justify-start items-start inline-flex overflow-hidden" />
-          </div>
-          <div className="w-[504px] h-[106px] left-0 top-[192px] absolute">
-            <div className="left-[29px] top-0 absolute text-[#2b2b2b] text-[22px] font-normal font-['Gilroy-SemiBold'] capitalize leading-[29.04px]">Leadership Experience</div>
-            <div className="w-[504px] left-0 top-[34px] absolute"><span class="text-[#5a5e6a] text-xl font-normal font-['Gilroy-Medium'] leading-9">Our team has </span><span class="text-[#5a5e6a] text-xl font-normal font-['Gilroy-Medium'] capitalize leading-9">first</span><span class="text-[#5a5e6a] text-xl font-normal font-['Gilroy-Medium'] leading-9"> </span><span class="text-[#5a5e6a] text-xl font-normal font-['Gilroy-Medium'] capitalize leading-9">hand</span><span class="text-[#5a5e6a] text-xl font-normal font-['Gilroy-Medium'] leading-9"> </span><span class="text-[#5a5e6a] text-xl font-normal font-['Gilroy-Medium'] capitalize leading-9">knowledge</span><span class="text-[#5a5e6a] text-xl font-normal font-['Gilroy-Medium'] leading-9"> of </span><span class="text-[#5a5e6a] text-xl font-normal font-['Gilroy-Medium'] capitalize leading-9">hiring</span><span class="text-[#5a5e6a] text-xl font-normal font-['Gilroy-Medium'] leading-9"> </span><span class="text-[#5a5e6a] text-xl font-normal font-['Gilroy-Medium'] capitalize leading-9">challenges</span><span class="text-[#5a5e6a] text-xl font-normal font-['Gilroy-Medium'] leading-9"> and </span><span class="text-[#5a5e6a] text-xl font-normal font-['Gilroy-Medium'] capitalize leading-9">solutions</span><span class="text-[#5a5e6a] text-xl font-normal font-['Gilroy-Medium'] leading-9"> in </span><span class="text-[#5a5e6a] text-xl font-normal font-['Gilroy-Medium'] capitalize leading-9">key industries</span><span class="text-[#5a5e6a] text-xl font-normal font-['Gilroy-Medium'] leading-9">.</span></div>
-            <div className="w-5 h-5 left-0 top-[5px] absolute flex-col justify-start items-start inline-flex overflow-hidden" />
-          </div>
-          <div className="w-[438px] h-[101px] left-0 top-[323px] absolute">
-            <div className="left-[29px] top-0 absolute text-[#2b2b2b] text-[22px] font-normal font-['Gilroy-SemiBold'] capitalize leading-[29.04px]">Scalable Solutions</div>
-            <div className="w-[438px] left-0 top-[29px] absolute"><span class="text-[#5a5e6a] text-xl font-normal font-['Gilroy-Medium'] leading-9">Adaptable </span><span class="text-[#5a5e6a] text-xl font-normal font-['Gilroy-Medium'] capitalize leading-9">staffing models</span><span class="text-[#5a5e6a] text-xl font-normal font-['Gilroy-Medium'] leading-9"> to </span><span class="text-[#5a5e6a] text-xl font-normal font-['Gilroy-Medium'] capitalize leading-9">fit</span><span class="text-[#5a5e6a] text-xl font-normal font-['Gilroy-Medium'] leading-9"> your </span><span class="text-[#5a5e6a] text-xl font-normal font-['Gilroy-Medium'] capitalize leading-9">changing needs</span></div>
-            <div className="w-5 h-5 left-0 top-[5px] absolute flex-col justify-start items-start inline-flex overflow-hidden" />
-          </div>
+export const St6 = () => {
+  const featureItems = [
+    {
+      icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/f228e9b6351bc5d68a00f88095033cccfdf0b242da437742946ca021f47d8a18?placeholderIfAbsent=true&apiKey=4126fbaca52340fea6ccc661ec39005f",
+      title: "Core Values",
+      description: "Trust, excellence, and partnership define our staffing approach",
+    },
+    {
+      icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/7e0c8f602223111e69c8d96fe04761da275c857032f2593c6981f05b64167486?placeholderIfAbsent=true&apiKey=4126fbaca52340fea6ccc661ec39005f",
+      title: "Leadership Experience",
+      description: "Our team has firsthand knowledge of hiring challenges and solutions in key industries.",
+    },
+    {
+      icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/c8ddf48cec75aa5f0d9fbb7eabdcec286c2ad8c96ed0eecc0b0b44bd2f1724b8?placeholderIfAbsent=true&apiKey=4126fbaca52340fea6ccc661ec39005f",
+      title: "Scalable Solutions",
+      description: "Adaptable staffing models to fit your changing needs.",
+    },
+  ];
+
+  function FeatureItem({ icon, title, description }) {
+    return (
+      <div className="mt-6">
+        <div className="flex gap-3 items-start">
+          <img
+            loading="lazy"
+            src={icon}
+            alt=""
+            className="w-6 h-6 shrink-0"
+          />
+          <div className="text-lg font-semibold text-gray-800">{title}</div>
         </div>
-        <div className="w-[735px] h-[584px] left-[548px] top-0 absolute">
-          <img className="w-[471px] h-[190px] left-0 top-0 absolute rounded-xl" src="https://via.placeholder.com/471x190" />
-          <img className="w-60 h-[190px] left-[495px] top-0 absolute rounded-xl" src="https://via.placeholder.com/240x190" />
-          <img className="w-[735px] h-[376px] left-0 top-[208px] absolute rounded-[25px]" src="https://via.placeholder.com/735x376" />
-          <div className="w-[155.36px] h-[155px] left-[572px] top-[429px] absolute">
-            <div className="w-[155.36px] h-[155px] left-0 top-0 absolute  overflow-hidden" />
-            <div className="w-[44.47px] h-[42.95px] left-[55.09px] top-[56.02px] absolute">
-              <div className="w-[32.99px] h-[20.74px] left-[11.47px] top-[22.21px] absolute">
-              </div>
-              <div className="w-[28.80px] h-[24.36px] left-[9.81px] top-[-0px] absolute">
-              </div>
-            </div>
-          </div>
+        <div className="mt-2 text-base text-gray-600 leading-6">
+          {description}
         </div>
       </div>
+    );
+  }
+
+  return (
+    <div className="mt-16 px-5 py-4 w-full max-w-[1283px] mx-auto max-md:mt-10">
+      <div className="flex gap-10 max-md:flex-col">
+        {/* Left Section */}
+        <div className="flex flex-col w-[37%] max-md:w-full">
+          <div className="text-3xl font-bold text-slate-900 mb-6">
+            What Sets Us Apart
+          </div>
+          {featureItems.map((item, index) => (
+            <FeatureItem
+              key={index}
+              icon={item.icon}
+              title={item.title}
+              description={item.description}
+            />
+          ))}
+        </div>
+
+        {/* Right Section */}
+        <div className="flex flex-col w-[63%] max-md:w-full">
+          <img
+            loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/ef6e505d12d4aa4359b7be237635a47f386b9a9fa824d709848598c967089f11?placeholderIfAbsent=true&apiKey=4126fbaca52340fea6ccc661ec39005f"
+            alt="Company features illustration"
+            className="w-full rounded-lg object-contain aspect-[1.26]"
+          />
+        </div>
       </div>
-    )
-}
+    </div>
+  );
+};

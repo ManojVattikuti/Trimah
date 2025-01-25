@@ -1,6 +1,6 @@
 export const BC4=()=>{
     return(
-        <div className="w-auto px-32 py-32">
+        <div className="w-auto px-32 py-32 h-[100vh]">
           
              <div className="w-auto h-suto left-0 absolute">
       <div className="w-[695.21px] h-[683.94px] left-0 top-0 absolute  overflow-hidden">
@@ -32,7 +32,7 @@ export const BC4=()=>{
         
         
       </div>
-      <svg width="696" height="684" viewBox="0 0 696 684" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg    className="max-md:hidden"  width="696" height="684" viewBox="0 0 696 684" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_507_887)">
 <circle cx="162.5" cy="342.5" r="341.5" fill="#E5D9FF"/>
 <path d="M682.48 70.88C682.48 82.3786 679.071 93.6189 672.683 103.18C666.295 112.741 657.215 120.193 646.592 124.593C635.969 128.994 624.279 130.146 613.001 127.904C601.724 125.661 591.364 120.125 583.233 111.995C575.101 103.865 569.563 93.5061 567.319 82.2287C565.074 70.9513 566.224 59.2616 570.623 48.6377C575.022 38.0139 582.472 28.9329 592.032 22.5432C601.592 16.1535 612.832 12.742 624.33 12.74C631.966 12.7387 639.527 14.2416 646.582 17.1628C653.638 20.084 660.048 24.3664 665.448 29.7653C670.848 35.1642 675.131 41.574 678.054 48.6285C680.976 55.683 682.48 63.2441 682.48 70.88Z" fill="#9568FF"/>

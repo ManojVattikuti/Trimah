@@ -1,7 +1,7 @@
 export const AboutSection1 = () => {
   
   return (
-    <section className="relative  py-16">
+    <section className="relative  py-16 px-8">
       <div className="container mx-auto flex flex-col lg:flex-row items-center justify-between">
         {/* Left Section */}
         <div className="lg:w-1/2 px-8">
@@ -50,7 +50,7 @@ export const AboutSection1 = () => {
 
         {/* Right Section */}
         <div className="lg:w-1/2">
-  <div className="relative w-[657px] h-[500px]">
+  <div className="relative w-[457px] h-[400px] md:w-[607px]">
     <img
       src="./about/1.png"
       alt="Background Image"

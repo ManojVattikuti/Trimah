@@ -1,52 +1,79 @@
 import React from 'react';
 
 const AboutSection2 = () => {
-  return (
-    <section className="container mx-auto  py-16">
-      <div className="relative w-full h-[501px] rounded-[22px] bg-[#eee8ff] flex items-center justify-center">
-        
-        {/* Content Section */}
-        <div className="absolute top-[50px] left-[30px] pl-8 pr-4">
-          <h3 className="text-[#071c39] font-bold text-sm sm:text-base md:text-lg lg:text-xl mb-2">OUR STORY</h3>
-          <h2 className="text-[#684fA3] font-extrabold text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-4">
-            Our Journey Began with a <br /> Shared Belief
-          </h2>
-          <p className="text-[#64696e] text-sm sm:text-base md:text-lg lg:text-xl mb-4">
-            Businesses thrive when they have trusted partners to deliver exceptional talent and <br /> innovative IT solutions.
-          </p>
-          <p className="text-[#64696e] text-sm sm:text-base md:text-lg lg:text-xl mb-6">
-            As former hiring leaders, we’ve experienced the difficulties of sourcing skilled <br /> professionals, meeting compliance needs, and managing complex IT projects. With <br /> these insights, we launched Trimah Technologies to bridge the gap between <br /> businesses and world-class talent.
-          </p>
-          <p className="text-[#64696e] text-sm sm:text-base md:text-lg lg:text-xl mb-4">
-            We’ve become a trusted name for IT staffing & consulting solutions, placing <span className="font-bold text-[#333333]">
-              Top-Tier IT talent including but not limited to software developers in financial and healthcare industries
-            </span> and addressing <span className="font-bold text-[#333333]">QAVE and compliance challenges in life sciences.</span>
-          </p>
 
-        
+  function StatisticCard({ number, description }) {
+    return (
+      <div className="flex relative flex-col grow max-md:mt-10">
+        <div className="self-start text-3xl leading-loose text-slate-500">
+          {number}
         </div>
-
-        {/* Top Left Image (Hidden on smaller screens) */}
-        <div className="absolute top-[50px] left-[880px] w-[392px] h-[330px] hidden sm:block">
-          <img 
-            src="/about/abs2/Layer_1.png" 
-            alt="Top Left Image" 
-            className="w-full h-full object-cover"
-          />
+        <div className="mt-3 text-sm leading-6 text-black">
+          {description}
         </div>
-
-        {/* Bottom Left Image (Hidden on smaller screens) */}
-        <div className="absolute bottom-0 left-[900px] w-[292px] h-[330px] hidden sm:block">
-          <img 
-            src="/about/abs2/vectorabs2.png" 
-            alt="Bottom Left Image" 
-            className="w-full h-full object-cover transform rotate-120 opacity-50 filter hue-rotate-270"
-          />
-        </div>
-        
       </div>
-    </section>
+    );
+  }
+  return (
+    <div className='lg:px-16'>
+
+  
+    <div className="flex relative flex-col self-center px-16 py-12 mt-12 w-full  max-w-auto min-h-[500px] max-md:px-5 max-md:mt-10 max-md:max-w-full">
+      <img
+        loading="lazy"
+        src="https://cdn.builder.io/api/v1/image/assets/TEMP/933aaa23f1bbc270162d54f0ef2fc77b7e06989478ab1b47ae93b54369fd9afd?placeholderIfAbsent=true&apiKey=4126fbaca52340fea6ccc661ec39005f"
+        className="object-cover absolute inset-0 size-full"
+        alt=""
+      />
+      <div className="relative max-md:max-w-full">
+        <div className="flex gap-5 max-md:flex-col">
+          <div className="flex flex-col w-[64%] max-md:ml-0 max-md:w-full">
+            <div className="flex relative flex-col grow mt-4 text-lg leading-9 text-neutral-500 max-md:mt-10 max-md:max-w-full">
+              <div className="self-start text-xl leading-none uppercase text-slate-900">
+                Our Story
+              </div>
+              <div className="mt-1.5 text-3xl font-extrabold leading-10 text-slate-500 w-[439px]">
+                Our Journey Began with a Shared Belief
+              </div>
+              <div className="mt-2 max-md:mr-1 max-md:max-w-full">
+                Businesses thrive when they have trusted partners to deliver
+                exceptional talent and innovative IT solutions.
+              </div>
+              <div className="mt-2.5 max-md:max-w-full">
+                As former hiring leaders, we've experienced the difficulties of
+                sourcing skilled professionals, meeting compliance needs, and
+                managing complex IT projects. With these insights, we launched
+                Trimah Technologies to bridge the gap between businesses and
+                world-class talent.
+              </div>
+            </div>
+          </div>
+          <div className="flex flex-col ml-5 w-[36%] max-md:ml-0 max-md:w-full">
+            <img
+              loading="lazy"
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/bca6a935e42050725a5767a0b226f0e2001c12199757128dc86e7ab45f824a21?placeholderIfAbsent=true&apiKey=4126fbaca52340fea6ccc661ec39005f"
+              className="object-contain w-full aspect-[1.19] max-md:mt-10"
+              alt="Company story illustration"
+            />
+          </div>
+        </div>
+      </div>
+      <div className="relative mt-1.5 mr-12 text-lg leading-9 text-neutral-500 max-md:mr-2.5 max-md:max-w-full">
+        We've become a trusted name for IT staffing & consulting solutions,
+        placing{" "}
+        <span className="text-neutral-700">
+          Top-Tier IT talent including but not limited to software developers in
+          financial and healthcare industries
+        </span>{" "}
+        and addressing{" "}
+        <span className="text-neutral-700">
+          QAVE and compliance challenges in life sciences.
+        </span>
+      </div>
+      
+    </div>
+    </div>
   );
-};
+}
 
 export default AboutSection2;

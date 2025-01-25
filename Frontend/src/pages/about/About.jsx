@@ -24,14 +24,18 @@ const AboutPage = () => {
 
   return (
 <>
-<AboutHero/>
-<AboutSection1/>
-<AboutSection2/>
-<AboutSection3/>
-<AboutSection4/>
-<AboutSection5/>
-<AboutSection6/>
+  <AboutHero />
+  <AboutSection1 />
+  <AboutSection2 />
+  <AboutSection3 />
+  <AboutSection4 />
+  <AboutSection5 />
+  {/* Hide the last section on smaller screens */}
+  <div className="hidden sm:block">
+    <AboutSection6 />
+  </div>
 </>
+
   );
 };
 

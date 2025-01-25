@@ -25,7 +25,7 @@ const AboutSection3 = () => {
   };
 
   return (
-    <section className="container mx-auto py-8">
+    <section className="container mx-auto py-8 px-8">
       <div className="w-full max-w-[1240px] mx-auto">
         <h2 className="text-3xl font-bold text-[#071c39] text-center mb-4">Our Core Values</h2>
 

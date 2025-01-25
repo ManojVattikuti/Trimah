@@ -1,20 +1,33 @@
-export const S1=()=>
-{
+export const S1 = () => {
+  return (
+    <div className="lg:px-32 ">
 
-    return(
-        <div className="w-[1440px] h-[347px]">
- <div className="w-[1307px] h-[420px] left-[75px] top-[592px] absolute">
-      <div className="w-[518px] left-0 top-[134px] absolute"><span class="text-[#071c39] text-3xl font-normal font-['Gilroy-Bold'] capitalize leading-10">Innovative IT Staffing </span><span class="text-[#071c39] text-3xl font-normal font-['Gilroy-Bold'] lowercase leading-10">and</span><span class="text-[#071c39] text-3xl font-normal font-['Gilroy-Bold'] capitalize leading-10"> Consulting Solutions Across Industries</span></div>
-      <div className="w-[611px] left-0 top-[224px] absolute text-[#5a5e6a] text-base font-normal font-['Gilroy-Medium'] leading-[30.56px]">At Trimah Technologies, we recognize that every industry has unique IT challenges and opportunities. From regulated environments like healthcare and pharmaceuticals to fast-paced sectors like retail and technology, we deliver tailored IT consulting and staffing services to help businesses thrive</div>
-      <div className="w-[191px] h-8 left-0 top-[92px] absolute">
-        <div className="w-[191px] h-8 left-0 top-0 absolute bg-[#24c79b]/20 rounded-[14px]" />
-        <div className="w-[155px] left-[18px] top-[7px] absolute text-[#24c79b] text-[15px] font-normal font-['Gilroy-SemiBold'] uppercase leading-tight">Industries We Serve</div>
-      </div>
-      <div className="w-[645px] h-[420px] left-[662px] top-0 absolute">
-        <div className="w-[625px] h-[400px] left-[20px] top-0 absolute bg-[#24c79b] rounded-[15px]" />
-        <img className="w-[625px] h-[400px] left-0 top-[20px] absolute rounded-[15px]" src="https://via.placeholder.com/625x400" />
+  
+    <div className="self-center mt-11 w-full max-w-[1307px] max-md:mt-10 max-md:max-w-full px-5">
+      <div className="flex gap-5 max-md:flex-col">
+        <div className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
+          <div className="flex flex-col items-start self-stretch my-auto max-md:mt-10 max-md:max-w-full">
+            <div className="px-5 py-1.5 text-base leading-none text-emerald-400 uppercase rounded-2xl bg-emerald-400 bg-opacity-20">
+              Industries We Serve
+            </div>
+            <div className="mt-2.5 text-3xl leading-10 text-slate-900 max-md:max-w-full">
+              Innovative IT Staffing and Consulting Solutions Across Industries
+            </div>
+            <div className="self-stretch mt-2.5 text-base leading-8 text-gray-600 max-md:max-w-full">
+              At Trimah Technologies, we recognize that every industry has unique IT challenges and opportunities. From regulated environments like healthcare and pharmaceuticals to fast-paced sectors like retail and technology, we deliver tailored IT consulting and staffing services to help businesses thrive.
+            </div>
+          </div>
+        </div>
+        <div className="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full">
+          <img
+            loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/9843eeeddb8c5ae13dbdd96e1c84c7da7373fb1e0f27f7e369869e73770bbdfa?placeholderIfAbsent=true&apiKey=4126fbaca52340fea6ccc661ec39005f"
+            alt="Industry solutions illustration"
+            className="object-contain grow w-full rounded-2xl aspect-[1.54] max-md:mt-10 max-md:max-w-full"
+          />
+        </div>
       </div>
     </div>
-        </div>
-    )
-}
+    </div>
+  );
+};

@@ -1,89 +1,77 @@
 import React from 'react';
 
 const BC2 = () => {
-  return (
-    <section className="w-fit py-8 lg:px-32">
-      <div className="w-full max-w-full mx-auto relative">
-        
-        {/* Background Sections */}
-        <div className="absolute w-[80vw] h-[60vh] top-[25px] left-[50%] transform -translate-x-1/2 flex-col justify-start items-start overflow-hidden">
-          <div className="w-full pt-[38.08px] origin-top-left rotate-180 justify-center items-center inline-flex overflow-hidden">
-            <div className="opacity-40 w-full h-[419.65px] relative">
-              
-            </div>
-          </div>
+  const whyChooseUsItems = [
+    {
+      id: 1,
+      title: "Trusted Expertise",
+      description: "As experienced leaders in IT, healthcare, and life sciences, we bring deep technical and industry-specific knowledge to every project"
+    },
+    {
+      id: 2,
+      title: "Tailored Solutions",
+      description: "We work closely with your team to understand your unique challenges and deliver customized strategies"
+    },
+    {
+      id: 3,
+      title: "Results-Oriented Approach",
+      description: "From cloud solutions to compliance, our focus is on achieving measurable outcomes that align with your business goals"
+    }
+  ];
+
+  function FeatureItem({ id, title, description }) {
+    return (
+      <div className="flex gap-2.5 mt-9">
+        <div className="self-start px-2.5 text-base leading-none text-center whitespace-nowrap rounded-full bg-slate-500 bg-opacity-20 h-[26px] text-slate-500 w-[26px]">
+          {id}
         </div>
-        
-        <div className="absolute w-[80vw] h-[60vh] top-0 left-[50%] transform -translate-x-1/2 opacity-50"></div>
-
-        {/* Text Content Section */}
-        <div className="relative z-10">
-          {/* Why Choose Us Title */}
-          <div className="text-[#071c39] text-3xl font-semibold text-center lg:text-left leading-10 mb-8 lg:mb-12">
-            Why Choose Us?
+        <div className="flex flex-col grow shrink-0 basis-0 w-fit">
+          <div className="self-start text-xl leading-none text-slate-900">
+            {title}
           </div>
-
-          {/* Section 1 - Trusted Expertise */}
-          <div className="flex flex-col lg:flex-row items-center justify-between mb-8">
-            <div className="flex items-center mb-6 lg:mb-0">
-              <div className="w-[26px] h-[26px] bg-[#684fa3]/20 rounded-full flex justify-center items-center mr-4">
-                <div className="text-[#684fa3] text-base font-semibold">1</div>
-              </div>
-              <div>
-                <div className="text-[#071c39] text-xl font-semibold capitalize leading-relaxed">Trusted Expertise</div>
-                <div className="text-[#383838] text-base font-normal leading-relaxed w-full sm:w-[300px] md:w-[400px]">
-                  As experienced leaders in IT, healthcare, and life sciences, we bring deep technical and industry-specific knowledge to every project.
-                </div>
-              </div>
-            </div>
-            <div className="w-full lg:w-[396px] h-[105px]"></div>
+          <div className="mt-1 text-base leading-6 text-neutral-700">
+            {description}
           </div>
-
-          {/* Section 2 - Tailored Solutions */}
-          <div className="flex flex-col lg:flex-row items-center justify-between mb-8 transform lg:translate-x-[20%]">
-            <div className="flex items-center mb-6 lg:mb-0">
-              <div className="w-[26px] h-[26px] bg-[#684fa3]/20 rounded-full flex justify-center items-center mr-4">
-                <div className="text-[#684fa3] text-base font-semibold">2</div>
-              </div>
-              <div>
-                <div className="text-[#071c39] text-xl font-semibold capitalize leading-relaxed">Tailored Solutions</div>
-                <div className="text-[#383838] text-base font-normal leading-relaxed w-full sm:w-[300px] md:w-[400px]">
-                  We work closely with your team to understand your unique challenges and deliver customized strategies.
-                </div>
-              </div>
-            </div>
-            <div className="w-full lg:w-[461px] h-[105px]"></div>
-          </div>
-
-          {/* Section 3 - Results-Oriented Approach */}
-          <div className="flex flex-col lg:flex-row items-center justify-between mb-8">
-            <div className="flex items-center mb-6 lg:mb-0">
-              <div className="w-[26px] h-[26px] bg-[#684fa3]/20 rounded-full flex justify-center items-center mr-4">
-                <div className="text-[#684fa3] text-base font-semibold">3</div>
-              </div>
-              <div>
-                <div className="text-[#071c39] text-xl font-semibold capitalize leading-relaxed">Results-Oriented Approach</div>
-                <div className="text-[#383838] text-base font-normal leading-relaxed w-full sm:w-[300px] md:w-[400px]">
-                  From cloud solutions to compliance, our focus is on achieving measurable outcomes that align with your business goals.
-                </div>
-              </div>
-            </div>
-            <div className="w-full lg:w-[423px] h-[105px]"></div>
-          </div>
-        </div>
-
-        {/* Image Section (Hidden on Small Screens) */}
-        <div className="absolute top-0 right-0 w-full lg:w-[409.10px] h-[570px] hidden lg:block">
-          <div className="relative z-10 left-[280px]">
-            <img className="w-full h-full mb-16 object-cover" src="./bsuiness/bc2/img1.png" alt="Placeholder Image" />
-          </div>
-
-          <svg className="absolute top-[118px] left-[-42px] w-[60vw] h-[60vh] z-0 hidden lg:block" width="782" height="810" viewBox="0 0 682 510" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M790.676 24.4041C747.612 -1.1806 674.22 -16.233 592.344 28.8575C550.661 51.8592 514.165 82.0754 382.39 47.584C304.723 27.2543 254.132 33.1772 203.275 64.0169C139.836 102.45 119.796 168.248 113.695 229.727C110.466 262.259 117.012 298.755 98.9986 325.03C85.3935 344.914 69.2277 342.531 36.05 362.572C-24.0707 398.822 -11.6235 508.643 93.3205 508.643C123.47 508.643 716.794 510.691 783.217 508.643L790.676 24.4041Z" fill="#ECE9FF"/>
-          </svg>
         </div>
       </div>
-    </section>
+    );
+  }
+  return (
+    <div className="z-10 lg:px-8 lg:ml-[100px]  self-end mt-14 w-full max-w-[1255px] max-md:mt-10 max-md:max-w-full">
+    <div className="flex gap-5 max-md:flex-col">
+      <div className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
+        <div className="flex z-10 flex-col items-start self-stretch my-auto -mr-11 w-full max-md:mt-10 max-md:max-w-full">
+          <div className="text-3xl leading-none text-slate-900">
+            Why Choose Us?
+          </div>
+          {whyChooseUsItems.map((item) => (
+            <FeatureItem
+              key={item.id}
+              id={item.id}
+              title={item.title}
+              description={item.description}
+            />
+          ))}
+        </div>
+      </div>
+      <div className="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full">
+        <div className="flex relative flex-col grow justify-center items-end px-20 py-0.5 min-h-[569px] max-md:px-5 max-md:max-w-full">
+          <img
+            loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/3cf53ee0fa02d92890ad21ecbeb7ab1977a0655d2d4c46bcffcecdffaae0e428?placeholderIfAbsent=true&apiKey=4126fbaca52340fea6ccc661ec39005f"
+            className="object-cover absolute inset-0 size-full"
+            alt="Background decorative image"
+          />
+          <img
+            loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/cd836a660b0603566bed4b93793691c261c6c2006faa7a0244885267aa844168?placeholderIfAbsent=true&apiKey=4126fbaca52340fea6ccc661ec39005f"
+            className="object-contain z-10 mt-0 max-w-full aspect-[0.69] w-[409px]"
+            alt="Feature illustration"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
   );
 };
 

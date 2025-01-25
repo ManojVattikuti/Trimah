@@ -2,157 +2,119 @@ import React from 'react';
 
 const BC3 = () => {
 
+  const consultingServices = [
+    {
+      icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/3326528a9a0122a3a7d00e35f3e454a390e9f62e95b65627d9200aded551d25f?placeholderIfAbsent=true&apiKey=4126fbaca52340fea6ccc661ec39005f",
+     title: "Software Development",
+      description: "Skilled developers for custom applications and system enhancements",
+      variant: "slate"
+    },
+    {
+      icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/3326528a9a0122a3a7d00e35f3e454a390e9f62e95b65627d9200aded551d25f?placeholderIfAbsent=true&apiKey=4126fbaca52340fea6ccc661ec39005f",
+      title: "DevOps",
+      description: "Streamlining operations with CI/CD pipelines and infrastructure automation"
+    },
+    {
+      icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/17491a9d51751686ff7153fc68318953ac60b8c01cf7e5c8da45c68a56584a31?placeholderIfAbsent=true&apiKey=4126fbaca52340fea6ccc661ec39005f",
+      title: "Cloud Solutions",
+      description: "Designing scalable, secure cloud architectures tailored to your needs."
+    },
+    {
+      icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/17491a9d51751686ff7153fc68318953ac60b8c01cf7e5c8da45c68a56584a31?placeholderIfAbsent=true&apiKey=4126fbaca52340fea6ccc661ec39005f",
+      title: "Cybersecurity",
+      description: "Protect your business with advanced security strategies and compliance readiness."
+    },
+    {
+      icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/45ae27862dbcc616563380ec5e8a71f1ebec8242ea204a795972d14efccb6d8c?placeholderIfAbsent=true&apiKey=4126fbaca52340fea6ccc661ec39005f",
+      title: "QAVE (Quality Assurance Validation Engineering)",
+      description: "Expertise in validation processes for highly regulated industries.."
+    }
+  ];
+
+  const ConsultingCard = ({ icon, title, description, variant = "default" }) => {
+    const bgColor = variant === "slate" ? "bg-slate-500" : "bg-white";
+    const textColor = variant === "slate" ? "text-white" : "text-slate-900";
+    const descriptionColor = variant === "slate" ? "text-white" : "text-neutral-700";
+
+    return (
+      <div className={`flex flex-col items-center px-8 py-5 w-full ${bgColor} shadow-[0px_1px_4px_rgba(0,0,0,0.15)] max-md:px-4 max-md:mt-8`}>
+        <div className="flex z-10 flex-col justify-center items-center px-6 mt-0 bg-white rounded-full border-8 border-blue-50 border-solid h-[124px] w-[124px] max-md:px-4">
+          <img
+            loading="lazy"
+            src={icon}
+            alt={`${title} icon`}
+            className="object-contain aspect-square w-[50px]"
+          />
+        </div>
+        <div className={`mt-6 text-xl leading-none text-center ${textColor}`}>
+          {title}
+        </div>
+        <div className={`mt-6 text-base leading-6 text-center ${descriptionColor}`}>
+          {description}
+        </div>
+      </div>
+    );
+  };
 
   return (
-    <section className="w-[1240px] h-[874px]  py-16 ">
-     <div className="w-[1440px] h-[383px] left-0  absolute">
-      <div className="w-[1440px] h-[883px] left-0 top-0 absolute">
-        <div className="w-[1440px] h-[883px] left-0 top-0 absolute bg-[#f0f4fd]" />
-        <div className="w-[584.56px] h-[591.01px] left-[855px] top-0 absolute flex-col justify-center items-center inline-flex overflow-hidden">
-          <div className="w-[584.56px] h-[591.03px] relative">
-          <div
-      className="absolute opacity-50 top-0 right-0 w-full h-full pointer-events-none hidden lg:block"  // Hidden on small screens, visible on large screens
+
+
+  
+    <div className="flex flex-col items-center py-10 px-32 w-full bg-blue-50 max-md:px-4 max-md:max-w-full relative"
+    >
+        <div
+      className="absolute opacity-30 top-0 right-0 w-full h-full pointer-events-none hidden lg:block"  // Hidden on small screens, visible on large screens
       style={{
         backgroundImage: 'url(./bg/Frame.png)',
         backgroundPosition: 'top right',  // Position the image to the top-right corner
-        backgroundSize: 'auto 80%',       // Adjust the height to fit nicely
+        backgroundSize: 'auto 50%',       // Adjust the height to fit nicely
         backgroundRepeat: 'no-repeat',
         filter: 'grayscale(100%)'
       }}
     ></div>
-            <div className="mix-blend-screen w-[357.85px] h-[437.59px] left-[224.96px] top-[56.40px] absolute">
-              
+    <div className="self-end w-full max-w-[1288px] max-md:max-w-full">
+      <div className="flex gap-6 max-md:flex-col">
+        {/* Top section with 3 cards */}
+        <div className="flex flex-col w-full max-md:w-full">
+          <div className="flex flex-col mt-16 max-md:mt-8 max-md:max-w-full">
+            <div className="flex flex-col text-center">
+              <h1 className=" text-3xl font-semibold leading-none text-slate-900">
+                Our Consulting Expertise
+              </h1>
+              <p className="mt-2 text-lg leading-loose text-gray-600 max-md:max-w-full">
+                We specialize in delivering expert consulting services across key IT domains
+              </p>
             </div>
-          </div>
-        </div>
-      </div>
-      <div className="w-[353px] left-[544px] top-[60px] absolute text-center text-[#071c39] text-3xl font-normal font-['Gilroy-Bold'] capitalize leading-10">Our Consulting Expertise</div>
-      <div className="left-[421px] top-[106px] absolute text-center text-[#5a5e6a] text-[17px] font-normal font-['Gilroy-Medium'] capitalize leading-7">We specialize in delivering expert consulting services across key IT domains</div>
-      <div className="w-[356px] h-[269px] left-[152px] top-[168px] absolute">
-        <div className="w-[356px] h-[219px] left-0 top-[50px] absolute bg-[#684fa3]" />
-        <div className="w-[108px] h-[108px] left-[124px] top-0 absolute bg-[#24c79b] rounded-full border-8 border-[#f0f4fd]" />
-        <div className="w-[50px] h-[50px] left-[153px] top-[29px] absolute flex-col justify-start items-start inline-flex overflow-hidden">
-          <div className="w-[50px] h-[50px] relative">
-          <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_507_766)">
-<path d="M24.9999 10.7034C17.1167 10.7034 10.7034 17.1169 10.7034 25C10.7034 32.8831 17.1167 39.2966 24.9999 39.2966C32.8832 39.2966 39.2965 32.8832 39.2965 25C39.2965 17.1168 32.8832 10.7034 24.9999 10.7034ZM13.237 25L18.8517 19.3855L20.9233 21.4571L17.3801 25.0001L20.9234 28.5437L18.8517 30.6151L13.237 25ZM23.2895 32.1343L20.6343 30.8961L26.7105 17.8656L29.3657 19.1038L23.2895 32.1343ZM31.1482 30.6152L29.0766 28.5436L32.6198 25.0006L29.0765 21.457L31.1482 19.3856L36.7629 25.0007L31.1482 30.6152Z" fill="white"/>
-<path d="M48.728 21.716C47.4334 21.5542 46.366 20.6237 46.0291 19.3633C45.6926 18.1042 46.1519 16.7666 47.191 15.98L48.2131 15.2063L45.0881 9.79356L43.903 10.2936C42.7022 10.8002 41.3142 10.5288 40.3926 9.60723C39.471 8.68564 39.1996 7.29766 39.7062 6.09678L40.2062 4.91172L34.7936 1.78672L34.0198 2.80879C33.2332 3.84795 31.8957 4.30732 30.6366 3.9707C29.3762 3.63379 28.4457 2.56641 28.2839 1.27178L28.125 0H21.875L21.716 1.27197C21.5542 2.5666 20.6237 3.63398 19.3633 3.9709C18.1042 4.30742 16.7667 3.84805 15.9801 2.80898L15.2063 1.78691L9.79365 4.91191L10.2937 6.09697C10.8003 7.29775 10.5289 8.68584 9.60732 9.60742C8.68574 10.529 7.29775 10.8004 6.09687 10.2937L4.91182 9.79375L1.78682 15.2064L2.80889 15.9802C3.84805 16.7668 4.30742 18.1043 3.9708 19.3635C3.63389 20.6239 2.5665 21.5544 1.27188 21.7162L0 21.875V28.125L1.27197 28.284C2.5666 28.4458 3.63398 29.3763 3.9709 30.6367C4.30742 31.8958 3.84814 33.2334 2.80898 34.02L1.78691 34.7938L4.91191 40.2064L6.09697 39.7064C7.29775 39.1998 8.68584 39.4712 9.60742 40.3928C10.529 41.3144 10.8004 42.7023 10.2937 43.9032L9.79375 45.0883L15.2064 48.2133L15.9802 47.1912C16.7668 46.1521 18.1043 45.6927 19.3634 46.0293C20.6238 46.3662 21.5543 47.4336 21.7161 48.7282L21.875 50H28.125L28.284 48.728C28.4458 47.4334 29.3763 46.366 30.6367 46.0291C31.8958 45.6926 33.2333 46.152 34.0199 47.191L34.7937 48.2131L40.2063 45.0881L39.7063 43.903C39.1997 42.7022 39.4711 41.3142 40.3927 40.3926C41.3143 39.471 42.7022 39.1996 43.9031 39.7062L45.0882 40.2062L48.2132 34.7936L47.1911 34.0198C46.152 33.2332 45.6926 31.8957 46.0292 30.6365C46.3661 29.3761 47.4335 28.4456 48.7281 28.2838L50 28.125V21.875L48.728 21.716ZM25 42.2263C15.5014 42.2263 7.77373 34.4986 7.77373 25C7.77373 15.5014 15.5014 7.77373 25 7.77373C34.4986 7.77373 42.2263 15.5014 42.2263 25C42.2263 34.4986 34.4986 42.2263 25 42.2263Z" fill="white"/>
-</g>
-<defs>
-<clipPath id="clip0_507_766">
-<rect width="50" height="50" fill="white"/>
-</clipPath>
-</defs>
-</svg>
-
-          </div>
-        </div>
-        <div className="w-[215px] left-[71px] top-[146px] absolute text-white text-xl font-normal font-['Gilroy-SemiBold'] capitalize leading-relaxed">Software Development</div>
-        <div className="w-[294px] left-[31px] top-[176px] absolute text-center text-white text-base font-normal font-['Gilroy-Regular'] leading-relaxed">Skilled developers for custom applications and system<br/>enhancements</div>
-      </div>
-      <div className="w-[356px] h-[270px] left-[542px] top-[168px] absolute">
-        <div className="w-[356px] h-[220px] left-0 top-[50px] absolute bg-white shadow-[0px_1px_4px_0px_rgba(0,0,0,0.15)]" />
-        <div className="w-[108px] h-[108px] left-[124px] top-0 absolute bg-white rounded-full border-8 border-[#f0f4fd]" />
-        <div className="w-[54px] h-[54px] left-[151px] top-[27px] absolute flex-col justify-start items-start inline-flex overflow-hidden">
-          <div className="w-[54px] h-[54px] relative">
-          <svg width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_507_776)">
-<path d="M54 30.87V23.13H48.7818C48.2733 19.8626 47.0439 16.8339 45.2614 14.2115L48.8283 10.6446L43.3554 5.17166L39.8539 8.67312C37.2309 6.79683 34.1773 5.4848 30.8699 4.91284V0H23.1299V4.9506C19.8525 5.55082 16.8303 6.87983 14.2358 8.76298L10.6444 5.17166L5.17145 10.6446L8.86581 14.339C7.12969 16.932 5.93146 19.9155 5.43111 23.1301H0V30.8701H5.59786C6.21664 33.9563 7.48227 36.8086 9.24803 39.2791L5.17155 43.3556L10.6445 48.8286L14.7844 44.6887C17.2527 46.3679 20.0811 47.5563 23.13 48.1146V54H30.87V48.1522C33.9476 47.62 36.8056 46.4468 39.3013 44.7743L43.3554 48.8283L48.8283 43.3554L44.8752 39.4022C46.6875 36.9033 47.9862 34.0079 48.6153 30.87H54ZM27.1003 42.6204C18.342 42.6204 11.2166 35.4938 11.2166 26.7339C11.2166 17.974 18.342 10.8474 27.1003 10.8474C35.8586 10.8474 42.984 17.974 42.984 26.7339C42.984 35.4938 35.8586 42.6204 27.1003 42.6204Z" fill="#684FA3"/>
-<path d="M22.3445 25.2902C21.8878 25.2902 21.4585 25.468 21.1356 25.791C20.8127 26.1139 20.6348 26.5433 20.6348 27C20.6348 27.4567 20.8126 27.886 21.1355 28.209H21.1356C21.4586 28.5319 21.8878 28.7097 22.3445 28.7097C22.8012 28.7097 23.2306 28.5319 23.5534 28.209L24.7625 27L23.5536 25.791C23.2306 25.468 22.8012 25.2902 22.3445 25.2902Z" fill="#684FA3"/>
-<path d="M30.4463 28.209C30.7692 28.5319 31.1986 28.7097 31.6553 28.7097C32.112 28.7097 32.5413 28.5319 32.8642 28.209C33.1871 27.886 33.3649 27.4568 33.3649 27.0001C33.3649 26.5434 33.1871 26.1141 32.8642 25.7911C32.5412 25.4682 32.1119 25.2903 31.6552 25.2903C31.1985 25.2903 30.7691 25.4682 30.4463 25.7911L29.2373 27L30.4463 28.209Z" fill="#684FA3"/>
-<path d="M27.1005 14.0114C20.0868 14.0114 14.3809 19.7186 14.3809 26.7339C14.3809 33.7492 20.0868 39.4564 27.1005 39.4564C34.1142 39.4564 39.8201 33.7492 39.8201 26.7339C39.8201 19.7186 34.1142 14.0114 27.1005 14.0114ZM28.2092 23.5537C29.1297 22.6331 30.3537 22.1262 31.6555 22.1262C32.9573 22.1262 34.1812 22.6332 35.1018 23.5537C36.0223 24.4742 36.5293 25.6981 36.5293 27C36.5293 28.3018 36.0223 29.5258 35.1018 30.4463C34.1812 31.3669 32.9573 31.8738 31.6555 31.8738C30.3537 31.8738 29.1297 31.3668 28.2092 30.4463L27.0002 29.2373L25.7912 30.4463C24.8707 31.3669 23.6467 31.8738 22.3449 31.8738C21.0431 31.8738 19.8191 31.3668 18.8986 30.4463C17.9781 29.5258 17.4711 28.3019 17.4711 27C17.4711 25.6982 17.9781 24.4742 18.8986 23.5537C19.8191 22.6331 21.0431 22.1262 22.3449 22.1262C23.6467 22.1262 24.8707 22.6332 25.7912 23.5537L27.0002 24.7627L28.2092 23.5537Z" fill="#684FA3"/>
-</g>
-<defs>
-<clipPath id="clip0_507_776">
-<rect width="54" height="54" fill="white"/>
-</clipPath>
-</defs>
-</svg>
-
-          </div>
-        </div>
-        <div className="w-[215px] left-[71px] top-[146px] absolute text-center text-[#071c39] text-xl font-normal font-['Gilroy-SemiBold'] capitalize leading-relaxed">DevOps</div>
-        <div className="w-[242px] left-[57px] top-[176px] absolute text-center text-[#383838] text-base font-normal font-['Gilroy-Regular'] leading-relaxed">Streamlining operations with CI/CD pipelines and infrastructure automation</div>
-      </div>
-      <div className="w-[356px] h-[270px] left-[932px] top-[168px] absolute">
-        <div className="w-[356px] h-[220px] left-0 top-[50px] absolute bg-white shadow-[0px_1px_4px_0px_rgba(0,0,0,0.15)]" />
-        <div className="w-[108px] h-[108px] left-[124px] top-0 absolute bg-white rounded-full border-8 border-[#f0f4fd]" />
-        <div className="w-[50px] h-[50px] left-[153px] top-[29px] absolute flex-col justify-start items-start inline-flex overflow-hidden">
-          <div className="w-[49.80px] h-[49.80px] relative">
-          <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_507_788)">
-<path d="M24.9999 14.8271C18.1639 14.8271 12.7361 20.1796 12.6433 27.0126C12.6066 29.7074 13.423 32.2708 14.9694 34.4066C14.9906 34.4332 15.0106 34.4607 15.0291 34.4893C15.405 34.9994 15.8225 35.4849 16.2807 35.9412C17.5712 37.226 18.5569 38.7297 19.2032 40.3653H21.9833V30.4917C21.6045 30.6412 21.1924 30.7242 20.7611 30.7242C18.9187 30.7242 17.4196 29.2252 17.4196 27.3827C17.4196 25.5401 18.9187 24.0411 20.7611 24.0411C22.6036 24.0411 24.1026 25.5401 24.1026 27.3827V40.3652H25.897V27.3826C25.897 25.54 27.396 24.041 29.2385 24.041C31.081 24.041 32.58 25.54 32.58 27.3826C32.58 29.2251 31.081 30.7241 29.2385 30.7241C28.8071 30.7241 28.3951 30.6411 28.0163 30.4916V40.3652H30.8025C31.4486 38.7241 32.4271 37.2185 33.6884 35.9715C34.1578 35.5073 34.5847 35.012 34.9686 34.4909C34.9915 34.4556 35.0161 34.4213 35.0431 34.3891C36.5465 32.3038 37.3577 29.8086 37.3577 27.1848C37.3575 20.3708 31.814 14.8271 24.9999 14.8271Z" fill="#684FA3"/>
-<path d="M30.4609 27.3826C30.4609 26.7087 29.9127 26.1603 29.2388 26.1603C28.5648 26.1603 28.0166 26.7087 28.0166 27.3826C28.0166 28.0565 28.5648 28.6048 29.2388 28.6048C29.9127 28.6049 30.4609 28.0566 30.4609 27.3826Z" fill="#684FA3"/>
-<path d="M20.0867 44.5779H20.8164H29.1833H29.9133C29.941 43.872 30.0276 43.1717 30.1699 42.4846H19.8345C19.9748 43.1691 20.0597 43.8686 20.0867 44.5779Z" fill="#684FA3"/>
-<path d="M21.876 46.7785C21.876 48.501 23.2773 49.9024 24.9998 49.9024C26.7223 49.9024 28.1235 48.501 28.1235 46.7786V46.6974H21.876V46.7785Z" fill="#684FA3"/>
-<path d="M19.5391 27.3826C19.5391 28.0565 20.0873 28.6048 20.7612 28.6048C21.4352 28.6048 21.9834 28.0565 21.9834 27.3826C21.9834 26.7087 21.4352 26.1603 20.7612 26.1603C20.0873 26.1603 19.5391 26.7087 19.5391 27.3826Z" fill="#684FA3"/>
-<path d="M38.7653 8.67305C38.3387 8.62031 37.9862 8.31494 37.873 7.9002C36.6203 3.30615 32.4161 0.0976562 27.6491 0.0976562C23.9398 0.0976562 20.4513 2.0792 18.5448 5.26885C18.2969 5.68369 17.7994 5.87812 17.3358 5.7417C16.5569 5.5123 15.7485 5.396 14.933 5.396C10.021 5.396 6.04092 9.60898 6.49062 14.6448C6.53125 15.1003 6.2752 15.5306 5.85537 15.7119C2.35771 17.2229 0.0976562 20.6607 0.0976562 24.4701C0.0976562 29.7288 4.37598 34.0071 9.63467 34.0071H12.2227C11.0802 31.8761 10.4903 29.4779 10.5242 26.9837C10.6322 19.0436 17.0546 12.7077 25 12.7077C32.9826 12.7077 39.4771 19.2021 39.4771 27.1848C39.4771 29.6005 38.89 31.923 37.7841 33.9927C44.5192 33.6795 49.9023 28.1024 49.9023 21.2911C49.9023 14.8831 45.1145 9.4585 38.7653 8.67305Z" fill="#684FA3"/>
-</g>
-<defs>
-<clipPath id="clip0_507_788">
-<rect width="50" height="50" fill="white"/>
-</clipPath>
-</defs>
-</svg>
-
-          </div>
-        </div>
-        <div className="w-[215px] left-[71px] top-[146px] absolute text-center text-[#071c39] text-xl font-normal font-['Gilroy-SemiBold'] capitalize leading-relaxed">Cloud Solutions</div>
-        <div className="w-[242px] left-[57px] top-[176px] absolute text-center text-[#383838] text-base font-normal font-['Gilroy-Regular'] leading-relaxed">Designing scalable, secure cloud architectures tailored to your needs.</div>
-      </div>
-      <div className="w-[356px] h-[293px] left-[347px] top-[468px] absolute">
-        <div className="w-[356px] h-[243px] left-0 top-[50px] absolute bg-white shadow-[0px_1px_4px_0px_rgba(0,0,0,0.15)]" />
-        <div className="w-[108px] h-[108px] left-[124px] top-0 absolute bg-white rounded-full border-8 border-[#f0f4fd]" />
-        <div className="w-[50px] h-[50px] left-[153px] top-[29px] absolute flex-col justify-start items-start inline-flex overflow-hidden">
-          <div className="w-[50px] h-[47.17px] relative">
-          <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_507_804)">
-<path d="M42.3721 24.6914H48.5352C49.3438 24.6914 50 24.0361 50 23.2266C50 22.418 49.3438 21.7617 48.5352 21.7617H42.9541C43.6562 17.3359 43.3301 14.3428 43.3115 14.1816C43.2451 13.6025 42.8418 13.1182 42.2852 12.9482C40.0596 12.2666 38.1201 11.5752 36.4326 10.8975V7.27637H41.4629C42.0674 8.98145 43.6963 10.2061 45.6055 10.2061C48.0283 10.2061 50 8.23438 50 5.81152C50 3.3877 48.0283 1.41699 45.6055 1.41699C43.6963 1.41699 42.0674 2.6416 41.4629 4.34668H34.9678C34.1582 4.34668 33.5029 5.00195 33.5029 5.81152V9.62305C28.0732 7.05957 26.2734 4.95703 26.165 4.82617C25.5798 4.021 24.4207 4.02031 23.835 4.82617C23.7266 4.95703 21.9268 7.05957 16.4971 9.62305V5.81152C16.4971 5.00195 15.8418 4.34668 15.0322 4.34668H8.53711C7.93262 2.6416 6.30371 1.41699 4.39453 1.41699C1.97168 1.41699 0 3.3877 0 5.81152C0 8.23438 1.97168 10.2061 4.39453 10.2061C6.30371 10.2061 7.93262 8.98145 8.53711 7.27637H13.5674V10.8975C11.8799 11.5752 9.94043 12.2666 7.71484 12.9482C7.1582 13.1182 6.75488 13.6025 6.68848 14.1816C6.66992 14.3428 6.34375 17.3359 7.0459 21.7617H1.46484C0.65625 21.7617 0 22.418 0 23.2266C0 24.0361 0.65625 24.6914 1.46484 24.6914H7.62793C7.94795 26.0241 8.32197 27.3051 8.82031 28.7002H4.7959C3.9873 28.7002 3.33105 29.3555 3.33105 30.165C3.33105 30.9736 3.9873 31.6299 4.7959 31.6299H10.002C11.2731 34.4406 12.8201 36.9812 14.6514 39.3516H8.53711C7.93262 37.6465 6.30371 36.4219 4.39453 36.4219C1.97168 36.4219 0 38.3936 0 40.8164C0 43.2393 1.97168 45.2109 4.39453 45.2109C6.30371 45.2109 7.93262 43.9863 8.53711 42.2812H17.1494C19.2129 44.4814 21.5557 46.502 24.1621 48.3193C24.6661 48.6709 25.334 48.6709 25.8379 48.3193C28.4443 46.502 30.7871 44.4814 32.8506 42.2812H41.4629C42.0674 43.9863 43.6963 45.2109 45.6055 45.2109C48.0283 45.2109 50 43.2393 50 40.8164C50 38.3936 48.0283 36.4219 45.6055 36.4219C43.6963 36.4219 42.0674 37.6465 41.4629 39.3516H35.3486C37.1755 36.9868 38.7239 34.4471 39.998 31.6299H45.2041C46.0127 31.6299 46.6689 30.9736 46.6689 30.165C46.6689 29.3555 46.0127 28.7002 45.2041 28.7002H41.1797C41.6774 27.3067 42.0516 26.0258 42.3721 24.6914ZM33.0605 32.1953C33.0605 33.668 31.8633 34.8652 30.3906 34.8652H19.6094C18.1367 34.8652 16.9395 33.668 16.9395 32.1953V23.8066C16.9395 22.6426 17.6875 21.6514 18.7285 21.2861V20.333C18.7285 16.875 21.542 14.0615 25 14.0615C28.458 14.0615 31.2715 16.875 31.2715 20.333V21.2861C32.3125 21.6514 33.0605 22.6426 33.0605 23.8066V32.1953Z" fill="#684FA3"/>
-<path d="M19.8691 24.0664V31.9355H30.1309V24.0664H19.8691ZM26.4648 28.5176C26.4648 29.3271 25.8086 29.9824 25 29.9824C24.1914 29.9824 23.5352 29.3271 23.5352 28.5176V27.4844C23.5352 26.6748 24.1914 26.0195 25 26.0195C25.8086 26.0195 26.4648 26.6748 26.4648 27.4844V28.5176Z" fill="#684FA3"/>
-<path d="M28.3418 20.333V21.1367H21.6582V20.333C21.6582 18.4902 23.1572 16.9912 25 16.9912C26.8428 16.9912 28.3418 18.4902 28.3418 20.333Z" fill="#684FA3"/>
-</g>
-<defs>
-<clipPath id="clip0_507_804">
-<rect width="50" height="50" fill="white"/>
-</clipPath>
-</defs>
-</svg>
-
-          </div>
-        </div>
-        <div className="w-[215px] left-[71px] top-[146px] absolute text-center text-[#071c39] text-xl font-normal font-['Gilroy-SemiBold'] capitalize leading-relaxed">Cybersecurity</div>
-        <div className="w-[242px] left-[57px] top-[176px] absolute text-center text-[#383838] text-base font-normal font-['Gilroy-Regular'] leading-relaxed">Protect your business with advanced security strategies and compliance readiness.</div>
-      </div>
-      <div className="w-[356px] h-[293px] left-[737px] top-[468px] absolute">
-        <div className="w-[356px] h-[243px] left-0 top-[50px] absolute bg-white shadow-[0px_1px_4px_0px_rgba(0,0,0,0.15)]" />
-        <div className="w-[108px] h-[108px] left-[124px] top-0 absolute bg-white rounded-full border-8 border-[#f0f4fd]" />
-        <div className="w-[50px] h-[50px] left-[153px] top-[29px] absolute flex-col justify-start items-start inline-flex overflow-hidden">
-          <div className="w-[50px] h-[49.80px] relative">
-          <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_507_815)">
-<path d="M39.2578 41.6016C37.6218 41.6016 36.2184 42.6129 35.6376 44.043H32.2266V46.9727H35.6376C36.2184 48.4027 37.6218 49.4141 39.2578 49.4141C41.4117 49.4141 43.1641 47.6617 43.1641 45.5078C43.1641 43.3539 41.4117 41.6016 39.2578 41.6016Z" fill="#684FA3"/>
-<path d="M46.0938 33.3008C45.4517 33.3008 44.8459 33.4574 44.3109 33.7331L40.6839 30.7105C40.4206 30.4912 40.0888 30.3711 39.7461 30.3711H32.2266V33.3008H39.2157L42.3959 35.951C42.2615 36.3454 42.1875 36.7676 42.1875 37.207C42.1875 39.3609 43.9398 41.1133 46.0938 41.1133C48.2477 41.1133 50 39.3609 50 37.207C50 35.0531 48.2477 33.3008 46.0938 33.3008Z" fill="#684FA3"/>
-<path d="M46.0938 21.0938C44.4577 21.0938 43.0543 22.1051 42.4735 23.5352H32.2266V26.4648H42.4735C43.0543 27.8949 44.4577 28.9062 46.0938 28.9062C48.2477 28.9062 50 27.1539 50 25C50 22.8461 48.2477 21.0938 46.0938 21.0938Z" fill="#684FA3"/>
-<path d="M40.6839 19.2894L44.3109 16.2668C44.8459 16.5426 45.4517 16.6992 46.0938 16.6992C48.2477 16.6992 50 14.9469 50 12.793C50 10.6391 48.2477 8.88672 46.0938 8.88672C43.9398 8.88672 42.1875 10.6391 42.1875 12.793C42.1875 13.2324 42.2615 13.6546 42.3959 14.049L39.2157 16.6992H32.2266V19.6289H39.7461C40.0888 19.6289 40.4206 19.5088 40.6839 19.2894Z" fill="#684FA3"/>
-<path d="M39.2578 8.39844C41.4117 8.39844 43.1641 6.64609 43.1641 4.49219C43.1641 2.33828 41.4117 0.585938 39.2578 0.585938C37.6218 0.585938 36.2184 1.59727 35.6376 3.02734H32.2266V5.95703H35.6376C36.2184 7.38711 37.6218 8.39844 39.2578 8.39844Z" fill="#684FA3"/>
-<path d="M14.6484 25C14.6484 30.654 19.2483 35.2539 24.9023 35.2539C26.4741 35.2539 27.9642 34.898 29.2969 34.2632V15.7368C27.9642 15.1021 26.4741 14.7461 24.9023 14.7461C19.2483 14.7461 14.6484 19.346 14.6484 25Z" fill="#684FA3"/>
-<path d="M27.832 0.0976562H21.9727C21.1637 0.0976562 20.5078 0.753516 20.5078 1.5625V3.46924C17.7591 4.0292 15.1286 5.11895 12.7855 6.66836L11.4369 5.31982C10.8648 4.74775 9.9374 4.74775 9.36533 5.31982L5.22217 9.46299C4.6501 10.035 4.6501 10.9625 5.22217 11.5346L6.5707 12.8832C5.02129 15.2263 3.93154 17.8567 3.37158 20.6055H1.46484C0.655859 20.6055 0 21.2613 0 22.0703V27.9297C0 28.7387 0.655859 29.3945 1.46484 29.3945H3.37158C3.93154 32.1433 5.02129 34.7737 6.5707 37.1169L5.22207 38.4655C4.94736 38.7402 4.79307 39.1128 4.79307 39.5013C4.79307 39.8897 4.94736 40.2622 5.22207 40.5369L9.36533 44.6802C9.9374 45.2522 10.8648 45.2522 11.4369 44.6802L12.7855 43.3316C15.1286 44.8811 17.7591 45.9707 20.5078 46.5308V48.4375C20.5078 49.2465 21.1637 49.9023 21.9727 49.9023H27.832C28.641 49.9023 29.2969 49.2465 29.2969 48.4375V37.4295C27.9217 37.9172 26.4427 38.1836 24.9023 38.1836C17.6329 38.1836 11.7188 32.2694 11.7188 25C11.7188 17.7306 17.6329 11.8164 24.9023 11.8164C26.4427 11.8164 27.9217 12.0828 29.2969 12.5705V1.5625C29.2969 0.753516 28.641 0.0976562 27.832 0.0976562Z" fill="#684FA3"/>
-</g>
-<defs>
-<clipPath id="clip0_507_815">
-<rect width="50" height="50" fill="white"/>
-</clipPath>
-</defs>
-</svg>
-
+            <div className="mt-16 max-w-full w-full max-md:mt-8">
+              {/* 3 cards on top */}
+              <div className="flex gap-6 max-md:flex-col">
+                {consultingServices.slice(0, 3).map((service, index) => (
+                  <div key={index} className="flex flex-col w-1/3 max-md:w-full">
+                    <ConsultingCard {...service} />
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
           
         </div>
-        <div className="w-[334px] left-[11px] top-[142px] absolute text-center text-[#071c39] text-xl font-normal font-['Gilroy-SemiBold'] capitalize leading-relaxed">QAVE (Quality Assurance Validation Engineering)</div>
-        <div className="w-[261px] left-[54px] top-[201px] absolute text-center text-[#383838] text-base font-normal font-['Gilroy-Regular'] leading-relaxed">Expertise in validation processes for highly regulated industries like life sciences and healthcare</div>
       </div>
-      <div className="w-[301px] h-14 left-[579px] top-[791px] absolute">
-      <div className="flex justify-center lg:justify-start">
+    </div>
+    
+    {/* Bottom section with 2 cards */}
+    <div className="max-w-full w-[746px] mt-8">
+      
+      <div className="flex gap-8  max-md:flex-col">
+        {consultingServices.slice(3, 5).map((service, index) => (
+          <div key={index} className="flex flex-col w-1/2  max-md:w-full">
+            <ConsultingCard {...service} />
+          </div>
+        ))}
+        
+      </div>
+      
+    </div>
+    <div className="flex justify-center lg:justify-start mt-8">
         <button className="relative overflow-hidden px-4 py-2 md:px-6 md:py-3 rounded-full bg-[#6fd1ab] text-black text-[15px] font-semibold font-['Maven Pro'] group">
             <span className="relative z-10 group-hover:text-white transition-colors duration-300 ease-in-out">
               Explore Our Industry Solutions →
@@ -160,9 +122,12 @@ const BC3 = () => {
             <div className="absolute top-0 left-0 w-full h-full bg-[#684fa3]  rounded-full transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-in-out"></div>
           </button>
         </div>
-      </div>
-    </div>
-    </section>
+
+
+
+        </div>
+
+  
   );
 };
 

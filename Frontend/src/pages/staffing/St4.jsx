@@ -1,18 +1,22 @@
 export const St4=()=>{
     return(
         <div className="w-[1440px] h-[826px]">
+          
      <div className="w-[963.04px] h-[1103.33px] left-[238px] top-[2805px] absolute">
       <div className="w-[409px] left-[277px] top-0 absolute text-[#071c39] text-3xl font-normal font-['Gilroy-Bold'] capitalize leading-10">Staffing Engagement Process</div>
       <div className="left-[164px] top-[48px] absolute text-center"><span class="text-[#5a5e6a] text-lg font-normal font-['Gilroy-Medium'] capitalize leading-[29.16px]">Our step-by-step process ensures seamless hiring </span><span class="text-[#5a5e6a] text-lg font-normal font-['Gilroy-Medium'] lowercase leading-[29.16px]">and</span><span class="text-[#5a5e6a] text-lg font-normal font-['Gilroy-Medium'] capitalize leading-[29.16px]"> successful outcomes</span></div>
       <div className="w-[963.04px] h-[986.33px] left-0 top-[117px] absolute">
+        
         <div className="w-[880.18px] h-[197.32px] left-0 top-0 absolute">
           <div className="w-[338px] h-[136px] left-0 top-[31px] absolute">
             <div className="left-0 top-0 absolute text-[#9467ff] text-xl font-normal font-['Gilroy-SemiBold'] capitalize leading-relaxed">Needs Analysis</div>
             <div className="w-[338px] h-[50px] left-0 top-[31px] absolute">
+              
               <div className="w-[314px] left-[24px] top-0 absolute text-[#383838] text-base font-normal font-['Gilroy-Medium'] leading-relaxed">Collaborate to identify your staffing needs and project goals</div>
               <div className="w-4 h-4 left-0 top-[3px] absolute flex-col justify-start items-start inline-flex overflow-hidden" />
             </div>
             <div className="w-[338px] h-[50px] left-0 top-[86px] absolute">
+              
               <div className="w-[314px] left-[24px] top-0 absolute text-[#383838] text-base font-normal font-['Gilroy-Medium'] leading-relaxed">Understand required skills, timeline, and budget constraints</div>
               <div className="w-4 h-4 left-0 top-[3px] absolute flex-col justify-start items-start inline-flex overflow-hidden" />
             </div>

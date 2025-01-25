@@ -17,7 +17,7 @@ const Header = () => {
 
   useEffect(() => {
     // Listen for clicks outside of the dropdown
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('mouseup', handleClickOutside);
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };

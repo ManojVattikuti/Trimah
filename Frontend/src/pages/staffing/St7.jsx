@@ -1,34 +1,42 @@
 export const St7 = ()=>{
     return(
       
-        <div className="w-[1440px] h-[27px] left-0 top-[5006px] absolute">
-      <div className="w-[1440px] h-[257px] left-0 top-0 absolute">
-        <div className="w-[1088.41px] h-[196.04px] left-[56.86px] top-[251px] absolute">
+      <div className="flex relative flex-col justify-center items-center self-stretch px-20 py-24 mt-9 w-full text-base min-h-[377px] max-md:px-5 max-md:max-w-full">
+      <img
+        loading="lazy"
+        src="https://cdn.builder.io/api/v1/image/assets/TEMP/85e491ba78476807e8c81ecf599c3b2d3b25b3d0d3503cdfb76bbefd9534c014?placeholderIfAbsent=true&apiKey=4126fbaca52340fea6ccc661ec39005f"
+        alt=""
+        className="object-cover absolute inset-0 size-full"
+      />
+      <div className="flex relative flex-col items-center max-w-full w-[616px]">
+        <div className="px-5 py-1.5 w-44 max-w-full leading-none text-emerald-400 uppercase rounded-2xl bg-emerald-400 bg-opacity-20">
+          WANT TO REACH US
         </div>
-        <div className="w-[242.37px] h-[228.23px] left-[1318.81px] top-[228.26px] absolute">
+        <div className="self-stretch mt-2.5 text-3xl leading-10 text-center text-black max-md:max-w-full">
+          Let Trimah Technologies connect{" "}
+          <span className="lowercase">you with the </span>right talent{" "}
+          <span className="lowercase">to</span>{" "}
+          <span className="text-slate-500">drive </span>
+          <span className="lowercase text-slate-500">your</span>
+          <span className="text-slate-500"> success </span>
         </div>
-        <div className="opacity-70 w-[1173.80px] h-[311.11px] left-[183.13px] top-[31px] absolute">
-        </div>
-        <div className="opacity-70 w-[124.31px] h-[82.36px] left-[165.09px] top-[46.20px] absolute">
-        </div>
+        <div className="flex gap-4 mt-5 max-w-full font-semibold w-[463px]">
+        <div className="flex justify-center lg:justify-start">
+      <button className="relative overflow-hidden px-4 py-2 md:px-6 md:py-3 rounded-full bg-[#6fd1ab] text-black text-[15px] font-semibold font-['Maven Pro'] group">
+          <span className="relative z-10 group-hover:text-white transition-colors duration-300 ease-in-out">
+            Schedule a Consultation →
+          </span>
+          <div className="absolute top-0 left-0 w-full h-full bg-[#684fa3]  rounded-full transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-in-out"></div>
+        </button>
       </div>
-      <div className="w-[625px] h-[191px] left-[408px] top-[93px] absolute">
-        <div className="w-[625px] left-0 top-[42px] absolute text-center"><span class="text-black text-[32px] font-normal font-['Gilroy-SemiBold'] capitalize leading-[42.24px]">Let Trimah Technologies connect </span><span class="text-black text-[32px] font-normal font-['Gilroy-SemiBold'] lowercase leading-[42.24px]">you with the </span><span class="text-black text-[32px] font-normal font-['Gilroy-SemiBold'] capitalize leading-[42.24px]">right talent </span><span class="text-black text-[32px] font-normal font-['Gilroy-SemiBold'] lowercase leading-[42.24px]">to</span><span class="text-black text-[32px] font-normal font-['Gilroy-SemiBold'] capitalize leading-[42.24px]"> </span><span class="text-[#684fa3] text-[32px] font-normal font-['Gilroy-Bold'] capitalize leading-[42.24px]">drive </span><span class="text-[#684fa3] text-[32px] font-normal font-['Gilroy-Bold'] lowercase leading-[42.24px]">your</span><span class="text-[#684fa3] text-[32px] font-normal font-['Gilroy-Bold'] capitalize leading-[42.24px]"> success </span></div>
-        <div className="w-[463px] h-[46px] left-[81px] top-[145px] absolute">
-          <div className="w-[243px] h-[46px] left-0 top-0 absolute">
-            <div className="w-[243px] h-[46px] left-0 top-0 absolute bg-[#6fd1ab] rounded-[87px] shadow-[inset_0px_0px_4px_2px_rgba(0,0,0,0.25)]" />
-            <div className="left-[25px] top-[14px] absolute text-black text-[15px] font-semibold font-['Maven Pro']">Schedule a Consultation</div>
-          </div>
-          <div className="w-[204px] h-[46px] left-[259px] top-0 absolute">
-            <div className="w-[204px] h-[46px] left-0 top-0 absolute bg-[#684fa3] rounded-[87px] shadow-[inset_0px_0px_4px_2px_rgba(0,0,0,0.25)]" />
-            <div className="w-[130.50px] h-[18px] left-[37px] top-[14px] absolute">
-              <div className="left-0 top-0 absolute text-white text-[15px] font-semibold font-['Maven Pro']">Request Talent</div>
-            </div>
-          </div>
-        </div>
-        <div className="w-44 h-8 left-[225px] top-0 absolute">
-          <div className="w-44 h-8 left-0 top-0 absolute bg-[#24c79b]/20 rounded-[14px]" />
-          <div className="w-[140px] left-[18px] top-[7px] absolute text-[#24c79b] text-[15px] font-normal font-['Gilroy-SemiBold'] uppercase leading-tight">WANT TO REACH US</div>
+                      <div className="flex justify-center lg:justify-start">
+      <button className="relative overflow-hidden px-4 py-2 md:px-6 md:py-3 rounded-full bg-[#6fd1ab] text-black text-[15px] font-semibold font-['Maven Pro'] group">
+          <span className="relative z-10 group-hover:text-white transition-colors duration-300 ease-in-out">
+            Contact us Now →
+          </span>
+          <div className="absolute top-0 left-0 w-full h-full bg-[#684fa3]  rounded-full transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-in-out"></div>
+        </button>
+      </div>
         </div>
       </div>
     </div>
