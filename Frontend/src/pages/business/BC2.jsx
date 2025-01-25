@@ -2,17 +2,19 @@ import React from 'react';
 
 const BC2 = () => {
   return (
-    <section className="w-full py-16 px-6 lg:px-32">
-      <div className="w-full max-w-screen-xl mx-auto relative">
+    <section className="w-fit py-8 lg:px-32">
+      <div className="w-full max-w-full mx-auto relative">
         
         {/* Background Sections */}
-        <div className="absolute w-[803.30px] h-[568.62px] top-[25px] left-[50%] transform -translate-x-1/2 flex-col justify-start items-start overflow-hidden">
+        <div className="absolute w-[80vw] h-[60vh] top-[25px] left-[50%] transform -translate-x-1/2 flex-col justify-start items-start overflow-hidden">
           <div className="w-full pt-[38.08px] origin-top-left rotate-180 justify-center items-center inline-flex overflow-hidden">
-            <div className="opacity-40 w-full h-[419.65px] relative"></div>
+            <div className="opacity-40 w-full h-[419.65px] relative">
+              
+            </div>
           </div>
         </div>
         
-        <div className="absolute w-[666.30px] h-[448.17px] top-0 left-[50%] transform -translate-x-1/2 opacity-50"></div>
+        <div className="absolute w-[80vw] h-[60vh] top-0 left-[50%] transform -translate-x-1/2 opacity-50"></div>
 
         {/* Text Content Section */}
         <div className="relative z-10">
@@ -72,11 +74,11 @@ const BC2 = () => {
 
         {/* Image Section (Hidden on Small Screens) */}
         <div className="absolute top-0 right-0 w-full lg:w-[409.10px] h-[570px] hidden lg:block">
-          <div className="relative z-10">
+          <div className="relative z-10 left-[280px]">
             <img className="w-full h-full mb-16 object-cover" src="./bsuiness/bc2/img1.png" alt="Placeholder Image" />
           </div>
 
-          <svg className="absolute top-[158px] left-[-180px] w-[60vh] h-[60vh] z-0 hidden lg:block" width="782" height="810" viewBox="0 0 682 510" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg className="absolute top-[118px] left-[-42px] w-[60vw] h-[60vh] z-0 hidden lg:block" width="782" height="810" viewBox="0 0 682 510" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M790.676 24.4041C747.612 -1.1806 674.22 -16.233 592.344 28.8575C550.661 51.8592 514.165 82.0754 382.39 47.584C304.723 27.2543 254.132 33.1772 203.275 64.0169C139.836 102.45 119.796 168.248 113.695 229.727C110.466 262.259 117.012 298.755 98.9986 325.03C85.3935 344.914 69.2277 342.531 36.05 362.572C-24.0707 398.822 -11.6235 508.643 93.3205 508.643C123.47 508.643 716.794 510.691 783.217 508.643L790.676 24.4041Z" fill="#ECE9FF"/>
           </svg>
         </div>

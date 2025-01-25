@@ -1,11 +1,27 @@
 import { NavLink, useNavigate } from "react-router-dom";
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState, useEffect, useRef } from "react";
 import { mainContext } from "../context/mainContex";
 import { FaBars, FaTimes } from "react-icons/fa"; // Import menu icons
 import {Dropdown} from "./DropDown";
 const Header = () => {
   const { user, setToken, signOut } = useContext(mainContext); // Include signOut for logout
   const navigate = useNavigate();
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+  const handleClickOutside = (e) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+      setIsDropdownOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    // Listen for clicks outside of the dropdown
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -83,20 +99,26 @@ const Header = () => {
               ABOUT US
             </NavLink>
             <div className="relative group">
-  <NavLink
-    to="/business"
-    className={({ isActive }) =>
-      `text-white text-[15px] font-semibold ${
-        isActive ? "text-green-500 text-[#6fd1ab]" : "hover:text-green-300"
-      } font-openSans transition-colors duration-300`
-    }
-  >
-    BUSINESS
-  </NavLink>
-  <div className="absolute top-full left-0 hidden group-hover:block">
-    <Dropdown />
-  </div>
-</div>
+      <NavLink
+        to="/business"
+        className={({ isActive }) =>
+          `text-white text-[15px] font-semibold ${
+            isActive ? "text-green-500 text-[#6fd1ab]" : "hover:text-green-300"
+          } font-openSans transition-colors duration-300`
+        }
+        onClick={() => setIsDropdownOpen((prev) => !prev)} // Toggle dropdown visibility on click
+      >
+        BUSINESS
+      </NavLink>
+      {isDropdownOpen && (
+        <div
+          className="absolute top-full left-0"
+          ref={dropdownRef}
+        >
+          <Dropdown />
+        </div>
+      )}
+    </div>
 
             <NavLink
               to="/career"

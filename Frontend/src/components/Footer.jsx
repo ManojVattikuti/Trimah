@@ -4,16 +4,19 @@ import { FiArrowRight } from "react-icons/fi";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#684fa3]  text-white py-8"
-    style={{
-      backgroundImage: 'url(./Framef.png)',
-      backgroundPosition: 'bottom right',  // Position the image to the top-right corner
-      backgroundSize: 'auto 80%',       // Adjust the height to fit nicely
-      backgroundRepeat: 'no-repeat',
-      
-    }}>
+    <footer className="bg-[#684fa3]  text-white py-8 relative"
+  >
      
-     
+     <div
+      className="absolute opacity-50 top-0 right-0 w-full h-full pointer-events-none hidden lg:block"  // Hidden on small screens, visible on large screens
+      style={{
+        backgroundImage: 'url(./Framef.png)',
+        backgroundPosition: 'top right',  // Position the image to the top-right corner
+        backgroundSize: 'auto 80%',       // Adjust the height to fit nicely
+        backgroundRepeat: 'no-repeat',
+        filter: 'grayscale(100%)'
+      }}
+    ></div>
   
       <div className="container mx-auto">
         {/* First Section - Heading and Description */}
