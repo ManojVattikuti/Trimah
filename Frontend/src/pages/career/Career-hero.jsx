@@ -5,7 +5,7 @@ const CareerHero = () => {
   return (
     <div className="relative h-[550px]">
       {/* Background Image Section */}
-      <div className="absolute w-full h-full top-0 left-0 bg-[url(./about/hero-about.jpeg)] bg-cover bg-center">
+      <div className="absolute w-full h-full top-0 left-0 bg-[url(./public/about/hero-about.jpeg)] bg-cover bg-center">
         <div className="h-full bg-[#000000b2]" />
       </div>
 
