@@ -1,6 +1,11 @@
 import { FiArrowRight } from "react-icons/fi";
+import SplitText from "./splittext";
 
 const Hero = () => {
+  const handleAnimationComplete = () => {
+    console.log("Title animation completed!");
+  };
+  
   return (
     <div className="relative w-full h-screen overflow-hidden">
       {/* Background Video */}
@@ -35,10 +40,20 @@ const Hero = () => {
         </div>
 
         {/* Heading */}
-        <h1 className="text-4xl sm:text-5xl lg:text-5xl font-bold  font-extrabold leading-tight">Your
-          <span className="text-green-400 font-bold  font-extrabold"> Success</span> Our Integrity <br />
-          IT Talent & Consulting, Redefined
-        </h1>
+        <div className="text-center ml-4">
+        <SplitText
+          text="Your Success , Our Integrity IT Talent & Consulting,Redefined
+        "
+          className="text-4xl sm:text-5xl lg:text-5xl font-extrabold leading-tight"
+          delay={50}
+          animationFrom={{ opacity: 0, transform: 'translate3d(0,20px,0)' }}
+          animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
+          threshold={0.1}
+          rootMargin="-200px"
+          textAlign="center"
+          onLetterAnimationComplete={handleAnimationComplete}
+        />
+        </div>
         {/* Subheading */}
         <p className="text-sm sm:text-2xl lg:text-xl text-gray-200 font-abel sm:px-40">
           Empowering Financial, Healthcare, Life Sciences Industries and <br /> Beyond

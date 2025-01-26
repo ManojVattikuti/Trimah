@@ -54,7 +54,7 @@ const Header = () => {
     <header
       className={`${
         isVisible ? "translate-y-0" : "-translate-y-full"
-      } fixed z-50 top-0 left-0 w-full py-4 transition-transform duration-300`}
+      } fixed z-50 top-0 left-0 w-full py-2 transition-transform duration-300`}
     >
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 border-b border-gray-600">
         <div className="flex items-center justify-between h-16">
@@ -64,7 +64,7 @@ const Header = () => {
               <img
                 src="/TRIMAH - logos/TRIMAH-reversed-all-white-logo.png"
                 alt="TrimahTech Logo"
-                className="h-12 w-auto absolute left-[30.33px] top-0"
+                className="h-12 w-auto absolute left-[20.33px] top-0"
               />
             </div>
           </NavLink>
@@ -144,16 +144,13 @@ const Header = () => {
 
           {/* Desktop "Find Talent" Button */}
           <div className="hidden lg:flex items-center space-x-4">
-            <button className="w-[151px] h-[46px] bg-[#6fd1ab] rounded-[44px]">
-              <div>
-                <span className="text-black text-[15px] font-semibold font-['Maven Pro'] capitalize">
-                  F
-                </span>
-                <span className="text-black text-[15px] font-semibold font-['Maven Pro'] lowercase">IND</span>
-                <span className="text-black text-[15px] font-semibold font-['Maven Pro'] capitalize"> T</span>
-                <span className="text-black text-[15px] font-semibold font-['Maven Pro'] lowercase">ALENT</span>
-              </div>
-            </button>
+            
+  <button className="relative overflow-hidden sm:px-4 sm:py-2 rounded-full bg-[#6fd1ab] text-black text-sm sm:text-lg lg:text-lg font-medium group">
+    <span className="relative z-10 group-hover:text-white transition-colors duration-300 ease-in-out">
+      Find Your Talent
+    </span>
+    <div className="absolute top-0 left-0 w-full h-full bg-[#684fa3] rounded-full transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-in-out"></div>
+  </button>
           </div>
         </div>
       </div>
@@ -182,7 +179,7 @@ const Header = () => {
     ABOUT US
   </NavLink>
   <NavLink
-    to="/service"
+    to="/business"
     className="text-white text-[18px] font-semibold"
     onClick={() => setMenuOpen(false)}
   >
@@ -217,18 +214,15 @@ const Header = () => {
     CONTACT US
   </NavLink>
 
-  {/* "Find Talent" Button inside Sidebar */}
-  <button className="w-[151px] h-[46px] bg-[#6fd1ab] rounded-[44px] text-black">
-    <div>
-      <span className="text-black text-[15px] font-semibold font-['Maven Pro'] capitalize">
-        F
-      </span>
-      <span className="text-black text-[15px] font-semibold font-['Maven Pro'] lowercase">IND</span>
-      <span className="text-black text-[15px] font-semibold font-['Maven Pro'] capitalize"> T</span>
-      <span className="text-black text-[15px] font-semibold font-['Maven Pro'] lowercase">ALENT</span>
-    </div>
+ 
+  <button className="relative overflow-hidden px-4 py-2 sm:px-6 sm:py-3 rounded-full bg-[#6fd1ab] text-black text-sm sm:text-lg lg:text-xl font-medium group">
+    <span className="relative z-10 group-hover:text-white transition-colors duration-300 ease-in-out">
+      Find Your talent →
+    </span>
+    <div className="absolute top-0 left-0 w-full h-full bg-[#684fa3] rounded-full transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-in-out"></div>
   </button>
 </div>
+
 
     </header>
   );
