@@ -4,10 +4,14 @@ const ContactHero = () => {
   return (
     <div className="relative h-[550px]">
       {/* Background Image Section */}
-      <div className="absolute w-full h-full top-0 left-0 bg-[url(./about/hero-about.jpeg)] bg-cover bg-center">
-        <div className="h-full bg-[#000000b2]" />
-      </div>
-
+      <div className="relative w-full h-full">
+  <img 
+    src="./about/hero-about.jpeg" 
+    alt="Hero" 
+    className="absolute w-full h-full object-cover object-center top-0 left-0" 
+  />
+  <div className="absolute w-full h-full top-0 left-0 bg-black opacity-80" />
+</div>
       {/* Text Section */}
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
         {/* Main Heading */}
