@@ -161,6 +161,77 @@ const Inquiries = async (req, res) => {
 
 
 
+// const { Storage } = require('@google-cloud/storage');
+// const path = require('path');
+
+// // Initialize GCP Storage
+// const storage = new Storage({
+//   keyFilename: path.join(__dirname, './path-to-your-service-account.json'), // Path to your service account JSON key
+//   projectId: 'your-project-id', // Replace with your GCP project ID
+// });
+
+// const bucketName = 'your-bucket-name'; // Replace with your bucket name
+// const bucket = storage.bucket(bucketName);
+
+// const apply = async (req, res) => {
+//   try {
+//     const { name, email, position, coverLetter } = req.body;
+//     const cv = req.file; // The CV file will be in req.file
+
+//     // Validation: Ensure required fields and files are provided
+//     if (!name || !email || !position || !cv || !coverLetter) {
+//       return res.status(400).json({ success: false, message: "All fields are required, including CV and Cover Letter." });
+//     }
+
+//     // Create a unique file name for the CV
+//     const fileName = `${Date.now()}-${cv.originalname}`;
+//     const file = bucket.file(fileName);
+
+//     // Upload the file to GCP Storage
+//     const stream = file.createWriteStream({
+//       resumable: true,
+//       contentType: cv.mimetype,
+//     });
+
+//     stream.on('error', (error) => {
+//       console.error('Error uploading CV to GCP:', error);
+//       return res.status(500).json({ success: false, message: "Error uploading CV to GCP Storage.", error });
+//     });
+
+//     stream.on('finish', async () => {
+//       // Make the file publicly accessible
+//       await file.makePublic();
+
+//       // Get the public URL
+//       const publicUrl = `https://storage.googleapis.com/${bucketName}/${fileName}`;
+
+//       // Save form data and GCP URL for CV to the database
+//       const careerSeeker = new applicationModel({
+//         name,
+//         email,
+//         position,
+//         cv: publicUrl, // GCP URL for CV
+//         coverLetter, // Store the cover letter text directly
+//       });
+
+//       // Save to database
+//       const savedCareerSeeker = await careerSeeker.save();
+
+//       // Send success response
+//       res.status(201).json({ success: true, data: savedCareerSeeker });
+//     });
+
+//     // Write the file buffer to the stream
+//     stream.end(cv.buffer);
+
+//   } catch (error) {
+//     console.error('Error saving career seeker form data:', error);
+//     res.status(500).json({ success: false, message: "Internal server error" });
+//   }
+// };
+
+
+
 
 module.exports={apply,
   Inquiries
