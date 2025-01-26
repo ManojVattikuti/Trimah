@@ -1,5 +1,5 @@
 // API base URL
-export const API_BASE_URL = 'http://localhost:8080/api/';
+export const API_BASE_URL = 'http://localhost:8000/api/';
 
 // API endpoints for admin
 export const ADMINENDPOINTS = {

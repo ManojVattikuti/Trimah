@@ -11,7 +11,7 @@ const Hero = () => {
         muted
         playsInline
       >
-        <source src="./video.mp4" type="video/webm" />
+        <source src="../video.mp4" type="video/webm" />
         Your browser does not support the video tag.
       </video>
 

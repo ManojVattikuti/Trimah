@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { FiUpload } from "react-icons/fi";
+import { API_BASE_URL } from "../../constants/ApiConstants";
+import axios from 'axios';
+import Swal from 'sweetalert2';
 
 export const Ct1 = () => {
   const [showPopup1, setShowPopup1] = useState(false);
@@ -21,16 +24,174 @@ export const Ct1 = () => {
     coverLetter: "",
   });
 
-  const handleSubmit1 = (e) => {
-    e.preventDefault();
-    console.log("Business Inquiry Form Submitted", formData1);
-    handleClosePopup1();
-  };
 
-  const handleSubmit2 = (e) => {
+
+  const handleSubmit1 = async (e) => {
     e.preventDefault();
-    console.log("Career Seeker Form Submitted", formData2);
-    handleClosePopup();
+  
+    // Validation (Example: Ensuring all fields are filled)
+    const { fullName, email, companyName, phone, message } = formData1;
+    if (!fullName || !email || !message || !companyName || !phone) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops!',
+        text: 'Please fill out all required fields.',
+        confirmButtonText: 'Ok',
+      });
+      return;
+    }
+  
+    // Prepare data for submission
+    const formSubmissionData = {
+      fullName,
+      email,
+      companyName,
+      phone,
+      message,
+    };
+  
+    console.log("Submitting Business Inquiry Form:", formSubmissionData);
+  
+    try {
+      // Example API call (Replace with your actual endpoint)
+      const response = await axios.post(`${API_BASE_URL}user/inquiries`, formSubmissionData, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+  
+      if (response.status === 201) {
+        console.log("Form submission successful:", response.data);
+        Swal.fire({
+          icon: 'success',
+          title: 'Success!',
+          text: 'Thank you for your inquiry! We will get back to you shortly.',
+          confirmButtonText: 'Ok',
+        });
+        setFormData1("")
+        handleClosePopup1(); // Close the popup after successful submission
+      } else {
+        console.error("Form submission failed with status:", response.status);
+        Swal.fire({
+          icon: 'error',
+          title: 'Failed!',
+          text: 'Failed to submit the form. Please try again later.',
+          confirmButtonText: 'Ok',
+        });
+      }
+    } catch (error) {
+      console.error("Error during form submission:", error);
+  
+      // Check if the error has a response from the backend
+      if (error.response) {
+        // Backend error response
+        Swal.fire({
+          icon: 'error',
+          title: 'Error!',
+          text: error.response.data.message || "An error occurred while submitting the form.",
+          confirmButtonText: 'Ok',
+        });
+      } else {
+        // Network or other errors
+        Swal.fire({
+          icon: 'error',
+          title: 'Error!',
+          text: 'An error occurred while submitting the form. Please try again.',
+          confirmButtonText: 'Ok',
+        });
+      }
+    }
+  };
+  
+  
+
+  const handleSubmit2 = async(e) => {
+    e.preventDefault();
+
+    // Extracting form data
+    const { name, email, position, cv, coverLetter } = formData2;
+  
+    // Validation (Ensure all required fields are filled and files are uploaded)
+    if (!name || !email || !position || !cv || !coverLetter) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops!',
+        text: 'Please fill out all required fields and upload the necessary documents (CV and Cover Letter).',
+        confirmButtonText: 'Ok',
+      });
+      return;
+    }
+  
+    // Ensure the uploaded files are PDFs
+    if (cv.type !== 'application/pdf') {
+      Swal.fire({
+        icon: 'error',
+        title: 'Invalid File Format',
+        text: 'Please upload only PDF files for CV ',
+        confirmButtonText: 'Ok',
+      });
+      return;
+    }
+  
+    // Create a FormData object for file upload
+    const formSubmissionData = new FormData();
+    formSubmissionData.append('name', name);
+    formSubmissionData.append('email', email);
+    formSubmissionData.append('position', position);
+    formSubmissionData.append('cv', cv);
+    formSubmissionData.append('coverLetter', coverLetter);
+  
+    console.log("Submitting Career Seeker Form:", formSubmissionData);
+  
+    try {
+      // Example API call (Replace with your actual endpoint)
+      const response = await axios.post(`${API_BASE_URL}user/career-seeker`, formSubmissionData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+  
+      if (response.status === 201) {
+        console.log("Form submission successful:", response.data);
+        Swal.fire({
+          icon: 'success',
+          title: 'Success!',
+          text: 'Thank you for your application! We will get back to you shortly.',
+          confirmButtonText: 'Ok',
+        });
+        setFormData2("")
+        handleClosePopup(); // Close the popup after successful submission
+      } else {
+        console.error("Form submission failed with status:", response.status);
+        Swal.fire({
+          icon: 'error',
+          title: 'Failed!',
+          text: 'Failed to submit the form. Please try again later.',
+          confirmButtonText: 'Ok',
+        });
+      }
+    } catch (error) {
+      console.error("Error during form submission:", error);
+  
+      // Check if the error has a response from the backend
+      if (error.response) {
+        // Backend error response
+        Swal.fire({
+          icon: 'error',
+          title: 'Error!',
+          text: error.response.data.message || "An error occurred while submitting the form.",
+          confirmButtonText: 'Ok',
+        });
+      } else {
+        // Network or other errors
+        Swal.fire({
+          icon: 'error',
+          title: 'Error!',
+          text: 'An error occurred while submitting the form. Please try again.',
+          confirmButtonText: 'Ok',
+        });
+      }
+    }
   };
 
   const handleInputChange1 = (e) => {
@@ -134,7 +295,7 @@ export const Ct1 = () => {
           <img
             src="./contact/f2.png"
             alt="frame"
-            className="w-[150px] h-[200px] sm:w-[200px] sm:h-[250px] md:w-[300px] md:h-[350px] lg:w-[400px] lg:h-[200px] object-contain"
+            className="w-[150px] h-[200px] sm:w-[200px] sm:h-[250px] md:w-[300px] md:h-[350px] lg:w-[400px]  lg:h-[200px] object-contain"
           />
         </div>
       </div>
@@ -142,7 +303,7 @@ export const Ct1 = () => {
       {/* Popups */}
       {showPopup1 && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-          <div className="bg-white w-[90%] max-w-[900px] rounded-xl shadow-lg p-8 relative">
+          <div className="bg-white w-[100%] max-w-[900px] rounded-xl shadow-lg p-16 relative">
             {/* Close Button */}
             <button
               onClick={handleClosePopup1}
@@ -152,13 +313,13 @@ export const Ct1 = () => {
             </button>
 
             {/* Content */}
-            <div className="flex flex-col md:flex-row gap-6">
+            <div className="flex flex-col md:flex-row gap-6 ">
               {/* Image Column */}
               <div className="flex-1 flex justify-center items-center">
                 <img
                   src="./contact/form1.png" // Replace with your actual image path
                   alt="Popup"
-                  className="w-full h-auto max-w-[400px] object-cover rounded-md"
+                  className="w-auto h-[450px] max-w-[400px] transform translate-y-[17%] object-cover rounded-md sm:block hidden"
                 />
               </div>
 
@@ -243,10 +404,10 @@ export const Ct1 = () => {
                     ></textarea>
                   </div>
 
-                  <div className="col-span-2 flex justify-center">
+                  <div className="col-span-2">
                     <button
                       type="submit"
-                      className="mt-4 px-6 py-3 bg-[#684fa3] text-white rounded-lg shadow-md hover:bg-[#3f3c8c] transition"
+                      className="w-full bg-[#684fa3] text-white py-3 rounded-lg hover:bg-[#543b7f] transition-colors duration-300"
                     >
                       Submit
                     </button>
@@ -262,6 +423,7 @@ export const Ct1 = () => {
       {showPopup2 && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
           <div className="bg-white w-[90%] max-w-[900px] rounded-xl shadow-lg p-8 relative">
+            {/* Close Button */}
             <button
               onClick={handleClosePopup}
               className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-xl"
@@ -269,15 +431,18 @@ export const Ct1 = () => {
               ✕
             </button>
 
+            {/* Content */}
             <div className="flex flex-col md:flex-row gap-6">
+              {/* Image Column */}
               <div className="flex-1 flex justify-center items-center">
                 <img
-                  src="./contact/form2.png" // Replace with your actual image path
-                  alt="Career Seeker"
-                  className="w-full h-auto max-w-[400px] object-cover rounded-md"
+                  src="./contact/form2.png"
+                  alt="Popup"
+                  className="w-auto h-[550px] max-w-[600px] transform translate-y-[6%] object-cover rounded-md sm:block hidden"
                 />
               </div>
 
+              {/* Form Column */}
               <div className="flex-1">
                 <h2 className="text-2xl font-bold mb-4 text-[#684fa3]">
                   Career Seeker Form
@@ -286,7 +451,7 @@ export const Ct1 = () => {
                   {/* Name */}
                   <div className="col-span-2 md:col-span-1">
                     <label className="block text-sm font-medium text-gray-700">
-                      Full Name
+                      Name
                     </label>
                     <input
                       type="text"
@@ -294,14 +459,14 @@ export const Ct1 = () => {
                       value={formData2.name}
                       onChange={handleInputChange2}
                       className="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#684fa3] bg-[#f9f9ff]"
-                      placeholder="Enter your full name"
+                      placeholder="Enter your name"
                     />
                   </div>
 
                   {/* Email */}
                   <div className="col-span-2 md:col-span-1">
                     <label className="block text-sm font-medium text-gray-700">
-                      Email Address
+                      Email
                     </label>
                     <input
                       type="email"
@@ -324,12 +489,12 @@ export const Ct1 = () => {
                       value={formData2.position}
                       onChange={handleInputChange2}
                       className="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#684fa3] bg-[#f9f9ff]"
-                      placeholder="Position you're applying for"
+                      placeholder="Enter the position you are applying for"
                     />
                   </div>
 
-                  {/* CV */}
-                  <div className="col-span-2 md:col-span-1">
+                  {/* Upload CV */}
+                  <div className="col-span-2">
                     <label className="block text-sm font-medium text-gray-700">
                       Upload CV
                     </label>
@@ -337,7 +502,7 @@ export const Ct1 = () => {
                       type="file"
                       name="cv"
                       onChange={handleFileChange2}
-                      className="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#684fa3] bg-[#f9f9ff]"
+                      className="mt-1"
                     />
                   </div>
 
@@ -350,16 +515,16 @@ export const Ct1 = () => {
                       name="coverLetter"
                       value={formData2.coverLetter}
                       onChange={handleInputChange2}
-                      rows="4"
-                      className="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#684fa3] bg-[#f9f9ff]"
-                      placeholder="Write your cover letter"
+                      className="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#684fa3] bg-[#f9f9ff] h-24"
+                      placeholder="Enter your cover letter"
                     ></textarea>
                   </div>
 
-                  <div className="col-span-2 flex justify-center">
+                  {/* Submit Button */}
+                  <div className="col-span-2">
                     <button
                       type="submit"
-                      className="mt-4 px-6 py-3 bg-[#684fa3] text-white rounded-lg shadow-md hover:bg-[#3f3c8c] transition"
+                      className="w-full bg-[#684fa3] text-white py-3 rounded-lg hover:bg-[#543b7f] transition-colors duration-300"
                     >
                       Submit
                     </button>

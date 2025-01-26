@@ -1,14 +1,12 @@
 const mongoose = require('mongoose');
 
 const ApplicationSchema = new mongoose.Schema({
-  firstName: { type: String, required: true },
-  lastName: { type: String, required: true },
-  email: { type: String, required: true },
-  phone: { type: String, required: true },
-  coverLetter: { type: String },
-  resume: { type: String, required: true }, // Path to the resume file
-}, {
-  timestamps: true,
+  name: String,
+  email: String,
+  position: String,
+  cv: String, // URL of the uploaded CV on Cloudinary
+  coverLetter: String, // Cover letter text
+  createdAt: { type: Date, default: Date.now }
 });
 
 module.exports = mongoose.model('Application', ApplicationSchema);

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:8080/api'; // Adjust this based on your backend setup
+const API_BASE_URL = 'http://localhost:5000/api'; // Adjust this based on your backend setup
 
 const registerUser = async (userData) => {
   try {

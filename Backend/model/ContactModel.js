@@ -10,6 +10,16 @@ const ContactSchema= new mongoose.Schema({
         required:true,
         unique:true
     },
+    CompanyName:{
+        type:String ,
+        required:true,
+      
+    },
+    phone:{
+        type:String ,
+        required:true,
+        unique:true
+    },
     message:{
         type:String ,
         required:true,

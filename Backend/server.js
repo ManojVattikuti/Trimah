@@ -9,6 +9,16 @@ const adminRoute = require("./routes/AdminRoute");
 const userRoute = require("./routes/UserRoute");
 const { errorHandler } = require("./middleware/errorhandlers");
 const compression = require("compression")
+const rateLimit = require('express-rate-limit');
+
+const limiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 100, // Limit each IP to 100 requests per windowMs
+    message: "Too many requests, please try again later."
+  });
+  
+  app.use(limiter);
+
 
 dotenv.config()
 
@@ -26,7 +36,7 @@ app.use(errorHandler);
 
 MongoDB();
 
-const PORT = process.env.PORT||8080;
+const PORT = process.env.PORT||8000;
 app.listen(PORT,()=>{
 console.log(`conected localhost/:${PORT}`);
 })
