@@ -18,7 +18,7 @@ const Hero = () => {
 <div className="absolute top-0 left-0 w-full h-full">
   <img
     className="w-full h-full object-cover"
-    src="./video-.gif"
+    src="../video-.gif"
     alt="Background Animation"
   />
 </div>
