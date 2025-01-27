@@ -23,6 +23,8 @@ module.exports = {
        openSans: ['Open Sans', 'sans-serif'],
        gilory:['Gilory','sans-serif'],
        gilroyBold: ['GilroyBold', 'sans-serif'], 
+       roboto: ['"Roboto Condensed"', 'sans-serif'],
+       parkinsans:['"Parkinsans"','sans-serif']
       },
       // Add more theme customizations as needed
     },

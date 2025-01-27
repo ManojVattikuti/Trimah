@@ -78,22 +78,27 @@ const Header = () => {
 
           {/* Desktop Navigation Links */}
           <nav className="hidden lg:flex items-center space-x-8">
-            <NavLink
-              to="/"
-              className={({ isActive }) =>
-                `text-white text-[15px] font-semibold ${
-                  isActive ? "text-green-500 text-[#6fd1ab]" : "hover:text-green-300"
-                } font-openSans transition-colors duration-300`
-              }
-            >
-              HOME
-            </NavLink>
+          <NavLink
+  to="/"
+  className={({ isActive }) =>
+    `text-[15px] font-semibold transition-colors duration-300 font-parkinsans ${
+      isActive
+        ? "text-green-500 font-bold" // Active state: green color and bold
+        : "text-white hover:text-green"
+    }`
+  }
+>
+  HOME
+</NavLink>
+
             <NavLink
               to="/about"
               className={({ isActive }) =>
-                `text-white text-[15px] font-semibold ${
-                  isActive ? "text-green-500 text-[#6fd1ab]" : "hover:text-green-300"
-                } font-openSans transition-colors duration-300`
+                `text-[15px] font-semibold transition-colors duration-300 font-parkinsans ${
+                  isActive
+                    ? "text-green-500 font-bold" // Active state: green color and bold
+                    : "text-white hover:text-green"
+                }`
               }
             >
               ABOUT US
@@ -102,9 +107,11 @@ const Header = () => {
       <NavLink
         to="/business"
         className={({ isActive }) =>
-          `text-white text-[15px] font-semibold ${
-            isActive ? "text-green-500 text-[#6fd1ab]" : "hover:text-green-300"
-          } font-openSans transition-colors duration-300`
+          `text-[15px] font-semibold transition-colors duration-300 font-parkinsans ${
+            isActive
+              ? "text-green-500 font-bold" // Active state: green color and bold
+              : "text-white hover:text-green"
+          }`
         }
         onClick={() => setIsDropdownOpen((prev) => !prev)} // Toggle dropdown visibility on click
       >
@@ -123,9 +130,11 @@ const Header = () => {
             <NavLink
               to="/career"
               className={({ isActive }) =>
-                `text-white text-[15px] font-semibold ${
-                  isActive ? "text-green-500 text-[#6fd1ab]" : "hover:text-green-300"
-                } font-openSans transition-colors duration-300`
+                `text-[15px] font-semibold transition-colors duration-300 font-parkinsans ${
+                  isActive
+                    ? "text-green-500 font-bold" // Active state: green color and bold
+                    : "text-white hover:text-green"
+                }`
               }
             >
               CAREER SEEKER
@@ -133,9 +142,11 @@ const Header = () => {
             <NavLink
               to="/contact"
               className={({ isActive }) =>
-                `text-white text-[15px] font-semibold ${
-                  isActive ? "text-green-500 text-[#6fd1ab]" : "hover:text-green-300"
-                } font-openSans transition-colors duration-300`
+                `text-[15px] font-semibold transition-colors duration-300 font-parkinsans ${
+                  isActive
+                    ? "text-green-500 font-bold" // Active state: green color and bold
+                    : "text-white hover:text-green"
+                }`
               }
             >
               CONTACT US
@@ -145,7 +156,7 @@ const Header = () => {
           {/* Desktop "Find Talent" Button */}
           <div className="hidden lg:flex items-center space-x-4">
             
-  <button className="relative overflow-hidden sm:px-4 sm:py-2 rounded-full bg-[#6fd1ab] text-black text-sm sm:text-lg lg:text-lg font-medium group">
+  <button className="relative overflow-hidden sm:px-4 sm:py-2 rounded-full bg-[#6fd1ab] text-black text-sm sm:text-lg lg:text-sm font-parkinsans font-semibold group">
     <span className="relative z-10 group-hover:text-white transition-colors duration-300 ease-in-out">
       Find Your Talent
     </span>
@@ -166,35 +177,35 @@ const Header = () => {
   </button>
   <NavLink
     to="/"
-    className="text-white text-[18px] font-semibold"
+    className="text-white text-[18px] font-semibold font-parkinsans"
     onClick={() => setMenuOpen(false)}
   >
     HOME
   </NavLink>
   <NavLink
     to="/about"
-    className="text-white text-[18px] font-semibold"
+    className="text-white text-[18px] font-semibold font-parkinsans"
     onClick={() => setMenuOpen(false)}
   >
     ABOUT US
   </NavLink>
   <NavLink
     to="/business"
-    className="text-white text-[18px] font-semibold"
+    className="text-white text-[18px] font-semibold font-parkinsans"
     onClick={() => setMenuOpen(false)}
   >
     BUSINESS
   </NavLink>
   <NavLink
     to="/staffing"
-    className="text-white text-[18px] font-semibold"
+    className="text-white text-[18px] font-semibold font-parkinsans"
     onClick={() => setMenuOpen(false)}
   >
     STAFFING
   </NavLink>
   <NavLink
     to="/industries"
-    className="text-white text-[18px] font-semibold"
+    className="text-white text-[18px] font-semibold font-parkinsans"
     onClick={() => setMenuOpen(false)}
   >
     INDUSTRIES

@@ -30,7 +30,7 @@ const Section1 = () => {
         </div>
 
         {/* Overlapping Image on the Right */}
-        <div className="absolute right-0 top-1/2 transform lg:-translate-y-[67%] sm:-translate-y-[50%] md:-translate-y-[50%] sm:-translate-y-[80%]  -translate-x-[10%] z-0">
+        <div className="absolute right-0 top-1/2 sm:top-[150px] transform lg:-translate-y-[67%] sm:-translate-y-[50%] md:-translate-y-[50%] sm:-translate-y-[80%]  -translate-x-[10%] z-0">
   <img
     src="./persons.png" // Replace with your image URL
     alt="Right Image"
