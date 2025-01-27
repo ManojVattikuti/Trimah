@@ -45,7 +45,7 @@ const Hero = () => {
           />
         </div>
         {/* Subheading */}
-        <p className="text-md sm:text-2xl lg:text-xl text-gray-200 font-abel font-parkinsans sm:px-40">
+        <p className="text-md sm:text-2xl lg:text-xl text-gray-400 font-abel font-parkinsans sm:px-40">
           Empowering Financial, Healthcare, Life Sciences Industries and <br /> Beyond
           with Skilled IT Professionals & Innovative Solutions.
         </p>

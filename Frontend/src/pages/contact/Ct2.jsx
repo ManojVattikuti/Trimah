@@ -59,7 +59,7 @@ export const Ct2 = () => {
                 </div>
                 <div>
                   <p className="text-gray-800 text-lg font-semibold">Phone Number</p>
-                  <p className="text-gray-600 text-xl">+1 (XXX) XXX-XXXX</p>
+                  <p className="text-gray-600 text-xl">+13808671774</p>
                 </div>
               </div>
             </div>

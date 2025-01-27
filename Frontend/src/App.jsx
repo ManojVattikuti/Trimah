@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -13,11 +13,27 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import { mainContext } from './context/mainContex';
 import AdminFooter from './components/adminComponent/AdminFooter';
+import LoadingScreen from './components/loading';
 
 
 
 
 function App() {
+
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate an app initialization delay
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3000); // Adjust the delay as needed (e.g., 3000ms = 3 seconds)
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return <LoadingScreen />;
+  }
 
 const {user}= useContext(mainContext)
   return (
