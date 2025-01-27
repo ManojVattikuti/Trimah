@@ -14,7 +14,7 @@ export const Staffingmain = ()=>{
         <St1/>
         <St2/>
         <St3/>
-        {/* <St4/> */}
+        <St4/>
         <St5/>
         <St6/>
         <St7/>
