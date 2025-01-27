@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const IndustrySection = () => {
   const industryData = [
@@ -102,7 +103,7 @@ const IndustrySection = () => {
   ];
 
   return (
-    <section className="bg-[#f0f4fd] bg-opacity-50 py-16 md:py-32 lg:py-32 px-6 md:px-16 lg:px-32 relative">
+    <section className="bg-[#f0f4fd] bg-opacity-50 py-16 md:py-32 lg:py-16 px-6 md:px-16 lg:px-32 relative">
     {/* Background Image for larger screens only */}
     <div
       className="absolute opacity-50 top-0 right-0 w-full h-full pointer-events-none hidden lg:block"  // Hidden on small screens, visible on large screens
@@ -142,7 +143,7 @@ const IndustrySection = () => {
           return (
             <div
               key={index}
-              className={`border-2 rounded-lg shadow p-6 ${borderColor} ${positionClass} rounded-[50px] transition-all duration-300 ease-in-out hover:border-[#6fd1ab] hover:shadow-lg hover:shadow-[#6fd1ab]`} // Glowing border and shadow on hover
+              className={`border-2 rounded-lg shadow font-parkinsans p-6  ${borderColor} ${positionClass} rounded-[60px] transition-all duration-300 ease-in-out hover:border-[#6fd1ab] hover:shadow-lg hover:shadow-[#6fd1ab]`} // Glowing border and shadow on hover
             >
               <div className="flex mb-4">
                 <span className={`text-2xl text-white ${iconBgColor} p-2 rounded-full`}>
@@ -158,17 +159,20 @@ const IndustrySection = () => {
   
       {/* Right Side (Text and Button) */}
       <div className="lg:w-1/2 text-center lg:text-left mb-8 lg:mb-0 px-8 lg:px-0">
-        <h2 className="text-2xl sm:text-3xl lg:text-3xl font-bold mb-6 sm:mb-8 lg:mb-8">Industry Expertise that Sets Us Apart</h2>
-        <p className="text-[#5a5e6a] text-sm sm:text-base font-normal capitalize leading-[30.56px] mb-6">
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-parkinsans mb-6 sm:mt-8 sm:mb-8 lg:mb-8">Industry Expertise that Sets Us Apart</h2>
+        <p className="text-sm sm:text-base lg:text-lg mb-8 font-parkinsans text-gray-500 capitalize leading-[30.56px] mb-6">
           Specializing in Financial, Healthcare, and Life Sciences,<br /> We Deliver IT Talent and Consulting Services that Adapt to any Industry's Needs.
         </p>
         <div className="flex justify-center lg:justify-start">
-        <button className="relative overflow-hidden px-4 py-2 md:px-6 md:py-3 rounded-full bg-[#6fd1ab] text-black text-[15px] font-semibold font-['Maven Pro'] group">
+          <Link to="/industries">
+      
+        <button className="relative overflow-hidden px-4 py-2 md:px-6 md:py-3 rounded-full bg-[#6fd1ab] text-black text-[15px] font-semibold font-parkinsans group">
             <span className="relative z-10 group-hover:text-white transition-colors duration-300 ease-in-out">
               Explore Our Industry Solutions →
             </span>
             <div className="absolute top-0 left-0 w-full h-full bg-[#684fa3]  rounded-full transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-in-out"></div>
           </button>
+          </Link>
         </div>
       </div>
     </div>

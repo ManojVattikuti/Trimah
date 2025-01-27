@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const AboutUsSection = () => {
   return (
@@ -19,19 +20,22 @@ const AboutUsSection = () => {
         <div className="container mx-auto flex flex-col lg:flex-row items-center justify-between">
           {/* Left Column with Title and Description */}
           <div className="relative z-10 opacity-80 w-full lg:w-1/2 mb-8 lg:mb-0">
-            <h2 className="text-[#071c39] text-[32px] font-semibold capitalize leading-[42.24px] mb-4">
+            <h2 className="text-[#071c39] text-[32px] font-semibold lg:text-4xl  font-parkinsans  capitalize leading-[42.24px] mb-4">
               About Trimah Technologies
             </h2>
-            <p className="text-[#5a5e6a] text-base font-normal capitalize leading-7 mb-6">
+            <p className="text-sm sm:text-base lg:text-lg mb-8 font-parkinsans text-gray-500 capitalize leading-7 mb-6">
               Founded by Leaders in Healthcare and Pharmaceuticals IT, Trimah Technologies Brings over Two Years of Expertise in Delivering IT Staffing and Consulting Solutions. We Specialize in Placing Software Developers, DevOps, Cloud in Financial and Healthcare Industries, and Meeting Unique Life Sciences Needs such as Quality Assurance Validation Engineers and Compliance.
             </p>
             <div className="mt-8">
-              <button className="relative overflow-hidden px-6 py-3 rounded-full bg-[#6fd1ab] text-black text-base font-semibold group">
+              <Link to="/contact">
+            
+              <button className="relative overflow-hidden px-6 py-3 rounded-full bg-[#6fd1ab] text-black font-parkinsans font-semibold group">
                 <span className="relative z-10 group-hover:text-white transition-colors duration-300 ease-in-out font-['Maven Pro']">
                   Meet the Team →
                 </span>
                 <div className="absolute top-0 left-0 w-full h-full bg-[#684fa3]  rounded-full transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-in-out"></div>
               </button>
+              </Link>
             </div>
           </div>
 
