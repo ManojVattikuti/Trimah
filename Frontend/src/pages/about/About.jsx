@@ -8,6 +8,7 @@ import AboutSection3 from "./AboutSection3";
 import AboutSection4 from "./AboutSection4";
 import AboutSection5 from "./AboutSection5";
 import AboutSection6 from "./AboutSection6";
+import { Why } from "./Why";
 
 
 const AboutPage = () => {
@@ -30,8 +31,8 @@ const AboutPage = () => {
   <AboutSection3 />
   <AboutSection4 />
   <AboutSection5 />
-  {/* Hide the last section on smaller screens */}
-  <div className="hidden sm:block">
+{/* <Why/> */}
+  <div className="hidden sm:block md:block">
     <AboutSection6 />
   </div>
 </>

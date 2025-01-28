@@ -1,7 +1,7 @@
 import React from "react";
 
 
-export const Demo = () => {
+export const Why = () => {
   const infoCards = [
     {
       title: "Tailored Solutions",
@@ -46,12 +46,12 @@ export const Demo = () => {
                 <InfoCard
                   title={infoCards[0].title}
                   description={infoCards[0].description}
-                  className="items-end w-[247px] max-md:w-full"
+                  className="items-end  text-sm sm:text-base lg:text-lg font-parkinsans font-semibold text-gray-500 w-[247px] max-md:w-full"
                 />
                 <InfoCard
                   title={infoCards[1].title}
                   description={infoCards[1].description}
-                  className="self-start mt-44 max-md:mt-10 w-[244px] max-md:w-full"
+                  className="self-start text-sm sm:text-base lg:text-lg font-parkinsans  font-semibold text-gray-500 mt-40 max-md:mt-10 w-[240px] max-md:w-full"
                 />
               </div>
             </div>
@@ -75,12 +75,12 @@ export const Demo = () => {
               <InfoCard
                 title={infoCards[2].title}
                 description={infoCards[2].description}
-                className="max-md:w-full"
+                className="max-md:w-full text-sm sm:text-base lg:text-lg  font-semibold font-parkinsans text-gray-500"
               />
               <InfoCard
                 title={infoCards[3].title}
                 description={infoCards[3].description}
-                className="self-end mt-36 max-w-full w-[209px] max-md:w-full max-md:mt-10"
+                className="self-end mt-36 max-w-full w-[209px]  font-semibold sm:text-base lg:text-lg  font-parkinsans text-gray-500 max-md:w-full max-md:mt-10"
               />
             </div>
           </div>

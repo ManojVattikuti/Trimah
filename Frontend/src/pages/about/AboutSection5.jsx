@@ -2,8 +2,8 @@ import React from 'react';
 
 const AboutSection5 = () => {
   return (
-    <section className="container mx-auto py-8 mb-5 px-4">
-      <h2 className="text-2xl sm:text-3xl font-bold text-[#071c39] text-center mt-2 mb-8">
+    <section className="container mx-auto py-16 mb-5 px-4 ">
+      <h2 className="text-3xl sm:text-3xl lg:text-4xl font-bold font-parkinsans text-[#071c39] text-center mt-2 mb-8">
         Our Core Services
       </h2>
       <div className="flex flex-wrap justify-center gap-8">
@@ -16,10 +16,10 @@ const AboutSection5 = () => {
               className="absolute w-full h-full object-cover opacity-20 transition-opacity duration-300 group-hover:opacity-30"
             />
             <div className="absolute top-1/2 left-6 transform -translate-y-1/2">
-              <h3 className="text-white text-lg sm:text-xl font-semibold group-hover:text-[#f5d9ff] transition-colors duration-300">
+              <h3 className="text-white text-lg sm:text-xl  font-parkinsans  font-semibold group-hover:text-[#f5d9ff] transition-colors duration-300">
                 Staff Augmentation
               </h3>
-              <p className="text-white/50 text-sm sm:text-base mt-2 group-hover:text-white transition-colors duration-300">
+              <p className="text-white/50 text-sm sm:text-base  font-parkinsans mt-2 group-hover:text-white transition-colors duration-300">
                 Contract, contract-to-hire, full-time & offshore staffing
               </p>
             </div>
@@ -32,7 +32,7 @@ const AboutSection5 = () => {
             </div>
 
 
-            
+
           </div>
         </div>
 
@@ -45,10 +45,10 @@ const AboutSection5 = () => {
               className="absolute w-full h-full object-cover opacity-50 transition-opacity duration-300 group-hover:opacity-70"
             />
             <div className="absolute top-1/2 left-6 transform -translate-y-1/2">
-              <h3 className="text-black text-lg sm:text-xl font-semibold group-hover:text-[#2a7055] transition-colors duration-300">
+              <h3 className="text-black text-lg sm:text-xl font-semibold   font-parkinsans  group-hover:text-[#2a7055] transition-colors duration-300">
                 IT Consulting
               </h3>
-              <p className="text-gray-700 text-sm sm:text-base mt-2 group-hover:text-gray-800 transition-colors duration-300">
+              <p className="text-gray-700 text-sm sm:text-base mt-2  font-parkinsans  group-hover:text-gray-800 transition-colors duration-300">
                 Development, DevOps, cloud solutions & regulatory compliance expertise
               </p>
             </div>

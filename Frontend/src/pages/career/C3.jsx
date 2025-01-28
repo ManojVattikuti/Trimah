@@ -1,5 +1,6 @@
 import React from "react";
 import { FaBriefcase, FaCloud, FaCogs } from "react-icons/fa";
+import JobWidget from "../ceipal/JobWidget";
 
 export const C3 = () => {
   const jobData = [
@@ -89,7 +90,7 @@ export const C3 = () => {
           ))}
         </div>
       </div>
-
+<JobWidget/>
       {/* See All Jobs */}
       <div className="mt-6 text-center">
         <a

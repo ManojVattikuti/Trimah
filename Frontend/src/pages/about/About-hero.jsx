@@ -1,35 +1,38 @@
 import React from 'react';
 import AnimateName from "../../context/animateName";
+import { Link } from 'react-router-dom';
 const AboutHero = () => {
   return (
     <div className="relative h-[550px]">
       {/* Background Image Section */}
       <div className="relative w-full h-full">
-  <img 
-    src="./about/hero-about.jpeg" 
-    alt="Hero" 
-    className="absolute w-full h-full object-cover object-center top-0 left-0" 
-  />
-  <div className="absolute w-full h-full top-0 left-0 bg-black opacity-80" />
-</div>
-
-
+        <img
+          src="./about/hero-about.jpeg"
+          alt="Hero"
+          className="absolute w-full h-full object-cover object-center top-0 left-0"
+        />
+        <div className="absolute w-full h-full top-0 left-0 bg-black opacity-80" />
+      </div>
 
       {/* Text Section */}
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
         {/* Main Heading */}
-        <div className="font-extrabold text-white text-[40px] leading-[47.2px] tracking-tight mb-4 sm:text-[32px] md:text-[2px] lg:text-[30px] xl:text-[40px]">
+        <div className="font-extrabold font-parkinsans  text-white text-[40px] leading-[47.2px] tracking-tight mb-4 sm:text-[32px] md:text-[22px] lg:text-[30px] xl:text-[40px]">
           <AnimateName>
-          ABOUT US
+            ABOUT US
           </AnimateName>
         </div>
 
         {/* Breadcrumbs Section */}
         <div className="flex items-center justify-center gap-2">
           {/* Home */}
-          <p className="text-[#ffffffcc] text-xl tracking-tight leading-[23.6px] sm:text-lg md:text-xl lg:text-xl">
+          <Link
+            to="/"
+            className="text-[#ffffffcc] font-parkinsans text-xl tracking-tight leading-[23.6px] sm:text-lg md:text-xl lg:text-xl hover:underline"
+          >
             Home
-          </p>
+          </Link>
+
 
           {/* Arrow Icon */}
           <div className="transform -translate-y-[2px]">
@@ -39,9 +42,10 @@ const AboutHero = () => {
           </div>
 
           {/* About Us */}
-          <p className="text-[#ffffffcc] text-xl tracking-tight leading-[23.6px] sm:text-lg md:text-xl lg:text-xl">
+          <Link
+            to="/about" className="text-[#ffffffcc] font-parkinsans  text-xl tracking-tight leading-[23.6px] sm:text-lg md:text-xl lg:text-xl">
             About Us
-          </p>
+          </Link >
         </div>
       </div>
     </div>

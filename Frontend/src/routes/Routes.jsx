@@ -1,15 +1,12 @@
 // src/Routes.js
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Landingpage from '../pages/landingPage/LandingPage';
 import AboutPage from '../pages/about/About';
-// import ServicePage from '../pages/business/servicePage';
+
 import ContactPage from '../pages/contact/contact';
 
-// import Login from "../pages/Login"
-// import Register from "../pages/Register";
-// import Admin from "../pages/dashboard/home"
-// import Userprofile from "../pages/Userprofile"
+
 import NotFound from '../pages/PageNotFound';
 import SupportChat from '../pages/chatBot/Support';
 import { mainContext } from '../context/mainContex';
@@ -20,11 +17,14 @@ import { Industrymain } from '../pages/industries/Industries-main';
 import { Staffingmain } from '../pages/staffing/StaffingMain';
 
 
+
 const AppRoutes = () => {
   const {user} = useContext(mainContext)
+ 
+
   return (
     <>
-    {user.id && <SupportChat />}
+ 
     <Routes>
       <Route path="/" element={<Landingpage />} />
       <Route path="/about" element={<AboutPage />} />

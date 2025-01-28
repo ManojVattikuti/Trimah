@@ -6,6 +6,8 @@ import { C2 } from "./C2";
 import { C3 } from "./C3";
 import { C4 } from "./C4";
 import { C5 } from "./C5";
+import JobWidget from "../ceipal/JobWidget";
+
 
 
 
@@ -22,6 +24,7 @@ const CareerPage = () => {
   <div className="mt-12 md:mt-20">
     <C3 />
   </div>
+{/* <JobWidget/> */}
   <div className="mt-12 md:mt-20">
     <C4 />
   </div>
