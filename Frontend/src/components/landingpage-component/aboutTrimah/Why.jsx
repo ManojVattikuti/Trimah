@@ -41,7 +41,7 @@ const Why = () => {
   });
 
   return (
-    <section className="bg-[#f0f4fd] bg-opacity-50 py-2  px-8 lg:px-32">
+    <section className="bg-[#f0f4fd] bg-opacity-50 p-8 px-8 lg:px-16 mb-8">
       <div className="container mx-auto flex flex-col items-center">
         <h2 className="text-3xl lg:text-4xl font-bold font-parkinsans  text-center capitalize leading-10 p-6">
           Why Trimah Technologies

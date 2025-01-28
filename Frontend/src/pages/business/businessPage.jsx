@@ -7,21 +7,88 @@ import { BC4 } from "./BC4";
 import { BC6 } from "./BC6";
 import { BC7 } from "./BC7";
 import { BC8 } from "./BC8";
+import { motion } from "framer-motion";
 
-
+const fadeUpVariant = {
+  hidden: { opacity: 0, y: 40, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.8, ease: "easeOut" },
+  },
+};
 const BusinessPage = () => {
   return (
     <>
-  <BusinessHero/>
-  <BC1/>
-  {/* <BC2/> */}
-  {/* <BC3/> */}
-  {/* <div className="hidden sm:block">
-  <BC4/>
-  </div> */}
-    {/* <BC6/> */}
-    {/* <BC7/> */}
-    {/* <BC8/> */}
+      <BusinessHero />
+
+      <motion.div
+        variants={fadeUpVariant}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+
+      >
+        <BC1 />
+      </motion.div>
+      <motion.div
+        variants={fadeUpVariant}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+
+      >
+        <BC2 />
+      </motion.div>
+      <motion.div
+        variants={fadeUpVariant}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+
+      >
+        <BC3 />
+      </motion.div>
+      <motion.div
+        variants={fadeUpVariant}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+
+      >
+        <div className="hidden sm:block">
+          <BC4 />
+
+        </div>
+      </motion.div>
+      <motion.div
+        variants={fadeUpVariant}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+
+      >
+        <BC6 />
+      </motion.div>
+      <motion.div
+        variants={fadeUpVariant}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+
+      >
+        <BC7 />
+      </motion.div>
+      <motion.div
+        variants={fadeUpVariant}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+
+      >
+        <BC8 />
+      </motion.div>
     </>
   );
 };

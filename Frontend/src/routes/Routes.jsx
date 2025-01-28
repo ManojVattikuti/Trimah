@@ -15,6 +15,7 @@ import {  Demo } from '../components/demo';
 import BusinessPage from '../pages/business/businessPage';
 import { Industrymain } from '../pages/industries/Industries-main';
 import { Staffingmain } from '../pages/staffing/StaffingMain';
+import ScrollToTop from '../utils/ScrollTop';
 
 
 
@@ -24,7 +25,7 @@ const AppRoutes = () => {
 
   return (
     <>
- 
+ <ScrollToTop/>
     <Routes>
       <Route path="/" element={<Landingpage />} />
       <Route path="/about" element={<AboutPage />} />

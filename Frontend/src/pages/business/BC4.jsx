@@ -18,8 +18,8 @@ export const BC4=()=>{
 
             <div className="w-[287px] h-14 left-0 top-0 absolute " />
             <div className="flex justify-center lg:justify-start">
-        <button className="relative overflow-hidden px-6 py-6 md:px-6 md:py-4 rounded-full bg-[#6fd1ab] text-black text-[14px] font-semibold font-['Maven Pro'] group">
-            <span className="relative z-10 group-hover:text-white transition-colors duration-300 ease-in-out">
+        <button className="relative overflow-hidden px-6 py-6 md:px-6 md:py-4 mt-1 rounded-full bg-[#6fd1ab] text-black text-[14px] font-semibold font-parkinsans group">
+            <span className="relative z-10 group-hover:text-white font-parkinsans transition-colors duration-300 ease-in-out">
               Explore Our Industry Solutions →
             </span>
             <div className="absolute top-0 left-0 w-full h-full bg-[#684fa3]  rounded-full transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-in-out"></div>
@@ -256,26 +256,26 @@ export const BC4=()=>{
 
       
       <div className="w-[634px] h-[134px] left-[720px] top-[1px] absolute">
-        <div className="left-0 top-0 absolute text-[#9467ff] text-xl font-normal font-['Gilroy-SemiBold'] capitalize leading-relaxed">Discovery & Assessment</div>
-        <div className="w-[634px] h-[103px] left-0 top-[31px] absolute text-[#383838] text-base font-normal font-['Gilroy-Medium'] leading-[26.88px]">     Collaborate with your team to understand your unique business challenges and goals.<br/>     Conduct a comprehensive analysis of your current IT environment and staffing needs.</div>
+        <div className="left-0 top-0 absolute text-[#9467ff] text-xl font-normal  font-parkinsans capitalize leading-relaxed">Discovery & Assessment</div>
+        <div className="w-[634px] h-[103px] left-0 top-[31px] absolute text-[#383838] text-base font-normal  font-parkinsans leading-[26.88px]">     Collaborate with your team to understand your unique business challenges and goals.<br/>     Conduct a comprehensive analysis of your current IT environment and staffing needs.</div>
         <div className="w-[15px] h-[15px] left-0 top-[32px] absolute flex-col justify-start items-start inline-flex overflow-hidden" />
         <div className="w-[15px] h-[15px] left-0 top-[87px] absolute flex-col justify-start items-start inline-flex overflow-hidden" />
       </div>
       <div className="w-[634px] h-[134px] left-[720px] top-[186px] absolute">
-        <div className="left-0 top-0 absolute text-[#12afaf] text-xl font-normal font-['Gilroy-SemiBold'] capitalize leading-relaxed">Customized Strategy Development</div>
-        <div className="w-[634px] h-[103px] left-0 top-[31px] absolute text-[#383838] text-base font-normal font-['Gilroy-Medium'] leading-[26.88px]">     Design tailored consulting solutions based on industry best practices & your specific requirements.<br/>     Define success metrics to ensure measurable <br/>outcomes</div>
+        <div className="left-0 top-0 absolute text-[#12afaf] text-xl font-normal  font-parkinsanscapitalize leading-relaxed">Customized Strategy Development</div>
+        <div className="w-[634px] h-[103px] left-0 top-[31px] absolute text-[#383838] text-base  font-parkinsans leading-[26.88px]">     Design tailored consulting solutions based on industry best practices & your specific requirements.<br/>     Define success metrics to ensure measurable <br/>outcomes</div>
         <div className="w-[15px] h-[15px] left-0 top-[32px] absolute flex-col justify-start items-start inline-flex overflow-hidden" />
         <div className="w-[15px] h-[15px] left-0 top-[87px] absolute flex-col justify-start items-start inline-flex overflow-hidden" />
       </div>
       <div className="w-[634px] h-[108px] left-[720px] top-[377px] absolute">
-        <div className="left-0 top-0 absolute text-[#9467ff] text-xl font-normal font-['Gilroy-SemiBold'] capitalize leading-relaxed">Execution & Implementation</div>
-        <div className="w-[634px] h-[77px] left-0 top-[31px] absolute text-[#383838] text-base font-normal font-['Gilroy-Medium'] leading-[26.88px]">     Deploy experienced consultants and IT professionals to execute the agreed strategy.<br/>     Provide ongoing support to address any challenges during implementation.</div>
+        <div className="left-0 top-0 absolute text-[#9467ff] text-xl font-normal font font-parkinsans capitalize leading-relaxed">Execution & Implementation</div>
+        <div className="w-[634px] h-[77px] left-0 top-[31px] absolute text-[#383838] text-base font-normal  font-parkinsans leading-[26.88px]">     Deploy experienced consultants and IT professionals to execute the agreed strategy.<br/>     Provide ongoing support to address any challenges during implementation.</div>
         <div className="w-[15px] h-[15px] left-0 top-[35px] absolute flex-col justify-start items-start inline-flex overflow-hidden" />
         <div className="w-[15px] h-[15px] left-0 top-[90px] absolute flex-col justify-start items-start inline-flex overflow-hidden" />
       </div>
       <div className="w-[578px] h-[134px] left-[720px] top-[545px] absolute">
-        <div className="left-0 top-0 absolute text-[#12afaf] text-xl font-normal font-['Gilroy-SemiBold'] capitalize leading-relaxed">Discovery & Assessment</div>
-        <div className="w-[578px] h-[103px] left-0 top-[31px] absolute text-[#383838] text-base font-normal font-['Gilroy-Medium'] leading-[26.88px]">     Continuously evaluate the performance of our solutions and recommend improvements.<br/>     Offer flexible engagement models to adapt to your evolving business needs.</div>
+        <div className="left-0 top-0 absolute text-[#12afaf] text-xl font-normal font- font-parkinsans capitalize leading-relaxed">Discovery & Assessment</div>
+        <div className="w-[578px] h-[103px] left-0 top-[31px] absolute text-[#383838] text-base font-normal  font-parkinsans leading-[26.88px]">     Continuously evaluate the performance of our solutions and recommend improvements.<br/>     Offer flexible engagement models to adapt to your evolving business needs.</div>
         <div className="w-[15px] h-[15px] left-0 top-[36px] absolute flex-col justify-start items-start inline-flex overflow-hidden" />
         <div className="w-[15px] h-[15px] left-0 top-[89px] absolute flex-col justify-start items-start inline-flex overflow-hidden" />
       </div>
