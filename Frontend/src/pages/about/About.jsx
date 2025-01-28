@@ -1,6 +1,6 @@
 // pages/AboutPage.js
-import React, {  useState } from "react";
-import { useEffect } from "react";
+import React from "react";
+import { motion } from "framer-motion";
 import AboutHero from "./About-hero";
 import { AboutSection1 } from "./About-Section1";
 import AboutSection2 from "./AboutSection2";
@@ -8,35 +8,84 @@ import AboutSection3 from "./AboutSection3";
 import AboutSection4 from "./AboutSection4";
 import AboutSection5 from "./AboutSection5";
 import AboutSection6 from "./AboutSection6";
-import { Why } from "./Why";
 
+const fadeUpVariant = {
+  hidden: { opacity: 0, y: 40, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.8, ease: "easeOut" },
+  },
+};
 
 const AboutPage = () => {
-  // const [animateName, setAnimateName] = useState(false);
-  // useEffect(() => {
-  //   // Trigger animation after a short delay when component mounts
-  //   const timer = setTimeout(() => {
-  //     setAnimateName(true);
-  //   }, 500); // Adjust delay as needed
-
-  //   // Clean up timeout on component unmount
-  //   return () => clearTimeout(timer);
-  // }, []);
-
   return (
-<>
-  <AboutHero />
-  <AboutSection1 />
-  <AboutSection2 />
-  <AboutSection3 />
-  <AboutSection4 />
-  <AboutSection5 />
-{/* <Why/> */}
-  <div className="hidden sm:block md:block">
-    <AboutSection6 />
-  </div>
-</>
+    <div >
 
+      <AboutHero />
+
+
+      <motion.div
+        variants={fadeUpVariant}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+
+      >
+        <AboutSection1 />
+      </motion.div>
+
+      <motion.div
+        variants={fadeUpVariant}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+
+      >
+        <AboutSection2 />
+      </motion.div>
+
+      <motion.div
+        variants={fadeUpVariant}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+
+      >
+        <AboutSection3 />
+      </motion.div>
+
+      <motion.div
+        variants={fadeUpVariant}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+
+      >
+        <AboutSection4 />
+      </motion.div>
+
+      <motion.div
+        variants={fadeUpVariant}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        <AboutSection5 />
+      </motion.div>
+
+      <div className="hidden sm:block">
+        <motion.div
+          variants={fadeUpVariant}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+        >
+          <AboutSection6 />
+        </motion.div>
+      </div>
+    </div>
   );
 };
 
