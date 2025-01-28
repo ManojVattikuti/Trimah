@@ -42,7 +42,7 @@ export const S2=()=>
     
         return(
           <div className="lg:px-32 mt-8">
-   <div className="text-xl p-4 leading-none text-slate-900">
+   <div className="text-xl p-4 leading-none  text-3xl sm:text-3xl lg:text-3xl font-bold font-parkinsans">
       Industries <span className="lowercase">We</span> Specialize{" "}
       <span className="lowercase">In</span>
     </div>
@@ -51,7 +51,7 @@ export const S2=()=>
           <div className="pl-20 mt-5 w-full bg-violet-500 max-md:pl-5 max-md:max-w-full">
           <div className="flex gap-5 max-md:flex-col">
             <div className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
-              <div className="flex flex-col items-start self-stretch my-auto w-full text-xl leading-none text-white max-md:mt-10 max-md:max-w-full">
+              <div className="flex flex-col items-start self-stretch my-auto font-parkinsans w-full text-xl leading-none text-white max-md:mt-10 max-md:max-w-full">
                 <SectionTitle title="Financial Services" />
                 <div className="mt-9">
                   Challenges <span className="lowercase">We</span> Solve

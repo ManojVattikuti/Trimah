@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export const C2 = () => {
   return (
     <div className="w-full min-h-[526px] flex justify-center  items-center ">
@@ -7,39 +9,39 @@ export const C2 = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-[800px]">
             {/* Card 1 */}
             <div className="h-[250px] md:h-[286px] bg-white rounded-[15px] shadow-md relative p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-[#00000033]">
-  {/* SVG */}
-  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 56 56" fill="none">
-    <g id="research-and-development 1">
-      <g id="Group">
-        <g id="Group_2">
-          <path id="Vector" d="M25.9636 49.297H24.6908V46.8364H14.6787V49.297H13.3211C12.8969 49.297 12.4727 49.7213 12.4727 50.1455C12.4727 50.6546 12.8969 50.994 13.3211 50.994H14.6787V51.8425C14.6787 53.7092 16.206 55.1516 17.9878 55.1516H21.2969C23.1636 55.1516 24.606 53.6243 24.606 51.8425V50.994H25.8787C26.3878 50.994 26.7272 50.6546 26.7272 50.1455C26.812 49.7213 26.4727 49.297 25.9636 49.297Z" fill="#684FA3" />
-        </g>
-        <g id="Group_3">
-          <path id="Vector_2" d="M30.206 21.2122L22.909 19.091C19.4303 22.2304 13.5757 18.9213 15.0181 14.0849C15.6969 12.0485 17.5636 10.6061 19.6848 10.6061C21.4666 10.6061 23.0787 11.5394 23.9272 13.1516C24.0969 13.491 24.2666 13.8304 24.3515 14.1697L31.4787 16.291C33.2606 14.594 35.1272 15.1031 35.6363 15.0182C35.2121 8.40005 29.2727 1.78186 21.5515 0.933379C16.8848 0.424288 12.3878 1.86671 8.99389 4.92126C5.59995 7.9758 3.64844 12.3879 3.64844 16.8849C3.64844 22.0607 6.19389 26.9819 10.3515 29.9516C11.709 30.9697 12.8969 33.3455 13.4909 35.6364H18.9212V24.4364H17.309C16.8848 24.4364 16.4606 24.097 16.4606 23.5879C16.4606 23.1637 16.8848 22.7394 17.309 22.7394H22.2303C22.6545 22.7394 23.0787 23.1637 23.0787 23.5879C23.0787 24.097 22.6545 24.4364 22.2303 24.4364H20.6181V35.7213H26.0484C26.6424 33.4304 27.8303 30.9697 29.2727 29.9516C31.2242 28.5091 32.8363 26.7273 33.9393 24.6061C32.1575 24.2667 30.7151 22.9091 30.206 21.2122Z" fill="#684FA3" />
-        </g>
-        <g id="Group_4">
-          <path id="Vector_3" d="M51.5034 17.5636C50.2307 16.2909 48.2792 16.2909 47.0064 17.5636C46.5822 17.9879 46.3277 18.497 46.158 19.006H37.758C37.6731 18.7515 37.5883 18.497 37.4186 18.2424L42.5943 11.4545C44.7155 12.4727 47.1761 10.9454 47.1761 8.65453C47.1761 6.87271 45.7337 5.51514 44.0367 5.51514C42.2549 5.51514 40.8974 6.95756 40.8974 8.65453C40.8974 9.24847 41.067 9.84241 41.4064 10.3515L36.2307 17.1394C35.8064 16.8848 35.2974 16.8 34.7883 16.7151C33.6004 16.7151 32.5822 17.3091 32.0731 18.2424L22.8246 15.4424C22.8246 14.9333 22.7398 14.3394 22.4852 13.9151C21.1277 11.4545 17.4792 11.7939 16.7155 14.5091C15.6974 17.9879 20.4489 20.1939 22.4004 17.1394L31.7337 19.9394C31.8186 22.2303 34.1943 23.7576 36.3155 22.7394L41.4913 29.4424C41.2367 29.8667 41.0671 30.4606 41.0671 30.9697C41.0671 35.1273 47.3458 35.1273 47.3458 30.9697C47.3458 29.2727 45.9034 27.8303 44.2064 27.8303C43.6974 27.8303 43.1034 28 42.6792 28.2545L37.5883 21.5515C37.758 21.297 37.8428 21.0424 37.9277 20.703H46.3277C46.4974 21.2121 46.7519 21.6363 47.0913 21.9757C48.2792 23.2485 50.3155 23.2485 51.5883 21.9757C52.7761 20.7879 52.7761 18.8363 51.5034 17.5636Z" fill="#24C79B" />
-        </g>
-        <g id="Group_5">
-          <path id="Vector_4" d="M10.4365 44.291C10.4365 44.8001 10.7759 45.1395 11.285 45.1395H28.085C28.5941 45.1395 28.9335 44.8001 28.9335 44.291V42.1698H10.4365V44.291Z" fill="#684FA3" />
-        </g>
-        <g id="Group_6">
-          <path id="Vector_5" d="M28.085 37.4182H11.285C10.7759 37.4182 10.4365 37.7576 10.4365 38.2667V40.3879H28.9335V38.2667C28.9335 37.8425 28.5093 37.4182 28.085 37.4182Z" fill="#684FA3" />
-        </g>
-      </g>
-    </g>
-  </svg>
+              {/* SVG */}
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 56 56" fill="none">
+                <g id="research-and-development 1">
+                  <g id="Group">
+                    <g id="Group_2">
+                      <path id="Vector" d="M25.9636 49.297H24.6908V46.8364H14.6787V49.297H13.3211C12.8969 49.297 12.4727 49.7213 12.4727 50.1455C12.4727 50.6546 12.8969 50.994 13.3211 50.994H14.6787V51.8425C14.6787 53.7092 16.206 55.1516 17.9878 55.1516H21.2969C23.1636 55.1516 24.606 53.6243 24.606 51.8425V50.994H25.8787C26.3878 50.994 26.7272 50.6546 26.7272 50.1455C26.812 49.7213 26.4727 49.297 25.9636 49.297Z" fill="#684FA3" />
+                    </g>
+                    <g id="Group_3">
+                      <path id="Vector_2" d="M30.206 21.2122L22.909 19.091C19.4303 22.2304 13.5757 18.9213 15.0181 14.0849C15.6969 12.0485 17.5636 10.6061 19.6848 10.6061C21.4666 10.6061 23.0787 11.5394 23.9272 13.1516C24.0969 13.491 24.2666 13.8304 24.3515 14.1697L31.4787 16.291C33.2606 14.594 35.1272 15.1031 35.6363 15.0182C35.2121 8.40005 29.2727 1.78186 21.5515 0.933379C16.8848 0.424288 12.3878 1.86671 8.99389 4.92126C5.59995 7.9758 3.64844 12.3879 3.64844 16.8849C3.64844 22.0607 6.19389 26.9819 10.3515 29.9516C11.709 30.9697 12.8969 33.3455 13.4909 35.6364H18.9212V24.4364H17.309C16.8848 24.4364 16.4606 24.097 16.4606 23.5879C16.4606 23.1637 16.8848 22.7394 17.309 22.7394H22.2303C22.6545 22.7394 23.0787 23.1637 23.0787 23.5879C23.0787 24.097 22.6545 24.4364 22.2303 24.4364H20.6181V35.7213H26.0484C26.6424 33.4304 27.8303 30.9697 29.2727 29.9516C31.2242 28.5091 32.8363 26.7273 33.9393 24.6061C32.1575 24.2667 30.7151 22.9091 30.206 21.2122Z" fill="#684FA3" />
+                    </g>
+                    <g id="Group_4">
+                      <path id="Vector_3" d="M51.5034 17.5636C50.2307 16.2909 48.2792 16.2909 47.0064 17.5636C46.5822 17.9879 46.3277 18.497 46.158 19.006H37.758C37.6731 18.7515 37.5883 18.497 37.4186 18.2424L42.5943 11.4545C44.7155 12.4727 47.1761 10.9454 47.1761 8.65453C47.1761 6.87271 45.7337 5.51514 44.0367 5.51514C42.2549 5.51514 40.8974 6.95756 40.8974 8.65453C40.8974 9.24847 41.067 9.84241 41.4064 10.3515L36.2307 17.1394C35.8064 16.8848 35.2974 16.8 34.7883 16.7151C33.6004 16.7151 32.5822 17.3091 32.0731 18.2424L22.8246 15.4424C22.8246 14.9333 22.7398 14.3394 22.4852 13.9151C21.1277 11.4545 17.4792 11.7939 16.7155 14.5091C15.6974 17.9879 20.4489 20.1939 22.4004 17.1394L31.7337 19.9394C31.8186 22.2303 34.1943 23.7576 36.3155 22.7394L41.4913 29.4424C41.2367 29.8667 41.0671 30.4606 41.0671 30.9697C41.0671 35.1273 47.3458 35.1273 47.3458 30.9697C47.3458 29.2727 45.9034 27.8303 44.2064 27.8303C43.6974 27.8303 43.1034 28 42.6792 28.2545L37.5883 21.5515C37.758 21.297 37.8428 21.0424 37.9277 20.703H46.3277C46.4974 21.2121 46.7519 21.6363 47.0913 21.9757C48.2792 23.2485 50.3155 23.2485 51.5883 21.9757C52.7761 20.7879 52.7761 18.8363 51.5034 17.5636Z" fill="#24C79B" />
+                    </g>
+                    <g id="Group_5">
+                      <path id="Vector_4" d="M10.4365 44.291C10.4365 44.8001 10.7759 45.1395 11.285 45.1395H28.085C28.5941 45.1395 28.9335 44.8001 28.9335 44.291V42.1698H10.4365V44.291Z" fill="#684FA3" />
+                    </g>
+                    <g id="Group_6">
+                      <path id="Vector_5" d="M28.085 37.4182H11.285C10.7759 37.4182 10.4365 37.7576 10.4365 38.2667V40.3879H28.9335V38.2667C28.9335 37.8425 28.5093 37.4182 28.085 37.4182Z" fill="#684FA3" />
+                    </g>
+                  </g>
+                </g>
+              </svg>
 
-  {/* Title */}
-  <h3 className="text-[#071c39] text-xl md:text-2xl font-bold mb-2">
-    Innovative Projects
-  </h3>
+              {/* Title */}
+              <h3 className="text-[#071c39] text-xl md:text-2xl font-semibold mb-2">
+                Innovative Projects
+              </h3>
 
-  {/* Description */}
-  <p className="text-[#5a5e6a] text-sm md:text-lg">
-    Work on exciting and cutting-edge projects across industries
-  </p>
-</div>
+              {/* Description */}
+              <p className="text-sm sm:text-base lg:text-lg mb-8 font-parkinsans text-gray-500">
+                Work on exciting and cutting-edge projects across industries
+              </p>
+            </div>
 
 
 
@@ -58,13 +60,13 @@ export const C2 = () => {
 
 
               {/* Title */}
-              <h3 className=" text-[#071c39] text-xl md:text-2xl font-bold mb-2">
-               Growth Opportunities
+              <h3 className=" text-[#071c39] text-xl md:text-2xl font-semibold mb-2">
+                Growth Opportunities
               </h3>
 
               {/* Description */}
-              <p className=" text-[#5a5e6a] text-sm md:text-lg ">
-              We foster an environment of continuous learning and career development.              </p>
+              <p className=" text-sm sm:text-base lg:text-lg mb-8 font-parkinsans text-gray-500 ">
+                We foster an environment of continuous learning and career development.              </p>
             </div>
 
             {/* Card 3 */}
@@ -90,13 +92,14 @@ export const C2 = () => {
               </svg>
 
               {/* Title */}
-              <h3 className=" text-[#071c39] text-xl md:text-2xl font-bold mb-2">
-               Inclusive Culture
+              <h3 className=" text-[#071c39] text-xl md:text-2xl font-semibold mb-2">
+                Inclusive Culture
               </h3>
 
               {/* Description */}
-              <p className=" text-[#5a5e6a] text-sm md:text-lg">
-              Join a diverse team where your voice matters              </p>
+              <p className=" 
+text-sm sm:text-base lg:text-lg mb-8 font-parkinsans text-gray-500   ">
+                Join a diverse team where your voice matters              </p>
             </div>
 
             {/* Card 4 */}
@@ -112,13 +115,14 @@ export const C2 = () => {
               </svg>
 
               {/* Title */}
-              <h3 className=" text-[#071c39] text-xl md:text-2xl font-bold mb-2">
-              Work-Life Balance
+              <h3 className=" text-[#071c39] text-xl md:text-2xl font-semibold mb-2">
+                Work-Life Balance
               </h3>
 
               {/* Description */}
-              <p className=" text-[#5a5e6a] text-sm md:text-lg">
-              Enjoy flexible working arrangements and a supportive work environment.              </p>
+              <p className="
+text-sm sm:text-base lg:text-lg mb-8 font-parkinsans text-gray-500   ">
+                Enjoy flexible working arrangements and a supportive work environment.              </p>
             </div>
           </div>
         </div>
@@ -126,7 +130,7 @@ export const C2 = () => {
         {/* Text Section */}
         <div className="flex-1 md:pl-8 text-center md:text-left">
           <div className="mb-4">
-            <span className="text-[#071c39] text-3xl  capitalize leading-[41.40px]">
+            <span className="text-[#071c39] text-3xl  font-parkinsans capitalize leading-[41.40px]">
               Why Work{' '}
             </span>
 
@@ -138,19 +142,20 @@ export const C2 = () => {
               ?
             </span>
           </div>
-          <div className="text-[#5a5e6a] text-lg font-normal font-['Gilroy-Medium'] leading-[34.38px] mb-6">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-            scrambled it to make a type specimen book. It has survived not only five centuries.
+          <div className="text-[#5a5e6a] text-lg font-normal leading-[34.38px] mb-6">
+            Our company is committed to providing innovative solutions to help businesses thrive in the ever-evolving digital landscape. With years of experience, we specialize in delivering tailored strategies that empower organizations to achieve sustainable growth and success. Whether you're looking to enhance your online presence, improve operational efficiency, or drive customer engagement, we have the expertise to support your goals.
           </div>
-         <div className="flex justify-center lg:justify-start">
-        <button className="relative overflow-hidden px-4 py-2 md:px-6 md:py-3 rounded-full bg-[#6fd1ab] text-black text-[15px] font-semibold font-['Maven Pro'] group">
-            <span className="relative z-10 group-hover:text-white transition-colors duration-300 ease-in-out">
-              Apply Now
-            </span>
-            <div className="absolute top-0 left-0 w-full h-full bg-[#684fa3]  rounded-full transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-in-out"></div>
-          </button>
-        </div>
+
+          <div className="flex justify-center lg:justify-start">
+            <Link to="/contact">
+              <button className="relative overflow-hidden px-4 py-2 md:px-6 md:py-3 rounded-full bg-[#6fd1ab] text-black text-[15px] font-semibold font-['Maven Pro'] group">
+                <span className="relative z-10 group-hover:text-white transition-colors duration-300 ease-in-out">
+                  Apply Now
+                </span>
+                <div className="absolute top-0 left-0 w-full h-full bg-[#684fa3]  rounded-full transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-in-out"></div>
+              </button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>

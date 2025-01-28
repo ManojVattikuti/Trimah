@@ -1,13 +1,13 @@
 export const C1 = () => {
   return (
     <div className="flex gap-10 px-32 py-16 max-md:px-5 max-md:py-10 max-sm:flex-col">
-        <div className="flex-1">
-          <h2 className="text-3xl leading-10">
+        <div className="flex-1 justify-center">
+          <h2 className="text-3xl sm:text-3xl lg:text-4xl font-bold leading-10">
             <span>Join the</span>
             <br />
-            <span className="text-slate-500">Trimah Technologies Team</span>
+            <span className="text-[#684fa3]">Trimah Technologies Team</span>
           </h2>
-          <p className="mt-5 text-xl leading-10 text-gray-600">
+          <p className="mt-5 text-sm sm:text-base lg:text-lg mb-8 font-parkinsans text-gray-500">
             At Trimah Technologies, we are always on the lookout for talented
             individuals who share our passion for technology and innovation.
             As a leading provider of IT staffing and consulting solutions, we

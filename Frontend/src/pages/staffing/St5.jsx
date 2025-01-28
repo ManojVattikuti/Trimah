@@ -31,7 +31,7 @@ export const St5 = () => {
           alt={`${title} icon`}
           className="object-contain aspect-square w-[78px]"
         />
-        <div className="mt-4 text-lg font-medium text-zinc-800">{title}</div>
+        <div className="mt-4 text-lg font-semibold text-zinc-800  font-parkinsans ">{title}</div>
         <div className="mt-2 text-center text-base text-neutral-500">{description}</div>
       </div>
     );

@@ -245,7 +245,7 @@ export const Ct1 = () => {
           <div className="flex justify-center md:justify-start">
             <button
               onClick={handleOpenPopup1}
-              className="relative overflow-hidden px-4 py-2 sm:px-6 sm:py-3 rounded-full bg-[#6fd1ab] text-black text-sm sm:text-lg lg:text-xl font-medium group"
+              className="relative overflow-hidden px-6 py-3 rounded-full bg-[#6fd1ab] text-black font-parkinsans font-semibold group"
             >
               <span className="relative z-10 group-hover:text-white transition-colors duration-300 ease-in-out">
                 Click Here →
@@ -282,7 +282,7 @@ export const Ct1 = () => {
           <div className="flex justify-center md:justify-start">
             <button
               onClick={handleOpenPopup}
-              className="relative overflow-hidden px-4 py-2 sm:px-6 sm:py-3 rounded-full bg-[#6fd1ab] text-black text-sm sm:text-lg lg:text-xl font-medium group"
+              className="relative overflow-hidden px-6 py-3 rounded-full bg-[#6fd1ab] text-black font-parkinsans font-semibold group"
             >
               <span className="relative z-10 group-hover:text-white transition-colors duration-300 ease-in-out">
                 Click Here →

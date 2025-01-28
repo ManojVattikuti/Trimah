@@ -35,7 +35,7 @@ const Footer = () => {
             <div className="mt-4 flex flex-col sm:flex-row gap-4 justify-center">
               {/* Contact Us button */}
               <div className="relative inline-block overflow-hidden rounded-full shadow-md w-full sm:w-auto">
-              <a href="/contact" className="block">
+              <Link to="/contact" className="block">
 
        
                 <button className="relative overflow-hidden px-4 py- rounded-full bg-white/30 text-sm sm:text-lg font-semibold font-parkinsans lg:text-sm group flex items-center justify-center w-full sm:w-[200px] h-10 sm:h-12">
@@ -45,12 +45,12 @@ const Footer = () => {
                   <FiArrowRight className="ml-2 relative z-10 group-hover:text-white transition-colors duration-300 ease-in-out" />
                   <div className="absolute top-0 left-0 w-full h-full bg-[#684fa3] rounded-full transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-in-out"></div>
                 </button>
-                </a>
+                </Link>
               </div>
 
               {/* Schedule Consultation button */}
               <div className="relative inline-block overflow-hidden rounded-full shadow-md w-full sm:w-auto">
-              <a href="/contact" className="block">
+              <Link to="/contact" className="block">
                 <button className="relative overflow-hidden px-4 py-2 rounded-full bg-[#24c79b] text-sm sm:text-lg lg:text-sm font-parkinsans font-semibold group flex items-center justify-center w-full sm:w-[200px] lg:w-[280px] h-10 sm:h-12">
                   <span className="relative z-10 group-hover:text-white transition-colors duration-300 ease-in-out">
                     Schedule a Free Consultation
@@ -58,7 +58,7 @@ const Footer = () => {
                   <FiArrowRight className="ml-2 relative z-10 group-hover:text-white transition-colors duration-300 ease-in-out" />
                   <div className="absolute top-0 left-0 w-full h-full bg-[#684fa3] rounded-full transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-in-out"></div>
                 </button>
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -88,12 +88,12 @@ const Footer = () => {
           <div className="text-center md:text-left mb-8 md:mb-0">
             <h4 className="text-2xl font-semibold mb-4">Quick Links</h4>
             <ul className="list-none space-y-3">
-              <li><a href="/business" className="relative pl-4 hover:text-purple-300 before:content-['•'] before:absolute before:left-0 before:text-black">Business</a></li>
-              <li><a href="/career" className="relative pl-4 hover:text-purple-300 before:content-['•'] before:absolute before:left-0 before:text-black">Career Seekers</a></li>
-              <li><a href="/staffing" className="relative pl-4 hover:text-purple-300 before:content-['•'] before:absolute before:left-0 before:text-black">Staffing</a></li>
-              <li><a href="/industries" className="relative pl-4 hover:text-purple-300 before:content-['•'] before:absolute before:left-0 before:text-black">Industries</a></li>
-              <li><a href="/contact" className="relative pl-4 hover:text-purple-300 before:content-['•'] before:absolute before:left-0 before:text-black">Contact Us</a></li>
-              <li><a href="/about" className="relative pl-4 hover:text-purple-300 before:content-['•'] before:absolute before:left-0 before:text-black">About Us</a></li>
+              <li><Link to="/business" className="relative pl-4 hover:text-purple-300 before:content-['•'] before:absolute before:left-0 before:text-black">Business</Link></li>
+              <li><Link to="/career" className="relative pl-4 hover:text-purple-300 before:content-['•'] before:absolute before:left-0 before:text-black">Career Seekers</Link></li>
+              <li><Link to="/staffing" className="relative pl-4 hover:text-purple-300 before:content-['•'] before:absolute before:left-0 before:text-black">Staffing</Link></li>
+              <li><Link to="/industries" className="relative pl-4 hover:text-purple-300 before:content-['•'] before:absolute before:left-0 before:text-black">Industries</Link></li>
+              <li><Link to="/contact" className="relative pl-4 hover:text-purple-300 before:content-['•'] before:absolute before:left-0 before:text-black">Contact Us</Link></li>
+              <li><Link to="/about" className="relative pl-4 hover:text-purple-300 before:content-['•'] before:absolute before:left-0 before:text-black">About Us</Link></li>
             </ul>
           </div>
 

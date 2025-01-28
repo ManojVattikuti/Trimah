@@ -4,7 +4,7 @@ export const St4 = () => {
       <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6">
         Staffing Engagement Process
       </h2>
-      <p className="text-center text-gray-600 mb-8 text-sm sm:text-base">
+      <p className="text-center text-gray-500 mb-8 text-sm sm:text-base">
         Our Step-By-Step Process Ensures Seamless Hiring and Successful Outcomes
       </p>
 

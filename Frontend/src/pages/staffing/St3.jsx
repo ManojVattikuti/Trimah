@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 export const St3 = () => {
   const services = [
     {
@@ -33,9 +34,9 @@ export const St3 = () => {
           <div className="px-4 pt-2.5 pb-4 w-10 h-10 text-xl whitespace-nowrap rounded-full bg-zinc-200">
             {number}
           </div>
-          <div className="my-auto text-xl">{title}</div>
+          <div className="my-auto text-xl font-semibold font-parkinsans ">{title}</div>
         </div>
-        <div className="mt-2 text-sm leading-6 text-gray-600">{description}</div>
+        <div className="mt-2 text-sm sm:text-base lg:text-lg mb-8 font-parkinsans text-gray-500  leading-6">{description}</div>
         {imageSrc && (
           <img
             loading="lazy"
@@ -52,10 +53,10 @@ export const St3 = () => {
     <div className="w-full max-w-[1291px] px-8 py-20 lg:px-32 mx-auto">
     {/* Heading Section */}
     <div className="text-center">
-      <div className="mt-11 text-3xl font-semibold text-slate-900 max-md:mt-10">
+      <div className="mt-11 text-3xl sm:text-3xl lg:text-3xl font-bold font-parkinsans  max-md:mt-10">
         Our Staffing Services
       </div>
-      <div className="mt-4 text-lg leading-loose text-gray-600 max-md:max-w-full">
+      <div className="mt-4 text-lg font-parkinsans  leading-loose text-gray-500 max-md:max-w-full">
         We offer flexible staffing solutions{" "}
         <span className="lowercase">to</span> match{" "}
         <span className="lowercase">your</span> specific needs.
@@ -69,12 +70,15 @@ export const St3 = () => {
       ))}
     </div>
     <div className="mt-8 ">
+      <Link to="/contact">
+   
               <button className="relative overflow-hidden px-6 py-3 rounded-full bg-[#6fd1ab] text-black text-base font-semibold group">
-                <span className="relative z-10 group-hover:text-white transition-colors duration-300 ease-in-out font-['Maven Pro']">
+                <span className="relative z-10 group-hover:text-white transition-colors duration-300 ease-in-out  font-parkinsans ">
                   Request Talent Now →
                 </span>
                 <div className="absolute top-0 left-0 w-full h-full bg-[#684fa3]  rounded-full transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-in-out"></div>
               </button>
+              </Link>
             </div>
   </div>
   

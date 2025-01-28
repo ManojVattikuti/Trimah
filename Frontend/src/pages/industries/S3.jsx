@@ -27,10 +27,10 @@ export const S3=()=>
             className="object-contain aspect-[1.05] w-[63px]"
           />
         )}
-        <div className="mt-6 text-xl leading-none text-slate-900">
+        <div className="mt-6 text-xl leading-none font-parkinsans font-semibold text-slate-900">
           {title}
         </div>
-        <div className="self-stretch mt-1.5 text-base leading-6 text-neutral-700">
+        <div className="self-stretch mt-1.5 text-base font-parkinsans  leading-6 text-neutral-700">
           {description}
         </div>
       </div>
@@ -38,7 +38,7 @@ export const S3=()=>
   };
         return(
           <div className="lg:px-32">
-            <div className="self-center mt-11 text-3xl leading-none text-center text-slate-900 max-md:mt-10 max-md:max-w-full">
+            <div className="self-center mt-11 text-3xl sm:text-3xl lg:text-3xl font-bold font-parkinsans leading-none text-center text-slate-900 max-md:mt-10 max-md:max-w-full">
       Why Choose Trimah Technologies?
     </div>
          

@@ -3,19 +3,19 @@ export const St1=()=>
     return(
       <div className="flex flex-col self-stretch px-32 mt-16 w-full max-md:px-5 max-md:mt-10 max-md:max-w-full">
       <div className="max-md:mr-2.5 max-md:max-w-full">
-        <div className="flex gap-5 max-md:flex-col">
-          <div className="flex flex-col w-[32%] max-md:ml-0 max-md:w-full">
+        <div className="flex gap-2 max-md:flex-col">
+          <div className="flex flex-col w-[62%] max-md:ml-0 max-md:w-full">
             <div className="flex flex-col grow max-md:mt-10">
               <div className="self-start px-5 py-1.5 text-base leading-none text-emerald-400 uppercase rounded-2xl bg-emerald-400 bg-opacity-20">
                 Industries We Serve
               </div>
-              <div className="mt-2.5 text-3xl leading-10 text-slate-900">
+              <div className="mt-2.5 text-3xl sm:text-3xl lg:text-4xl font-bold font-parkinsans leading-10 text-slate-900">
                 Staffing Solutions <span className="lowercase">for Your</span> Business
               </div>
             </div>
           </div>
-          <div className="flex flex-col ml-5 w-[68%] max-md:ml-0 max-md:w-full">
-            <div className="self-stretch my-auto text-lg leading-9 text-gray-600 max-md:mt-10 max-md:max-w-full">
+          <div className="flex flex-col ml-6 w-[68%] max-md:ml-0 max-md:w-full">
+            <div className="self-stretch my-auto text-sm sm:text-base lg:text-lg mb-8 font-parkinsans text-gray-500 max-md:mt-10 max-md:max-w-full">
               At Trimah Technologies, we understand that having the right team can make all the difference. 
               Whether you need temporary talent or long-term professionals, our staffing solutions are built on trust, 
               reliability, and a commitment to excellence

@@ -29,7 +29,7 @@ const BusinessHero = () => {
         <div className="flex items-center justify-center gap-2">
           {/* Home */}
           <Link to="/">
-          <p className="text-[#ffffffcc] text-xl tracking-tight leading-[23.6px] sm:text-lg md:text-xl lg:text-xl">
+          <p className="text-[#ffffffcc] text-xl font-parkinsans tracking-tight leading-[23.6px] sm:text-lg md:text-xl lg:text-xl">
             Home
           </p>
           </Link>
@@ -43,7 +43,7 @@ const BusinessHero = () => {
           {/* About Us */}
           <Link to="/business">
           
-          <p className="text-[#ffffffcc] text-xl tracking-tight leading-[23.6px] sm:text-lg md:text-xl lg:text-xl">
+          <p className="text-[#ffffffcc] text-xl font-parkinsans tracking-tight leading-[23.6px] sm:text-lg md:text-xl lg:text-xl">
 Business
           </p>
           </Link>
@@ -53,7 +53,7 @@ Business
             </svg>
           </div>
           <Link to="/business">
-          <p className="text-[#ffffffcc] text-xl tracking-tight leading-[23.6px] sm:text-lg md:text-xl lg:text-xl">
+          <p className="text-[#ffffffcc] text-xl font-parkinsans tracking-tight leading-[23.6px] sm:text-lg md:text-xl lg:text-xl">
 Consulting
           </p>
           </Link>

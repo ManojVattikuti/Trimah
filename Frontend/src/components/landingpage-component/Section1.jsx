@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Section1 = () => {
   return (
-    <div className="px-8 sm:px-8 lg:px-32 sm:py-24 lg:py-32">
+    <div className="px-8 sm:px-8 lg:px-32 sm:py-24 lg:py-32 ">
       <section className="relative bg-violet-900   h-[300px] sm:h-[300px] flex items-start justify-center rounded-[25px]">
       
         <img
@@ -13,7 +13,7 @@ const Section1 = () => {
         />
 
         {/* Main Content */}
-        <div className="text-white z-10 px-8 py-8 w-full  space-y-4">
+        <div className="text-white z-10 px-8 py-8 w-full  space-y-6">
           <h1 className="text-white text-3xl lg:text-4xl font-bold font-parkinsans capitalize leading-8 sm:leading-10">Join a Team that Makes a Difference</h1>
           <p className="text-white/80  text-sm sm:text-base lg:text-lg mb-8 font-parkinsans text-gray-500 font-light capitalize leading-6 sm:leading-[20.78px">
             Our Leadership Team, with years of Experience in IT <br />Healthcare and Pharmaceuticals,
@@ -22,7 +22,7 @@ const Section1 = () => {
           <div className="flex justify-center lg:justify-start">
             <Link to="/career">
 
-              <button className="relative overflow-hidden px-4 py-2 sm:px-6 sm:py-3 rounded-full bg-[#6fd1ab] text-black text-sm sm:text-sm lg:text-sm font-medium group">
+              <button className="relative overflow-hidden px-6 py-3 rounded-full bg-[#6fd1ab] text-black font-parkinsans font-semibold group">
                 <span className="relative z-10 group-hover:text-white transition-colors   font-parkinsans duration-300 ease-in-out">
                   Find Your Next Role →
                 </span>

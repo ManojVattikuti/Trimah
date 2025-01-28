@@ -151,7 +151,7 @@ const Header = () => {
           <div className="hidden lg:flex items-center space-x-4">
             <Link to="/career">
 
-              <button className="relative overflow-hidden sm:px-4 sm:py-2 rounded-full bg-[#6fd1ab] text-black text-sm sm:text-lg lg:text-sm font-parkinsans font-semibold group">
+              <button className="relative overflow-hidden px-6 py-3 rounded-full bg-[#6fd1ab] text-black font-parkinsans font-semibold group">
                 <span className="relative z-10 group-hover:text-white transition-colors duration-300 ease-in-out">
                   Find Your Talent
                 </span>

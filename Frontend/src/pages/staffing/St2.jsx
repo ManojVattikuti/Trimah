@@ -23,8 +23,8 @@ export const St2 = () => {
   function StaffingCard({ title, description, imageSrc }) {
     return (
       <div className="flex flex-col items-start p-4 rounded-lg bg-purple-100 max-w-sm">
-        <div className="text-xl font-bold text-slate-500">{title}</div>
-        <div className="mt-2 text-sm leading-6 text-gray-600">{description}</div>
+        <div className="text-xl font-bold  font-parkinsans text-slate-500">{title}</div>
+        <div className="mt-2  font-parkinsans leading-6 text-gray-500">{description}</div>
         {imageSrc && (
           <img
             loading="lazy"
@@ -39,7 +39,7 @@ export const St2 = () => {
 
   return (
     <div className="lg:px-32 px-8"> 
-      <div className="mt-16 text-2xl leading-8 text-slate-900 max-w-sm">
+      <div className="mt-16 text-2xl leading-8 font-semibold font-parkinsans  max-w-sm">
         Why Choose Trimah Technologies <span className="lowercase">for</span> Staffing
       </div>
       <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-3">

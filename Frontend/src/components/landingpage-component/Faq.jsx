@@ -32,7 +32,7 @@ const FaqSection = () => {
   ];
 
   return (
-    <section className="py-16 px-6 sm:px-16 lg:px-32 bg-gray-50">
+    <section className="py-16 px-6 sm:px-16 sm:py-16  mt-16 lg:px-32 bg-gray-50">
       <div className="container mx-auto">
         <h2 className=" text-2xl lg:text-4xl font-bold font-parkinsans  text-center font-bold capitalize leading-tight mb-8">
           Frequently Asked Questions

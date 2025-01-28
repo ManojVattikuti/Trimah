@@ -27,9 +27,9 @@ export const St6 = () => {
             alt=""
             className="w-6 h-6 shrink-0"
           />
-          <div className="text-lg font-semibold text-gray-800">{title}</div>
+          <div className="text-lg font-semibold text-gray-800 font-parkinsans">{title}</div>
         </div>
-        <div className="mt-2 text-base text-gray-600 leading-6">
+        <div className="mt-2 text-base text-gray-500 leading-6 font-parkinsans">
           {description}
         </div>
       </div>
@@ -41,7 +41,7 @@ export const St6 = () => {
       <div className="flex gap-10 max-md:flex-col">
         {/* Left Section */}
         <div className="flex flex-col w-[37%] max-md:w-full">
-          <div className="text-3xl font-bold text-slate-900 mb-6">
+          <div className="mb-6   text-3xl sm:text-3xl lg:text-4xl font-bold font-parkinsans">
             What Sets Us Apart
           </div>
           {featureItems.map((item, index) => (
