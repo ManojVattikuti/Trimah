@@ -77,9 +77,14 @@ const Header = () => {
 
           {/* Mobile Menu Icon */}
           <div className="lg:hidden flex items-center">
-            <button onClick={() => setMenuOpen(!menuOpen)}>
-              {menuOpen ? <FaTimes size={24} className="text-white" /> : <FaBars size={24} className="text-white" />}
-            </button>
+          <button onClick={() => setMenuOpen(!menuOpen)}>
+  {menuOpen ? (
+    <FaTimes size={24}  className="text-white"/>
+  ) : (
+    <FaBars size={24} className={`text-black ${hasScrolled ? 'text-black' : 'text-white'}`} />
+  )}
+</button>
+
           </div>
 
           {/* Desktop Navigation Links */}
@@ -181,7 +186,7 @@ const Header = () => {
       className="h-12 w-auto"
     />
   </div>
-  
+
         <NavLink
           to="/"
           className="text-white text-[18px] font-semibold font-parkinsans"

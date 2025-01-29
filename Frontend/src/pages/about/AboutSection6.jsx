@@ -28,44 +28,59 @@ const AboutSection6 = () => {
 
 
 
-            <svg width="1000" height="800" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"
-              className="absolute top-[176px] left-[55px] z-10"
-            >
-              <defs>
-                <linearGradient id="gradientArc" gradientTransform="rotate(90)">
-                  <stop offset="0%" stop-color="#684fa3" />
-                  <stop offset="30%" stop-color="#6fd1ab" />
-                  <stop offset="70%" stop-color="#684fa3" />
-                  <stop offset="100%" stop-color="#684fa3" />
-                </linearGradient>
-              </defs>
-              <path
-                d="M10,50 A40,40 0 1,1 90,50 A40,40 0 1,1 ,50 Z"
-                fill="none"
-                stroke="url(#gradientArc)"
-                stroke-width="20"
-              />
-            </svg>
+<svg
+  width="1000"
+  height="800"
+  viewBox="0 0 100 100"
+  xmlns="http://www.w3.org/2000/svg"
+  className="absolute top-[176px] left-[55px] z-10 transition-transform duration-500 hover:scale-110 hover:drop-shadow-lg"
+>
+  <defs>
+    <linearGradient id="gradientArc">
+      <stop offset="0%">
+        <animate attributeName="stop-color" values="#684fa3; #6fd1ab; #684fa3" dur="3s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="30%">
+        <animate attributeName="stop-color" values="#6fd1ab; #684fa3; #6fd1ab" dur="3s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="70%">
+        <animate attributeName="stop-color" values="#684fa3; #6fd1ab; #684fa3" dur="3s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%">
+        <animate attributeName="stop-color" values="#684fa3; #6fd1ab; #684fa3" dur="3s" repeatCount="indefinite" />
+      </stop>
+    </linearGradient>
+  </defs>
+  <path
+    d="M10,50 A40,40 0 1,1 90,50 A40,40 0 1,1 ,50 Z"
+    fill="none"
+    stroke="url(#gradientArc)"
+    strokeWidth="20"
+    className="transition-all duration-500 hover:stroke-[#6fd1ab] hover:stroke-opacity-90"
+  />
+</svg>
+
             <img
-              className="absolute w-[54px] h-[54px]  left-[830px] top-[450px] z-20"
-              alt="Men"
-              src="about/abs6/IC-1.png"
-            />
-            <img
-              className="absolute w-[50px] h-[54px]  left-[730px] top-[300px] z-20"
-              alt="Men"
-              src="about/abs6/IC-2.png"
-            />
-            <img
-              className="absolute w-[50px] h-[54px]  left-[320px] top-[300px] z-20"
-              alt="Men"
-              src="about/abs6/IC-3.png"
-            />
-            <img
-              className="absolute w-[50px] h-[54px]  left-[220px] top-[450px] z-20"
-              alt="Men"
-              src="about/abs6/IC-4.png"
-            />
+  className="absolute w-[54px] h-[54px] left-[830px] top-[450px] z-20 transition-all duration-300 ease-in-out transform hover:scale-110 hover:rotate-6 hover:drop-shadow-lg"
+  alt="Men"
+  src="about/abs6/IC-1.png"
+/>
+<img
+  className="absolute w-[50px] h-[54px] left-[730px] top-[300px] z-20 transition-all duration-300 ease-in-out transform hover:scale-110 hover:rotate-6 hover:drop-shadow-lg"
+  alt="Men"
+  src="about/abs6/IC-2.png"
+/>
+<img
+  className="absolute w-[50px] h-[54px] left-[320px] top-[300px] z-20 transition-all duration-300 ease-in-out transform hover:scale-110 hover:rotate-6 hover:drop-shadow-lg"
+  alt="Men"
+  src="about/abs6/IC-3.png"
+/>
+<img
+  className="absolute w-[50px] h-[54px] left-[220px] top-[450px] z-20 transition-all duration-300 ease-in-out transform hover:scale-110 hover:rotate-6 hover:drop-shadow-lg"
+  alt="Men"
+  src="about/abs6/IC-4.png"
+/>
+
             <div className="absolute w-[251px] h-[74px] top-[119px] left-0">
               <div className="absolute w-[239px]  left-2 font-parkinsans  font-normal text-black text-xl text-right tracking-[0] leading-[26.4px]">
                 Tailored Solutions

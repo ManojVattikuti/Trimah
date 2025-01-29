@@ -49,13 +49,14 @@ export const AboutSection1 = () => {
 
         {/* Right Section */}
         <div className="lg:w-1/2 w-full">
-          <div className="relative w-full h-[400px] md:w-[607px] mx-auto">
-            <img
-              src="./about/1.png"
-              alt="Background Image"
-              className="absolute w-full h-full object-cover rounded-[20px]"
-            />
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <div className="relative w-full h-[400px] md:w-[607px] mx-auto  overflow-hidden group">
+          <img
+    src="./about/1.png"
+    alt="Background Image"
+    className="absolute w-full h-full object-cover rounded-[20px] transition-transform duration-500 group-hover:scale-105 group-hover:brightness-110"
+  />
+  <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-500"></div>
+            {/* <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
               <div className="w-40 h-40 bg-[#684fa366] rounded-full flex items-center justify-center animate-pulse">
                 <div className="w-32 h-32 bg-[#684fa399] rounded-full flex items-center justify-center animate-pulse">
                   <div className="w-24 h-24 bg-[#684fa3cc] rounded-full flex items-center justify-center">
@@ -67,7 +68,7 @@ export const AboutSection1 = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
