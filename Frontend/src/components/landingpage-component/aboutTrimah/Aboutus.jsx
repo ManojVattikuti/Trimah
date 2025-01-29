@@ -27,7 +27,7 @@ const AboutUsSection = () => {
               Founded by Leaders in Healthcare and Pharmaceuticals IT, Trimah Technologies Brings over Two Years of Expertise in Delivering IT Staffing and Consulting Solutions. We Specialize in Placing Software Developers, DevOps, Cloud in Financial and Healthcare Industries, and Meeting Unique Life Sciences Needs such as Quality Assurance Validation Engineers and Compliance.
             </p>
             <div className="mt-8">
-              <Link to="/contact">
+              <Link to="/about">
             
               <button className="relative overflow-hidden px-6 py-3 rounded-full bg-[#6fd1ab] text-black font-parkinsans font-semibold group">
                 <span className="relative z-10 group-hover:text-white transition-colors duration-300 ease-in-out font-['Maven Pro']">

@@ -26,15 +26,10 @@ const AboutPage = () => {
       <AboutHero />
 
 
-      <motion.div
-        variants={fadeUpVariant}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-
-      >
+   
+     
         <AboutSection1 />
-      </motion.div>
+    
 
       <motion.div
         variants={fadeUpVariant}

@@ -23,20 +23,13 @@ const ContactPage = () => {
     <>
       <ContactHero />
 
-      <motion.div
-        variants={fadeUpVariant}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-
-      >
-        <div className="font-parkinsans">
+     <div className="font-parkinsans">
 
 
           <Ct1 />
         </div>
 
-      </motion.div>
+     
 
       <motion.div
         variants={fadeUpVariant}

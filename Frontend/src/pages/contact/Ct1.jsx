@@ -1,10 +1,22 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FiUpload } from "react-icons/fi";
 import { API_BASE_URL } from "../../constants/ApiConstants";
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { useLocation } from "react-router-dom";
 
 export const Ct1 = () => {
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const popupType = queryParams.get("popup");
+  
+  useEffect(() => {
+    if (popupType === "1") {
+      setShowPopup1(true);
+    } else if (popupType === "2") {
+      setShowPopup2(true);
+    }
+  }, [popupType]);
   const [showPopup1, setShowPopup1] = useState(false);
   const [showPopup2, setShowPopup2] = useState(false);
 

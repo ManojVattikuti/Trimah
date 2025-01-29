@@ -21,16 +21,9 @@ export const Industrymain = () => {
     <>
       <IndustryHero />
 
-      <motion.div
-        variants={fadeUpVariant}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-
-      >
 
         <S1 />
-      </motion.div>
+     
 
       <motion.div
         variants={fadeUpVariant}

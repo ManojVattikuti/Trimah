@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FiArrowRight } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 
 const ServiceSection = () => {
   const [hoveredService, setHoveredService] = useState(null);
@@ -63,9 +64,12 @@ const ServiceSection = () => {
                 className={`absolute top-4 right-4 p-2 rounded-full bg-black bg-opacity-50 text-white transition-opacity duration-300 ${hoveredService === 'consulting' ? 'opacity-100' : 'opacity-0'
                   }`}
               >
+                <Link to="/business">
+              
                 <a href="#" className="flex items-center justify-center">
                   <FiArrowRight className="w-5 h-5" />
                 </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -100,9 +104,11 @@ const ServiceSection = () => {
                 className={`absolute top-4 right-4 p-2 rounded-full bg-white bg-opacity-50 text-white transition-opacity duration-300 ${hoveredService === 'staff' ? 'opacity-100' : 'opacity-0'
                   }`}
               >
+                 <Link to="/staffing">
                 <a href="#" className="flex items-center justify-center">
                   <FiArrowRight className="w-5 h-5" />
                 </a>
+                </Link>
               </div>
             </div>
           </div>

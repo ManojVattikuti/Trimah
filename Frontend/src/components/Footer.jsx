@@ -67,29 +67,40 @@ const Footer = () => {
 
         {/* Second Section - Address, Logo, Quick Links, Legal Terms, and Social Media */}
         <div className="flex flex-col md:flex-row justify-between items-center md:items-start border-b border-white py-10 font-parkinsans">
-          <div className="flex flex-col items-center md:items-start mb-8 md:mb-0">
-            <img src="/TRIMAH - logos/TRIMAH-reversed-all-white-logo.png" alt="Trimah Technologies Logo" className="w-32 h-34" />
-            <p className="mt-6 text-lg text-center md:text-left">
-              <div className="flex items-center space-x-3">
-                <FaMapMarkerAlt size={24} />
-                <span className="text-lg">3934 N Hampton Dr Powell, OH 43065</span>
-              </div>
-              <div className="flex items-center space-x-3 mt-3">
-                <FaPhoneAlt size={20} />
-                <span className="text-lg">+13808671774</span>
-              </div>
-              <div className="flex items-center space-x-3 mt-3">
-                <FaEnvelope size={20} />
-                <span className="text-lg">info@trimahtech.com</span>
-              </div>
-            </p>
-          </div>
+  {/* Logo and Contact Section */}
+  <div className="flex flex-col items-center md:items-start mb-8 md:mb-0 w-full md:w-auto text-center md:text-left">
+    {/* Logo */}
+    <img 
+      src="/TRIMAH - logos/TRIMAH-reversed-all-white-logo.png" 
+      alt="Trimah Technologies Logo" 
+      className="w-32 h-auto"
+    />
+
+    {/* Contact Info */}
+    <div className="mt-6 space-y-3 w-full flex flex-col items-center md:items-start">
+      <div className="flex items-center space-x-3">
+        <FaMapMarkerAlt size={24} />
+        <span className="text-base sm:text-lg">3934 N Hampton Dr Powell, OH 43065</span>
+      </div>
+      <div className="flex items-center space-x-3">
+        <FaPhoneAlt size={20} />
+        <span className="text-base sm:text-lg">+1 380-867-1774</span>
+      </div>
+      <div className="flex items-center space-x-3">
+        <FaEnvelope size={20} />
+        <span className="text-base sm:text-lg">info@trimahtech.com</span>
+      </div>
+    </div>
+  </div>
+
+
 
           <div className="text-center md:text-left mb-8 md:mb-0">
             <h4 className="text-2xl font-semibold mb-4">Quick Links</h4>
             <ul className="list-none space-y-3">
               <li><Link to="/business" className="relative pl-4 hover:text-purple-300 before:content-['•'] before:absolute before:left-0 before:text-black">Business</Link></li>
               <li><Link to="/career" className="relative pl-4 hover:text-purple-300 before:content-['•'] before:absolute before:left-0 before:text-black">Career Seekers</Link></li>
+              <li><Link to="/business" className="relative pl-4 hover:text-purple-300 before:content-['•'] before:absolute before:left-0 before:text-black">Consulting</Link></li>
               <li><Link to="/staffing" className="relative pl-4 hover:text-purple-300 before:content-['•'] before:absolute before:left-0 before:text-black">Staffing</Link></li>
               <li><Link to="/industries" className="relative pl-4 hover:text-purple-300 before:content-['•'] before:absolute before:left-0 before:text-black">Industries</Link></li>
               <li><Link to="/contact" className="relative pl-4 hover:text-purple-300 before:content-['•'] before:absolute before:left-0 before:text-black">Contact Us</Link></li>
@@ -119,18 +130,19 @@ const Footer = () => {
 
 
         {/* Third Section - Copyright */}
-        <div className="mt-6 flex flex-col md:flex-row justify-between text-sm font-parkinsans">
-          <div className="text-left mb-4 md:mb-0 text-xs sm:text-sm md:text-base lg:text-sm">
-            © 2025 Trimah Technologies. All Rights Reserved.
-          </div>
+        <div className="mt-6 flex flex-col items-center justify-center w-full text-center text-sm font-parkinsans">
+  <div className="text-xs sm:text-sm md:text-base lg:text-sm">
+    © 2025 Trimah Technologies. All Rights Reserved.
+  </div>
+
 
          
 
        
           <div className="text-right text-xs sm:text-sm md:text-base lg:text-sm">
-          <a href="https://jishnutp.vercel.app/">
+          {/* <a href="https://jishnutp.vercel.app/">
             Developed By JTP
-            </a>
+            </a> */}
           </div>
        
         </div>

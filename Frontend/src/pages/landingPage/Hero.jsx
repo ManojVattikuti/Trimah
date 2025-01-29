@@ -54,7 +54,7 @@ const Hero = () => {
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           {/* Button 1 */}
           <div className="relative inline-block overflow-hidden rounded-full shadow-md">
-            <Link to="/contact">
+            <Link to="/contact?popup=1">
               <button className="relative flex items-center px-4 py-2 sm:px-6 sm:py-3 rounded-full bg-[#6fd1ab] text-black text-[14px] sm:text-[15px] font-semibold font-parkinsans  group">
                 <span className="relative z-10 group-hover:text-white transition-colors duration-300 ease-in-out">
                   Find Your Next Hire

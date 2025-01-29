@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Section1 = () => {
   return (
     <div className="px-8 sm:px-8 lg:px-32 sm:py-24 lg:py-32 ">
-      <section className="relative bg-violet-900   h-[300px] sm:h-[300px] flex items-start justify-center rounded-[25px]">
+      <section className="relative bg-violet-900   h-[450px] sm:h-[300px] flex items-start justify-center rounded-[25px]">
       
         <img
           src="/Frames.png"
@@ -13,14 +13,13 @@ const Section1 = () => {
         />
 
         {/* Main Content */}
-        <div className="text-white z-10 px-8 py-8 w-full  space-y-6">
-          <h1 className="text-white text-3xl lg:text-4xl font-bold font-parkinsans capitalize leading-8 sm:leading-10">Join a Team that Makes a Difference</h1>
+        <div className="text-white z-10 px-8 py-8 w-full  space-y-5">
+          <h1 className="text-white text-3xl lg:text-4xl font-bold font-parkinsans capitalize leading-8 sm:leading-10">Empowering Businesses with Top <br/>IT Talent & Solution</h1>
           <p className="text-white/80  text-sm sm:text-base lg:text-lg mb-8 font-parkinsans text-gray-500 font-light capitalize leading-6 sm:leading-[20.78px">
-            Our Leadership Team, with years of Experience in IT <br />Healthcare and Pharmaceuticals,
-            Understands the <br />Challenges of Finding Top-Tier Talent and Delivering IT Solutions.
+          With deep expertise in IT, healthcare, and pharmaceuticals,<br/> our leadership team understands the challenges of<br/> sourcing elite talent and delivering tailored IT solutions to drive your success.
           </p>
           <div className="flex justify-center lg:justify-start">
-            <Link to="/career">
+            <Link to="/contact?popup=1">
 
               <button className="relative overflow-hidden px-6 py-3 rounded-full bg-[#6fd1ab] text-black font-parkinsans font-semibold group">
                 <span className="relative z-10 group-hover:text-white transition-colors   font-parkinsans duration-300 ease-in-out">

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { useSwipeable } from "react-swipeable";
 
 const Why = () => {
@@ -113,12 +114,15 @@ text-sm sm:text-base lg:text-lg mb-8 font-parkinsans text-gray-500  text-center 
         </div>
 
         <div className="mt-8">
-          <a
-            href="/contact"
+          <Link to="/contact?popup=1">
+      
+          <div
+          
             className="text-black text-lg font-semibold font-parkinsans hover:underline"
           >
             Get Started Today →
-          </a>
+          </div>
+          </Link>
         </div>
       </div>
     </section>
