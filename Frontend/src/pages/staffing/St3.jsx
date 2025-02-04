@@ -45,7 +45,7 @@ export const St3 = () => {
             loading="lazy"
             src={imageSrc}
             alt={`${title} illustration`}
-            className="object-contain mt-3 max-w-full w-[100px] transition-transform duration-300 transform hover:scale-110"
+            className="object-contain  max-w-full w-[110px] transition-transform duration-300 transform hover:scale-110"
           />
         )}
       </div>
@@ -73,7 +73,7 @@ export const St3 = () => {
         ))}
       </div>
 
-      <div className="mt-8">
+      <div className="mt-8 ">
         <Link to="/contact">
           <button className="relative overflow-hidden px-6 py-3 rounded-full bg-[#6fd1ab] text-black text-base font-semibold group transition-transform duration-300 hover:scale-105">
             <span className="relative z-10 group-hover:text-white transition-colors duration-300 ease-in-out font-parkinsans">

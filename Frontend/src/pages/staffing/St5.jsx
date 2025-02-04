@@ -24,15 +24,19 @@ export const St5 = () => {
 
   function IndustryCard({ icon, title, description }) {
     return (
-      <div className="flex flex-col items-center px-8 pt-9 pb-6 bg-white rounded-xl shadow-md max-md:px-5 max-md:mt-7">
+      <div className="flex flex-col items-center px-8 pt-9 pb-6 bg-white rounded-xl shadow-md transform transition-all hover:scale-105 hover:shadow-xl duration-300 ease-in-out max-md:px-5 max-md:mt-7">
         <img
           loading="lazy"
           src={icon}
           alt={`${title} icon`}
-          className="object-contain aspect-square w-[78px]"
+          className="object-contain aspect-square w-[78px] transition-transform duration-300 ease-in-out hover:scale-110"
         />
-        <div className="mt-4 text-lg font-semibold text-zinc-800  font-parkinsans ">{title}</div>
-        <div className="mt-2 text-center text-base text-neutral-500">{description}</div>
+        <div className="mt-4 text-lg font-semibold text-zinc-800 font-parkinsans transition-colors duration-300 ease-in-out hover:text-teal-500">
+          {title}
+        </div>
+        <div className="mt-2 text-center text-base text-neutral-500 transition-all duration-300 ease-in-out hover:text-zinc-700">
+          {description}
+        </div>
       </div>
     );
   }

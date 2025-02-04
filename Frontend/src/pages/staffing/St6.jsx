@@ -3,17 +3,17 @@ export const St6 = () => {
     {
       icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/f228e9b6351bc5d68a00f88095033cccfdf0b242da437742946ca021f47d8a18?placeholderIfAbsent=true&apiKey=4126fbaca52340fea6ccc661ec39005f",
       title: "Core Values",
-      description: "Trust, excellence, and partnership define our staffing approach",
+      description: "Trust, Excellence, and Partnership Define Our Staffing Approach",
     },
     {
       icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/7e0c8f602223111e69c8d96fe04761da275c857032f2593c6981f05b64167486?placeholderIfAbsent=true&apiKey=4126fbaca52340fea6ccc661ec39005f",
       title: "Leadership Experience",
-      description: "Our team has firsthand knowledge of hiring challenges and solutions in key industries.",
+      description: "Our team has Firsthand Knowledge of Hiring Challenges and Solutions in Key Industries.",
     },
     {
       icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/c8ddf48cec75aa5f0d9fbb7eabdcec286c2ad8c96ed0eecc0b0b44bd2f1724b8?placeholderIfAbsent=true&apiKey=4126fbaca52340fea6ccc661ec39005f",
       title: "Scalable Solutions",
-      description: "Adaptable staffing models to fit your changing needs.",
+      description: "Adaptable Staffing Models to Fit Your Changing Needs.",
     },
   ];
 
@@ -60,7 +60,7 @@ export const St6 = () => {
             loading="lazy"
             src="https://cdn.builder.io/api/v1/image/assets/TEMP/ef6e505d12d4aa4359b7be237635a47f386b9a9fa824d709848598c967089f11?placeholderIfAbsent=true&apiKey=4126fbaca52340fea6ccc661ec39005f"
             alt="Company features illustration"
-            className="w-full rounded-lg object-contain aspect-[1.26]"
+            className="w-full rounded-lg object-contain aspect-[1.56]"
           />
         </div>
       </div>
