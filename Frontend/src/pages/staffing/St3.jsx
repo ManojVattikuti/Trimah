@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+
 export const St3 = () => {
   const services = [
     {
@@ -29,20 +30,22 @@ export const St3 = () => {
 
   function StaffingCard({ title, description, imageSrc, number }) {
     return (
-      <div className="flex flex-col pt-10 pr-5 px-  pl-10 mx-auto w-full bg-purple-100 rounded-3xl max-md:pl-5 max-md:mt-5 max-md:max-w-full">
+      <div className="flex flex-col pt-6 pr-5 pl-10 mx-auto w-full max-w-full bg-purple-100 rounded-3xl transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-purple-200">
         <div className="flex gap-3 items-start text-neutral-700">
-          <div className="px-4 pt-2.5 pb-4 w-10 h-10 text-xl whitespace-nowrap rounded-full bg-zinc-200">
+          <div className="px-4 pt-2.5 pb-4 w-12 h-12 text-xl whitespace-nowrap rounded-full bg-zinc-200 transition-all duration-300 transform hover:scale-110">
             {number}
           </div>
-          <div className="my-auto text-xl font-semibold font-parkinsans ">{title}</div>
+          <div className="my-auto text-xl font-semibold font-parkinsans transition-all duration-300 hover:text-purple-700">{title}</div>
         </div>
-        <div className="mt-2 text-sm sm:text-base lg:text-lg mb-8 font-parkinsans text-gray-500  leading-6">{description}</div>
+        <div className="mt-2 text-sm sm:text-base lg:text-lg mb-6 font-parkinsans text-gray-500 leading-6 transition-all duration-300 hover:text-gray-700">
+          {description}
+        </div>
         {imageSrc && (
           <img
             loading="lazy"
             src={imageSrc}
             alt={`${title} illustration`}
-            className="object-fit mt-3 max-w-full w-[80px]"
+            className="object-contain mt-3 max-w-full w-[100px] transition-transform duration-300 transform hover:scale-110"
           />
         )}
       </div>
@@ -50,37 +53,36 @@ export const St3 = () => {
   }
 
   return (
-    <div className="w-full max-w-[1291px] px-8 py-20 lg:px-32 mx-auto">
-    {/* Heading Section */}
-    <div className="text-center">
-      <div className="mt-11 text-3xl sm:text-3xl lg:text-3xl font-bold font-parkinsans  max-md:mt-10">
-        Our Staffing Services
+    <div className="w-full max-w-[1591px] px-8 py-20 lg:px-32 mx-auto">
+      {/* Heading Section */}
+      <div className="text-center">
+        <div className="mt-11 text-3xl sm:text-3xl lg:text-3xl font-bold font-parkinsans max-md:mt-10">
+          Our Staffing Services
+        </div>
+        <div className="mt-4 text-lg font-parkinsans leading-loose text-gray-500 max-md:max-w-full">
+          We offer flexible staffing solutions{" "}
+          <span className="lowercase">to</span> match{" "}
+          <span className="lowercase">your</span> specific needs.
+        </div>
       </div>
-      <div className="mt-4 text-lg font-parkinsans  leading-loose text-gray-500 max-md:max-w-full">
-        We offer flexible staffing solutions{" "}
-        <span className="lowercase">to</span> match{" "}
-        <span className="lowercase">your</span> specific needs.
+
+      {/* Services Section */}
+      <div className="mt-12 grid grid-cols-2 grid-rows-2 gap-8 max-md:grid-cols-1">
+        {services.map((service, index) => (
+          <StaffingCard key={index} {...service} />
+        ))}
+      </div>
+
+      <div className="mt-8">
+        <Link to="/contact">
+          <button className="relative overflow-hidden px-6 py-3 rounded-full bg-[#6fd1ab] text-black text-base font-semibold group transition-transform duration-300 hover:scale-105">
+            <span className="relative z-10 group-hover:text-white transition-colors duration-300 ease-in-out font-parkinsans">
+              Request Talent Now →
+            </span>
+            <div className="absolute top-0 left-0 w-full h-full bg-[#684fa3] rounded-full transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-in-out"></div>
+          </button>
+        </Link>
       </div>
     </div>
-  
-    {/* Services Section */}
-    <div className="mt-12 grid grid-cols-2 grid-rows-2 gap-8 max-md:grid-cols-1">
-      {services.map((service, index) => (
-        <StaffingCard key={index} {...service} />
-      ))}
-    </div>
-    <div className="mt-8 ">
-      <Link to="/contact">
-   
-              <button className="relative overflow-hidden px-6 py-3 rounded-full bg-[#6fd1ab] text-black text-base font-semibold group">
-                <span className="relative z-10 group-hover:text-white transition-colors duration-300 ease-in-out  font-parkinsans ">
-                  Request Talent Now →
-                </span>
-                <div className="absolute top-0 left-0 w-full h-full bg-[#684fa3]  rounded-full transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-in-out"></div>
-              </button>
-              </Link>
-            </div>
-  </div>
-  
   );
 };

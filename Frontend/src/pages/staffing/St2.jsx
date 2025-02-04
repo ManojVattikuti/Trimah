@@ -17,29 +17,31 @@ export const St2 = () => {
       description: "Our deep understanding of IT, financial, healthcare, and life sciences industries ensures top-tier talent placement",
       imageSrc: "https://cdn.builder.io/api/v1/image/assets/TEMP/8ec074a4ae0117755fcfe64ee102e2942beb28fc55ff43879c49a99dbed0c96d?placeholderIfAbsent=true&apiKey=4126fbaca52340fea6ccc661ec39005f"
     }
-  
   ];
 
   function StaffingCard({ title, description, imageSrc }) {
     return (
-      <div className="flex flex-col items-start p-4 rounded-lg bg-purple-100 max-w-sm">
-        <div className="text-xl font-bold  font-parkinsans text-slate-500">{title}</div>
-        <div className="mt-2  font-parkinsans leading-6 text-gray-500">{description}</div>
+      <div className="relative flex flex-col items-start p-4 rounded-lg rounded-[60px] bg-purple-100 max-w-sm h-full transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
+      <div className="flex flex-col justify-between h-full">
+        <div className="text-xl font-bold font-parkinsans text-slate-500 transition-all duration-300 hover:text-purple-700">{title}</div>
+        <div className="mt-2 font-parkinsans leading-6 text-gray-500 flex-grow transition-all duration-300 hover:text-gray-700">{description}</div>
         {imageSrc && (
           <img
             loading="lazy"
             src={imageSrc}
             alt=""
-            className="object-contain self-end mt-4 w-full items-center  aspect-[1.94] max-w-[200px]"
+            className="self-center mt-4 w-[250px] h-[250px] object-contain transform transition-all duration-300 hover:scale-105"
           />
         )}
       </div>
+    </div>
+    
     );
   }
 
   return (
     <div className="lg:px-32 px-8"> 
-      <div className="mt-16 text-2xl leading-8 font-semibold font-parkinsans  max-w-sm">
+      <div className="mt-16 text-2xl leading-8 font-semibold font-parkinsans max-w-sm">
         Why Choose Trimah Technologies <span className="lowercase">for</span> Staffing
       </div>
       <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-3">
@@ -47,7 +49,6 @@ export const St2 = () => {
           <StaffingCard key={index} {...card} />
         ))}
       </div>
-     
     </div>
   );
 };

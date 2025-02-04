@@ -126,7 +126,7 @@ const Header = () => {
               </NavLink>
               {isDropdownOpen && (
                 <div
-                  className="absolute top-full left-0"
+                  className="absolute top-full left-[20%]"
                   ref={dropdownRef}
                 >
                   <Dropdown />

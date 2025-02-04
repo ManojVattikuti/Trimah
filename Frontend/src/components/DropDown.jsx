@@ -29,8 +29,8 @@ export const Dropdown = () => {
             <path d="M8.65955 10.6742C9.20254 10.6321 9.75729 10.7303 9.98329 11.2892C10.2222 11.8432 9.89572 12.3127 9.48098 12.6598C9.39304 12.7485 9.34369 12.8683 9.3437 12.9931C9.34371 13.118 9.39306 13.2378 9.48102 13.3265L10.8846 14.73C10.9732 14.818 11.093 14.8673 11.2179 14.8673C11.3427 14.8673 11.4625 14.818 11.5512 14.73L11.8328 14.4437C11.9735 14.3072 12.151 14.2149 12.3434 14.178C12.5359 14.1412 12.7349 14.1614 12.916 14.2362C13.0971 14.3111 13.2524 14.4373 13.3627 14.5992C13.473 14.7612 13.5335 14.9519 13.5368 15.1478L13.5368 15.5515C13.5366 15.6132 13.5486 15.6743 13.5721 15.7314C13.5956 15.7884 13.6302 15.8403 13.6738 15.8839C13.7175 15.9275 13.7693 15.9621 13.8263 15.9856C13.8834 16.0091 13.9445 16.0211 14.0062 16.0209H15.9872C16.0489 16.0211 16.11 16.0091 16.1671 15.9856C16.2241 15.9621 16.2759 15.9275 16.3196 15.8839C16.3632 15.8403 16.3978 15.7884 16.4213 15.7314C16.4448 15.6744 16.4568 15.6132 16.4566 15.5515V15.1478C16.4599 14.9519 16.5204 14.7612 16.6307 14.5992C16.741 14.4372 16.8963 14.3111 17.0774 14.2362C17.2585 14.1614 17.4575 14.1412 17.65 14.178C17.8425 14.2149 18.02 14.3072 18.1606 14.4437L18.4423 14.73C18.5309 14.818 18.6507 14.8673 18.7756 14.8673C18.9004 14.8673 19.0202 14.818 19.1088 14.73L20.5124 13.3265C20.6004 13.2378 20.6497 13.118 20.6497 12.9932C20.6497 12.8683 20.6004 12.7485 20.5124 12.6598L20.2261 12.3782C20.0896 12.2376 19.9973 12.0601 19.9604 11.8676C19.9236 11.6751 19.9438 11.4761 20.0186 11.295C20.0935 11.1139 20.2196 10.9586 20.3816 10.8483C20.5436 10.738 20.7343 10.6775 20.9302 10.6742H21.3339C21.4583 10.6738 21.5775 10.6243 21.6654 10.5363C21.7534 10.4484 21.8029 10.3292 21.8033 10.2048V8.22386C21.803 8.09947 21.7534 7.98028 21.6654 7.89233C21.5775 7.80437 21.4583 7.75479 21.3339 7.75443C19.9772 7.93625 19.4269 6.58645 20.5125 5.76876C20.5985 5.67913 20.6465 5.55971 20.6465 5.43547C20.6465 5.31123 20.5984 5.19182 20.5124 5.1022L19.1089 3.69864C19.0202 3.61068 18.9004 3.56132 18.7756 3.56132C18.6507 3.56132 18.5309 3.61068 18.4423 3.69864C17.6158 4.79212 16.2745 4.22203 16.4567 2.8771C16.4569 2.81539 16.4449 2.75426 16.4213 2.69722C16.3978 2.64018 16.3632 2.58836 16.3196 2.54473C16.276 2.50111 16.2241 2.46654 16.1671 2.44303C16.1101 2.41951 16.0489 2.40751 15.9872 2.40772H14.0063C13.9446 2.40751 13.8834 2.41951 13.8264 2.44302C13.7693 2.46654 13.7175 2.50111 13.6739 2.54474C13.6302 2.58838 13.5957 2.64021 13.5722 2.69726C13.5487 2.75431 13.5367 2.81545 13.5369 2.87715C13.5791 3.42018 13.4807 3.9749 12.9219 4.2009C12.3682 4.43991 11.8982 4.11327 11.5512 3.69862C11.4626 3.61067 11.3428 3.56133 11.2179 3.56133C11.0931 3.56134 10.9733 3.61069 10.8846 3.69865L9.48106 5.10221C9.14731 5.46558 9.48401 5.80195 9.76747 6.05041C9.90392 6.19106 9.99625 6.36855 10.0331 6.56101C10.0699 6.75348 10.0497 6.95252 9.97486 7.13363C9.90001 7.31473 9.77383 7.47 9.61186 7.5803C9.44989 7.6906 9.25919 7.75112 9.06326 7.75441L8.65959 7.75444C8.5352 7.7548 8.41602 7.80437 8.32806 7.89233C8.24011 7.98029 8.19054 8.09948 8.19019 8.22387V10.2048C8.19055 10.3292 8.24011 10.4484 8.32805 10.5363C8.416 10.6243 8.53517 10.6738 8.65955 10.6742ZM14.9968 6.39781C18.7191 6.51511 18.7183 11.9141 14.9967 12.0308C11.2743 11.9135 11.2752 6.51457 14.9968 6.39781Z" fill="#071C39" />
           </svg>
 
-          <div className="w-[133px] left-[34px] top-[4px] absolute text-[#071c39] text-base font-semibold font-['Maven Pro']">Manufacturing</div>
-          <div className="w-[163px] left-0 top-[34px] absolute text-[#828282] text-xs font-normal font-['Gilroy-Regular'] leading-tight">Lorem Ipsum is simply dummy text of the printing</div>
+          <div className="w-[133px] left-[34px] top-[4px] absolute text-[#071c39] text-base font-semibold hover:text-green-500  font-['Maven Pro']">Manufacturing</div>
+          <div className="w-[163px] left-0 top-[34px] absolute text-[#828282] text-xs font-normal font-['Gilroy-Regular'] leading-tight">We provide IT professionals for ERP, IoT, and operational optimization.</div>
           <div className="w-[30px] h-[30px] left-0 top-0 absolute flex-col justify-start items-start inline-flex overflow-hidden" />
         </div>
         <div className="w-[172px] h-[84px] left-[862px] top-[299px] absolute">
@@ -63,8 +63,8 @@ export const Dropdown = () => {
             </defs>
           </svg>
 
-          <div className="w-[134px] left-[38px] top-0 absolute text-[#071c39] text-base font-semibold font-['Maven Pro']">Logistics & Transportation</div>
-          <div className="w-[163px] left-0 top-[46px] absolute text-[#828282] text-xs font-normal font-['Gilroy-Regular'] leading-tight">Lorem Ipsum is simply dummy text of the printing</div>
+          <div className="w-[134px] left-[38px] top-0 absolute text-[#071c39] text-base font-semibold hover:text-green-500  font-['Maven Pro']">Logistics & Transportation</div>
+          <div className="w-[163px] left-0 top-[46px] absolute text-[#828282] text-xs font-normal font-['Gilroy-Regular'] leading-tight">We provide IT solutions for fleet management, data analytics, and mobile apps.</div>
           <div className="w-[30px] h-[30px] left-0 top-[4px] absolute flex-col justify-start items-start inline-flex overflow-hidden">
             <div className="w-[30px] h-[30px] relative">
             </div>
@@ -77,8 +77,8 @@ export const Dropdown = () => {
             <path fill-rule="evenodd" clip-rule="evenodd" d="M19.6875 26.7188C22.9235 26.7188 25.5469 24.0954 25.5469 20.8594C25.5469 17.6233 22.9235 15 19.6875 15C16.4515 15 13.8281 17.6233 13.8281 20.8594C13.8281 24.0954 16.4515 26.7188 19.6875 26.7188ZM22.0312 21.5467C22.0312 22.8499 20.9819 23.9062 19.6875 23.9062C18.3931 23.9062 17.3438 22.8499 17.3438 21.5467C17.3438 20.5395 18.7438 18.7301 19.3798 17.9602C19.5424 17.7633 19.8326 17.7633 19.9952 17.9602C20.6312 18.7301 22.0312 20.5395 22.0312 21.5467Z" fill="#071C39" />
           </svg>
 
-          <div className="w-[134px] left-[38px] top-[5px] absolute text-[#071c39] text-base font-semibold font-['Maven Pro']">Energy & Utilities</div>
-          <div className="w-[163px] left-0 top-[36px] absolute text-[#828282] text-xs font-normal font-['Gilroy-Regular'] leading-tight">Lorem Ipsum is simply dummy text of the printing</div>
+          <div className="w-[144px] left-[38px] top-[5px] absolute text-[#071c39] text-base font-semibold hover:text-green-500  font-['Maven Pro']">Energy & Utilities</div>
+          <div className="w-[163px] left-0 top-[36px] absolute text-[#828282] text-xs font-normal font-['Gilroy-Regular'] leading-tight">We provide IT experts for energy analytics, automation, and cybersecurity solutions.</div>
           <div className="w-[30px] h-[30px] left-0 top-0 absolute flex-col justify-start items-start inline-flex overflow-hidden" />
         </div>
         <div className="w-[163px] h-[79px] left-[1146px] top-[77px] absolute">
@@ -101,8 +101,8 @@ export const Dropdown = () => {
             </defs>
           </svg>
 
-          <div className="w-[95px] left-[37px] top-0 absolute text-[#071c39] text-base font-semibold font-['Maven Pro']">Technology & Startups</div>
-          <div className="w-[163px] left-0 top-[41px] absolute text-[#828282] text-xs font-normal font-['Gilroy-Regular'] leading-tight">Lorem Ipsum is simply dummy text of the printing</div>
+          <div className="w-[95px] left-[37px] top-0 absolute text-[#071c39] text-base font-semibold hover:text-green-500  font-['Maven Pro']">Technology & Startups</div>
+          <div className="w-[163px] left-0 top-[41px] absolute text-[#828282] text-xs font-normal font-['Gilroy-Regular'] leading-tight">We offer DevOps consulting, software development, and cybersecurity expertise for startups.</div>
           <div className="w-[30px] h-[30px] left-0 top-[5px] absolute flex-col justify-start items-start inline-flex overflow-hidden">
             <div className="w-[30px] h-[29.49px] relative">
             </div>
@@ -118,8 +118,8 @@ export const Dropdown = () => {
               <path d="M20.625 7.5H9.375V3.50625C9.375 3.09375 9.64313 2.72063 10.0388 2.60438C11.6925 2.11781 13.3463 1.875 15 1.875C16.6519 1.875 18.3047 2.11781 19.9566 2.60344C20.3541 2.71969 20.625 3.09562 20.625 3.51V7.5Z" fill="#071C39" />
             </svg>
 
-            <div className="w-24 left-[37px] top-0 absolute text-[#071c39] text-base font-semibold font-['Maven Pro']">Hospitality</div>
-            <div className="w-[163px] left-0 top-[28px] absolute text-[#828282] text-xs font-normal font-['Gilroy-Regular'] leading-tight">Lorem Ipsum is simply dummy text of the printing</div>
+            <div className="w-24 left-[37px] top-0 absolute text-[#071c39] text-base font-semibold hover:text-green-500  font-['Maven Pro']">Hospitality</div>
+            <div className="w-[163px] left-0 top-[28px] absolute text-[#828282] text-xs font-normal font-['Gilroy-Regular'] leading-tight">We offer IT consulting for PMS and digital platforms to enhance operations.</div>
           </div>
         </div>
         <div className="w-[164px] h-[70px] left-[859px] top-[184px] absolute">
@@ -131,8 +131,8 @@ export const Dropdown = () => {
             <path d="M3.59288 13.2187L2.4873 12.8289V16.7719H3.59288V13.2187Z" fill="#071C39" />
           </svg>
 
-          <div className="w-[83px] left-[37px] top-[4px] absolute text-[#071c39] text-base font-semibold font-['Maven Pro']">Education</div>
-          <div className="w-[163px] left-[1px] top-[32px] absolute text-[#828282] text-xs font-normal font-['Gilroy-Regular'] leading-tight">Lorem Ipsum is simply dummy text of the printing</div>
+          <div className="w-[83px] left-[37px] top-[4px] absolute text-[#071c39] text-base font-semibold hover:text-green-500  font-['Maven Pro']">Education</div>
+          <div className="w-[163px] left-[1px] top-[32px] absolute text-[#828282] text-xs font-normal font-['Gilroy-Regular'] leading-tight">We offer IT consulting for EdTech platforms, data privacy, and transformation.</div>
           <div className="w-[30px] h-[30px] left-0 top-0 absolute flex-col justify-start items-start inline-flex overflow-hidden" />
         </div>
         <div className="w-[169px] h-20 left-[859px] top-[77px] absolute">
@@ -149,8 +149,8 @@ export const Dropdown = () => {
               </defs>
             </svg>
 
-            <div className="w-[132px] left-[37px] top-0 absolute text-[#071c39] text-base font-semibold font-['Maven Pro']">Life Science & Pharmaceuticals</div>
-            <div className="w-[163px] left-0 top-[42px] absolute text-[#828282] text-xs font-normal font-['Gilroy-Regular'] leading-tight">Lorem Ipsum is simply dummy text of the printing</div>
+            <div className="w-[132px] left-[37px] top-0 absolute text-[#071c39] text-base hover:text-green-500  font-semibold font-['Maven Pro']">Life Science & Pharmaceuticals</div>
+            <div className="w-[163px] left-0 top-[42px] absolute text-[#828282] text-xs font-normal font-['Gilroy-Regular'] leading-tight">We provide QAVE experts and regulatory consultants for seamless compliance.</div>
           </div>
         </div>
         <div className="w-[163px] h-[72px] left-[578px] top-[181px] absolute">
@@ -160,8 +160,8 @@ export const Dropdown = () => {
             <path fill-rule="evenodd" clip-rule="evenodd" d="M19.6875 26.7188C22.9235 26.7188 25.5469 24.0954 25.5469 20.8594C25.5469 17.6233 22.9235 15 19.6875 15C16.4515 15 13.8281 17.6233 13.8281 20.8594C13.8281 24.0954 16.4515 26.7188 19.6875 26.7188ZM22.0312 21.5467C22.0312 22.8499 20.9819 23.9062 19.6875 23.9062C18.3931 23.9062 17.3438 22.8499 17.3438 21.5467C17.3438 20.5395 18.7438 18.7301 19.3798 17.9602C19.5424 17.7633 19.8326 17.7633 19.9952 17.9602C20.6312 18.7301 22.0312 20.5395 22.0312 21.5467Z" fill="#071C39" />
           </svg>
 
-          <div className="w-[85px] left-[34px] top-[4px] absolute text-[#071c39] text-base font-semibold font-['Maven Pro']">Oil & Gas</div>
-          <div className="w-[163px] left-0 top-[34px] absolute text-[#828282] text-xs font-normal font-['Gilroy-Regular'] leading-tight">Lorem Ipsum is simply dummy text of the printing</div>
+          <div className="w-[85px] left-[34px] top-[4px] absolute text-[#071c39] text-base font-semibold hover:text-green-500  font-['Maven Pro']">Oil & Gas</div>
+          <div className="w-[163px] left-0 top-[34px] absolute text-[#828282] text-xs font-normal font-['Gilroy-Regular'] leading-tight">We offer IT solutions for asset management, data analytics, and automation.</div>
           <div className="w-[30px] h-[30px] left-0 top-0 absolute flex-col justify-start items-start inline-flex overflow-hidden">
             <div className="w-[20.86px] h-[23.44px] relative">
               <div className="w-[20.86px] h-[20.16px] left-0 top-[3.28px] absolute">
@@ -173,26 +173,27 @@ export const Dropdown = () => {
           <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M1.74281 23.6197H14.0682C14.2305 24.4347 14.5205 25.2036 14.9163 25.9049H1.74281C1.60342 25.9049 1.48975 25.7912 1.48975 25.6518V23.8728C1.48969 23.7333 1.60342 23.6197 1.74281 23.6197ZM3.80139 11.2784V22.6822H6.62197V13.7203C6.62197 13.4415 6.84937 13.2141 7.12816 13.2141H11.752C12.0308 13.2141 12.2582 13.4415 12.2582 13.7203V22.6822H13.9399C13.9254 22.4882 13.918 22.2922 13.918 22.0945C13.918 20.2832 14.5382 18.6167 15.5778 17.2959C15.3739 17.2304 15.2256 17.0388 15.2256 16.8137V13.7203C15.2256 13.4415 15.453 13.2141 15.7318 13.2141H21.1768C21.4556 13.2141 21.683 13.4415 21.683 13.7203V14.3295C22.596 14.3295 23.4722 14.4871 24.2859 14.7765V11.2784C24.08 11.3142 23.8683 11.3329 23.6521 11.3329C22.319 11.3329 21.0993 10.6139 20.4493 9.45762C19.7994 10.6139 18.5797 11.3329 17.2465 11.3329C15.9134 11.3329 14.6936 10.6139 14.0437 9.45762C13.3938 10.6139 12.174 11.3329 10.8409 11.3329C9.50777 11.3329 8.28803 10.6139 7.6381 9.45762C6.98818 10.6139 5.76838 11.3329 4.43525 11.3329C4.21904 11.3329 4.00728 11.3142 3.80139 11.2784ZM21.683 15.267C17.9123 15.267 14.8555 18.3237 14.8555 22.0945C14.8555 25.8652 17.9123 28.922 21.683 28.922C25.4538 28.922 28.5105 25.8652 28.5105 22.0945C28.5105 18.3237 25.4538 15.267 21.683 15.267ZM18.5503 19.2626H17.6262C17.3674 19.2626 17.1575 19.0528 17.1575 18.7939C17.1575 18.535 17.3674 18.3251 17.6262 18.3251L18.9118 18.3271C19.1203 18.3269 19.3102 18.4673 19.3641 18.6786L19.5922 19.5666H25.7399C26.0638 19.5666 26.2867 19.8866 26.1834 20.1877L25.4948 23.0448C25.349 23.6499 24.8224 24.0682 24.1993 24.0682H20.0465C19.9771 24.0682 19.9186 24.1267 19.9186 24.1961C19.9186 24.2655 19.9771 24.324 20.0465 24.324H25.1545C25.4134 24.324 25.6233 24.5338 25.6233 24.7927C25.6233 25.0516 25.4134 25.2615 25.1545 25.2615H24.9103C25.0403 25.3862 25.1212 25.5616 25.1212 25.7561C25.1212 26.1345 24.8145 26.4412 24.4361 26.4412C24.0576 26.4412 23.7509 26.1345 23.7509 25.7561C23.7509 25.5616 23.8318 25.3862 23.9619 25.2615H20.8895C21.0196 25.3862 21.1005 25.5616 21.1005 25.7561C21.1005 26.1345 20.7937 26.4412 20.4153 26.4412C20.037 26.4412 19.7302 26.1345 19.7302 25.7561C19.7302 25.5591 19.8132 25.3816 19.9462 25.2567C19.4061 25.2059 18.981 24.7492 18.981 24.1961C18.981 23.7908 19.2119 23.4223 19.5724 23.2423C19.2317 21.9157 18.891 20.5892 18.5503 19.2626ZM2.00332 7.19262H7.27793L8.88938 1.07812H5.22809C5.19973 1.07812 5.1893 1.08193 5.176 1.10795L2.00332 7.19262ZM8.2452 7.19262L9.85658 1.07812H13.5749V7.19262H8.2452ZM14.5124 7.19262H19.8421L18.2307 1.07812H14.5124V7.19262ZM22.8592 1.07812C22.9037 1.07812 22.9109 1.10725 22.9291 1.14223L26.0839 7.19262H20.8093L19.1979 1.07812H22.8592ZM26.3461 8.13012C26.1203 9.43717 24.9817 10.3954 23.6521 10.3954C22.3224 10.3954 21.1839 9.43717 20.9581 8.13012H26.3461ZM19.9404 8.13012C19.7147 9.43723 18.5762 10.3954 17.2465 10.3954C15.9169 10.3954 14.7783 9.43717 14.5525 8.13012H19.9404ZM13.5348 8.13012C13.309 9.43723 12.1704 10.3954 10.8408 10.3954C9.51117 10.3954 8.37269 9.43723 8.14687 8.13012H13.5348ZM7.12922 8.13012C6.90346 9.43723 5.76486 10.3954 4.4352 10.3954C3.10559 10.3954 1.96693 9.43717 1.74117 8.13012H7.12922Z" fill="#071C39" />
           </svg>
-
-          <div className="w-[114px] left-[38px] top-0 absolute text-[#071c39] text-base font-semibold font-['Maven Pro']">Retail & E-commerce</div>
-          <div className="w-[162px] left-[1px] top-[40px] absolute text-[#828282] text-xs font-normal font-['Gilroy-Regular'] leading-tight">Lorem Ipsum is simply dummy text of the printing</div>
+          <Link to="/">
+          <div className="w-[144px] left-[38px] top-[-2px] absolute text-[#071c39] text-base font-semibold hover:text-green-500  font-['Maven Pro']">Retail & E-commerce</div></Link>
+          <div className="w-[162px] left-[1px] top-[40px] absolute text-[#828282] text-xs font-normal font-['Gilroy-Regular'] leading-tight">We offer IT solutions for supply chain, inventory, and customer experience</div>
           <div className="w-[30px] h-[30px] left-0 top-[3px] absolute flex-col justify-start items-start inline-flex overflow-hidden" />
         </div>
         <div className="w-[163px] h-[70px] left-[297px] top-[77px] absolute">
           <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M12.9292 16.9212C11.9184 14.2826 12.6184 11.1664 14.5123 8.69918L17.6182 4.65293H22.0491L25.155 8.69918C27.4177 11.6469 27.976 15.5209 25.9486 18.4C25.7232 18.4493 25.5061 18.5067 25.3037 18.566L20.011 20.1187C19.7321 19.5489 19.2156 19.1205 18.5997 18.9555C17.3454 18.6195 16.0924 18.2818 14.839 17.9472C14.2495 17.5338 13.6108 17.1556 12.9292 16.9212ZM19.369 21.4488C19.5667 20.711 19.1259 19.9458 18.3875 19.7479L14.556 18.7213C14.5101 18.709 14.4657 18.688 14.4246 18.6588C13.2001 17.7905 12.2929 17.4758 11.4622 17.4971C10.626 17.5187 9.81437 17.884 8.81957 18.3705C7.89725 18.8215 6.99971 19.2506 6.11172 19.6713L8.48512 25.3703L9.39807 24.9264C10.0678 24.6008 10.7547 24.5432 11.4696 24.7508L15.6953 25.9777C16.8109 26.3016 18.2663 25.7353 19.4208 25.286C22.1464 24.2254 24.8801 23.1816 27.6092 22.1299C28.2473 21.884 28.7074 21.2492 28.8274 20.6075C28.9128 20.1513 28.8241 19.6835 28.4388 19.3895C27.9563 19.0213 27.0391 18.9118 25.5345 19.3532L20.2274 20.9101C20.2475 21.1481 20.2289 21.3929 20.1601 21.6607C19.8409 22.7991 18.5726 23.5893 17.4345 23.2157L12.3647 21.8573C12.1462 21.7989 12.0163 21.5743 12.0747 21.3558C12.1332 21.1372 12.3577 21.0074 12.5762 21.0658L17.6682 22.4302C18.4068 22.6281 19.1709 22.1876 19.369 21.4488ZM7.8151 28.1527L5.78354 28.9963C5.34273 29.1794 4.83402 28.9695 4.65057 28.5289C3.50383 25.7754 2.35709 23.0218 1.21035 20.2682C1.0249 19.8229 1.23279 19.3191 1.67828 19.1341L3.70984 18.2905C4.15064 18.1075 4.65936 18.3173 4.84281 18.758C5.98949 21.5115 7.13629 24.2651 8.28297 27.0186C8.46842 27.4639 8.26059 27.9677 7.8151 28.1527ZM18.3411 15.7987C18.6689 16.1079 18.9824 16.3449 19.4329 16.4313L19.4423 16.8164C19.4475 17.042 19.6348 17.2206 19.8604 17.2154C20.0861 17.2101 20.2647 17.0228 20.2594 16.7972L20.2504 16.4236C21.0428 16.256 21.6926 15.6015 21.6926 14.7631C21.6926 13.7634 20.79 13.0592 19.8337 13.0592C19.3294 13.0592 18.795 12.7219 18.795 12.1757C18.795 11.6307 19.3301 11.2905 19.8337 11.2905C20.0737 11.2905 20.6423 11.498 20.7777 11.704C20.9016 11.8925 21.1548 11.9449 21.3433 11.821C21.5318 11.6971 21.5841 11.4439 21.4602 11.2554C21.2151 10.8826 20.6642 10.6274 20.2358 10.5264L20.225 10.0748C20.2197 9.84914 20.0325 9.67055 19.8068 9.67582C19.5812 9.68109 19.4026 9.86836 19.4079 10.094L19.4179 10.5163C18.6244 10.6826 17.9747 11.3366 17.9747 12.1757C17.9747 13.1753 18.8773 13.8796 19.8336 13.8796C20.3379 13.8796 20.8722 14.217 20.8722 14.7632C20.8722 15.3094 20.3379 15.6468 19.8336 15.6468C19.4051 15.6468 19.2018 15.4859 18.9019 15.2029C18.7373 15.048 18.4783 15.056 18.3235 15.2205C18.1687 15.3849 18.1766 15.6439 18.3411 15.7987ZM17.6974 3.83268L16.2862 1.37643C16.1736 1.18049 16.3142 0.9375 16.5402 0.9375H23.127C23.353 0.9375 23.4936 1.18049 23.381 1.37643L21.9698 3.83268H17.6974Z" fill="#071C39" />
           </svg>
-
-          <div className="w-[78px] left-[38px] top-[6px] absolute text-[#071c39] text-base font-semibold font-['Maven Pro']">Financial</div>
+          <Link to="/">
+          <div className="w-[78px] left-[38px] top-[6px] absolute text-[#071c39] text-base font-semibold hover:text-green-500  font-['Maven Pro']">Financial</div>
+          </Link>
           <div className="w-[30px] h-[30px] left-0 top-0 absolute flex-col justify-start items-start inline-flex overflow-hidden" />
-          <div className="w-[163px] left-0 top-[32px] absolute text-[#828282] text-xs font-normal font-['Gilroy-Regular'] leading-tight">Lorem Ipsum is simply dummy text of the printing</div>
+          <div className="w-[163px] left-0 top-[32px] absolute text-[#828282] text-xs font-normal font-['Gilroy-Regular'] leading-tight">We provide secure financial solutions, ensuring compliance, scalability, and security.</div>
         </div>
         <Link to="/business">
           <div className="w-48 h-[70px] left-[43px] top-[77px] absolute">
 
 
             <div className="w-[84px] left-[38px] top-[5px] absolute"><span class="text-[#071c39] text-base font-semibold hover:text-green-500 transform hover:scale-110  font-['Maven Pro']">Consulting </span></div>
-            <div className="w-48 left-0 top-[32px] absolute text-[#828282] text-xs font-normal font-['Gilroy-Regular'] leading-tight">Lorem Ipsum is simply dummy text of the printing</div>
+            <div className="w-48 left-0 top-[32px] absolute text-[#828282] text-xs font-normal font-['Gilroy-Regular'] leading-tight">we deliver tailored IT consulting to help businesses thrive</div>
             <div className="w-[30px] h-[30px] left-0 top-0 absolute flex-col justify-start items-start inline-flex overflow-hidden">
               <div className="w-6 h-[25.69px] relative">
                 <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -212,19 +213,21 @@ export const Dropdown = () => {
           </div>
         </Link>
 
-        <Link to="/staffing">
+       
           <div className="w-48 h-[70px] left-[43px] top-[181px] absolute">
             <div className="w-[30px] h-[30px] left-0 top-0 absolute flex-col justify-start items-start inline-flex overflow-hidden" />
             <div className="w-48 h-16 left-0 top-[6px] absolute">
               <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M6.53208 6.26025C6.05103 6.74951 5.94087 7.86982 6.29185 8.70654C6.50513 9.21572 6.96216 9.82217 7.92954 9.82217C8.89575 9.82217 9.35278 9.21572 9.56606 8.70713C9.91704 7.86982 9.80688 6.74951 9.32583 6.26025C8.95786 5.88525 8.54067 5.72588 7.93071 5.72588C7.31841 5.72529 6.90005 5.88467 6.53208 6.26025ZM20.4082 16.5739H10.5727V16.8845C10.5727 19.5962 12.7788 21.8022 15.4905 21.8022C18.2022 21.8022 20.4082 19.5962 20.4082 16.8845V16.5739ZM21.4149 8.70654C21.6282 9.21572 22.0858 9.82217 23.0526 9.82217C24.0188 9.82217 24.4758 9.21572 24.6891 8.70713C25.0401 7.86982 24.9299 6.74951 24.4489 6.26025C24.0809 5.88525 23.6631 5.72588 23.0538 5.72588C22.4415 5.72588 22.0231 5.88525 21.6551 6.26025C21.1741 6.74951 21.0639 7.86924 21.4149 8.70654ZM21.8438 15.8708V14.5073C21.8438 12.5515 20.6473 10.8282 18.8385 10.1327L15.7999 15.7771C15.7805 15.8128 15.7553 15.8444 15.7266 15.8708H19.0823V14.3532C19.0823 14.1593 19.2399 14.0017 19.4338 14.0017C19.6278 14.0017 19.7854 14.1593 19.7854 14.3532V15.8708H21.8438ZM22.5469 14.5073C22.5469 13.5364 22.2903 12.6036 21.8016 11.778C21.859 11.7745 21.917 11.7722 21.9745 11.7722H24.1295C25.7321 11.7722 27.0364 13.186 27.0364 14.9239V15.3306C27.0364 15.6288 26.7938 15.8708 26.4956 15.8708H22.5469V14.5073ZM9.86958 16.5739V16.8845C9.86958 19.9835 12.3909 22.5054 15.4905 22.5054C18.5895 22.5054 21.1114 19.9835 21.1114 16.8845V16.5739H26.4956C26.6895 16.5739 26.8723 16.5282 27.0364 16.4485V18.4507C27.0364 18.705 26.829 18.9118 26.5747 18.9118H24.6018C24.0897 18.9118 23.6555 19.2265 23.4956 19.7128C23.3643 20.1124 23.2008 20.5056 23.0104 20.8823C22.7789 21.3394 22.8633 21.8696 23.2254 22.2317L24.6211 23.6274C24.7079 23.7142 24.7553 23.8296 24.7553 23.9538C24.7553 24.0769 24.7079 24.1929 24.6211 24.2796L22.687 26.2138C22.6002 26.3005 22.4842 26.3485 22.3606 26.3485C22.237 26.3485 22.1215 26.3005 22.0342 26.2138L20.6385 24.8181C20.2758 24.456 19.7461 24.3716 19.2891 24.603C18.9129 24.7935 18.5192 24.9569 18.1196 25.0882C17.6332 25.2481 17.3186 25.6823 17.3186 26.1944V28.1673C17.3186 28.4216 17.1118 28.6284 16.8569 28.6284H14.1211C13.8668 28.6284 13.66 28.4216 13.66 28.1673V26.1944C13.66 25.6823 13.3454 25.2481 12.859 25.0882C12.4594 24.9569 12.0657 24.7935 11.6895 24.603C11.2319 24.3716 10.7022 24.456 10.3401 24.8187L8.94438 26.2138C8.7645 26.3937 8.47212 26.3937 8.29224 26.2138L6.35806 24.2796C6.17817 24.0997 6.17817 23.8073 6.35806 23.6274L7.75376 22.2317C8.11645 21.869 8.20083 21.3394 7.9688 20.8823C7.77837 20.5056 7.61489 20.1124 7.48364 19.7128C7.32368 19.2265 6.8895 18.9118 6.37739 18.9118H4.4063C4.152 18.9118 3.94517 18.705 3.94517 18.4507V16.4485C4.10864 16.5282 4.29204 16.5739 4.4854 16.5739H9.86958ZM8.43345 14.5073C8.43345 13.5364 8.69009 12.6036 9.17876 11.778C9.12134 11.7745 9.06391 11.7722 9.00591 11.7722H6.85142C5.24888 11.7722 3.94458 13.186 3.94458 14.9239V15.3306C3.94458 15.6288 4.18716 15.8708 4.48481 15.8708H8.43286V14.5073H8.43345ZM15.1811 15.7771C15.2004 15.8128 15.2256 15.8444 15.2543 15.8708H11.8987V14.3532C11.8987 14.1593 11.7411 14.0017 11.5471 14.0017C11.3526 14.0017 11.1956 14.1593 11.1956 14.3532V15.8708H9.13716V14.5073C9.13716 12.5515 10.3336 10.8282 12.1424 10.1327L15.1811 15.7771ZM15.327 11.611C15.426 11.2501 15.361 10.8833 15.143 10.5786L14.6016 9.821H16.3793L15.8397 10.5763C15.6206 10.8827 15.5555 11.2519 15.6575 11.6151L16.2 13.5522L15.4911 14.8694L14.7909 13.5692L15.327 11.611ZM13.3518 2.61455C12.6018 3.37803 12.4307 5.04678 12.9704 6.33467C13.2387 6.9751 13.9231 8.04912 15.4911 8.04912C17.0579 8.04912 17.7416 6.9751 18.0106 6.33467C18.5508 5.04678 18.3797 3.37803 17.6291 2.61455C17.0702 2.04619 16.4116 1.79248 15.4934 1.79248C14.5711 1.79248 13.9108 2.04619 13.3518 2.61455Z" fill="#071C39" />
               </svg>
-
-              <div className="left-[38px] top-0 absolute text-[#071c39] text-base hover:text-green-500 transform hover:scale-110  font-semibold font-['Maven Pro']">Staffing</div>
-              <div className="w-48 left-0 top-[26px] absolute text-[#828282] text-xs font-normal font-['Gilroy-Regular'] leading-tight">Lorem Ipsum is simply dummy text of the printing</div>
+              <Link to="/staffing">
+              <div className="left-[38px] top-0 absolute text-[#071c39] text-base hover:text-green-500  font-semibold font-['Maven Pro']">Staffing</div>
+              </Link>
+              <div className="w-48 left-0 top-[26px] absolute text-[#828282] text-xs font-normal font-['Gilroy-Regular'] leading-tight"> we deliver staffing services to help businesses thrive.
+              </div>
             </div>
           </div>
-        </Link>
+       
         <div className="w-[70px] h-[29px] left-[43px] top-[28px] absolute">
           <div className="left-0 top-0 absolute"><span class="text-[#684fa3] text-lg font-medium font-['Maven Pro'] uppercase">S</span><span class="text-[#684fa3] text-lg font-medium font-['Maven Pro'] lowercase">ervices </span></div>
           <div className="w-[54px] h-1 left-0 top-[25px] absolute bg-[#684fa3] rounded-[10px]" />
@@ -234,12 +237,12 @@ export const Dropdown = () => {
             <path d="M14.0625 9.375C14.0625 10.3021 13.7876 11.2084 13.2725 11.9793C12.7574 12.7501 12.0253 13.3509 11.1688 13.7057C10.3123 14.0604 9.3698 14.1533 8.46051 13.9724C7.55123 13.7916 6.716 13.3451 6.06044 12.6895C5.40488 12.034 4.95844 11.1988 4.77757 10.2895C4.5967 9.38016 4.68953 8.43771 5.04431 7.58118C5.3991 6.72464 5.99991 5.99256 6.77076 5.47748C7.54162 4.96242 8.4479 4.6875 9.375 4.6875C10.6182 4.6875 11.8105 5.18137 12.6895 6.06044C13.5686 6.93952 14.0625 8.1318 14.0625 9.375ZM20.625 14.0625C21.5521 14.0625 22.4584 13.7876 23.2293 13.2725C24.0001 12.7574 24.6009 12.0253 24.9557 11.1688C25.3104 10.3123 25.4033 9.36981 25.2224 8.46052C25.0416 7.55123 24.5951 6.716 23.9395 6.06044C23.284 5.40488 22.4488 4.95844 21.5395 4.77757C20.6302 4.5967 19.6877 4.68953 18.8312 5.04431C17.9747 5.3991 17.2426 5.99992 16.7275 6.77077C16.2124 7.54162 15.9375 8.44791 15.9375 9.375C15.9375 10.6182 16.4314 11.8105 17.3105 12.6895C18.1896 13.5686 19.3818 14.0625 20.625 14.0625ZM9.375 15.9375C8.4479 15.9375 7.54162 16.2124 6.77076 16.7275C5.99991 17.2426 5.3991 17.9747 5.04431 18.8312C4.68953 19.6877 4.5967 20.6302 4.77757 21.5395C4.95844 22.4488 5.40488 23.284 6.06044 23.9395C6.716 24.5951 7.55123 25.0416 8.46051 25.2224C9.3698 25.4033 10.3123 25.3104 11.1688 24.9557C12.0253 24.6009 12.7574 24.0001 13.2725 23.2293C13.7876 22.4584 14.0625 21.5521 14.0625 20.625C14.0625 19.3818 13.5686 18.1896 12.6895 17.3105C11.8105 16.4314 10.6182 15.9375 9.375 15.9375ZM24.375 19.6875H21.5625V16.875C21.5625 16.6264 21.4637 16.3879 21.2879 16.2121C21.1121 16.0363 20.8736 15.9375 20.625 15.9375C20.3764 15.9375 20.1379 16.0363 19.9621 16.2121C19.7863 16.3879 19.6875 16.6264 19.6875 16.875V19.6875H16.875C16.6264 19.6875 16.3879 19.7863 16.2121 19.9621C16.0363 20.1379 15.9375 20.3764 15.9375 20.625C15.9375 20.8736 16.0363 21.1121 16.2121 21.2879C16.3879 21.4637 16.6264 21.5625 16.875 21.5625H19.6875V24.375C19.6875 24.6236 19.7863 24.8621 19.9621 25.0379C20.1379 25.2137 20.3764 25.3125 20.625 25.3125C20.8736 25.3125 21.1121 25.2137 21.2879 25.0379C21.4637 24.8621 21.5625 24.6236 21.5625 24.375V21.5625H24.375C24.6236 21.5625 24.8621 21.4637 25.0379 21.2879C25.2137 21.1121 25.3125 20.8736 25.3125 20.625C25.3125 20.3764 25.2137 20.1379 25.0379 19.9621C24.8621 19.7863 24.6236 19.6875 24.375 19.6875Z" fill="#071C39" />
           </svg>
 
-          <div className="w-16 left-[38px] top-[6px] absolute text-[#071c39] text-base font-semibold font-['Maven Pro']">Others</div>
-          <div className="w-[163px] left-0 top-[32px] absolute text-[#828282] text-xs font-normal font-['Gilroy-Regular'] leading-tight">Lorem Ipsum is simply dummy text of the printing</div>
+          <div className="w-16 left-[38px] top-[6px] absolute text-[#071c39] text-base font-semibold hover:text-green-500  font-['Maven Pro']">Others</div>
+          <div className="w-[163px] left-0 top-[32px] absolute text-[#828282] text-xs font-normal font-['Gilroy-Regular'] leading-tight">We provide top IT talent and solutions across aerospace, government, non-profits, and more.</div>
           <div className="w-[30px] h-[30px] left-0 top-0 absolute flex-col justify-start items-start inline-flex overflow-hidden" />
         </div>
         <div className="w-[163px] h-[70px] left-[578px] top-[77px] absolute">
-          <div className="w-[163px] left-0 top-[32px] absolute text-[#828282] text-xs font-normal font-['Gilroy-Regular'] leading-tight">Lorem Ipsum is simply dummy text of the printing</div>
+          {/* <div className="w-[163px] left-0 top-[32px] absolute text-[#828282] text-xs font-normal font-['Gilroy-Regular'] leading-tight">Lorem Ipsum is simply dummy text of the printing</div> */}
           <div className="w-[135px] h-[25px] left-0 top-0 absolute">
             <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g clip-path="url(#clip0_512_638)">
@@ -254,7 +257,9 @@ export const Dropdown = () => {
               </defs>
             </svg>
 
-            <div className="w-[101px] left-[34px] top-[3px] absolute text-[#071c39] text-base font-semibold font-['Maven Pro']">Health care</div>
+            <div className="w-[101px] left-[34px] top-[3px] absolute text-[#071c39] text-base font-semibold hover:text-green-500  font-['Maven Pro']">Health care</div>
+                      <div className="w-[163px] left-0 top-[32px] absolute text-[#828282] text-xs font-normal font-['Gilroy-Regular'] leading-tight">We offer IT consulting, staffing, and secure solutions for healthcare transformation.</div>
+
             <div className="w-[25px] h-[25px] left-0 top-0 absolute flex-col justify-start items-start inline-flex overflow-hidden">
               <div className="w-[24.99px] h-[25px] relative">
               </div>

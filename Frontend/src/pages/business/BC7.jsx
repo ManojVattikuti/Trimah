@@ -51,9 +51,9 @@ export const BC7 = () => {
 
           {/* Card Content */}
           <div className="relative z-10 flex flex-col justify-center h-full text-white">
-            <h2 className="text-xl font-bold font-parkinsans  px-4">Radiant Purple Card</h2>
+            <h2 className="text-xl font-bold font-parkinsans  px-4">Leadership Expertise</h2>
             <p className="text-sm mt-2 font-parkinsans  px-4">
-              This card has a gradient purple background with images at the top and bottom.
+              Decades Of Experience in IT, DevOps and Compliance Consulting
             </p>
           </div>
         </div>

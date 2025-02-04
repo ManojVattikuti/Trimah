@@ -9,6 +9,7 @@ import FaqSection from "../../components/landingpage-component/Faq";
 import { motion } from "framer-motion";
 
 
+
 const fadeUpVariant = {
   hidden: { opacity: 0, y: 40, scale: 0.95 },
   visible: {
