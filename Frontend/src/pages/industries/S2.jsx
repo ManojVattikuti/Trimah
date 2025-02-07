@@ -1,89 +1,278 @@
-import * as React from "react";
-export const S2=()=>
-  
+import React, { useState, useEffect, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import debounce from "lodash.debounce";
+
+export const S2 = () => {
+  const sections = [
     {
-
-      const challenges = [
+      title: "Financial Services",
+      challenges: [
         {
-          icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/25c896a956619593a96ba59f4a73896a12fc532589acf964feb822837fc4c5f1?placeholderIfAbsent=true&apiKey=4126fbaca52340fea6ccc661ec39005f",
-          text: "Regulatory compliance, data security, and operational scalability"
-        }
-      ];
-      
-      const services = [
+          icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/25c896a956619593a96ba59f4a73896a12fc532589acf964feb822837fc4c5f1",
+          text: "Regulatory compliance, data security, and operational scalability",
+        },
+      ],
+      services: [
         "Software developers for secure financial applications.",
-        "Cloud and cybersecurity solutions"
-      ];
+        "Cloud and cybersecurity solutions",
+      ],
+      image:
+        "https://cdn.builder.io/api/v1/image/assets/TEMP/b82965ad3c07a07671cdd5adc36171b478945bb59c8fa60cb52f6902378bb532",
+    },
+    {
+      title: "Healthcare",
+      challenges: [
+        {
+          icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/25c896a956619593a96ba59f4a73896a12fc532589acf964feb822837fc4c5f1",
+          text: "Ensuring HIPAA compliance and enhancing patient data management",
+        },
+      ],
+      services: [
+        "IT consulting for digital transformation and secure operations.",
+        "Full-time and contract staffing for healthcare IT roles.",
+      ],
+      image:
+        "./industry/health.jpg",
+    },
+    {
+      title: "Retail & E-Commerce",
+      challenges: [
+        {
+          icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/25c896a956619593a96ba59f4a73896a12fc532589acf964feb822837fc4c5f1",
+          text: "Supply chain optimization and enhancing customer experiences.",
+        },
+      ],
+      services: [
+        "IT solutions for inventory management, POS systems, and digital platforms.",
+       
+      ],
+      image:
+        "./industry/Retail.jpg",
+    },
+    {
+      title: "Life Sciences & Pharmaceuticals",
+      challenges: [
+        {
+          icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/25c896a956619593a96ba59f4a73896a12fc532589acf964feb822837fc4c5f1",
+          text: "Quality Assurance Validation Engineering (QAVE) and regulatory compliance.",
+        },
+      ],
+      services: [
+        "QAVE experts and regulatory consultants for seamless validation processes.",
+      ],
+      image:
+        "./industry/life.png",
+    },
+    {
+      title: "Oil & Gas",
+      challenges: [
+        {
+          icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/25c896a956619593a96ba59f4a73896a12fc532589acf964feb822837fc4c5f1",
+          text: "Complex asset management and operational efficiency.",
+        },
+      ],
+      services: [
+        "IT solutions for monitoring, data analytics, and automation in operations.",
+      ],
+      image:
+        "./industry/oil.jpg",
+    },
+    {
+      title: "Technology & Startups",
+      challenges: [
+        {
+          icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/25c896a956619593a96ba59f4a73896a12fc532589acf964feb822837fc4c5f1",
+          text: "Scaling development teams and securing infrastructure.",
+        },
+      ],
+      services: [
+        "DevOps consulting, software developers, and cybersecurity experts.",
+      ],
+      image:
+        "./industry/startup.jpg",
+    },
+    {
+      title: "Education",
+      challenges: [
+        {
+          icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/25c896a956619593a96ba59f4a73896a12fc532589acf964feb822837fc4c5f1",
+          text: "Digital transformation in learning management systems and data privacy.",
+        },
+      ],
+      services: [
+        "IT consultants for implementing EdTech platforms and secure systems.",
+      ],
+      image:
+        "./industry/education.jpeg",
+    },
+    {
+      title: "Manufacturing",
+      challenges: [
+        {
+          icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/25c896a956619593a96ba59f4a73896a12fc532589acf964feb822837fc4c5f1",
+          text: "Integrating IoT, managing supply chains, and optimizing operations.",
+        },
+      ],
+      services: [
+        "IT professionals for ERP integration, IoT implementation, and analytics.",
+      ],
+      image:
+        "./industry/manufacturing.jpg",
+    },
+    {
+      title: "Logistics & Transportation",
+      challenges: [
+        {
+          icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/25c896a956619593a96ba59f4a73896a12fc532589acf964feb822837fc4c5f1",
+          text: "Real-time tracking, route optimization, and efficient supply chain management.",
+        },
+      ],
+      services: [
+        "IT solutions for fleet management, data analytics, and mobile applications.",
+      ],
+      image:
+        "./industry/logistics.jpg",
+    },
+    {
+      title: "Energy & Utilities",
+      challenges: [
+        {
+          icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/25c896a956619593a96ba59f4a73896a12fc532589acf964feb822837fc4c5f1",
+          text: "Infrastructure modernization and smart grid technologies.",
+        },
+      ],
+      services: [
+        "IT experts for energy analytics, automation, and cybersecurity.",
+      ],
+      image:
+        "./industry/energy.jpg",
+    },
+    {
+      title: "Hospitality",
+      challenges: [
+        {
+          icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/25c896a956619593a96ba59f4a73896a12fc532589acf964feb822837fc4c5f1",
+          text: "Enhancing guest experiences and streamlining operations.",
+        },
+      ],
+      services: [
+        "IT consulting for PMS (Property Management Systems) and digital platforms.",
+      ],
+      image:
+        "./industry/hospitality.jpg",
+    },
+  ];
 
-      function ServiceItem({ icon, text }) {
-        return (
-          <div className="flex flex-wrap gap-2.5 self-stretch mt-3 text-lg text-white text-opacity-80">
-            <img
-              loading="lazy"
-              src={icon}
-              alt=""
-              className="object-contain shrink-0 my-auto w-5 aspect-square"
-            />
-            <div className="flex-auto w-[550px] max-md:max-w-full">
-              {text}
-            </div>
-          </div>
-        );
-      }
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState("down");
 
-      function SectionTitle({ title }) {
-        return (
-          <>
-            <div className="text-3xl">{title}</div>
-            <div className="flex shrink-0 h-0.5 bg-purple-400 w-[146px]" />
-          </>
-        );
-      }
-    
-        return(
-          <div className="lg:px-32 mt-8">
-   <div className="text-xl p-4 leading-none  text-3xl sm:text-3xl lg:text-3xl font-bold font-parkinsans">
-      Industries <span className="lowercase">We</span> Specialize{" "}
-      <span className="lowercase">In</span>
-    </div>
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setDirection("down");
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % sections.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const changeIndex = useCallback(
+    debounce((scrollDirection) => {
+      setDirection(scrollDirection > 0 ? "down" : "up");
+      setCurrentIndex((prevIndex) => {
+        let newIndex = prevIndex + (scrollDirection > 0 ? 1 : -1);
+        if (newIndex < 0) newIndex = sections.length - 1;
+        if (newIndex >= sections.length) newIndex = 0;
+        return newIndex;
+      });
+    }, 200),
+    []
+  );
+
+  const handleScroll = (e) => {
+    e.preventDefault();
+    changeIndex(e.deltaY);
+  };
+
   
-        
-          <div className="pl-20 mt-5 w-full bg-violet-500 max-md:pl-5 max-md:max-w-full">
-          <div className="flex gap-5 max-md:flex-col">
-            <div className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
-              <div className="flex flex-col items-start self-stretch my-auto font-parkinsans w-full text-xl leading-none text-white max-md:mt-10 max-md:max-w-full">
-                <SectionTitle title="Financial Services" />
-                <div className="mt-9">
-                  Challenges <span className="lowercase">We</span> Solve
+
+  return (
+    <div className="py-16 sm:py-24 relative">
+      <div className="text-2xl sm:text-3xl font-bold font-parkinsans text- px-8 lg:ml-28">
+        Industries We Specialize In
+      </div>
+
+      <div
+        className="relative mt-8 flex items-center justify-center h-screen sm:h-[80vh] overflow-hidden"
+        onWheel={handleScroll}
+      >
+        {/* Fixed Background */}
+        <div className="absolute inset-0 bg-violet-500 rounded-lg w-full max-h-[750px] max-w-[1200px] mx-auto" />
+
+        {/* Left Side Dots */}
+        <div className="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 flex flex-col space-y-2 sm:space-y-3">
+  {sections.map((_, index) => (
+    <button
+      key={index}
+      onClick={() => setCurrentIndex(index)}
+      className={`w-3 h-3 sm:w-4 sm:h-4 rounded-full transition-all duration-300 focus:outline-none active:scale-110 ${
+        currentIndex === index ? "bg-white" : "bg-gray-400"
+      }`}
+    />
+  ))}
+</div>
+
+
+
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentIndex}
+            initial={{ opacity: 0, y: direction === "down" ? 50 : -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: direction === "down" ? -50 : 50 }}
+            transition={{ duration: 0.7, ease: "easeInOut" }}
+            className="relative z-10 flex flex-col md:flex-row items-center px-8 sm:px-16 text-white w-full max-w-[1200px]"
+          >
+            {/* Left Section - Content */}
+            <div className="flex flex-col w-full md:w-6/12 text-center md:text-left">
+              <div className="text-3xl font-parkinsans font-bold">{sections[currentIndex].title}</div>
+              <div className="h-1 w-[146px] bg-purple-400 mt-2 mx-auto md:mx-0"></div>
+
+              <div className="mt-6 text-lg  font-parkinsans sm:text-xl">Challenges We Solve</div>
+              {sections[currentIndex].challenges.map((challenge, index) => (
+                <div key={index} className="flex items-center mt-3 text-md  font-parkinsans sm:text-lg">
+                <img 
+  src={challenge.icon} 
+  alt="icon" 
+  className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-8 lg:h-8 mr-2 object-contain"
+/>
+
+                  {challenge.text}
                 </div>
-                {challenges.map((challenge, index) => (
-                  <ServiceItem 
-                    key={index}
-                    icon={challenge.icon}
-                    text={challenge.text}
-                  />
+              ))}
+
+              <div className="mt-6 text-lg  font-parkinsans sm:text-xl">Services Offered</div>
+              <div className="mt-3 text-md sm:text-lg  font-parkinsans text-white text-opacity-80">
+                {sections[currentIndex].services.map((service, index) => (
+                  <React.Fragment key={index}>
+                    {service}
+                    <br />
+                  </React.Fragment>
                 ))}
-                <div className="mt-6">Services Offered</div>
-                <div className="mt-3 text-lg leading-9 text-white text-opacity-80 max-md:max-w-full">
-                  {services.map((service, index) => (
-                    <React.Fragment key={index}>
-                      {service}
-                      <br />
-                    </React.Fragment>
-                  ))}
-                </div>
               </div>
             </div>
-            <div className="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full">
-              <img
-                loading="lazy"
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/b82965ad3c07a07671cdd5adc36171b478945bb59c8fa60cb52f6902378bb532?placeholderIfAbsent=true&apiKey=4126fbaca52340fea6ccc661ec39005f"
-                alt="Financial services illustration"
-                className="object-contain grow w-full aspect-[0.91] max-md:mt-10 max-md:max-w-full"
-              />
-            </div>
-          </div>
-        </div>
-        </div>
-        )
-    }
+
+            {/* Right Section - Image */}
+            <div className="flex w-full md:w-6/12 justify-center md:justify-end mt-6 md:mt-0">
+  <img
+    src={sections[currentIndex].image}
+    alt={sections[currentIndex].title}
+    className="w-full max-w-md md:max-w-lg object-contain rounded-lg shadow-lg 
+               transition-transform duration-300 hover:scale-105 hover:shadow-xl"
+  />
+</div>
+
+          </motion.div>
+        </AnimatePresence>
+      </div>
+    </div>
+  );
+};

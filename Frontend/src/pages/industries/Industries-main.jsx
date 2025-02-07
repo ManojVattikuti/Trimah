@@ -4,6 +4,10 @@ import { S2 } from "./S2"
 import { S3 } from "./S3"
 import { S4 } from "./S4"
 import { motion } from "framer-motion";
+import SlickSliderWithContent from "./slick/slickSlider"
+import SlickSlider from "./slick/slickSlider"
+import { useEffect } from "react"
+
 
 
 const fadeUpVariant = {
@@ -16,15 +20,18 @@ const fadeUpVariant = {
   },
 };
 
+
 export const Industrymain = () => {
+ 
+  
   return (
     <>
       <IndustryHero />
 
 
         <S1 />
-     
-
+    
+      
       <motion.div
         variants={fadeUpVariant}
         initial="hidden"
@@ -35,6 +42,12 @@ export const Industrymain = () => {
         <S2 />
       </motion.div>
 
+      
+
+    
+
+
+
       <motion.div
         variants={fadeUpVariant}
         initial="hidden"
@@ -44,6 +57,11 @@ export const Industrymain = () => {
       >
         <S3 />
       </motion.div>
+
+
+  
+
+
 
       <motion.div
         variants={fadeUpVariant}
