@@ -17,7 +17,7 @@ export const S2 = () => {
         "Cloud and cybersecurity solutions",
       ],
       image:
-        "https://cdn.builder.io/api/v1/image/assets/TEMP/b82965ad3c07a07671cdd5adc36171b478945bb59c8fa60cb52f6902378bb532",
+        "./industry/finance.webp",
     },
     {
       title: "Healthcare",
@@ -131,7 +131,7 @@ export const S2 = () => {
         "IT solutions for fleet management, data analytics, and mobile applications.",
       ],
       image:
-        "./industry/logistics.jpg",
+        "./industry/logistics.webp",
     },
     {
       title: "Energy & Utilities",
