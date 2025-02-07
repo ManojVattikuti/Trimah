@@ -195,7 +195,7 @@ export const S2 = () => {
   
 
   return (
-    <div className="py-16 sm:py-24 relative">
+    <div className="py-8 sm:py-24 relative">
       <div className="text-2xl sm:text-3xl font-bold font-parkinsans text- px-8 lg:ml-28">
         Industries We Specialize In
       </div>
