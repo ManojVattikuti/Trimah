@@ -7,7 +7,7 @@ const IndustryHero = () => {
       {/* Background Image Section */}
       <div className="relative w-full h-full">
   <img 
-    src="./about/hero-about.jpeg" 
+    src="./industry/hero-in.webp" 
     alt="Hero" 
     className="absolute w-full h-full object-cover object-center top-0 left-0" 
   />

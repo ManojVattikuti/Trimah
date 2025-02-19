@@ -9,12 +9,12 @@ import Messages from '../pages/list/MessageList';
 import Applications from '../pages/list/Application';
 
 const AdminRoutes = () => {
-  // const { token } = useContext(mainContext);
+  const { token } = useContext(mainContext);
 
-  // // If there is no token, redirect to login page or handle unauthorized access
-  // if (!token) {
-  //   return <Navigate to="/login" />;
-  // }
+  // If there is no token, redirect to login page or handle unauthorized access
+  if (!token) {
+    return <Navigate to="/login" />;
+  }
 
   return (
     <Routes>

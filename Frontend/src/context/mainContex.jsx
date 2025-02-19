@@ -13,7 +13,7 @@ export const MainProvider = ({ children }) => {
       // Fetch user details from token
       const fetchUserDetails = async () => {
         try {
-          const response = await axios.get('http://localhost:8080/api/auth/userDetails', {
+          const response = await axios.get('http://localhost:8000/api/auth/userDetails', {
             headers: { Authorization: `Bearer ${token}` },
           });
           setUser(response.data.user);
