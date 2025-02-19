@@ -1,29 +1,30 @@
-# Use the official Node.js image as the base image
+# Use Node.js for building React
 FROM node:18-alpine AS build
 
-# Set the working directory
 WORKDIR /app
 
-# Copy the package.json and package-lock.json files
-COPY package*.json ./
-
 # Install dependencies
+COPY package*.json ./
 RUN npm install
 
-# Copy the rest of the application code
+# Copy source code and build React app
 COPY . .
-
-# Build the React app
 RUN npm run build
 
-# Use a lightweight web server to serve the static files
+# Use a lightweight Nginx web server
 FROM nginx:1.23-alpine
 
-# Copy the built files to the Nginx server's root directory
+# Copy custom Nginx config
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# Copy built React app (keeping /dist)
 COPY --from=build /app/dist /usr/share/nginx/html
 
-# Expose port 80 for the server
-EXPOSE 80
+# Ensure proper permissions
+RUN chmod -R 755 /usr/share/nginx/html
+
+# Cloud Run requires the service to listen on 8080
+EXPOSE 8080
 
 # Start Nginx
 CMD ["nginx", "-g", "daemon off;"]
