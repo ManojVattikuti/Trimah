@@ -22,16 +22,16 @@ const fadeUpVariant = {
 
 
 export const Industrymain = () => {
- 
-  
+
+
   return (
     <>
       <IndustryHero />
 
 
-        <S1 />
-    
-      
+      <S1 />
+
+
       <motion.div
         variants={fadeUpVariant}
         initial="hidden"
@@ -42,9 +42,9 @@ export const Industrymain = () => {
         <S2 />
       </motion.div>
 
-      
 
-    
+
+
 
 
 
@@ -59,7 +59,7 @@ export const Industrymain = () => {
       </motion.div>
 
 
-  
+
 
 
 

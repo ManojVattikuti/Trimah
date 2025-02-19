@@ -1,6 +1,33 @@
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
-export const Dropdown = () => {
+export const Dropdown = ({ onScroll }) => {
+ 
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // Handle navigation dynamically
+  const handleNavigation = (section) => {
+    navigate(`/industries?section=${encodeURIComponent(section)}`);
+  };
+
+  // Scroll to section after navigation
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const section = params.get("section");
+
+    if (section) {
+      const element = document.getElementById("scroller");
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: "smooth" });
+        }, 100); // Delay to ensure DOM is ready
+      }
+    }
+  }, [location]);
+
+
+
   return (
     <div className="absolute left transform  px-4 py mt-2 font-parkinsans  bg-white shadow-lg border opacity-0 group-hover:opacity-100 group-hover:visible transition-opacity duration-300 z-50">
 
@@ -28,8 +55,9 @@ export const Dropdown = () => {
             <path d="M17.8131 17.2649H12.1801C12.1184 17.2647 12.0573 17.2767 12.0002 17.3002C11.9432 17.3237 11.8913 17.3583 11.8477 17.4019C11.8041 17.4456 11.7695 17.4974 11.746 17.5544C11.7225 17.6115 11.7105 17.6726 11.7107 17.7343V21.9591H18.2826V17.7343C18.2828 17.6726 18.2708 17.6115 18.2473 17.5544C18.2238 17.4974 18.1892 17.4455 18.1456 17.4019C18.1019 17.3583 18.0501 17.3237 17.993 17.3002C17.936 17.2767 17.8748 17.2647 17.8131 17.2649Z" fill="#071C39" />
             <path d="M8.65955 10.6742C9.20254 10.6321 9.75729 10.7303 9.98329 11.2892C10.2222 11.8432 9.89572 12.3127 9.48098 12.6598C9.39304 12.7485 9.34369 12.8683 9.3437 12.9931C9.34371 13.118 9.39306 13.2378 9.48102 13.3265L10.8846 14.73C10.9732 14.818 11.093 14.8673 11.2179 14.8673C11.3427 14.8673 11.4625 14.818 11.5512 14.73L11.8328 14.4437C11.9735 14.3072 12.151 14.2149 12.3434 14.178C12.5359 14.1412 12.7349 14.1614 12.916 14.2362C13.0971 14.3111 13.2524 14.4373 13.3627 14.5992C13.473 14.7612 13.5335 14.9519 13.5368 15.1478L13.5368 15.5515C13.5366 15.6132 13.5486 15.6743 13.5721 15.7314C13.5956 15.7884 13.6302 15.8403 13.6738 15.8839C13.7175 15.9275 13.7693 15.9621 13.8263 15.9856C13.8834 16.0091 13.9445 16.0211 14.0062 16.0209H15.9872C16.0489 16.0211 16.11 16.0091 16.1671 15.9856C16.2241 15.9621 16.2759 15.9275 16.3196 15.8839C16.3632 15.8403 16.3978 15.7884 16.4213 15.7314C16.4448 15.6744 16.4568 15.6132 16.4566 15.5515V15.1478C16.4599 14.9519 16.5204 14.7612 16.6307 14.5992C16.741 14.4372 16.8963 14.3111 17.0774 14.2362C17.2585 14.1614 17.4575 14.1412 17.65 14.178C17.8425 14.2149 18.02 14.3072 18.1606 14.4437L18.4423 14.73C18.5309 14.818 18.6507 14.8673 18.7756 14.8673C18.9004 14.8673 19.0202 14.818 19.1088 14.73L20.5124 13.3265C20.6004 13.2378 20.6497 13.118 20.6497 12.9932C20.6497 12.8683 20.6004 12.7485 20.5124 12.6598L20.2261 12.3782C20.0896 12.2376 19.9973 12.0601 19.9604 11.8676C19.9236 11.6751 19.9438 11.4761 20.0186 11.295C20.0935 11.1139 20.2196 10.9586 20.3816 10.8483C20.5436 10.738 20.7343 10.6775 20.9302 10.6742H21.3339C21.4583 10.6738 21.5775 10.6243 21.6654 10.5363C21.7534 10.4484 21.8029 10.3292 21.8033 10.2048V8.22386C21.803 8.09947 21.7534 7.98028 21.6654 7.89233C21.5775 7.80437 21.4583 7.75479 21.3339 7.75443C19.9772 7.93625 19.4269 6.58645 20.5125 5.76876C20.5985 5.67913 20.6465 5.55971 20.6465 5.43547C20.6465 5.31123 20.5984 5.19182 20.5124 5.1022L19.1089 3.69864C19.0202 3.61068 18.9004 3.56132 18.7756 3.56132C18.6507 3.56132 18.5309 3.61068 18.4423 3.69864C17.6158 4.79212 16.2745 4.22203 16.4567 2.8771C16.4569 2.81539 16.4449 2.75426 16.4213 2.69722C16.3978 2.64018 16.3632 2.58836 16.3196 2.54473C16.276 2.50111 16.2241 2.46654 16.1671 2.44303C16.1101 2.41951 16.0489 2.40751 15.9872 2.40772H14.0063C13.9446 2.40751 13.8834 2.41951 13.8264 2.44302C13.7693 2.46654 13.7175 2.50111 13.6739 2.54474C13.6302 2.58838 13.5957 2.64021 13.5722 2.69726C13.5487 2.75431 13.5367 2.81545 13.5369 2.87715C13.5791 3.42018 13.4807 3.9749 12.9219 4.2009C12.3682 4.43991 11.8982 4.11327 11.5512 3.69862C11.4626 3.61067 11.3428 3.56133 11.2179 3.56133C11.0931 3.56134 10.9733 3.61069 10.8846 3.69865L9.48106 5.10221C9.14731 5.46558 9.48401 5.80195 9.76747 6.05041C9.90392 6.19106 9.99625 6.36855 10.0331 6.56101C10.0699 6.75348 10.0497 6.95252 9.97486 7.13363C9.90001 7.31473 9.77383 7.47 9.61186 7.5803C9.44989 7.6906 9.25919 7.75112 9.06326 7.75441L8.65959 7.75444C8.5352 7.7548 8.41602 7.80437 8.32806 7.89233C8.24011 7.98029 8.19054 8.09948 8.19019 8.22387V10.2048C8.19055 10.3292 8.24011 10.4484 8.32805 10.5363C8.416 10.6243 8.53517 10.6738 8.65955 10.6742ZM14.9968 6.39781C18.7191 6.51511 18.7183 11.9141 14.9967 12.0308C11.2743 11.9135 11.2752 6.51457 14.9968 6.39781Z" fill="#071C39" />
           </svg>
-
+          <Link to="/industries?section=Manufacturing" onClick={() => handleNavigation("Manufacturing")}>
           <div className="w-[133px] left-[34px] top-[4px] absolute text-[#071c39] text-base font-semibold hover:text-green-500  font-['Maven Pro']">Manufacturing</div>
+          </Link>
           <div className="w-[163px] left-0 top-[34px] absolute text-[#828282] text-xs font-normal font-['Gilroy-Regular'] leading-tight">We provide IT professionals for ERP, IoT, and operational optimization.</div>
           <div className="w-[30px] h-[30px] left-0 top-0 absolute flex-col justify-start items-start inline-flex overflow-hidden" />
         </div>
@@ -62,8 +90,10 @@ export const Dropdown = () => {
               </clipPath>
             </defs>
           </svg>
-
+          <Link to="/industries?section=Logistics And Transportation" onClick={() => handleNavigation("Logistics And Transportation")}>
+        
           <div className="w-[134px] left-[38px] top-0 absolute text-[#071c39] text-base font-semibold hover:text-green-500  font-['Maven Pro']">Logistics & Transportation</div>
+          </Link>
           <div className="w-[163px] left-0 top-[46px] absolute text-[#828282] text-xs font-normal font-['Gilroy-Regular'] leading-tight">We provide IT solutions for fleet management, data analytics, and mobile apps.</div>
           <div className="w-[30px] h-[30px] left-0 top-[4px] absolute flex-col justify-start items-start inline-flex overflow-hidden">
             <div className="w-[30px] h-[30px] relative">
@@ -76,8 +106,9 @@ export const Dropdown = () => {
             <path fill-rule="evenodd" clip-rule="evenodd" d="M22.5 7.73438C22.5 7.08717 21.9753 6.5625 21.3281 6.5625H13.1539C12.5349 6.5625 11.9411 6.80733 11.502 7.24357L5.37937 13.3264C4.93652 13.7664 4.6875 14.3648 4.6875 14.9891V24.375C4.6875 25.6695 5.73684 26.7188 7.03125 26.7188H16.2408C14.2358 25.5368 12.8906 23.3552 12.8906 20.8594C12.8906 17.1056 15.9337 14.0625 19.6875 14.0625C20.6906 14.0625 21.6429 14.2798 22.5 14.6699V7.73438ZM15.4905 9.50759C16.2109 10.228 16.2109 11.3961 15.4905 12.1165L10.4759 17.1311C9.75546 17.8515 8.58741 17.8515 7.86696 17.1311C7.14654 16.4107 7.14654 15.2426 7.86696 14.5222L12.8815 9.50759C13.602 8.78714 14.77 8.78716 15.4905 9.50759Z" fill="#071C39" />
             <path fill-rule="evenodd" clip-rule="evenodd" d="M19.6875 26.7188C22.9235 26.7188 25.5469 24.0954 25.5469 20.8594C25.5469 17.6233 22.9235 15 19.6875 15C16.4515 15 13.8281 17.6233 13.8281 20.8594C13.8281 24.0954 16.4515 26.7188 19.6875 26.7188ZM22.0312 21.5467C22.0312 22.8499 20.9819 23.9062 19.6875 23.9062C18.3931 23.9062 17.3438 22.8499 17.3438 21.5467C17.3438 20.5395 18.7438 18.7301 19.3798 17.9602C19.5424 17.7633 19.8326 17.7633 19.9952 17.9602C20.6312 18.7301 22.0312 20.5395 22.0312 21.5467Z" fill="#071C39" />
           </svg>
-
+          <Link to="/industries?section=Energy And Utilities" onClick={() => handleNavigation("Energy And Utilities")}>
           <div className="w-[144px] left-[38px] top-[5px] absolute text-[#071c39] text-base font-semibold hover:text-green-500  font-['Maven Pro']">Energy & Utilities</div>
+          </Link>
           <div className="w-[163px] left-0 top-[36px] absolute text-[#828282] text-xs font-normal font-['Gilroy-Regular'] leading-tight">We provide IT experts for energy analytics, automation, and cybersecurity solutions.</div>
           <div className="w-[30px] h-[30px] left-0 top-0 absolute flex-col justify-start items-start inline-flex overflow-hidden" />
         </div>
@@ -100,8 +131,9 @@ export const Dropdown = () => {
               </clipPath>
             </defs>
           </svg>
-
+          <Link to="/industries?section=Technology And Startups" onClick={() => handleNavigation("Technology And Startups")}>
           <div className="w-[95px] left-[37px] top-0 absolute text-[#071c39] text-base font-semibold hover:text-green-500  font-['Maven Pro']">Technology & Startups</div>
+          </Link>
           <div className="w-[163px] left-0 top-[41px] absolute text-[#828282] text-xs font-normal font-['Gilroy-Regular'] leading-tight">We offer DevOps consulting, software development, and cybersecurity expertise for startups.</div>
           <div className="w-[30px] h-[30px] left-0 top-[5px] absolute flex-col justify-start items-start inline-flex overflow-hidden">
             <div className="w-[30px] h-[29.49px] relative">
@@ -117,8 +149,10 @@ export const Dropdown = () => {
               <path d="M9.375 10.3125C9.375 9.99281 9.405 9.67969 9.45844 9.375H20.5425C20.595 9.67969 20.625 9.99281 20.625 10.3125C20.625 13.4194 18.1069 15.9375 15 15.9375C11.8931 15.9375 9.375 13.4194 9.375 10.3125Z" fill="#071C39" />
               <path d="M20.625 7.5H9.375V3.50625C9.375 3.09375 9.64313 2.72063 10.0388 2.60438C11.6925 2.11781 13.3463 1.875 15 1.875C16.6519 1.875 18.3047 2.11781 19.9566 2.60344C20.3541 2.71969 20.625 3.09562 20.625 3.51V7.5Z" fill="#071C39" />
             </svg>
+<Link to="/industries?section=Hospitality" onClick={() => handleNavigation("Hospitality")}>
 
             <div className="w-24 left-[37px] top-0 absolute text-[#071c39] text-base font-semibold hover:text-green-500  font-['Maven Pro']">Hospitality</div>
+            </Link>
             <div className="w-[163px] left-0 top-[28px] absolute text-[#828282] text-xs font-normal font-['Gilroy-Regular'] leading-tight">We offer IT consulting for PMS and digital platforms to enhance operations.</div>
           </div>
         </div>
@@ -130,8 +164,9 @@ export const Dropdown = () => {
             <path d="M14.9998 17.2431L14.6322 17.1132L6.28198 14.1672V17.1382C6.28198 21.7605 9.22198 23.8435 14.9997 23.8435C20.7772 23.8435 23.717 21.7605 23.717 17.1382V14.1672L15.3672 17.1132L14.9998 17.2431Z" fill="#071C39" />
             <path d="M3.59288 13.2187L2.4873 12.8289V16.7719H3.59288V13.2187Z" fill="#071C39" />
           </svg>
-
+          <Link to="/industries?section=Education" onClick={() => handleNavigation("Education")}> 
           <div className="w-[83px] left-[37px] top-[4px] absolute text-[#071c39] text-base font-semibold hover:text-green-500  font-['Maven Pro']">Education</div>
+          </Link>
           <div className="w-[163px] left-[1px] top-[32px] absolute text-[#828282] text-xs font-normal font-['Gilroy-Regular'] leading-tight">We offer IT consulting for EdTech platforms, data privacy, and transformation.</div>
           <div className="w-[30px] h-[30px] left-0 top-0 absolute flex-col justify-start items-start inline-flex overflow-hidden" />
         </div>
@@ -148,8 +183,10 @@ export const Dropdown = () => {
                 </clipPath>
               </defs>
             </svg>
-
+            <Link to="/industries?section=Life Science And Pharmaceuticals" onClick={() => handleNavigation("Life Science And Pharmaceuticals")}>
+        
             <div className="w-[132px] left-[37px] top-0 absolute text-[#071c39] text-base hover:text-green-500  font-semibold font-['Maven Pro']">Life Science & Pharmaceuticals</div>
+            </Link>
             <div className="w-[163px] left-0 top-[42px] absolute text-[#828282] text-xs font-normal font-['Gilroy-Regular'] leading-tight">We provide QAVE experts and regulatory consultants for seamless compliance.</div>
           </div>
         </div>
@@ -159,8 +196,10 @@ export const Dropdown = () => {
             <path fill-rule="evenodd" clip-rule="evenodd" d="M22.5 7.73438C22.5 7.08717 21.9753 6.5625 21.3281 6.5625H13.1539C12.5349 6.5625 11.9411 6.80733 11.502 7.24357L5.37937 13.3264C4.93652 13.7664 4.6875 14.3648 4.6875 14.9891V24.375C4.6875 25.6695 5.73684 26.7188 7.03125 26.7188H16.2408C14.2358 25.5368 12.8906 23.3552 12.8906 20.8594C12.8906 17.1056 15.9337 14.0625 19.6875 14.0625C20.6906 14.0625 21.6429 14.2798 22.5 14.6699V7.73438ZM15.4905 9.50759C16.2109 10.228 16.2109 11.3961 15.4905 12.1165L10.4759 17.1311C9.75546 17.8515 8.58741 17.8515 7.86696 17.1311C7.14654 16.4107 7.14654 15.2426 7.86696 14.5222L12.8815 9.50759C13.602 8.78714 14.77 8.78716 15.4905 9.50759Z" fill="#071C39" />
             <path fill-rule="evenodd" clip-rule="evenodd" d="M19.6875 26.7188C22.9235 26.7188 25.5469 24.0954 25.5469 20.8594C25.5469 17.6233 22.9235 15 19.6875 15C16.4515 15 13.8281 17.6233 13.8281 20.8594C13.8281 24.0954 16.4515 26.7188 19.6875 26.7188ZM22.0312 21.5467C22.0312 22.8499 20.9819 23.9062 19.6875 23.9062C18.3931 23.9062 17.3438 22.8499 17.3438 21.5467C17.3438 20.5395 18.7438 18.7301 19.3798 17.9602C19.5424 17.7633 19.8326 17.7633 19.9952 17.9602C20.6312 18.7301 22.0312 20.5395 22.0312 21.5467Z" fill="#071C39" />
           </svg>
-
+          <Link to="/industries?section=Oil And Gas" onClick={() => handleNavigation("Oil And Gas")}>
+       
           <div className="w-[85px] left-[34px] top-[4px] absolute text-[#071c39] text-base font-semibold hover:text-green-500  font-['Maven Pro']">Oil & Gas</div>
+          </Link>
           <div className="w-[163px] left-0 top-[34px] absolute text-[#828282] text-xs font-normal font-['Gilroy-Regular'] leading-tight">We offer IT solutions for asset management, data analytics, and automation.</div>
           <div className="w-[30px] h-[30px] left-0 top-0 absolute flex-col justify-start items-start inline-flex overflow-hidden">
             <div className="w-[20.86px] h-[23.44px] relative">
@@ -173,8 +212,8 @@ export const Dropdown = () => {
           <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M1.74281 23.6197H14.0682C14.2305 24.4347 14.5205 25.2036 14.9163 25.9049H1.74281C1.60342 25.9049 1.48975 25.7912 1.48975 25.6518V23.8728C1.48969 23.7333 1.60342 23.6197 1.74281 23.6197ZM3.80139 11.2784V22.6822H6.62197V13.7203C6.62197 13.4415 6.84937 13.2141 7.12816 13.2141H11.752C12.0308 13.2141 12.2582 13.4415 12.2582 13.7203V22.6822H13.9399C13.9254 22.4882 13.918 22.2922 13.918 22.0945C13.918 20.2832 14.5382 18.6167 15.5778 17.2959C15.3739 17.2304 15.2256 17.0388 15.2256 16.8137V13.7203C15.2256 13.4415 15.453 13.2141 15.7318 13.2141H21.1768C21.4556 13.2141 21.683 13.4415 21.683 13.7203V14.3295C22.596 14.3295 23.4722 14.4871 24.2859 14.7765V11.2784C24.08 11.3142 23.8683 11.3329 23.6521 11.3329C22.319 11.3329 21.0993 10.6139 20.4493 9.45762C19.7994 10.6139 18.5797 11.3329 17.2465 11.3329C15.9134 11.3329 14.6936 10.6139 14.0437 9.45762C13.3938 10.6139 12.174 11.3329 10.8409 11.3329C9.50777 11.3329 8.28803 10.6139 7.6381 9.45762C6.98818 10.6139 5.76838 11.3329 4.43525 11.3329C4.21904 11.3329 4.00728 11.3142 3.80139 11.2784ZM21.683 15.267C17.9123 15.267 14.8555 18.3237 14.8555 22.0945C14.8555 25.8652 17.9123 28.922 21.683 28.922C25.4538 28.922 28.5105 25.8652 28.5105 22.0945C28.5105 18.3237 25.4538 15.267 21.683 15.267ZM18.5503 19.2626H17.6262C17.3674 19.2626 17.1575 19.0528 17.1575 18.7939C17.1575 18.535 17.3674 18.3251 17.6262 18.3251L18.9118 18.3271C19.1203 18.3269 19.3102 18.4673 19.3641 18.6786L19.5922 19.5666H25.7399C26.0638 19.5666 26.2867 19.8866 26.1834 20.1877L25.4948 23.0448C25.349 23.6499 24.8224 24.0682 24.1993 24.0682H20.0465C19.9771 24.0682 19.9186 24.1267 19.9186 24.1961C19.9186 24.2655 19.9771 24.324 20.0465 24.324H25.1545C25.4134 24.324 25.6233 24.5338 25.6233 24.7927C25.6233 25.0516 25.4134 25.2615 25.1545 25.2615H24.9103C25.0403 25.3862 25.1212 25.5616 25.1212 25.7561C25.1212 26.1345 24.8145 26.4412 24.4361 26.4412C24.0576 26.4412 23.7509 26.1345 23.7509 25.7561C23.7509 25.5616 23.8318 25.3862 23.9619 25.2615H20.8895C21.0196 25.3862 21.1005 25.5616 21.1005 25.7561C21.1005 26.1345 20.7937 26.4412 20.4153 26.4412C20.037 26.4412 19.7302 26.1345 19.7302 25.7561C19.7302 25.5591 19.8132 25.3816 19.9462 25.2567C19.4061 25.2059 18.981 24.7492 18.981 24.1961C18.981 23.7908 19.2119 23.4223 19.5724 23.2423C19.2317 21.9157 18.891 20.5892 18.5503 19.2626ZM2.00332 7.19262H7.27793L8.88938 1.07812H5.22809C5.19973 1.07812 5.1893 1.08193 5.176 1.10795L2.00332 7.19262ZM8.2452 7.19262L9.85658 1.07812H13.5749V7.19262H8.2452ZM14.5124 7.19262H19.8421L18.2307 1.07812H14.5124V7.19262ZM22.8592 1.07812C22.9037 1.07812 22.9109 1.10725 22.9291 1.14223L26.0839 7.19262H20.8093L19.1979 1.07812H22.8592ZM26.3461 8.13012C26.1203 9.43717 24.9817 10.3954 23.6521 10.3954C22.3224 10.3954 21.1839 9.43717 20.9581 8.13012H26.3461ZM19.9404 8.13012C19.7147 9.43723 18.5762 10.3954 17.2465 10.3954C15.9169 10.3954 14.7783 9.43717 14.5525 8.13012H19.9404ZM13.5348 8.13012C13.309 9.43723 12.1704 10.3954 10.8408 10.3954C9.51117 10.3954 8.37269 9.43723 8.14687 8.13012H13.5348ZM7.12922 8.13012C6.90346 9.43723 5.76486 10.3954 4.4352 10.3954C3.10559 10.3954 1.96693 9.43717 1.74117 8.13012H7.12922Z" fill="#071C39" />
           </svg>
-          <Link to="/">
-          <div className="w-[144px] left-[38px] top-[-2px] absolute text-[#071c39] text-base font-semibold hover:text-green-500  font-['Maven Pro']">Retail & E-commerce</div></Link>
+          <Link to="/industries?section=Retail And E-commerce" onClick={() => handleNavigation("Retail And E-commerce")}>
+          <div className="w-[144px] left-[38px] top-[-2px] absolute text-[#071c39] text-base font-semibold hover:text-green-500  font-['Maven Pro'] ">Retail & E-commerce</div></Link>
           <div className="w-[162px] left-[1px] top-[40px] absolute text-[#828282] text-xs font-normal font-['Gilroy-Regular'] leading-tight">We offer IT solutions for supply chain, inventory, and customer experience</div>
           <div className="w-[30px] h-[30px] left-0 top-[3px] absolute flex-col justify-start items-start inline-flex overflow-hidden" />
         </div>
@@ -182,8 +221,11 @@ export const Dropdown = () => {
           <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M12.9292 16.9212C11.9184 14.2826 12.6184 11.1664 14.5123 8.69918L17.6182 4.65293H22.0491L25.155 8.69918C27.4177 11.6469 27.976 15.5209 25.9486 18.4C25.7232 18.4493 25.5061 18.5067 25.3037 18.566L20.011 20.1187C19.7321 19.5489 19.2156 19.1205 18.5997 18.9555C17.3454 18.6195 16.0924 18.2818 14.839 17.9472C14.2495 17.5338 13.6108 17.1556 12.9292 16.9212ZM19.369 21.4488C19.5667 20.711 19.1259 19.9458 18.3875 19.7479L14.556 18.7213C14.5101 18.709 14.4657 18.688 14.4246 18.6588C13.2001 17.7905 12.2929 17.4758 11.4622 17.4971C10.626 17.5187 9.81437 17.884 8.81957 18.3705C7.89725 18.8215 6.99971 19.2506 6.11172 19.6713L8.48512 25.3703L9.39807 24.9264C10.0678 24.6008 10.7547 24.5432 11.4696 24.7508L15.6953 25.9777C16.8109 26.3016 18.2663 25.7353 19.4208 25.286C22.1464 24.2254 24.8801 23.1816 27.6092 22.1299C28.2473 21.884 28.7074 21.2492 28.8274 20.6075C28.9128 20.1513 28.8241 19.6835 28.4388 19.3895C27.9563 19.0213 27.0391 18.9118 25.5345 19.3532L20.2274 20.9101C20.2475 21.1481 20.2289 21.3929 20.1601 21.6607C19.8409 22.7991 18.5726 23.5893 17.4345 23.2157L12.3647 21.8573C12.1462 21.7989 12.0163 21.5743 12.0747 21.3558C12.1332 21.1372 12.3577 21.0074 12.5762 21.0658L17.6682 22.4302C18.4068 22.6281 19.1709 22.1876 19.369 21.4488ZM7.8151 28.1527L5.78354 28.9963C5.34273 29.1794 4.83402 28.9695 4.65057 28.5289C3.50383 25.7754 2.35709 23.0218 1.21035 20.2682C1.0249 19.8229 1.23279 19.3191 1.67828 19.1341L3.70984 18.2905C4.15064 18.1075 4.65936 18.3173 4.84281 18.758C5.98949 21.5115 7.13629 24.2651 8.28297 27.0186C8.46842 27.4639 8.26059 27.9677 7.8151 28.1527ZM18.3411 15.7987C18.6689 16.1079 18.9824 16.3449 19.4329 16.4313L19.4423 16.8164C19.4475 17.042 19.6348 17.2206 19.8604 17.2154C20.0861 17.2101 20.2647 17.0228 20.2594 16.7972L20.2504 16.4236C21.0428 16.256 21.6926 15.6015 21.6926 14.7631C21.6926 13.7634 20.79 13.0592 19.8337 13.0592C19.3294 13.0592 18.795 12.7219 18.795 12.1757C18.795 11.6307 19.3301 11.2905 19.8337 11.2905C20.0737 11.2905 20.6423 11.498 20.7777 11.704C20.9016 11.8925 21.1548 11.9449 21.3433 11.821C21.5318 11.6971 21.5841 11.4439 21.4602 11.2554C21.2151 10.8826 20.6642 10.6274 20.2358 10.5264L20.225 10.0748C20.2197 9.84914 20.0325 9.67055 19.8068 9.67582C19.5812 9.68109 19.4026 9.86836 19.4079 10.094L19.4179 10.5163C18.6244 10.6826 17.9747 11.3366 17.9747 12.1757C17.9747 13.1753 18.8773 13.8796 19.8336 13.8796C20.3379 13.8796 20.8722 14.217 20.8722 14.7632C20.8722 15.3094 20.3379 15.6468 19.8336 15.6468C19.4051 15.6468 19.2018 15.4859 18.9019 15.2029C18.7373 15.048 18.4783 15.056 18.3235 15.2205C18.1687 15.3849 18.1766 15.6439 18.3411 15.7987ZM17.6974 3.83268L16.2862 1.37643C16.1736 1.18049 16.3142 0.9375 16.5402 0.9375H23.127C23.353 0.9375 23.4936 1.18049 23.381 1.37643L21.9698 3.83268H17.6974Z" fill="#071C39" />
           </svg>
-          <Link to="/">
-          <div className="w-[78px] left-[38px] top-[6px] absolute text-[#071c39] text-base font-semibold hover:text-green-500  font-['Maven Pro']">Financial</div>
+          <Link to="/industries?section=Financial Services"
+           onClick={() =>
+            onScroll("scroller")
+          }>
+          <div className="w-[78px] left-[38px] top-[6px] absolute text-[#071c39] text-base font-semibold hover:text-green-500  font-['Maven Pro'] "  >Financial</div>
           </Link>
           <div className="w-[30px] h-[30px] left-0 top-0 absolute flex-col justify-start items-start inline-flex overflow-hidden" />
           <div className="w-[163px] left-0 top-[32px] absolute text-[#828282] text-xs font-normal font-['Gilroy-Regular'] leading-tight">We provide secure financial solutions, ensuring compliance, scalability, and security.</div>
@@ -256,8 +298,9 @@ export const Dropdown = () => {
                 </clipPath>
               </defs>
             </svg>
-
+            <Link to="/industries?section=Health care" onClick={() => handleNavigation("Health care")}>
             <div className="w-[101px] left-[34px] top-[3px] absolute text-[#071c39] text-base font-semibold hover:text-green-500  font-['Maven Pro']">Health care</div>
+            </Link>
                       <div className="w-[163px] left-0 top-[32px] absolute text-[#828282] text-xs font-normal font-['Gilroy-Regular'] leading-tight">We offer IT consulting, staffing, and secure solutions for healthcare transformation.</div>
 
             <div className="w-[25px] h-[25px] left-0 top-0 absolute flex-col justify-start items-start inline-flex overflow-hidden">

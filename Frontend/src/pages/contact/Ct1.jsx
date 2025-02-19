@@ -19,6 +19,7 @@ export const Ct1 = () => {
   }, [popupType]);
   const [showPopup1, setShowPopup1] = useState(false);
   const [showPopup2, setShowPopup2] = useState(false);
+  const [loading,setLoading] = useState(false)
 
   const [formData1, setFormData1] = useState({
     fullName: "",
@@ -38,82 +39,71 @@ export const Ct1 = () => {
 
 
 
-  const handleSubmit1 = async (e) => {
-    e.preventDefault();
+ const handleSubmit1 = async (e) => {
+  e.preventDefault();
   
-    // Validation (Example: Ensuring all fields are filled)
-    const { fullName, email, companyName, phone, message } = formData1;
-    if (!fullName || !email || !message || !companyName || !phone) {
+  // ✅ Add a loading state
+  setLoading(true);
+
+  // Validation (Example: Ensuring all fields are filled)
+  const { fullName, email, companyName, phone, message } = formData1;
+  if (!fullName || !email || !message || !companyName || !phone) {
+    Swal.fire({
+      icon: "error",
+      title: "Oops!",
+      text: "Please fill out all required fields.",
+      confirmButtonText: "Ok",
+    });
+    setLoading(false); // Reset loading state
+    return;
+  }
+
+  // Prepare data for submission
+  const formSubmissionData = { fullName, email, companyName, phone, message };
+
+  console.log("Submitting Business Inquiry Form:", formSubmissionData);
+
+  try {
+    // Example API call (Replace with your actual endpoint)
+    const response = await axios.post(`${API_BASE_URL}user/inquiries`, formSubmissionData, {
+      headers: { "Content-Type": "application/json" },
+    });
+
+    if (response.status === 201) {
+      console.log("Form submission successful:", response.data);
       Swal.fire({
-        icon: 'error',
-        title: 'Oops!',
-        text: 'Please fill out all required fields.',
-        confirmButtonText: 'Ok',
+        icon: "success",
+        title: "Success!",
+        text: "Thank you for your inquiry! We will get back to you shortly.",
+        confirmButtonText: "Ok",
       });
-      return;
-    }
-  
-    // Prepare data for submission
-    const formSubmissionData = {
-      fullName,
-      email,
-      companyName,
-      phone,
-      message,
-    };
-  
-    console.log("Submitting Business Inquiry Form:", formSubmissionData);
-  
-    try {
-      // Example API call (Replace with your actual endpoint)
-      const response = await axios.post(`${API_BASE_URL}user/inquiries`, formSubmissionData, {
-        headers: {
-          "Content-Type": "application/json",
-        },
+
+      setFormData1({ fullName: "", email: "", companyName: "", phone: "", message: "" }); // Reset form
+      handleClosePopup1(); // Close popup
+    } else {
+      console.error("Form submission failed with status:", response.status);
+      Swal.fire({
+        icon: "error",
+        title: "Failed!",
+        text: "Failed to submit the form. Please try again later.",
+        confirmButtonText: "Ok",
       });
-  
-      if (response.status === 201) {
-        console.log("Form submission successful:", response.data);
-        Swal.fire({
-          icon: 'success',
-          title: 'Success!',
-          text: 'Thank you for your inquiry! We will get back to you shortly.',
-          confirmButtonText: 'Ok',
-        });
-        setFormData1("")
-        handleClosePopup1(); // Close the popup after successful submission
-      } else {
-        console.error("Form submission failed with status:", response.status);
-        Swal.fire({
-          icon: 'error',
-          title: 'Failed!',
-          text: 'Failed to submit the form. Please try again later.',
-          confirmButtonText: 'Ok',
-        });
-      }
-    } catch (error) {
-      console.error("Error during form submission:", error);
-  
-      // Check if the error has a response from the backend
-      if (error.response) {
-        // Backend error response
-        Swal.fire({
-          icon: 'error',
-          title: 'Error!',
-          text: error.response.data.message || "An error occurred while submitting the form.",
-          confirmButtonText: 'Ok',
-        });
-      } else {
-        // Network or other errors
-        Swal.fire({
-          icon: 'error',
-          title: 'Error!',
-          text: 'An error occurred while submitting the form. Please try again.',
-          confirmButtonText: 'Ok',
-        });
-      }
     }
-  };
+  } catch (error) {
+    console.error("Error during form submission:", error);
+
+    // Check if the error has a response from the backend
+    const errorMessage = error.response?.data?.message || "An error occurred while submitting the form.";
+    Swal.fire({
+      icon: "error",
+      title: "Error!",
+      text: errorMessage,
+      confirmButtonText: "Ok",
+    });
+  } finally {
+    setLoading(false); // Reset loading state after request completes
+  }
+};
   
   
 
@@ -314,8 +304,8 @@ export const Ct1 = () => {
 
       {/* Popups */}
       {showPopup1 && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-          <div className="bg-white w-[100%] max-w-[900px] rounded-xl shadow-lg p-16 relative">
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 ">
+          <div className="bg-white w-[90%] max-w-[900px] rounded-xl shadow-lg p-8 relative">
             {/* Close Button */}
             <button
               onClick={handleClosePopup1}
@@ -331,7 +321,7 @@ export const Ct1 = () => {
                 <img
                   src="./contact/form1.png" // Replace with your actual image path
                   alt="Popup"
-                  className="w-auto h-[450px] max-w-[400px] transform translate-y-[17%] object-cover rounded-md sm:block hidden"
+                  className="w-auto h-[450px] max-w-[500px] transform translate-y-[10%] object-cover rounded-md sm:block hidden"
                 />
               </div>
 
@@ -417,13 +407,22 @@ export const Ct1 = () => {
                   </div>
 
                   <div className="col-span-2">
-                    <button
-                      type="submit"
-                      className="w-full bg-[#684fa3] text-white py-3 rounded-lg hover:bg-[#543b7f] transition-colors duration-300"
-                    >
-                      Submit
-                    </button>
-                  </div>
+  <button
+    type="submit"
+    className="w-full bg-[#684fa3] text-white py-3 rounded-lg hover:bg-[#543b7f] transition-colors duration-300 flex items-center justify-center"
+    disabled={loading}
+  >
+    {loading ? (
+      <svg
+        className="animate-spin h-5 w-5 mr-2 border-2 border-white border-t-transparent rounded-full"
+        viewBox="0 0 24 24"
+      ></svg>
+    ) : (
+      "Submit"
+    )}
+  </button>
+</div>
+
                 </form>
               </div>
             </div>

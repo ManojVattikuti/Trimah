@@ -4,6 +4,8 @@ const applicationModel = require('../model/applicationModel');
 const BusinessInquiry = require('../model/BusniessInquiryModel');
 const cloudinary = require('cloudinary').v2;
 const dotenv= require("dotenv")
+const { Storage } = require('@google-cloud/storage');
+const axios = require('axios');
 dotenv.config()
 
 cloudinary.config({
@@ -12,6 +14,22 @@ cloudinary.config({
   api_secret : process.env.APISECRET    // Replace with your Cloudinary API secret
 });
 
+
+
+// // Initialize GCP Storage
+// const storage = new Storage({
+//   keyFilename: path.join(__dirname, './path-to-your-service-account.json'), // Path to your service account JSON key
+//   projectId: 'your-project-id', // Replace with your GCP project ID
+// });
+
+// const bucketName = 'your-bucket-name'; // Replace with your bucket name
+// const bucket = storage.bucket(bucketName);
+
+
+
+
+
+//career apply cloudinary working 
 
 const apply = async (req, res) => {
   try {
@@ -58,59 +76,8 @@ const apply = async (req, res) => {
 };
 
 
-//     accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-//     secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-//     region: process.env.AWS_REGION
-//   });
-  
-//   const s3 = new AWS.S3();
-  
-//   const uploadToS3 = async (file) => {
-//     const params = {
-//       Bucket: process.env.S3_BUCKET_NAME,
-//       Key: `resumes/${Date.now()}_${file.originalname}`, // Path within the bucket
-//       Body: file.buffer,
-//       ContentType: file.mimetype,
-//       ACL: 'public-read' // Make the file publicly accessible
-//     };
-  
-//     return s3.upload(params).promise();
-//   };
-  
-//   const apply = async (req, res) => {
-//     console.log(req.body);
-  
-//     try {
-//       const { firstName, lastName, email, phone, coverLetter } = req.body;
-//       const resume = req.file;
-  
-//       // Validate required fields
-//       if (!firstName || !lastName || !email || !phone || !resume) {
-//         return res.status(400).json({ msg: 'Please provide all required fields.' });
-//       }
-  
-//       // Upload resume to S3
-//       const result = await uploadToS3(resume);
-//       const resumeUrl = result.Location; // S3 URL of the uploaded file
-  
-//       // Create a new application instance
-//       const application = new applicationModel({
-//         firstName,
-//         lastName,
-//         email,
-//         phone,
-//         coverLetter,
-//         resume: resumeUrl // Save the S3 URL to the database
-//       });
-  
-//       // Save application to the database
-//       await application.save();
-//       res.status(201).json({ msg: 'Application submitted successfully!' });
-//     } catch (err) {
-//       console.error(err);
-//       res.status(500).json({ msg: 'Server error' });
-//     }
-//   };
+
+// inquires to mongodb and hub spot 
 
 const Inquiries = async (req, res) => {
   console.log(req.body);
@@ -118,7 +85,7 @@ const Inquiries = async (req, res) => {
   try {
     const { fullName, email, companyName, phone, message } = req.body;
 
-    // Validation checks
+    // ✅ Step 1: Validation checks
     if (!fullName || typeof fullName !== "string" || fullName.trim() === "") {
       return res.status(400).json({ success: false, message: "Full name is required and must be a string." });
     }
@@ -139,21 +106,61 @@ const Inquiries = async (req, res) => {
       return res.status(400).json({ success: false, message: "Message is required and must be a string." });
     }
 
-    // Create a new document
-    const formData = new BusinessInquiry({
-      fullName,
-      email,
-      companyName,
-      phone,
-      message,
+    // ✅ Step 2: Check for duplicate inquiries
+    const existingInquiry = await BusinessInquiry.findOne({ email, fullName, phone });
+
+    if (existingInquiry) {
+      return res.status(400).json({
+        success: false,
+        message: "An inquiry with the same name, email, and phone already exists.",
+      });
+    }
+
+    // ✅ Step 3: Save to MongoDB
+    const formData = new BusinessInquiry({ fullName, email, companyName, phone, message });
+    const savedData = await formData.save();
+    console.log("Data saved to MongoDB:", savedData);
+
+    // ✅ Step 4: Send data to HubSpot
+    const hubspotApiUrl = "https://api.hubapi.com/crm/v3/objects/contacts";
+    const hubspotToken = process.env.HUBSPOT_API_KEY;
+
+    const hubspotPayload = {
+      properties: {
+        firstname: fullName.split(" ")[0],
+        lastname: fullName.split(" ")[1] || "",
+        email: email,
+        phone: phone,
+        company: companyName, // Ensure this is correct
+        message: message, // Use a custom field if needed
+      },
+    };
+
+    let hubspotResponseData = null;
+    try {
+      const hubspotResponse = await axios.post(hubspotApiUrl, hubspotPayload, {
+        headers: {
+          Authorization: `Bearer ${hubspotToken}`,
+          "Content-Type": "application/json",
+        },
+      });
+      hubspotResponseData = hubspotResponse.data;
+      console.log("HubSpot response:", hubspotResponseData);
+    } catch (hubspotError) {
+      console.error("Error sending to HubSpot:", hubspotError.response?.data || hubspotError.message);
+      hubspotResponseData = { error: hubspotError.response?.data || "Failed to send to HubSpot" };
+    }
+
+    // ✅ Step 5: Send response back to frontend (MongoDB data + HubSpot status)
+    res.status(201).json({
+      success: true,
+      message: "Data saved successfully",
+      dbData: savedData,
+      hubspotData: hubspotResponseData,
     });
 
-    // Save to MongoDB
-    const savedData = await formData.save();
-    res.status(201).json({ success: true, data: savedData });
-
   } catch (error) {
-    console.error("Error saving form data:", error);
+    console.error("Server Error:", error);
     res.status(500).json({ success: false, message: "Internal Server Error" });
   }
 };
@@ -161,17 +168,10 @@ const Inquiries = async (req, res) => {
 
 
 
-// const { Storage } = require('@google-cloud/storage');
-// const path = require('path');
 
-// // Initialize GCP Storage
-// const storage = new Storage({
-//   keyFilename: path.join(__dirname, './path-to-your-service-account.json'), // Path to your service account JSON key
-//   projectId: 'your-project-id', // Replace with your GCP project ID
-// });
 
-// const bucketName = 'your-bucket-name'; // Replace with your bucket name
-// const bucket = storage.bucket(bucketName);
+
+// career with gcp storage
 
 // const apply = async (req, res) => {
 //   try {

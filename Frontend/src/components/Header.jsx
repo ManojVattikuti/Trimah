@@ -56,6 +56,14 @@ const Header = () => {
     navigate("/login");
   };
 
+  const handleCompScroll = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+
   const isLoggedIn = Boolean(user?.username);
 
   return (
@@ -129,7 +137,7 @@ const Header = () => {
                   className="absolute top-full left-[20%]"
                   ref={dropdownRef}
                 >
-                  <Dropdown />
+                  <Dropdown onScroll={handleCompScroll}/>
                 </div>
               )}
             </div>

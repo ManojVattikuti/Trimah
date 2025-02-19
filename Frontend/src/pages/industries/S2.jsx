@@ -1,6 +1,7 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import debounce from "lodash.debounce";
+import { useLocation } from "react-router-dom";
 
 export const S2 = () => {
   const sections = [
@@ -20,7 +21,7 @@ export const S2 = () => {
         "./industry/finance.webp",
     },
     {
-      title: "Healthcare",
+      title: "Health care",
       challenges: [
         {
           icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/25c896a956619593a96ba59f4a73896a12fc532589acf964feb822837fc4c5f1",
@@ -35,7 +36,7 @@ export const S2 = () => {
         "./industry/health.jpg",
     },
     {
-      title: "Retail & E-Commerce",
+      title: "Retail And E-commerce",
       challenges: [
         {
           icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/25c896a956619593a96ba59f4a73896a12fc532589acf964feb822837fc4c5f1",
@@ -50,7 +51,7 @@ export const S2 = () => {
         "./industry/Retail.jpg",
     },
     {
-      title: "Life Sciences & Pharmaceuticals",
+      title: "Life Science And Pharmaceuticals",
       challenges: [
         {
           icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/25c896a956619593a96ba59f4a73896a12fc532589acf964feb822837fc4c5f1",
@@ -64,7 +65,7 @@ export const S2 = () => {
         "./industry/life.png",
     },
     {
-      title: "Oil & Gas",
+      title: "Oil And Gas",
       challenges: [
         {
           icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/25c896a956619593a96ba59f4a73896a12fc532589acf964feb822837fc4c5f1",
@@ -78,7 +79,7 @@ export const S2 = () => {
         "./industry/oil.jpg",
     },
     {
-      title: "Technology & Startups",
+      title: "Technology And Startups",
       challenges: [
         {
           icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/25c896a956619593a96ba59f4a73896a12fc532589acf964feb822837fc4c5f1",
@@ -120,7 +121,7 @@ export const S2 = () => {
         "./industry/manufacturing.jpg",
     },
     {
-      title: "Logistics & Transportation",
+      title: "Logistics And Transportation",
       challenges: [
         {
           icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/25c896a956619593a96ba59f4a73896a12fc532589acf964feb822837fc4c5f1",
@@ -134,7 +135,7 @@ export const S2 = () => {
         "./industry/logistics.webp",
     },
     {
-      title: "Energy & Utilities",
+      title:"Energy And Utilities",
       challenges: [
         {
           icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/25c896a956619593a96ba59f4a73896a12fc532589acf964feb822837fc4c5f1",
@@ -163,8 +164,22 @@ export const S2 = () => {
     },
   ];
 
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const sectionRefs = useRef([]);
+
+
+  const location = useLocation();
+  const query = new URLSearchParams(location.search);
+  const initialIndex = query.get("section") ? sections.findIndex((s) => s.title === query.get("section")) : 0;
+console.log(initialIndex);
+
+  const [currentIndex, setCurrentIndex] = useState(initialIndex >= 0 ? initialIndex : 0);
   const [direction, setDirection] = useState("down");
+
+  useEffect(() => {
+    if (sectionRefs.current[currentIndex]) {
+      sectionRefs.current[currentIndex].scrollIntoView({ behavior: "smooth" });
+    }
+  }, [currentIndex]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -195,7 +210,7 @@ export const S2 = () => {
   
 
   return (
-    <div className="py-8 sm:py-24 relative">
+    <div className="py-8 sm:py-24 relative" id="scroller">
       <div className="text-2xl sm:text-3xl font-bold font-parkinsans text- px-8 lg:ml-28">
         Industries We Specialize In
       </div>
