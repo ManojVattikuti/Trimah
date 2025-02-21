@@ -76,7 +76,7 @@ const Header = () => {
           <NavLink to="/" className="flex items-center">
             <div className="w-[165.29px] h-[46px] relative">
               <img
-                src={hasScrolled ? "/TRIMAH - logos/TRIMAH-black-logo-08072024.png" : "/TRIMAH - logos/TRIMAH-reversed-all-white-logo.png"}
+                src={hasScrolled ? "/TRIMAH - logos/logo-scroll.png" : "/TRIMAH - logos/TRIMAH-reversed-all-white-logo.png"}
                 alt="TrimahTech Logo"
                 className="h-12 w-auto absolute left-[20.33px] top-0"
               />
