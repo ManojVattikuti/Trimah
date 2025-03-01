@@ -50,11 +50,6 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
-  const handleLogout = () => {
-    signOut();
-    setToken("");
-    navigate("/login");
-  };
 
   const handleCompScroll = (id) => {
     const section = document.getElementById(id);

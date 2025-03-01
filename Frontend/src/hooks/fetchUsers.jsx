@@ -32,7 +32,7 @@ const fetchUsers = (token) => {
     fetchUsers();
   }, [token]);
 
-  return { users, loading, error ,refetch: fetchUsers};
+  return { users, loading, error ,refetch:fetchUsers};
 };
 
 export default fetchUsers;

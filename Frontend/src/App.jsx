@@ -77,13 +77,10 @@ function AdminLayout() {
   return (
     <>
      {user.role === 'admin' ? (
-      // <div className="flex flex-1 ">
-      //   {/* Sidebar */}
-      //   <Sidebar />
+     
         
         <div className="flex flex-col w-full min-h-screen">
-          {/* AdminHeader */}
-          <AdminHeader/>
+        
 
           {/* Admin Routes */}
           <div className="flex-1 p-4 overflow-auto ">
@@ -91,8 +88,7 @@ function AdminLayout() {
           </div>
 
           <div className=" overflow-auto ">
-         {/* Sidebar */}
-         <AdminFooter />
+        
 
         </div>
         

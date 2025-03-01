@@ -7,6 +7,7 @@ const BusinessInquirySchema = new mongoose.Schema({
   phone: { type: String, required: true },
   message: { type: String, required: true },
   submittedAt: { type: Date, default: Date.now },
+  createdAt: { type: Date, default: Date.now }
   });
   
   const BusinessInquiry = mongoose.model("BusinessInquiry", BusinessInquirySchema);

@@ -15,9 +15,8 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    role: {
-        type: String,
-    },
+    role: { type: String, default: 'admin' }, 
+    isBlocked: { type: Boolean, default: false },
     otp: { type: String },
 
     otpExpiresAt: { type: Date },

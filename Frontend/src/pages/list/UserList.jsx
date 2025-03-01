@@ -1,132 +1,214 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import axios from 'axios';
 import moment from 'moment';
 import { mainContext } from '../../context/mainContex';
 import { jsPDF } from 'jspdf';
-import 'jspdf-autotable'; // Ensure this is imported correctly
+import 'jspdf-autotable';
 import fetchUsers from '../../hooks/fetchUsers';
+import Swal from 'sweetalert2';
+import { ADMINENDPOINTS } from '../../constants/ApiConstants';
 
 const Users = () => {
   const { token } = useContext(mainContext);
-  const [filterDate, setFilterDate] = useState('');
-  const { users, loading, error } = fetchUsers(token);
+  const [search, setSearch] = useState('');
+  const { users, loading, error, refetch } = fetchUsers(token);
 
-  const handleDateChange = (e) => {
-    setFilterDate(e.target.value);
-  };
-  const clearFilter = () => {
-    setFilterDate('');
-  };
-
-  const filteredUsers = filterDate
-    ? users.filter(user => moment(user.createdAt).format("YYYY-MM-DD") === filterDate)
-    : users;
-
-  const downloadPDF = () => {
-    // Create a new jsPDF instance
-    const doc = new jsPDF();
-
-    // Define PDF columns
-    const columns = ['ID', 'Name', 'Email', 'Created'];
-
-    // Define PDF rows data
-    const rows = filteredUsers.map(user => [
-      user._id,
-      user.firstName,
-      user.email,
-      moment(user.createdAt).format("DD/MM/YYYY")
-    ]);
-
-    // Add the table to the PDF
-    doc.autoTable({
-      head: [columns],
-      body: rows,
-      startY: 20, // Adjust startY to provide space for the title
-      margin: { top: 30 }, // Adjust margin if needed
-      didDrawPage: () => {
-        doc.text('Users List', 90, 15); // Add title to the PDF
+  // Add User Popup
+  const openAddUserForm = ( refetch) => {
+    Swal.fire({
+      title: 'Add New User',
+      html: `
+        <input id="swal-name" class="swal2-input" placeholder="Name">
+        <input id="swal-email" type="email" class="swal2-input" placeholder="Email">
+        <input id="swal-password" type="password" class="swal2-input" placeholder="Password">
+      `,
+      showCancelButton: true,
+      confirmButtonText: 'Add User',
+      preConfirm: () => {
+        return {
+          name: document.getElementById('swal-name').value.trim(),
+          email: document.getElementById('swal-email').value.trim(),
+          password: document.getElementById('swal-password').value.trim(),
+        };
+      }
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        const { name, email, password } = result.value;
+  
+        // Validate user input
+        if (!name || !email || !password) {
+          Swal.fire('Error', 'All fields are required!', 'error');
+          return;
+        }
+  
+        try {
+          const response = await axios.post(
+            ADMINENDPOINTS.ADDUSER,
+            { name, email, password },
+           
+          );
+          console.log(response);
+          
+  
+          if (response.status === 201) {
+            Swal.fire({
+              title: 'Success!',
+              text: response.data.message,
+              icon: 'success',
+              confirmButtonText: 'OK'
+            });
+  
+            refetch(); // Refresh user list
+          }
+        } catch (error) {
+          console.error("Add User Error:", error.response?.data);
+          Swal.fire({
+            title: 'Error',
+            text: error.response?.data?.message || 'Failed to add user',
+            icon: 'error',
+            confirmButtonText: 'OK'
+          });
+        }
       }
     });
-
-    // Save the PDF
-    doc.save('users_list.pdf');
   };
+  
+  
+  
+
+  // Toggle User Access
+  const toggleUserAccess = async (userId, isBlocked) => {
+    try {
+      await axios.patch(
+        `/api/users/${userId}/toggle-access`,
+        { isBlocked: !isBlocked },
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+      refetch();
+    } catch (error) {
+      console.error('Error toggling user access:', error);
+    }
+  };
+
+  // Delete User
+  const deleteUser = async (userId) => {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'You won\'t be able to revert this!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#3085d6',
+      confirmButtonText: 'Yes, delete it!',
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        try {
+          await axios.delete(`${ADMINENDPOINTS.DELETEUSER}/${userId}`, {
+            headers: { Authorization: `Bearer ${token}` }
+          });
+          Swal.fire('Deleted!', 'User has been deleted.', 'success');
+          refetch();
+        } catch (error) {
+          Swal.fire('Error', 'Failed to delete user', 'error');
+        }
+      }
+    });
+  };
+
+  // Download CSV
+  const downloadCSV = () => {
+    const csvContent = "ID,Name,Email,Created\n" +
+      users.map(user =>
+        `${user._id},${user.name},${user.email},${moment(user.createdAt).format("DD/MM/YYYY")}`
+      ).join("\n");
+
+    const blob = new Blob([csvContent], { type: 'text/csv' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'users_list.csv';
+    link.click();
+  };
+
+  // Filtered Users Based on Search
+  const filteredUsers = users.filter(user =>
+    user.name.toLowerCase().includes(search.toLowerCase()) ||
+    user.email.toLowerCase().includes(search.toLowerCase())
+  );
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <div className="p-4">
-      <h2 className="text-2xl font-bold mb-4">Users List</h2>
+    <div className="p-6  min-h-screen">
+      <div className="bg-white p-6 rounded-lg shadow-md">
+        <h2 className="text-3xl font-bold mb-6 text-gray-800">Users List</h2>
 
-      <div className="mb-4 flex items-center space-x-4">
-        <div className="flex-grow">
-          <label htmlFor="filterDate" className="block text-sm font-medium text-gray-700">Filter by Date:</label>
+        {/* Controls */}
+        <div className="flex flex-wrap justify-between mb-4 gap-4">
           <input
-            type="date"
-            id="filterDate"
-            name="filterDate"
-            value={filterDate}
-            onChange={handleDateChange}
-            className="mt-1 block w-full sm:w-60 border-gray-300 rounded-md shadow-sm"
+            type="text"
+            placeholder="Search users..."
+            className="p-2 border rounded-md w-full md:w-3/3"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
           />
+          <button onClick={openAddUserForm} className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">
+            + Add User
+          </button>
+          <button onClick={downloadCSV} className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+            📥 Download CSV
+          </button>
         </div>
-        <button
-          onClick={clearFilter}
-          className="px-4 py-2 bg-gray-300 text-black rounded hover:bg-gray-400 transition"
-        >
-          Clear Filter
-        </button>
-        <button
-          onClick={downloadPDF}
-          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
-        >
-          Download List of Users
-        </button>
-      </div>
 
-      <div className="overflow-x-auto">
-        <div className="inline-block min-w-full align-middle">
-          <div className="overflow-hidden border border-gray-200 shadow sm:rounded-lg">
-            <table className="min-w-full divide-y divide-gray-200">
-              <thead className="bg-gray-50">
-                <tr>
-                  <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    ID
-                  </th>
-                  <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Name
-                  </th>
-                  <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Email
-                  </th>
-                  <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Role
-                  </th>
-                  <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Created
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
-                {filteredUsers.length > 0 ? (
-                  filteredUsers.map((user) => (
-                    <tr key={user.id}>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{user._id}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{user.name}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{user.email}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{user.role}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{moment(user.createdAt).format("DD/MM/YYYY")}</td>
-                    </tr>
-                  ))
-                ) : (
-                  <tr>
-                    <td colSpan="4" className="px-6 py-4 text-center text-sm text-gray-500">No users found</td>
+        {/* Table */}
+        <div className="overflow-x-auto">
+          <table className="w-full border-collapse border border-gray-200 bg-white rounded-lg shadow-md">
+            <thead className="bg-gray-100">
+              <tr>
+                <th className="px-4 py-2 text-left">ID</th>
+                <th className="px-4 py-2 text-left">Name</th>
+                <th className="px-4 py-2 text-left">Email</th>
+                <th className="px-4 py-2 text-left">Created</th>
+                <th className="px-4 py-2 text-left">Status</th>
+                <th className="px-4 py-2 text-left">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filteredUsers.length > 0 ? (
+                filteredUsers.map((user) => (
+                  <tr key={user._id} className="border-t hover:bg-gray-50">
+                    <td className="px-4 py-2 text-sm text-gray-600">{user._id}</td>
+                    <td className="px-4 py-2 text-sm font-medium text-gray-900">{user.name}</td>
+                    <td className="px-4 py-2 text-sm text-gray-600">{user.email}</td>
+                    <td className="px-4 py-2 text-sm text-gray-600">{moment(user.createdAt).format("DD/MM/YYYY")}</td>
+                    <td className="px-4 py-2 text-sm">
+                      <span className={`px-2 py-1 text-xs font-semibold rounded-md ${user.isBlocked ? 'bg-red-200 text-red-700' : 'bg-green-200 text-green-700'}`}>
+                        {user.isBlocked ? "Blocked" : "Active"}
+                      </span>
+                    </td>
+                    <td className="px-4 py-2 text-sm">
+                      <button
+                        onClick={() => toggleUserAccess(user._id, user.isBlocked)}
+                        className={`px-3 py-1 text-white rounded-md mr-2 ${user.isBlocked ? "bg-green-500 hover:bg-green-600" : "bg-red-500 hover:bg-red-600"}`}
+                      >
+                        {user.isBlocked ? "Enable" : "Block"}
+                      </button>
+                      <button
+                        onClick={() => deleteUser(user._id)}
+                        className="px-3 py-1 bg-gray-500 text-white rounded-md hover:bg-gray-600"
+                      >
+                        🗑 Delete
+                      </button>
+                    </td>
                   </tr>
-                )}
-              </tbody>
-            </table>
-          </div>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan="6" className="px-4 py-6 text-center text-gray-600">No users found</td>
+                </tr>
+              )}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
