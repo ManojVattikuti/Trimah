@@ -13,6 +13,7 @@ import {
 import { format } from "date-fns";
 import { ADMINENDPOINTS } from "../../constants/ApiConstants";
 import {Link} from "react-router-dom"
+import { BsArrowRight, BsBriefcase, BsBuilding, BsPerson } from 'react-icons/bs';
 
 const Dashboard = () => {
   const [stats, setStats] = useState(null);
@@ -22,6 +23,9 @@ const Dashboard = () => {
   const [recentInquiries, setRecentInquiries] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  
+ 
+  
   useEffect(() => {
     const fetchDashboardData = async () => {
       try {
@@ -224,94 +228,161 @@ const Dashboard = () => {
 
         {/* Tables Section */}
         <div className="grid gap-8 md:grid-cols-2">
-          {/* Recent Applications Table */}
-          <Card className="border border-gray-100 shadow-sm">
-            <div className="p-6 border-b border-gray-100">
-              <h2 className="text-lg font-semibold text-gray-800">Recent Applications</h2>
+      {/* Recent Applications Card */}
+      <div className="bg-white rounded-xl overflow-hidden border border-gray-100 shadow-md transition-all duration-300 hover:shadow-lg">
+        <div className="p-6 border-b border-gray-100 flex justify-between items-center bg-gradient-to-r from-blue-50 to-indigo-50">
+          <div className="flex items-center">
+            <div className="p-3 bg-blue-100 rounded-lg mr-4">
+              <BsPerson className="text-blue-600 text-xl" />
             </div>
-            <TableContainer>
-              <Table>
-                <TableHead>
-                  <TableRow>
-                    <TableCell>Name</TableCell>
-                    <TableCell>Position</TableCell>
-                    <TableCell></TableCell>
-                    <TableCell>Date</TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {recentApplicants.map((applicant) => (
-                    <TableRow key={applicant._id} hover>
-                      <TableCell>
-                        <div className="font-medium">{`${applicant.name} `}</div>
-                        <div className="text-xs text-gray-500">{applicant.email} </div>
-                      </TableCell>
-                      <TableCell>{applicant.position}</TableCell>
-                      <TableCell>
-                        {/* <Chip 
-                          label={applicant.status} 
-                          size="small"
-                          className={getStatusColor(applicant.status)}
-                        /> */}
-                      </TableCell>
-                      <TableCell>{formatDate(applicant.createdAt)}</TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </TableContainer>
-            <div className="p-4 border-t border-gray-100 text-center">
-              <Link to="/admin/application" className="text-blue-600 text-sm font-medium hover:underline">
-                View All Applications
-              </Link>
-            </div>
-          </Card>
-
-          {/* Recent Business Inquiries Table */}
-          <Card className="border border-gray-100 shadow-sm">
-            <div className="p-6 border-b border-gray-100">
-              <h2 className="text-lg font-semibold text-gray-800">Recent Business Inquiries</h2>
-            </div>
-            <TableContainer>
-              <Table>
-                <TableHead>
-                  <TableRow>
-                    <TableCell>Company</TableCell>
-                    <TableCell>email</TableCell>
-                    <TableCell>phone</TableCell>
-                  
-                    <TableCell>Date</TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {recentInquiries.map((inquiry) => (
-                    <TableRow key={inquiry._id} hover>
-                      <TableCell>
-                        <div className="font-medium">{inquiry.companyName}</div>
-                        <div className="text-xs text-gray-500">{inquiry.contactName}</div>
-                      </TableCell>
-                      <TableCell>{inquiry.email}</TableCell>
-                      <TableCell>
-                        <Chip 
-                          label={inquiry.phone} 
-                          size="small"
-                          className={getStatusColor(inquiry.status)}
-                        />
-                      </TableCell>
-                     
-                      <TableCell>{formatDate(inquiry.createdAt)}</TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </TableContainer>
-            <div className="p-4 border-t border-gray-100 text-center">
-              <Link href="/admin/business-inquiries" className="text-blue-600 text-sm font-medium hover:underline">
-                View All Inquiries
-              </Link>
-            </div>
-          </Card>
+            <h2 className="text-lg font-semibold text-gray-800">Recent Applications</h2>
+          </div>
+          {/* <span className="text-sm font-medium text-blue-600 bg-blue-50 py-1 px-3 rounded-full">
+            {recentApplicants.length} new
+          </span> */}
         </div>
+        
+        <div className="overflow-x-auto">
+          <table className="w-full">
+            <thead>
+              <tr className="bg-gray-50">
+                <th className="text-left py-3 px-4 font-bold text-gray-600 text-sm">Name</th>
+                <th className="text-left py-3 px-4 font-bold text-gray-600 text-sm">Position</th>
+                <th className="text-left py-3 px-4 font-bold text-gray-600 text-sm"></th>
+                <th className="text-left py-3 px-4 font-bold text-gray-600 text-sm">Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              {recentApplicants.map((applicant) => (
+                <tr 
+                  key={applicant._id} 
+                  className="border-t border-gray-100 hover:bg-gray-50 transition-colors"
+                >
+                  <td className="py-3 px-4">
+                    <div className="flex items-center space-x-3">
+                      <div className="h-8 w-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center">
+                        {applicant.name.charAt(0)}
+                      </div>
+                      <div>
+                        <div className="font-medium text-gray-800">{applicant.name}</div>
+                        <div className="text-xs text-gray-500">{applicant.email}</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td className="py-3 px-4 text-sm">
+                    <span className="flex items-center">
+                      <BsBriefcase className="text-gray-400 mr-2" />
+                      {applicant.position}
+                    </span>
+                  </td>
+                  <td className="py-3 px-4">
+                    <span className={`px-2 py-1 text-xs rounded-full}`}>
+                     
+                    </span>
+                  </td>
+                  <td className="py-3 px-4 text-sm text-gray-500">
+                    {formatDate(applicant.createdAt)}
+                  </td>
+                </tr>
+              ))}
+              
+              {recentApplicants.length === 0 && (
+                <tr>
+                  <td colSpan={4} className="py-8 text-center text-gray-500">
+                    No recent applications found
+                  </td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
+        
+        <div className="p-4 border-t border-gray-100 bg-gray-50 flex justify-center">
+          <Link 
+            to="/admin/application" 
+            className="text-blue-600 text-sm font-medium hover:text-blue-800 flex items-center group transition-colors"
+          >
+            View All Applications
+            <BsArrowRight className="ml-1 transform group-hover:translate-x-1 transition-transform" />
+          </Link>
+        </div>
+      </div>
+
+      {/* Recent Business Inquiries Card */}
+      <div className="bg-white rounded-xl overflow-hidden border border-gray-100 shadow-md transition-all duration-300 hover:shadow-lg">
+        <div className="p-6 border-b border-gray-100 flex justify-between items-center bg-gradient-to-r from-purple-50 to-pink-50">
+          <div className="flex items-center">
+            <div className="p-3 bg-purple-100 rounded-lg mr-4">
+              <BsBuilding className="text-purple-600 text-xl" />
+            </div>
+            <h2 className="text-lg font-semibold text-gray-800">Recent Business Inquiries</h2>
+          </div>
+          {/* <span className="text-sm font-medium text-purple-600 bg-purple-50 py-1 px-3 rounded-full">
+            {recentInquiries.length} new
+          </span> */}
+        </div>
+        
+        <div className="overflow-x-auto">
+          <table className="w-full">
+            <thead>
+              <tr className="bg-gray-50">
+                <th className="text-left py-3 px-4 font-bold text-gray-600 text-sm">Company</th>
+                <th className="text-left py-3 px-4 font-bold text-gray-600 text-sm">Email</th>
+                <th className="text-left py-3 px-4 font-bold text-gray-600 text-sm">Phone</th>
+                <th className="text-left py-3 px-4 font-bold text-gray-600 text-sm">Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              {recentInquiries.map((inquiry) => (
+                <tr 
+                  key={inquiry._id} 
+                  className="border-t border-gray-100 hover:bg-gray-50 transition-colors"
+                >
+                  <td className="py-3 px-4">
+                    <div className="flex items-center space-x-3">
+                      <div className="h-8 w-8 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center">
+                        {inquiry.companyName.charAt(0)}
+                      </div>
+                      <div className="font-medium text-gray-800">{inquiry.companyName}</div>
+                    </div>
+                  </td>
+                  <td className="py-3 px-4">
+                    <div className="text-sm text-gray-800">{inquiry.contactName}</div>
+                    <div className="text-xs text-gray-500">{inquiry.email}</div>
+                  </td>
+                  <td className="py-3 px-4">
+                    <span className="text-sm text-gray-600">
+                      {inquiry.phone}
+                    </span>
+                  </td>
+                  <td className="py-3 px-4 text-sm text-gray-500">
+                    {formatDate(inquiry.createdAt)}
+                  </td>
+                </tr>
+              ))}
+              
+              {recentInquiries.length === 0 && (
+                <tr>
+                  <td colSpan={4} className="py-8 text-center text-gray-500">
+                    No recent business inquiries found
+                  </td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
+        
+        <div className="p-4 border-t border-gray-100 bg-gray-50 flex justify-center">
+          <Link 
+            to="/admin/business-inquiries" 
+            className="text-purple-600 text-sm font-medium hover:text-purple-800 flex items-center group transition-colors"
+          >
+            View All Inquiries
+            <BsArrowRight className="ml-1 transform group-hover:translate-x-1 transition-transform" />
+          </Link>
+        </div>
+      </div>
+    </div>
       </div>
     </main>
   );

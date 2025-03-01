@@ -202,7 +202,9 @@ const Messages = () => {
   
   
 
-  if (loading) return <div className="flex justify-center items-center h-screen"><div className="text-xl font-semibold text-blue-500">Loading Inquiries...</div></div>;
+  if (loading) return  <div className="flex items-center justify-center w-full h-screen bg-gray-50">
+  <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+</div>;
   if (error) return <div className="flex justify-center items-center h-screen"><div className="text-xl font-semibold text-red-500">Error: {error}</div></div>;
 
   return (
