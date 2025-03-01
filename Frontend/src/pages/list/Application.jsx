@@ -51,7 +51,7 @@ const Applications = () => {
     const doc = new jsPDF();
 
     // Define PDF columns
-    const columns = ['First Name', 'Last Name', 'Email', 'Phone', 'Cover Letter', 'Created'];
+    const columns = ['Name',  'Email', 'Phone', 'Cover Letter', 'Created'];
 
     // Define PDF rows data
     const rows = filteredApplications.map(application => [
@@ -122,14 +122,14 @@ const Applications = () => {
                   <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                     First Name
                   </th>
-                  <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  {/* <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Last Name
-                  </th>
+                  </th> */}
                   <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Email
                   </th>
                   <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Phone
+                  job-Position
                   </th>
                   <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Cover Letter
@@ -143,10 +143,11 @@ const Applications = () => {
                 {filteredApplications.length > 0 ? (
                   filteredApplications.map((application) => (
                     <tr key={application.id}>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{application.firstName}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{application.lastName}</td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{application.name}</td>
+                      {/* <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{application.lastName}</td> */}
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{application.email}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{application.phone}</td>
+                    
+                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{application.position}</td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{application.coverLetter || 'N/A'}</td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{moment(application.createdAt).format("DD/MM/YYYY")}</td>
                     </tr>

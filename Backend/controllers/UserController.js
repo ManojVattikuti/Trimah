@@ -3,84 +3,97 @@ const fs = require('fs');
 const applicationModel = require('../model/applicationModel');
 const BusinessInquiry = require('../model/BusniessInquiryModel');
 const cloudinary = require('cloudinary').v2;
-const dotenv= require("dotenv")
+const dotenv = require("dotenv")
 const { Storage } = require('@google-cloud/storage');
 const axios = require('axios');
+const getToken = require('../utils/getToken')
 dotenv.config()
 
-cloudinary.config({
-  cloud_name: process.env.CLOUDNAME,   // Replace with your Cloudinary cloud name
-  api_key: process.env.APIKEY,         // Replace with your Cloudinary API key
-  api_secret : process.env.APISECRET    // Replace with your Cloudinary API secret
-});
 
 
 
-// // Initialize GCP Storage
-// const storage = new Storage({
-//   keyFilename: path.join(__dirname, './path-to-your-service-account.json'), // Path to your service account JSON key
-//   projectId: 'your-project-id', // Replace with your GCP project ID
-// });
-
-// const bucketName = 'your-bucket-name'; // Replace with your bucket name
-// const bucket = storage.bucket(bucketName);
-
-
-
-
-
-//career apply cloudinary working 
-
-const apply = async (req, res) => {
+const applyToCeipal = async (req, res) => {
   try {
     const { name, email, position, coverLetter } = req.body;
-    const cv = req.file;  // The CV file will be in req.file
+    const file = req.file; // Get uploaded resume
 
-    // Validation: Ensure required fields and files are provided
-    if (!name || !email || !position || !cv || !coverLetter) {
-      return res.status(400).json({ success: false, message: "All fields are required, including CV and Cover Letter." });
+    // ✅ Ensure all required fields exist
+    if (!name || !email || !position || !coverLetter || !file) {
+      return res.status(400).json({ success: false, message: "All fields and resume file are required." });
     }
 
-    // Upload CV to Cloudinary using upload stream
-    const uploadStream = cloudinary.uploader.upload_stream(
-      { resource_type: 'auto' }, // 'auto' lets Cloudinary determine the file type
-      async (error, result) => {
-        if (error) {
-          return res.status(500).json({ success: false, message: "Error uploading CV to Cloudinary.", error });
-        }
+    // ✅ Check if an application with the same email and position already exists
+    const existingApplication = await applicationModel.findOne({ email, position });
+    if (existingApplication) {
+      return res.status(400).json({ success: false, message: "Application for this position already exists." });
+    }
 
-        // Save form data and Cloudinary URL for CV to the database
-        const careerSeeker = new applicationModel({
+    // ✅ Convert file buffer to Base64
+    const resumeBase64 = file.buffer.toString("base64");
+
+    // **Send immediate success response to frontend**
+    res.status(200).json({ success: true, message: "Application submitted successfully!" });
+
+    // **Run Ceipal API call & DB save in background**
+    (async () => {
+      try {
+        const authToken = await getToken();
+        const ceipalUrl =
+          "https://api.ceipal.com/savecustomapplicantdetails/Z3RkUkt2OXZJVld2MjFpOVRSTXoxZz09/68255255184ad374a5f48d5ac4576226/";
+
+        const applicantData = [
+          {
+            first_name: name,
+            email_address: email,
+            job_title: position,
+            filename: file.originalname,
+            resume_content: resumeBase64
+          }
+        ];
+
+        const ceipalRequest = axios.post(ceipalUrl, applicantData, {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${authToken}`
+          }
+        });
+
+        const dbSaveRequest = new applicationModel({
           name,
           email,
           position,
-          cv: result.secure_url, // Cloudinary URL for CV
-          coverLetter // Store the cover letter text directly
-        });
+          coverLetter,
+          resume: file.originalname
+        }).save();
 
-        // Save to database
-        const savedCareerSeeker = await careerSeeker.save();
+        const results = await Promise.allSettled([ceipalRequest, dbSaveRequest]);
 
-        // Send success response
-        return res.status(201).json({ success: true, data: savedCareerSeeker });
+        if (results[0].status === "fulfilled") {
+          console.log("Ceipal API Success:", results[0].value.data);
+        } else {
+          console.error("Ceipal API Failed:", results[0].reason.response?.data || results[0].reason);
+        }
+
+        if (results[1].status === "fulfilled") {
+          console.log("Application saved successfully to MongoDB");
+        } else {
+          console.error("MongoDB save failed:", results[1].reason);
+        }
+      } catch (err) {
+        console.error("Background process error:", err.message);
       }
-    );
-
-    // Pass the file to the upload stream
-    uploadStream.end(cv.buffer);
-
+    })();
   } catch (error) {
-    console.error('Error saving career seeker form data:', error);
-    res.status(500).json({ success: false, message: "Internal server error" });
+    console.error("Application Submission Error:", error.message, error.response?.data || "");
+    return res.status(500).json({ success: false, message: "Internal server error" });
   }
 };
-
 
 
 // inquires to mongodb and hub spot 
 
 const Inquiries = async (req, res) => {
-  console.log(req.body);
+
 
   try {
     const { fullName, email, companyName, phone, message } = req.body;
@@ -119,7 +132,7 @@ const Inquiries = async (req, res) => {
     // ✅ Step 3: Save to MongoDB
     const formData = new BusinessInquiry({ fullName, email, companyName, phone, message });
     const savedData = await formData.save();
-    console.log("Data saved to MongoDB:", savedData);
+  
 
     // ✅ Step 4: Send data to HubSpot
     const hubspotApiUrl = "https://api.hubapi.com/crm/v3/objects/contacts";
@@ -145,7 +158,7 @@ const Inquiries = async (req, res) => {
         },
       });
       hubspotResponseData = hubspotResponse.data;
-      console.log("HubSpot response:", hubspotResponseData);
+      
     } catch (hubspotError) {
       console.error("Error sending to HubSpot:", hubspotError.response?.data || hubspotError.message);
       hubspotResponseData = { error: hubspotError.response?.data || "Failed to send to HubSpot" };
@@ -170,71 +183,9 @@ const Inquiries = async (req, res) => {
 
 
 
-
-// career with gcp storage
-
-// const apply = async (req, res) => {
-//   try {
-//     const { name, email, position, coverLetter } = req.body;
-//     const cv = req.file; // The CV file will be in req.file
-
-//     // Validation: Ensure required fields and files are provided
-//     if (!name || !email || !position || !cv || !coverLetter) {
-//       return res.status(400).json({ success: false, message: "All fields are required, including CV and Cover Letter." });
-//     }
-
-//     // Create a unique file name for the CV
-//     const fileName = `${Date.now()}-${cv.originalname}`;
-//     const file = bucket.file(fileName);
-
-//     // Upload the file to GCP Storage
-//     const stream = file.createWriteStream({
-//       resumable: true,
-//       contentType: cv.mimetype,
-//     });
-
-//     stream.on('error', (error) => {
-//       console.error('Error uploading CV to GCP:', error);
-//       return res.status(500).json({ success: false, message: "Error uploading CV to GCP Storage.", error });
-//     });
-
-//     stream.on('finish', async () => {
-//       // Make the file publicly accessible
-//       await file.makePublic();
-
-//       // Get the public URL
-//       const publicUrl = `https://storage.googleapis.com/${bucketName}/${fileName}`;
-
-//       // Save form data and GCP URL for CV to the database
-//       const careerSeeker = new applicationModel({
-//         name,
-//         email,
-//         position,
-//         cv: publicUrl, // GCP URL for CV
-//         coverLetter, // Store the cover letter text directly
-//       });
-
-//       // Save to database
-//       const savedCareerSeeker = await careerSeeker.save();
-
-//       // Send success response
-//       res.status(201).json({ success: true, data: savedCareerSeeker });
-//     });
-
-//     // Write the file buffer to the stream
-//     stream.end(cv.buffer);
-
-//   } catch (error) {
-//     console.error('Error saving career seeker form data:', error);
-//     res.status(500).json({ success: false, message: "Internal server error" });
-//   }
-// };
+module.exports = {
+  Inquiries,
+  applyToCeipal
 
 
-
-
-module.exports={apply,
-  Inquiries
- 
-    
 }

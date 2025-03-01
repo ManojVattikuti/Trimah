@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Menu, MenuItem, IconButton, Typography, Avatar, Divider } from "@mui/material";
 import { Link } from "react-router-dom";
 import { Logout as LogOutIcon, Notifications as NotificationsIcon } from "@mui/icons-material";
-import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
 import Sidebar from "./Sidebar";
 
 const AdminHeader = () => {
@@ -17,17 +16,15 @@ const AdminHeader = () => {
   };
 
   return (
-    <header className="bg-gray-900 text-white border-b flex items-center justify-between px-4 py-3 md:px-6 md:py-4 shadow-lg">
-      <Sidebar/>
-      <Typography variant="h5" component="h1" className="text-xl font-bold md:text-2xl">
-        Trimah Tech
-      </Typography>
+    <header className="bg-white text-gray-900 border-b flex items-center justify-between px-4 py-1 md:px-6 md:py2 shadow-lg">
+      <Sidebar />
+      <img src="/TRIMAH - logos/logo-scroll.png" alt="Trimah Tech Logo" className="h-10 md:h-12" />
       <div className="flex items-center gap-2 md:gap-4">
         <IconButton color="inherit">
           <NotificationsIcon />
         </IconButton>
         <IconButton onClick={handleMenuOpen} color="inherit">
-          <Avatar alt="User Avatar" src="/placeholder-user.jpg" />
+          <img src="./public/TRIMAH - logos/TRIMAH-icon-favicon-512x512.png" alt="User Avatar" className="w-10 h-10 rounded-full animate-spin slow-spin" />
         </IconButton>
         <Menu
           anchorEl={anchorEl}
@@ -37,18 +34,18 @@ const AdminHeader = () => {
           transformOrigin={{ vertical: "top", horizontal: "right" }}
           PaperProps={{
             style: {
-              maxWidth: '200px', // Limits the width of the menu on larger screens
+              maxWidth: '200px',
             },
           }}
         >
           <MenuItem onClick={handleMenuClose}>
             <Link to="/admin/my-account" className="text-decoration-none text-gray-800 flex items-center">
-              <AccountCircleRoundedIcon fontSize="small" sx={{ marginRight: 1 }} /> My Account
+              <span className="mr-2">👤</span> My Account
             </Link>
           </MenuItem>
           <MenuItem onClick={handleMenuClose}>
             <Link to="/admin/settings" className="text-decoration-none text-gray-800 flex items-center">
-              <AccountCircleRoundedIcon fontSize="small" sx={{ marginRight: 1 }} /> Settings
+              <span className="mr-2">⚙️</span> Settings
             </Link>
           </MenuItem>
           <Divider />

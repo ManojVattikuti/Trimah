@@ -58,7 +58,7 @@ const Messages = () => {
 
   return (
     <div className="p-4">
-      <h2 className="text-2xl font-bold mb-4">Messages List</h2>
+      <h2 className="text-2xl font-bold mb-4">Business Inquiries</h2>
 
       <div className="mb-4 flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-4">
         <div className="flex-grow">
@@ -94,12 +94,19 @@ const Messages = () => {
             <table className="min-w-full divide-y divide-gray-200">
               <thead className="bg-gray-50">
                 <tr>
+                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    FullName
+                  </th>
                   <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Email
                   </th>
                   <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Name
+                    Phone
                   </th>
+                  <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Company Name
+                  </th>
+                
                   <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Message
                   </th>
@@ -112,8 +119,11 @@ const Messages = () => {
                 {filteredMessages.length > 0 ? (
                   filteredMessages.map((message) => (
                     <tr key={message._id}>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{message.fullName}</td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{message.email}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{message.name}</td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{message.phone}</td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{message.companyName}</td>
+                      
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{message.message}</td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{moment(message.createdAt).format("DD/MM/YYYY")}</td>
                     </tr>

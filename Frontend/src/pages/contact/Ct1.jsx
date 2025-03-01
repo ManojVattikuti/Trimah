@@ -61,7 +61,7 @@ export const Ct1 = () => {
   // Prepare data for submission
   const formSubmissionData = { fullName, email, companyName, phone, message };
 
-  console.log("Submitting Business Inquiry Form:", formSubmissionData);
+
 
   try {
     // Example API call (Replace with your actual endpoint)
@@ -109,7 +109,7 @@ export const Ct1 = () => {
 
   const handleSubmit2 = async(e) => {
     e.preventDefault();
-
+    setLoading(true);
     // Extracting form data
     const { name, email, position, cv, coverLetter } = formData2;
   
@@ -121,8 +121,10 @@ export const Ct1 = () => {
         text: 'Please fill out all required fields and upload the necessary documents (CV and Cover Letter).',
         confirmButtonText: 'Ok',
       });
+      setLoading(false);
       return;
     }
+
   
     // Ensure the uploaded files are PDFs
     if (cv.type !== 'application/pdf') {
@@ -147,13 +149,13 @@ export const Ct1 = () => {
   
     try {
       // Example API call (Replace with your actual endpoint)
-      const response = await axios.post(`${API_BASE_URL}user/career-seeker`, formSubmissionData, {
+      const response = await axios.post(`${API_BASE_URL}user/applytoceipal`, formSubmissionData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       });
   
-      if (response.status === 201) {
+      if (response.status === 200) {
         console.log("Form submission successful:", response.data);
         Swal.fire({
           icon: 'success',
@@ -194,6 +196,9 @@ export const Ct1 = () => {
         });
       }
     }
+    finally {
+    setLoading(false); // Reset loading state after request completes
+  }
   };
 
   const handleInputChange1 = (e) => {
@@ -533,13 +538,21 @@ export const Ct1 = () => {
 
                   {/* Submit Button */}
                   <div className="col-span-2">
-                    <button
-                      type="submit"
-                      className="w-full bg-[#684fa3] text-white py-3 rounded-lg hover:bg-[#543b7f] transition-colors duration-300"
-                    >
-                      Submit
-                    </button>
-                  </div>
+  <button
+    type="submit"
+    className="w-full bg-[#684fa3] text-white py-3 rounded-lg hover:bg-[#543b7f] transition-colors duration-300 flex items-center justify-center"
+  >
+    {loading ? (
+      <svg
+        className="animate-spin h-5 w-5 border-2 border-white border-t-transparent rounded-full"
+        viewBox="0 0 24 24"
+      ></svg>
+    ) : (
+      "Submit"
+    )}
+  </button>
+</div>
+
                 </form>
               </div>
             </div>

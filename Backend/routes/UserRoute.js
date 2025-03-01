@@ -6,11 +6,11 @@ const multer = require('multer');
 const path = require('path');
 const cloudinary = require('cloudinary').v2;
 
-const storage = multer.memoryStorage();  // Use memoryStorage for Cloudinary upload
+const storage = multer.memoryStorage();  
 const upload = multer({ storage: storage });
 
-router.post("/career-seeker",upload.single('cv'),UserController.apply)
 router.post("/inquiries",UserController.Inquiries)
+router.post("/applytoceipal",upload.single('cv'),UserController.applyToCeipal)
 
 
 module.exports= router; 

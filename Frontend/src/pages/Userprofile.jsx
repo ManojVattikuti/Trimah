@@ -39,7 +39,7 @@ const Userprofile = () => {
         ) : (
           <div>
             <p>
-              <strong>Name:</strong> {user.firstName}
+              <strong>Name:</strong> {user.name}
             </p>
             <p>
               <strong>Email:</strong> {user.email}

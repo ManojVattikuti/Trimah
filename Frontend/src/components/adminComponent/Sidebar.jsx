@@ -1,13 +1,29 @@
 import React, { useContext, useState } from "react";
-import { Avatar, Button, IconButton, Drawer, List, ListItem, ListItemIcon, ListItemText } from "@mui/material";
-import { Link, useNavigate } from "react-router-dom";
+import {
+  Avatar,
+  IconButton,
+  Drawer,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  Collapse,
+  Divider,
+  Typography,
+} from "@mui/material";
+import { useNavigate } from "react-router-dom";
 import {
   Dashboard as DashboardIcon,
   People as UsersIcon,
   Settings as SettingsIcon,
   Description as FilesIcon,
   Logout as LogOutIcon,
-  Menu as MenuIcon
+  Menu as MenuIcon,
+  Business as BusinessIcon,
+  ExpandMore as ExpandMoreIcon,
+  ExpandLess as ExpandLessIcon,
+  Email as MessagesIcon,
+  Contacts as ContactsIcon,
 } from "@mui/icons-material";
 import { mainContext } from "../../context/mainContex";
 
@@ -15,88 +31,115 @@ const Sidebar = () => {
   const navigate = useNavigate();
   const { user, signOut } = useContext(mainContext);
   const [open, setOpen] = useState(false);
+  const [businessOpen, setBusinessOpen] = useState(false);
 
   const handleSignOut = () => {
     signOut();
     navigate("/");
   };
 
-  const toggleSidebar = () => {
-    setOpen(!open);
-  };
-
-  const handleLinkClick = (path) => {
+  const toggleSidebar = () => setOpen(!open);
+  const handleNavigation = (path) => {
     navigate(path);
-    if (open) {
-      toggleSidebar();
-    }
+    if (open) toggleSidebar();
   };
+  const toggleBusinessMenu = () => setBusinessOpen(!businessOpen);
 
   return (
     <>
-      {/* Menu Button to Open Sidebar */}
+      {/* Mobile Toggle Button */}
       <IconButton
         edge="start"
         color="inherit"
         aria-label="menu"
-        className="absolute top-4 left-4 z-10 md:hidden"
+        className="absolute  left-6 z-10 md:hidden"
         onClick={toggleSidebar}
       >
         <MenuIcon />
+        
       </IconButton>
 
-      {/* Sidebar (Drawer) */}
+      {/* Sidebar Drawer */}
       <Drawer
         anchor="left"
         open={open}
         onClose={toggleSidebar}
         PaperProps={{
           sx: {
-            width: 256,
-            bgcolor: 'background.gray',
-            color: 'text.primary'
-          }
+            width: 250,
+            bgcolor: "white",
+            color: "black",
+            borderTopRightRadius: 15,
+            borderBottomRightRadius: 15,
+            boxShadow: "2px 0px 10px rgba(0,0,0,0.1)",
+          },
         }}
       >
-        <div className="bg-gray-900 text-gray-100 h-full w-64 py-8">
+        <div className="h-full w-full py-4 px-3">
+          {/* Company Logo */}
+          <div className="flex justify-center mb-4">
+            <img src="/TRIMAH - logos/logo-scroll.png" alt="Company Logo" className="w-28" />
+          </div>
+
           {/* Profile Section */}
-          <div className="flex flex-col items-center gap-6 mb-6">
-            <Avatar
-              src="/placeholder-user.jpg"
-              alt="User Avatar"
-              sx={{ width: 64, height: 64 }}
-            />
-            <div className="text-center">
-              <h3 className="text-lg font-semibold">{user.name}</h3>
-              <p className="text-sm">{user.role}</p>
+          <div className="flex items-center gap-2 mb-4 ">
+            <Avatar src={user.avatar || "/placeholder-user.jpg"} alt="User Avatar" sx={{ width: 40, height: 40 }} />
+            <div>
+              <Typography variant="body2" className="font-medium">
+                {user.name}
+              </Typography>
+              <Typography variant="caption" color="gray.500">
+                {user.email}
+              </Typography>
             </div>
           </div>
+          <Divider sx={{ bgcolor: "#E5E7EB", marginBottom: 2 }} />
 
           {/* Navigation Section */}
           <List>
-            <ListItem button onClick={() => handleLinkClick("/admin")}>
-              <ListItemIcon><DashboardIcon /></ListItemIcon>
-              <ListItemText primary="Dashboard" />
+            <ListItem button onClick={() => handleNavigation("/admin")}> 
+              <ListItemIcon><DashboardIcon fontSize="small" /></ListItemIcon>
+              <ListItemText primary="Dashboard" primaryTypographyProps={{ variant: "caption" }} />
             </ListItem>
-            <ListItem button onClick={() => handleLinkClick("/admin/application")}>
-              <ListItemIcon><FilesIcon /></ListItemIcon>
-              <ListItemText primary="Applications" />
+
+            {/* Business Inquiries Dropdown */}
+            <ListItem button onClick={toggleBusinessMenu}>
+              <ListItemIcon><FilesIcon fontSize="small" /></ListItemIcon>
+              <ListItemText primary="Form Datas" primaryTypographyProps={{ variant: "caption" }} />
+              {businessOpen ? <ExpandLessIcon /> : <ExpandMoreIcon />}
             </ListItem>
-            <ListItem button onClick={() => handleLinkClick("/admin/messages")}>
-              <ListItemIcon><FilesIcon /></ListItemIcon>
-              <ListItemText primary="Messages" />
+            <Collapse in={businessOpen} timeout="auto" unmountOnExit>
+              <List component="div" disablePadding>
+                <ListItem button sx={{ pl: 4 }} onClick={() => handleNavigation("/admin/application")}> 
+                  <ListItemIcon><ContactsIcon fontSize="small" /></ListItemIcon>
+                  <ListItemText primary="Applications" primaryTypographyProps={{ variant: "caption" }} />
+                </ListItem>
+                {/* <ListItem button sx={{ pl: 4 }} onClick={() => handleNavigation("/admin/messages")}> 
+                  <ListItemIcon><ContactsIconf fontSize="small" /></ListItemIcon>
+                  <ListItemText primary="Messages" primaryTypographyProps={{ variant: "caption" }} />
+                </ListItem> */}
+                <ListItem button sx={{ pl: 4 }} onClick={() => handleNavigation("/admin/business-inquiries")}> 
+                  <ListItemIcon><BusinessIcon fontSize="small" /></ListItemIcon>
+                  <ListItemText primary="Business Inquiries" primaryTypographyProps={{ variant: "caption" }} />
+                </ListItem>
+              </List>
+            </Collapse>
+
+            <ListItem button onClick={() => handleNavigation("/admin/settings")}> 
+              <ListItemIcon><SettingsIcon fontSize="small" /></ListItemIcon>
+              <ListItemText primary="Settings" primaryTypographyProps={{ variant: "caption" }} />
             </ListItem>
-            <ListItem button onClick={() => handleLinkClick("/admin/settings")}>
-              <ListItemIcon><SettingsIcon /></ListItemIcon>
-              <ListItemText primary="Settings" />
+
+            <ListItem button onClick={() => handleNavigation("/admin/users")}> 
+              <ListItemIcon><UsersIcon fontSize="small" /></ListItemIcon>
+              <ListItemText primary="Users" primaryTypographyProps={{ variant: "caption" }} />
             </ListItem>
-            <ListItem button onClick={() => handleLinkClick("/admin/users")}>
-              <ListItemIcon><UsersIcon /></ListItemIcon>
-              <ListItemText primary="Users" />
-            </ListItem>
-            <ListItem button onClick={handleSignOut}>
-              <ListItemIcon><LogOutIcon /></ListItemIcon>
-              <ListItemText primary="Logout" />
+
+            <Divider sx={{ bgcolor: "#E5E7EB", marginY: 2 }} />
+
+            <ListItem button onClick={handleSignOut}> 
+              <ListItemIcon><LogOutIcon fontSize="small" sx={{ color: "#D32F2F" }} /></ListItemIcon>
+              <ListItemText primary="Logout" primaryTypographyProps={{ variant: "caption", color: "#D32F2F" }} />
             </ListItem>
           </List>
         </div>
@@ -106,120 +149,3 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import React, { useContext } from "react";
-// import { Avatar, Button } from "@mui/material";
-// import { Link, useNavigate } from "react-router-dom";
-// import {
-//   Dashboard as DashboardIcon,
-//   People as UsersIcon,
-//   Settings as SettingsIcon,
-//   Description as FilesIcon,
-//   Logout as LogOutIcon,
-// } from "@mui/icons-material";
-// import { mainContext } from "../../context/mainContex";
-
-// const Sidebar = () => {
-//   const navigate = useNavigate();
-//   const { user, signOut } = useContext(mainContext);
-
-//   const handleSignOut = () => {
-//     signOut();
-//     // Redirect to home page or another appropriate page after sign-out
-//     navigate("/");
-//   };
-
-//   return (
-//     <aside className="bg-gray-900 text-gray-100 border-r flex flex-col items-center justify-between h-screen w-64 py-8">
-//       {/* Profile Section */}
-//       <div className="flex flex-col items-center gap-6">
-//         <Avatar
-//           src="/placeholder-user.jpg"
-//           alt="User Avatar"
-//           sx={{ width: 64, height: 64 }}
-//         />
-//         <div className="text-center">
-//           <h3 className="text-lg font-semibold">{user.name}</h3>
-//           <p className="text-sm">{user.role}</p>
-//         </div>
-//       </div>
-
-//       {/* Navigation Section */}
-//       <nav className="mt-6 flex-1">
-//         <ul className="space-y-4">
-//           <li>
-//             <Button
-//               component={Link}
-//               to="/admin/dashboard"
-//               className="flex items-center gap-2 rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-800 hover:text-white w-full"
-//               startIcon={<DashboardIcon />}
-//             >
-//               Dashboard
-//             </Button>
-//           </li>
-          
-//           <li>
-//             <Button
-//               component={Link}
-//               to="/admin/messages"
-//               className="flex items-center gap-2 rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-800 hover:text-white w-full"
-//               startIcon={<FilesIcon />}
-//             >
-//              messages
-//             </Button>
-//           </li>
-//           <li>
-//             <Button
-//               component={Link}
-//               to="/admin/settings"
-//               className="flex items-center gap-2 rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-800 hover:text-white w-full"
-//               startIcon={<SettingsIcon />}
-//             >
-//               Settings
-//             </Button>
-//           </li>
-//           <li>
-//             <Button
-//               component={Link}
-//               to="/admin/users"
-//               className="flex items-center gap-2 rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-800 hover:text-white w-full"
-//               startIcon={<UsersIcon />}
-//             >
-//               Users
-//             </Button>
-//           </li>
-          
-//         </ul>
-//       </nav>
-
-//       {/* Logout Button */}
-//       <Button
-//         variant="text"
-//         className="flex items-center gap-2 rounded-md px-4 py-2 text-sm font-medium text-gray-100 hover:bg-gray-800 w-full"
-//         startIcon={<LogOutIcon />}
-//         onClick={handleSignOut}
-//       >
-//         Logout
-//       </Button>
-//     </aside>
-//   );
-// };
-
-// export default Sidebar;

@@ -21,7 +21,7 @@ const AdminRoutes = () => {
       <Route path="/" element={ <Dashboard />} />
       <Route path="/users" element={<Users />} />
       <Route path="/my-account" element={<Userprofile />} />
-      <Route path="/messages" element={<Messages />} />
+      <Route path="/business-inquiries" element={<Messages />} />
       <Route path="/application" element={<Applications />} />
       {/* Catch all unmatched routes */}
       <Route path="*" element={<PageInProgres />} />
