@@ -28,6 +28,12 @@ app.use(compression());
 app.use(express.urlencoded({ extended: true }));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
+// Basic route to verify server is working
+app.get("/", (req, res) => {
+  res.json("Hello from the API!");
+});
+
+
 app.use("/api/auth",authRoute)
 app.use("/api/admin",adminRoute)
 app.use("/api/user",userRoute)
