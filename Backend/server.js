@@ -28,6 +28,16 @@ app.use(compression());
 app.use(express.urlencoded({ extended: true }));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
+
+const corsOptions = {
+  origin: "https://trimahtech.com", // Allow only this origin
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
+
+
 // Basic route to verify server is working
 app.get("/", (req, res) => {
   res.json("Hello from the API!");

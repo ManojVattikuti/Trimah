@@ -1,5 +1,5 @@
 // API base URL
-export const API_BASE_URL = 'http://localhost:8000/api/';
+export const API_BASE_URL = 'https://trimah-backend-737491632113.us-east5.run.app/api/';
 
 // API endpoints for admin
 export const ADMINENDPOINTS = {
