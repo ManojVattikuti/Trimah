@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { API_BASE_URL } from "../constants/ApiConstants";
 
 // Thunk to fetch jobs
 export const fetchJobs = createAsyncThunk("jobs/fetchJobs", async (_, { rejectWithValue }) => {
@@ -10,7 +11,7 @@ export const fetchJobs = createAsyncThunk("jobs/fetchJobs", async (_, { rejectWi
       return JSON.parse(cachedJobs); // Return cached data immediately
     }
 
-    const response = await axios.get("http://localhost:8000/api/admin/getJobs");
+    const response = await axios.get(`${API_BASE_URL}admin/getJobs`);
     localStorage.setItem("jobData", JSON.stringify(response.data.data)); // Cache data
     return response.data.data;
   } catch (error) {

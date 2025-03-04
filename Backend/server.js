@@ -22,6 +22,15 @@ const limiter = rateLimit({
 
 dotenv.config()
 
+const corsOptions = {
+  origin: "https://trimah-frontend-737491632113.us-central1.run.app", // Allow only this origin
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true,
+};
+
+app.use(cors(corsOptions)); .
+  
+
 app.use(express.json());
 app.use(cors())
 app.use(compression());
@@ -29,13 +38,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 
-const corsOptions = {
-  origin: "https://trimahtech.com", // Allow only this origin
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  credentials: true,
-};
 
-app.use(cors(corsOptions));
 
 
 // Basic route to verify server is working
