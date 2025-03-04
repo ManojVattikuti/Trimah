@@ -22,12 +22,26 @@ const limiter = rateLimit({
 
 dotenv.config()
 
+const allowedOrigins = [
+  "https://trimahtech.com",
+  "https://trimah-frontend-737491632113.us-central1.run.app"
+];
+
 app.use(cors({
-  origin: "https://trimahtech.com", // Allow only your frontend domain
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
   methods: "GET,POST,PUT,DELETE,OPTIONS",
-  allowedHeaders: "Content-Type, Authorization"
+  allowedHeaders: "Content-Type, Authorization",
+  credentials: true
 }));
-  
+
+// Explicitly handle preflight requests
+app.options("*", cors());
 
 app.use(express.json());
 app.use(cors())
