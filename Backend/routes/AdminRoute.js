@@ -16,6 +16,7 @@ router.post("/deleteinquiries",authMiddleware,AdminController.deleteInquiries)
 router.delete("/deleteuser/:id",AdminController.deleteuser)
 router.post("/adduser",AdminController.adduser)
 
+router.patch("/blockuser/:id",AdminController.blockUser)
 
 router.get("/dashboard-stats",AdminController.dashboarddata)
 router.get("/applicants-stats",AdminController.getApplicantStats)

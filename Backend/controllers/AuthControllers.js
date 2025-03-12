@@ -21,12 +21,18 @@ const register = async (req, res) => {
   const { name, email, password, role } = req.body;
 
   try {
+    // Check if the email belongs to the allowed domain
+    const emailDomain = email.split('@')[1];
+    if (emailDomain !== 'trimahtech.com') {
+      return res.status(400).json({ msg: 'Only @trimahtech.com emails can register.' });
+    }
+
     const existingUser = await User.findOne({ email });
 
     // If user exists and is not verified, resend OTP
     if (existingUser && !existingUser.isVerified) {
-      const otp = crypto.randomInt(100000, 999999).toString(); // Generate 6-digit OTP
-      const otpExpiresAt = new Date(Date.now() + 10 * 60 * 1000); // OTP valid for 10 minutes
+      const otp = crypto.randomInt(100000, 999999).toString();
+      const otpExpiresAt = new Date(Date.now() + 10 * 60 * 1000);
 
       existingUser.otp = otp;
       existingUser.otpExpiresAt = otpExpiresAt;
@@ -50,8 +56,8 @@ const register = async (req, res) => {
 
     // Create a new user with OTP
     const hashedPassword = await bcrypt.hash(password, 10);
-    const otp = crypto.randomInt(100000, 999999).toString(); // Generate 6-digit OTP
-    const otpExpiresAt = new Date(Date.now() + 10 * 60 * 1000); // OTP valid for 10 minutes
+    const otp = crypto.randomInt(100000, 999999).toString();
+    const otpExpiresAt = new Date(Date.now() + 10 * 60 * 1000);
 
     const user = new User({
       name,
@@ -66,7 +72,7 @@ const register = async (req, res) => {
     // Send OTP Email
     await transporter.sendMail({
       from: process.env.EMAIL,
-      to: "tpjishnu5@gmail.com",
+      to: email, // Use user's email instead of a hardcoded one
       subject: 'Verify your email',
       text: `Your OTP code is ${otp}. It is valid for 10 minutes.`,
     });
@@ -77,6 +83,7 @@ const register = async (req, res) => {
     res.status(500).json({ msg: 'Server error' });
   }
 };
+
 
 
 
@@ -183,10 +190,6 @@ const getUserDetails = async (req, res) => {
 
 
 
-
-
-
-
 const sendMail= async(req,res)=>{
   const { name, email, message } = req.body;
 
@@ -215,10 +218,55 @@ message:message
     res.status(500).json({ message: 'Failed to send email' });
   }
 }
+
+const forgotPassword = async (req, res) => {
+  try {
+    const { email } = req.body;
+
+    const user = await User.findOne({ email });
+    if (!user) return res.status(400).json({ msg: "User not found" });
+
+    const otp = crypto.randomInt(100000, 999999).toString();
+    user.otp = otp;
+    user.otpExpiresAt = new Date(Date.now() + 10 * 60 * 1000); // Expires in 10 mins
+    await user.save();
+
+    await transporter.sendMail({
+      from: process.env.EMAIL,
+      to: email,
+      subject: "Password Reset OTP",
+      text: `Your OTP code is ${otp}. It is valid for 10 minutes.`,
+    });
+
+    res.json({ msg: "OTP sent successfully" });
+  } catch (error) {
+    res.status(500).json({ msg: "Error sending OTP" });
+  }
+};
+
+const resetPassword = async (req, res) => {
+  try {
+    const { email, otp, newPassword } = req.body;
+
+    const user = await User.findOne({ email, otp, otpExpiresAt: { $gt: Date.now() } });
+    if (!user) return res.status(400).json({ msg: "Invalid OTP or expired" });
+
+    user.password = await bcrypt.hash(newPassword, 10);
+    user.otp = undefined;
+    user.otpExpiresAt = undefined;
+    await user.save();
+
+    res.json({ msg: "Password reset successful" });
+  } catch (error) {
+    res.status(500).json({ msg: "Error resetting password" });
+  }
+}
   
   
 module.exports= {register,verifyOtp,
     login,
     getUserDetails,
-    sendMail
+    sendMail,
+    forgotPassword,
+    resetPassword
 }

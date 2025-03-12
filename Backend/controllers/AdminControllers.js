@@ -6,6 +6,7 @@ const getToken = require('../utils/getToken');
 const BusinessInquiry = require("../model/BusniessInquiryModel");
 const bcrypt = require('bcryptjs');
 const moment = require('moment');
+const mongoose = require("mongoose");
 
 const getUsers = async (req, res) => {
   try {
@@ -426,6 +427,46 @@ getRecentInquiries = async (req, res) => {
 };
 
 
+
+const blockUser = async (req, res) => {
+  try {
+   
+
+    // ✅ Validate if userId is a valid MongoDB ObjectId
+    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+      console.log(`Invalid user ID: ${req.params.id}`);
+      return res.status(400).json({ msg: "Invalid user ID" });
+    }
+
+    // ✅ Find the user in the database
+    const user = await UserModel.findById(req.params.id);
+    if (!user) {
+      console.log(`User not found: ${req.params.id}`);
+      return res.status(404).json({ msg: "User not found" });
+    }
+
+    // ✅ Toggle isBlocked status
+    const previousStatus = user.isBlocked;
+    user.isBlocked = !previousStatus;
+    await user.save();
+
+    // ✅ Log proper user status change
+    console.log(
+      `User ${req.params.id} (${user.name || "No Name"}) was ${previousStatus ? "BLOCKED" : "UNBLOCKED"} ➝ Now: ${user.isBlocked ? "BLOCKED" : "UNBLOCKED"}`
+    );
+
+    // ✅ Return status 200 with success message
+    return res.status(200).json({ 
+      msg: `User ${user.isBlocked ? "blocked" : "unblocked"} successfully`, 
+      isBlocked: user.isBlocked 
+    });
+
+  } catch (error) {
+    console.error("Error toggling user access:", error);
+    res.status(500).json({ msg: "Server error" });
+  }
+};
+
 module.exports = {
   getUsers,
   getMessages,
@@ -443,6 +484,7 @@ module.exports = {
   getRecentInquiries,
   getInquiryStats,
   getRecentApplicants,
+  blockUser,
 
 }
 

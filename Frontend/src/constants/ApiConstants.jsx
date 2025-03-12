@@ -1,6 +1,7 @@
 // API base URL
 export const API_BASE_URL = 'https://trimah-backend-737491632113.us-east5.run.app/api/';
 
+// export const API_BASE_URL = 'http://localhost:8000/api/';
 // API endpoints for admin
 export const ADMINENDPOINTS = {
   GETUSERS: `${API_BASE_URL}admin/getUsers`,
@@ -10,6 +11,7 @@ export const ADMINENDPOINTS = {
   DELETEAPPLICATIONS:`${API_BASE_URL}admin/deleteApplications`,
   DELETEINQUIRY:`${API_BASE_URL}admin/deleteInquiry`,
   DELETEINQUIRIES:`${API_BASE_URL}admin/deleteInquiries`,
+  BLOCKUSER:`${API_BASE_URL}admin/blockuser`,
 
   DELETEUSER:`${API_BASE_URL}admin/deleteuser`,
 

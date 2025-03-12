@@ -47,7 +47,7 @@ const Users = () => {
             { name, email, password },
            
           );
-          console.log(response);
+          console.log(response.status);
           
   
           if (response.status === 201) {
@@ -58,7 +58,7 @@ const Users = () => {
               confirmButtonText: 'OK'
             });
   
-            refetch(); // Refresh user list
+            refetch(token); // Refresh user list
           }
         } catch (error) {
           console.error("Add User Error:", error.response?.data);
@@ -77,18 +77,35 @@ const Users = () => {
   
 
   // Toggle User Access
+
+
   const toggleUserAccess = async (userId, isBlocked) => {
+    if (!refetch) {
+      console.error("Refetch function is undefined.");
+      return;
+    }
+
+   
+
     try {
-      await axios.patch(
-        `/api/users/${userId}/toggle-access`,
+      const response = await axios.patch(
+        `${ADMINENDPOINTS.BLOCKUSER}/${userId}`,
         { isBlocked: !isBlocked },
         { headers: { Authorization: `Bearer ${token}` } }
       );
-      refetch();
+
+      if (response.status === 200) {
+        console.log("User access updated successfully.");
+        refetch(); // ✅ Call refetch only if it's defined
+      }
     } catch (error) {
-      console.error('Error toggling user access:', error);
+      console.error("Error toggling user access:", error.response?.data || error);
+    } finally {
+      console.log("user updated");
+      
     }
   };
+  
 
   // Delete User
   const deleteUser = async (userId) => {
